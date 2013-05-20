@@ -1,0 +1,1 @@
+'use strict';angular.module('listApp',[]);var listCtrl=function($scope,$filter,List){}

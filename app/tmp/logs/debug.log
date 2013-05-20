@@ -1,0 +1,255 @@
+2013-03-03 21:42:01 Debug: permission: actionUrl-users/index
+2013-03-03 21:55:30 Debug: permission: actionUrl-users/dashboard
+2013-03-03 21:58:12 Debug: permission: actionUrl-users/dashboard
+2013-03-03 21:59:57 Debug: permission: actionUrl-users/dashboard
+2013-03-03 22:00:49 Debug: permission: actionUrl-users/index
+2013-03-03 22:00:51 Debug: permission: actionUrl-users/dashboard
+2013-03-03 22:04:26 Debug: permission: actionUrl-origin/index
+2013-03-03 22:05:49 Debug: permission: actionUrl-creator/index
+2013-03-04 13:20:26 Debug: permission: actionUrl-creator/index
+2013-03-06 02:22:28 Debug: permission: actionUrl-users/dashboard
+2013-03-08 17:01:03 Debug: permission: actionUrl-creator/index
+2013-03-10 21:50:44 Debug: permission: actionUrl-creator/jsonList
+2013-03-10 21:50:49 Debug: permission: actionUrl-creator/jsonList
+2013-03-10 21:50:54 Debug: permission: actionUrl-creator/jsonList
+2013-03-10 21:51:01 Debug: permission: actionUrl-users/dashboard
+2013-03-10 21:52:29 Debug: permission: actionUrl-users/dashboard
+2013-03-10 21:53:19 Debug: permission: actionUrl-creator/index
+2013-03-10 21:53:23 Debug: permission: actionUrl-creator/adList
+2013-03-10 21:53:45 Debug: permission: actionUrl-creator/index
+2013-03-10 21:53:49 Debug: permission: actionUrl-Creator/index
+2013-03-10 21:55:49 Debug: permission: actionUrl-users/dashboard
+2013-03-10 22:00:38 Debug: permission: actionUrl-Creator/index
+2013-03-10 22:00:47 Debug: permission: actionUrl-users/dashboard
+2013-03-10 22:00:51 Debug: permission: actionUrl-Creator/index
+2013-03-10 22:01:10 Debug: permission: actionUrl-Creator/index
+2013-03-10 22:03:02 Debug: permission: actionUrl-users/dashboard
+2013-03-10 22:03:19 Debug: permission: actionUrl-users/editUser
+2013-03-10 22:03:22 Debug: permission: actionUrl-users/editUser
+2013-03-10 22:08:24 Debug: permission: actionUrl-creator/adList
+2013-03-10 22:08:36 Debug: permission: actionUrl-creator/index
+2013-03-10 22:08:38 Debug: permission: actionUrl-Creator/index
+2013-03-10 22:09:05 Debug: permission: actionUrl-creator/adList
+2013-03-10 22:19:24 Debug: permission: actionUrl-creator/adList
+2013-03-10 22:20:35 Debug: permission: actionUrl-creator/ads
+2013-03-10 22:20:57 Debug: permission: actionUrl-creator/adList
+2013-03-10 22:23:00 Debug: permission: actionUrl-users/editUser
+2013-03-10 22:24:35 Debug: permission: actionUrl-creator/adList
+2013-03-10 22:24:43 Debug: permission: actionUrl-creator/adList
+2013-03-10 22:27:11 Debug: permission: actionUrl-users/index
+2013-03-10 22:27:21 Debug: permission: actionUrl-users/index
+2013-03-10 22:28:48 Debug: permission: actionUrl-users/index
+2013-03-10 22:29:52 Debug: permission: actionUrl-creator/adList
+2013-03-10 22:30:02 Debug: permission: actionUrl-creator/index
+2013-03-10 22:30:04 Debug: permission: actionUrl-creator/adList
+2013-03-10 22:31:17 Debug: permission: actionUrl-creator/adList
+2013-03-10 22:32:43 Debug: permission: actionUrl-creator/edit
+2013-03-11 18:10:01 Debug: permission: actionUrl-creator/index
+2013-03-12 01:13:29 Debug: permission: actionUrl-creator/index
+2013-03-12 01:54:32 Debug: permission: actionUrl-users/dashboard
+2013-03-14 14:24:51 Debug: permission: actionUrl-origin/index
+2013-03-14 14:53:15 Debug: permission: actionUrl-origin/index
+2013-03-14 17:02:51 Debug: permission: actionUrl-origin/index
+2013-03-15 13:13:35 Debug: permission: actionUrl-origin/index
+2013-03-15 13:22:15 Debug: permission: actionUrl-users/dashboard
+2013-03-15 13:22:25 Debug: permission: actionUrl-users/dashboard
+2013-03-15 13:23:03 Debug: permission: actionUrl-users/dashboard
+2013-03-15 19:07:34 Debug: Array
+(
+    [headers] => From: User Management Plugin <example@example.com>
+X-Mailer: CakePHP Email
+Date: Fri, 15 Mar 2013 19:07:34 -0400
+Message-ID: <5143a9b6fdac48a0a590405f63d87b8c@local.evolveorigin>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+    [message] => Welcome Willie, let's help you get signed in
+
+You have requested to have your password reset on User Management Plugin.
+Please click the link below to reset your password now :
+
+http://local.evolveorigin/activatePassword?ident=2&activate=327b5fa61d7bda0d6d6325fc41a6781f
+
+
+If above link does not work please copy and paste the URL link (above) into
+your browser address bar to get to the Page to reset password
+
+Choose a password you can remember and please keep it secure.
+
+Thanks,
+User Management Plugin
+
+
+)
+
+2013-03-24 20:00:47 Debug: permission: actionUrl-origin/templateList
+2013-03-24 20:11:24 Debug: permission: actionUrl-origin/jsonTemplate
+2013-03-24 20:11:33 Debug: permission: actionUrl-origin/templateList
+2013-03-25 01:45:31 Debug: permission: actionUrl-origin/index
+2013-03-25 18:36:22 Notice: Notice (8): Undefined variable: params in [/Users/razor/Sites/azure/app/Controller/OriginController.php, line 120]
+Trace:
+OriginController::jsonAdUnit() - APP/Controller/OriginController.php, line 120
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 485
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 186
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 161
+[main] - APP/webroot/index.php, line 92
+
+2013-03-25 18:46:46 Notice: Notice (8): Undefined index: content in [/Users/razor/Sites/azure/app/View/Origin/json/json_ad_unit.ctp, line 5]
+Trace:
+include - APP/View/Origin/json/json_ad_unit.ctp, line 5
+View::_evaluate() - CORE/Cake/View/View.php, line 920
+View::_render() - CORE/Cake/View/View.php, line 883
+JsonView::render() - CORE/Cake/View/JsonView.php, line 102
+Controller::render() - CORE/Cake/Controller/Controller.php, line 956
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 161
+[main] - APP/webroot/index.php, line 92
+
+2013-03-25 18:46:46 Notice: Notice (8): Undefined index: content in [/Users/razor/Sites/azure/app/View/Origin/json/json_ad_unit.ctp, line 5]
+Trace:
+include - APP/View/Origin/json/json_ad_unit.ctp, line 5
+View::_evaluate() - CORE/Cake/View/View.php, line 920
+View::_render() - CORE/Cake/View/View.php, line 883
+JsonView::render() - CORE/Cake/View/JsonView.php, line 102
+Controller::render() - CORE/Cake/Controller/Controller.php, line 956
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 161
+[main] - APP/webroot/index.php, line 92
+
+2013-03-25 18:47:03 Notice: Notice (8): Undefined index: content in [/Users/razor/Sites/azure/app/View/Origin/json/json_ad_unit.ctp, line 5]
+Trace:
+include - APP/View/Origin/json/json_ad_unit.ctp, line 5
+View::_evaluate() - CORE/Cake/View/View.php, line 920
+View::_render() - CORE/Cake/View/View.php, line 883
+JsonView::render() - CORE/Cake/View/JsonView.php, line 102
+Controller::render() - CORE/Cake/Controller/Controller.php, line 956
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 161
+[main] - APP/webroot/index.php, line 92
+
+2013-03-25 18:47:03 Notice: Notice (8): Undefined index: content in [/Users/razor/Sites/azure/app/View/Origin/json/json_ad_unit.ctp, line 5]
+Trace:
+include - APP/View/Origin/json/json_ad_unit.ctp, line 5
+View::_evaluate() - CORE/Cake/View/View.php, line 920
+View::_render() - CORE/Cake/View/View.php, line 883
+JsonView::render() - CORE/Cake/View/JsonView.php, line 102
+Controller::render() - CORE/Cake/Controller/Controller.php, line 956
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 161
+[main] - APP/webroot/index.php, line 92
+
+2013-03-25 18:57:54 Notice: Notice (8): Uninitialized string offset: 0 in [/Users/razor/Sites/azure/app/View/Origin/json/json_ad_unit.ctp, line 5]
+Trace:
+include - APP/View/Origin/json/json_ad_unit.ctp, line 5
+View::_evaluate() - CORE/Cake/View/View.php, line 920
+View::_render() - CORE/Cake/View/View.php, line 883
+JsonView::render() - CORE/Cake/View/JsonView.php, line 102
+Controller::render() - CORE/Cake/Controller/Controller.php, line 956
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 161
+[main] - APP/webroot/index.php, line 92
+
+2013-03-25 18:57:54 Notice: Notice (8): Undefined index: OriginAdContent in [/Users/razor/Sites/azure/app/View/Origin/json/json_ad_unit.ctp, line 5]
+Trace:
+include - APP/View/Origin/json/json_ad_unit.ctp, line 5
+View::_evaluate() - CORE/Cake/View/View.php, line 920
+View::_render() - CORE/Cake/View/View.php, line 883
+JsonView::render() - CORE/Cake/View/JsonView.php, line 102
+Controller::render() - CORE/Cake/Controller/Controller.php, line 956
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 161
+[main] - APP/webroot/index.php, line 92
+
+2013-03-25 18:57:54 Notice: Notice (8): Uninitialized string offset: 0 in [/Users/razor/Sites/azure/app/View/Origin/json/json_ad_unit.ctp, line 5]
+Trace:
+include - APP/View/Origin/json/json_ad_unit.ctp, line 5
+View::_evaluate() - CORE/Cake/View/View.php, line 920
+View::_render() - CORE/Cake/View/View.php, line 883
+JsonView::render() - CORE/Cake/View/JsonView.php, line 102
+Controller::render() - CORE/Cake/Controller/Controller.php, line 956
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 161
+[main] - APP/webroot/index.php, line 92
+
+2013-03-25 18:57:54 Notice: Notice (8): Uninitialized string offset: 0 in [/Users/razor/Sites/azure/app/View/Origin/json/json_ad_unit.ctp, line 5]
+Trace:
+include - APP/View/Origin/json/json_ad_unit.ctp, line 5
+View::_evaluate() - CORE/Cake/View/View.php, line 920
+View::_render() - CORE/Cake/View/View.php, line 883
+JsonView::render() - CORE/Cake/View/JsonView.php, line 102
+Controller::render() - CORE/Cake/Controller/Controller.php, line 956
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 161
+[main] - APP/webroot/index.php, line 92
+
+2013-03-25 18:57:54 Notice: Notice (8): Undefined index: OriginAdContent in [/Users/razor/Sites/azure/app/View/Origin/json/json_ad_unit.ctp, line 5]
+Trace:
+include - APP/View/Origin/json/json_ad_unit.ctp, line 5
+View::_evaluate() - CORE/Cake/View/View.php, line 920
+View::_render() - CORE/Cake/View/View.php, line 883
+JsonView::render() - CORE/Cake/View/JsonView.php, line 102
+Controller::render() - CORE/Cake/Controller/Controller.php, line 956
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 161
+[main] - APP/webroot/index.php, line 92
+
+2013-03-25 20:55:53 Debug: permission: actionUrl-origin/ad_list
+2013-03-28 01:38:28 Debug: permission: actionUrl-origin/index
+2013-03-29 01:48:52 Debug: permission: actionUrl-origin/componentList
+2013-03-29 14:39:14 Debug: permission: actionUrl-origin/edit
+2013-03-29 18:45:14 Debug: permission: actionUrl-origin/dashboardUser
+2013-03-29 18:45:30 Debug: permission: actionUrl-users/editUser
+2013-03-31 22:49:55 Debug: permission: actionUrl-origin/dashboardUser
+2013-03-31 22:49:55 Debug: permission: actionUrl-origin/dashboardUser
+2013-03-31 23:17:21 Debug: permission: actionUrl-users/editUser
+2013-03-31 23:18:07 Debug: permission: actionUrl-users/editUser
+2013-04-01 20:39:13 Debug: permission: actionUrl-users/changePassword
+2013-04-02 00:39:17 Debug: permission: actionUrl-origin/dashboard
+2013-04-02 14:46:18 Debug: permission: actionUrl-origin/edit
+2013-04-02 19:17:45 Debug: permission: actionUrl-origin/edit
+2013-04-02 20:15:16 Debug: permission: actionUrl-origin/edit
+2013-04-03 00:20:37 Debug: permission: actionUrl-origin/edit
+2013-04-03 01:31:53 Debug: permission: actionUrl-origin/index
+2013-04-03 13:17:02 Debug: permission: actionUrl-origin/edit
+2013-04-03 19:00:58 Debug: permission: actionUrl-origin/edit
+2013-04-03 22:52:03 Debug: permission: actionUrl-origin/edit
+2013-04-05 10:11:09 Debug: permission: actionUrl-users/index
+2013-04-08 10:10:10 Debug: permission: actionUrl-origin/dashboard
+2013-04-08 10:14:00 Debug: permission: actionUrl-origin/edit
+2013-04-09 21:15:09 Debug: permission: actionUrl-origin/componentList
+2013-04-10 10:18:18 Debug: permission: actionUrl-origin/componentList
+2013-04-12 09:39:41 Debug: permission: actionUrl-origin/edit
+2013-04-12 13:40:16 Debug: permission: actionUrl-origin/edit
+2013-04-14 22:37:29 Debug: permission: actionUrl-origin/edit
+2013-04-15 20:52:17 Debug: permission: actionUrl-origin/dashboard
+2013-04-16 10:19:17 Debug: permission: actionUrl-origin/loadComponent
+2013-04-16 10:19:36 Debug: permission: actionUrl-origin/edit
+2013-04-16 21:46:45 Debug: permission: actionUrl-origin/edit
+2013-04-20 18:39:14 Debug: permission: actionUrl-origin/edit
+2013-04-21 19:18:08 Debug: permission: actionUrl-origin/dashboard
+2013-04-22 11:53:31 Debug: permission: actionUrl-origin/ad
+2013-04-22 11:53:42 Debug: permission: actionUrl-origin/ad
+2013-04-22 11:54:29 Debug: permission: actionUrl-origin/index
+2013-04-22 21:41:38 Debug: permission: actionUrl-origin/jsonTemplate
+2013-04-22 21:41:41 Debug: permission: actionUrl-origin/jsonTemplate
+2013-04-22 21:41:45 Debug: permission: actionUrl-origin/jsonTemplate
+2013-04-25 19:14:45 Debug: permission: actionUrl-origin/jsonList
+2013-04-25 23:18:48 Debug: permission: actionUrl-origin/ad_list
+2013-04-27 19:35:31 Debug: permission: actionUrl-origin/ad_list
+2013-05-01 22:28:55 Debug: permission: actionUrl-origin/guidelines
+2013-05-05 15:47:03 Debug: permission: actionUrl-origin/edit
+2013-05-08 16:07:27 Debug: permission: actionUrl-origin/index
+2013-05-09 22:10:48 Debug: permission: actionUrl-origin/adIframe
+2013-05-10 08:28:46 Debug: permission: actionUrl-origin/adIframe
+2013-05-11 00:01:41 Debug: permission: actionUrl-origin/index
+2013-05-11 16:55:50 Debug: permission: actionUrl-origin/index
+2013-05-12 10:51:15 Debug: permission: actionUrl-origin/edit
+2013-05-13 15:24:50 Debug: permission: actionUrl-origin/index
+2013-05-14 15:09:24 Debug: permission: actionUrl-origin/edit
+2013-05-15 19:41:36 Debug: permission: actionUrl-origin/jsonList
+2013-05-15 19:41:37 Debug: permission: actionUrl-origin/jsonTemplate
+2013-05-15 19:41:41 Debug: permission: actionUrl-origin/jsonList
+2013-05-15 19:41:41 Debug: permission: actionUrl-origin/jsonTemplate
+2013-05-15 19:46:04 Debug: permission: actionUrl-origin/jsonActivity
+2013-05-15 19:46:05 Debug: permission: actionUrl-origin/ad_list

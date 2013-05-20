@@ -1,0 +1,1 @@
+'use strict';var originAdApp=angular.module('originAdApp',[]);;var originAdController=function($scope,$filter){console.log('here');};

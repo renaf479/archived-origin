@@ -1,0 +1,2 @@
+'use strict';angular.module('listApp',['creatorApp.services']);var listCtrl=function($scope,$filter,List){$scope.originCreator={};List.get().then(function(response){$scope.originCreator.list=response.origin_ads;});};'use strict';angular.module('creatorApp.services',[]).factory('List',function($http){var List={get:function(){var promise=$http.get('/creator/jsonList.json').then(function(response){return response.data;});return promise;}}
+return List;});

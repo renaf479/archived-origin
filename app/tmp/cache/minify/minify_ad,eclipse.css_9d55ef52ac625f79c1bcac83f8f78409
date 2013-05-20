@@ -1,0 +1,3 @@
+body{font-family:'Helvatica',sans-serif;margin:0;padding:0;overflow:hidden;position:relative}a{outline:none}#initial,#triggered{position:absolute}#initial.hidden .toggle,
+#triggered.hidden
+.toggl{display:none}#overlay{background-color:#000;width:100%;height:100%;position:fixed;top:0;left:0;right:0;bottom:0;opacity: .7;z-index:0;cursor:pointer}#countdown,#continue{position:absolute;cursor:pointer}#countdown{width:100%;text-align:center;top:-15px;color:#fff;font-size:14px;cursor:pointer}#continue{background:transparent url(/img/ad/sprite.png) no-repeat 0 0;width:26px;height:26px;right:-26px;top:-26px;cursor:pointer;font-size:12px}#initial{z-index:10}#triggered{z-index:20}
