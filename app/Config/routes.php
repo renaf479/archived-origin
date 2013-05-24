@@ -107,6 +107,10 @@ Router::connect('/administrator/get/monitor/visits/:start_date/:end_date/:catego
 Router::connect('/administrator/get/sites', array('controller'=>'origin', 'action'=>'jsonSite'));
 //Router::connect('/administrator/get/monitor/export/:data', array('controller'=>'monitor', 'action'=>'monitorExport'));
 
+//RSS Feed
+Router::connect('/administrator/get/rss/:url', array('controller'=>'origin', 'action'=>'rssFeed'), array('url'=>'(.*)', 'pass'=>array('url')));
+
+
 //DEMO
 Router::connect('/administrator/get/templates/:template', array('controller'=>'origin', 'action'=>'demoLoadTemplate'));
 Router::connect('/administrator/demos', array('controller'=>'origin', 'action'=>'demoList'));

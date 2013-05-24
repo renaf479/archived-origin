@@ -190,10 +190,10 @@ height:	$scope.workspace.template.config.dimensions[$scope.ui.view][$scope.ui.pl
 					'type': 	content.alias
 				},
 				config: {
-					'height': '32px',
+					'height': '50px',
 					'left': '0px',
 					'top':	'0px',
-					'width': '32px'
+					'width': '50px'
 				},
 				type: content.alias,
 				remove: false
@@ -277,8 +277,9 @@ height:	$scope.workspace.template.config.dimensions[$scope.ui.view][$scope.ui.pl
 	* Saves any workspace changes and exits to listing page
 	*/
 	$scope.creatorSaveExit = function() {
-		$scope.editor.data					= $scope.workspace.ad.OriginAdSchedule;
-		$scope.editor.route					= 'creatorWorkspaceUpdate';
+		$scope.editor.data			= $scope.workspace.ad.OriginAdSchedule;
+		$scope.editor.originAd_id	= originAd_id;
+		$scope.editor.route			= 'creatorWorkspaceUpdate';
 		
 		Origin.post($scope.editor).then(function() {
 			window.location		= '/administrator/list';
@@ -364,8 +365,9 @@ height:	$scope.workspace.template.config.dimensions[$scope.ui.view][$scope.ui.pl
 	* Saves all changes (resizes, moving) done in workspace
 	*/
 	$scope.workspaceUpdate = function() {
-		$scope.editor.data					= $scope.workspace.ad.OriginAdSchedule;
-		$scope.editor.route					= 'creatorWorkspaceUpdate';
+		$scope.editor.originAd_id	= originAd_id;
+		$scope.editor.data			= $scope.workspace.ad.OriginAdSchedule;
+		$scope.editor.route			= 'creatorWorkspaceUpdate';
 		
 		Origin.post($scope.editor).then(function() {
 			$scope.$parent.notificationOpen('Workspace saved');

@@ -1,6 +1,9 @@
 <div id="editor-dfp-link" ng:controller="componentCtrl">
-	<select id="" class="originUI-select originUI-bgColorSecondary" ng:model="editor.content" ng:options="template.OriginTemplate.name for template in templates">
+	<select id="" class="originUI-select originUI-bgColorSecondary" ng:model="editor.content.placeholder">
 		<option style="display:none" value="">Select DFP link placeholder</option>
+		<option value="1">DFP Placeholder 1</option>
+		<option value="2">DFP Placeholder 2</option>
+		<option value="3">DFP Placeholder 3</option>
 	</select>
 <!--
 	<ul class="originUI-list">
@@ -38,8 +41,7 @@
 			
 			$rootScope.creatorModalSave = function() {				
 				//$scope.editor.content.link 		= (!/^https?:\/\//.test($scope.editor.content.link))? 'http://' + $scope.editor.content.link: $scope.editor.content.link;
-				//$scope.editor.render 	= '<a href="'+$scope.editor.content.link+'" target="_blank" class="link">'+$scope.editor.content.link+'</a>';
-			
+				$scope.editor.render 	= '<a data-link="'+$scope.editor.content.placeholder+'" target="_blank" class="link">DFP Placeholder '+$scope.editor.content.placeholder+'</a>';
 				_scope.creatorModalSaveContent($scope.editor);
 			}
 		}

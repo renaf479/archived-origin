@@ -1,0 +1,41 @@
+body {
+	margin: 0;
+}
+
+#demo-reskin {
+	background-color: #fdc150;
+	background-position: center top;
+	background-repeat: no-repeat;
+	background-image: url(/img/_sites/cinemablend/background.jpg);
+}
+
+#wrapper {
+	background: transparent url(/img/_sites/cinemablend/body.png) no-repeat center top;
+	width: 980px;
+	height: 1849px;
+	display: block;
+	margin: 0 auto;
+	position: relative;
+}
+
+
+.embedLeaderboard,
+.embedSidebar {
+	overflow: hidden;
+	position: absolute;
+}
+
+.embedLeaderboard {
+	width: 728px;
+	min-height: 90px;
+	top: 70px;
+	right: 0;
+}
+
+.embedSidebar {
+	position: absolute;
+	right: 25px;
+	top: 257px;
+	width: 300px;
+	height: 250px;
+}

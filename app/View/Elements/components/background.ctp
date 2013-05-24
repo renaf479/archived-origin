@@ -3,7 +3,7 @@
 		<input type="hidden" name="uploadDir" value="/assets/creator/{{workspace.ad.OriginAd.id}}/"/>
 		<div class="originUI-modalLeft">
 			<strong>Select Image</strong>
-			<ul id="editorBackground-list" class="originUI-bgColor originUI-borderColor">
+			<ul id="editorBackground-list" class="originUI-bgColor">
 				<li class="originUIList-item" data-asset="{{$index}}" ng:repeat="asset in library" ng:click="backgroundSelect(asset)">
 					<a href="javascript:void(0);" class="originUI-hover">{{asset.name}}</a>
 				</li>

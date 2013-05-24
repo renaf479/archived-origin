@@ -3,7 +3,7 @@
 		<input type="hidden" name="uploadDir" value="/assets/creator/{{workspace.ad.OriginAd.id}}/"/>
 		<div class="originUI-modalLeft">
 			<strong>Select Image</strong>
-			<ul id="editorImage-list" class="originUI-bgColor originUI-borderColor">
+			<ul id="editorBackground-list" class="originUI-bgColor originUI-borderColor">
 				<li class="originUIList-item" data-asset="{{$index}}" ng:repeat="asset in library" ng:click="imageSelect(asset)">
 					<a href="javascript:void(0);" class="originUI-hover">{{asset.name}}</a>
 				</li>
@@ -11,7 +11,7 @@
 		</div>
 		<div class="originUI-modalRight">
 			<div id="background-upload" class="originUI-upload">
-				<span class="originUI-uploadLabel">Upload Background</span>
+				<span class="originUI-uploadLabel">Upload Image</span>
 				<input type="file" name="files[]" id="editorImage-upload" class="originUI-uploadInput" ng:model="editor.content.imgUpload" fileupload>
 			</div>
 			<div id="editorImage-preview" class="originUI-borderColorSecondary originUI-bgColor" ng:class="{'originUI-placeholder': editor.content.image == undefined}" back-img='{{editor.content.image}}'></div>

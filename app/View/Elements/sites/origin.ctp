@@ -1,29 +1,23 @@
 <div id="demo-reskin" back-img='{{demo.reskin_img}}' ng:style="reskin">
 	<?php echo $this->element('bar');?>
 	<div id="originDemo-wrapper">
-		<!-- <div id="originDemo-leaderboard" class="adPlacement" ng:bind-html-unsafe="embed" ng:click="test()"> -->
-		<div id="originDemo-leaderboard" class="">
-			<img src="http://placehold.it/970x66"/ ng:click="bindEmbed($event)" ng:show="!embed">
-			<div class="adPlacement" ng:bind-html-unsafe="embed"></div>
+		<div class="embedLeaderboard">
+			<adTag data-name="Leaderboard" id="embedLeaderboard" ng:bind-html-unsafe="embedLeaderboard"></adTag>
+			<img src="http://placehold.it/970x66" ng:show="!embedLeaderboard"/>
 		</div>
 	
-		<div id="originDemoContent-center" class="originUI-borderColor">
-			<img src="http://placehold.it/970x250"/>
-		</div>
 		<div id="originDemoContent-wrapper" class="originUI-bgColor">		
 			<div id="originDemoContent-left" class="inline">
-				<img src="http://placehold.it/645x100"/>
-				<img src="http://placehold.it/205x100"/><!--
-				--><img src="http://placehold.it/205x100"/><!--
-				--><img src="http://placehold.it/205x100"/>
 			</div><!--
 			--><div id="originDemoContent-right" class="inline">
-					<div class="adPlacement">
-						<img src="http://placehold.it/300x600"/>
+					<div class="embedSidebar">
+						<adTag data-name="Sidebar" id="embedSidebar" ng:bind-html-unsafe="embedSidebar"></adTag>
+						<img src="http://placehold.it/300x250" ng:show="!embedSidebar"/>
 					</div>
 			</div>
 		</div>
 	</div>
+	<adTag data-name="Out of Page" id="embedOutOfPage" ng:bind-html-unsafe="embedOutOfPage"></adTag>
 	<?php echo $this->element('footer');?>
 </div>
 <?

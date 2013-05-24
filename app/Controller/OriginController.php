@@ -220,6 +220,7 @@ class OriginController extends AppController {
 	* Loads the component model
 	*/
 	private function _loadOriginComponent() {
+		$this->layout	= 'ajax';
 		$origin_components	= $this->OriginComponent->find('all', 
 			array('order'=>array('OriginComponent.name ASC'))
 		);
@@ -250,6 +251,7 @@ class OriginController extends AppController {
 	* Loads the template model
 	*/
 	private function _loadOriginTemplate() {
+		$this->layout	= 'ajax';
 		$origin_templates	= $this->OriginTemplate->find('all', 
 			array('order'=>array('OriginTemplate.name ASC'))
 		);
@@ -271,6 +273,7 @@ class OriginController extends AppController {
 	* Loads the site demo list
 	*/
 	private function _loadOriginSite() {
+		$this->layout	= 'ajax';
 		$origin_sites	= $this->OriginSite->find('all', 
 			array('order'=>array('OriginSite.name ASC'))
 		);
@@ -282,6 +285,7 @@ class OriginController extends AppController {
 	* Loads the model data
 	*/
 	private function _loadDemos() {
+		$this->layout	= 'ajax';
 		$origin_demos	= $this->OriginDemo->find('all',
 		array(
 			'order'=>array('OriginDemo.name ASC')
@@ -675,9 +679,29 @@ class OriginController extends AppController {
 		$this->set('origin_templates', $origin_templates);
 	}
 	
+	/**
+	* RSS parser
+	*/
+	public function rssFeed() {
+		App::import('Vendor', 'xmlToArray');
+		$this->layout	= 'xml/default';
+		
+		$xml = simplexml_load_file('http://'.$this->request->params['url']);
+		$this->set('xml', xmlToArray::convert($xml));
+	}
 /* =======================================================================
 	Origin Ad Creator
 ========================================================================== */
+	/**
+	* 
+	*/
+	private function _adModifyUpdate($originAd_id) {
+		$data['id']				= $originAd_id;
+		$data['modify_by']		= $this->UserAuth->getUserId();
+		$data['modify_date']	= date('Y-m-d H:i:s');
+		$this->OriginAd->save($data);
+	}
+	
 	/**
 	* Displays a listing of all Origin ad units
 	*/
@@ -795,6 +819,7 @@ class OriginController extends AppController {
 		
 			return $this->_creatorAdLoad($data);
 		}
+		$this-> _adModifyUpdate($data['originAd_id']);
 	}
 	
 	/**
@@ -804,6 +829,7 @@ class OriginController extends AppController {
 		if($this->{'OriginAd'.$data['model'].'Content'}->delete($data['id'])) {
 			return $this->_creatorAdLoad($data);	
 		}
+		$this-> _adModifyUpdate($data['originAd_id']);
 	}
 	
 	/**
@@ -837,6 +863,8 @@ class OriginController extends AppController {
 				}
 			}
 		}
+		
+		$this-> _adModifyUpdate($data['originAd_id']);
 	}
 	
 	/**
@@ -846,5 +874,6 @@ class OriginController extends AppController {
 		if($this->{'OriginAd'.$data['model'].'Content'}->saveAll($data['data'])) {
 			return $this->_creatorAdLoad($data);	
 		}
+		$this-> _adModifyUpdate($data['originAd_id']);
 	}
 }

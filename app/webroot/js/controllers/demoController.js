@@ -1,6 +1,7 @@
 var demoController = function($scope, $filter, $compile, Origin) {	
 	$scope.demo 				= {};
-	$scope.demo.templateAlias	= 'origin';
+	$scope.demo.templateAlias	= 'thefashionspot';
+	$scope.placements			= [];
 	$scope.reskin 				= {};
 	$scope.origin_ad			= angular.fromJson(origin_ad);
 	
@@ -13,11 +14,30 @@ var demoController = function($scope, $filter, $compile, Origin) {
 	};
 	
 	
-	$scope.bindEmbed = function(event) {
-		angular.element(event.currentTarget).parent().find('div').html('test');
-		//$scope.embed				= $compile(decodeURIComponent(origin_embed.replace(/\+/g, ' ')))($scope);		
+	$scope.demoAdTags = function() {
+		var adTags	= angular.element(document.body).find('adTag');
+		
+		for(var i = 0; i < adTags.length; i++) {
+			$scope.placements[i] = {
+				id: 	angular.element(adTags[i]).attr('id'),
+				name:	angular.element(adTags[i]).data('name')
+			};
+		}
+	}	
+	
+
+	$scope.embedAd = function() {
+		//Reset
+		for(var i = 0; i < $scope.placements.length; i++) {
+			$scope[$scope.placements[i].id]	= '';
+		}
+		
+		//Issue when re-selecting 1st entry
+		angular.element(document.getElementById('originAd-'+$scope.origin_ad.OriginAd.id)).remove();
+		$scope[$scope.adTagPlacement]	= $compile(decodeURIComponent(origin_embed.replace(/\+/g, ' ')))($scope);
 	}
 	
+
 	/**
 	* Loads the site demo templates
 	*/
@@ -25,7 +45,8 @@ var demoController = function($scope, $filter, $compile, Origin) {
 		Origin.get('sites').then(function(response) {
 			//console.log(response);
 			$scope.templates			= response;
-			$scope.demo.template		= '/administrator/get/templates/'+$scope.demo.templateAlias;
+			//$scope.demo.template		= '/administrator/get/templates/'+$scope.demo.templateAlias;
+			$scope.loadTemplate();
 		});
 	}
 	

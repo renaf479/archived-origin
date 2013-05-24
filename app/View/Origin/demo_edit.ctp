@@ -1,12 +1,9 @@
 <script type="text/javascript">
 	var origin_embed	= '<?php echo urlencode($this->element('origin_embed'));?>';
-	var origin_ad		= '<?php echo $origin_ad;?>';
+	var origin_ad		= '<?php echo addslashes($origin_ad);?>';
 </script>
 <div id="" ng:controller="demoController" ng:cloak>
-	<div ng:include src="demo.template"></div>
-	
-	
-	
+	<div ng:include src="demo.template" onload="demoAdTags()"></div>
 	
 	<div id="demo-panel" class="originUI-borderColor originUI-shadow">
 		<form id="demoPanel-form" name="demoPanelForm" class="originUI-bgColorSecondary" novalidate>
@@ -29,6 +26,12 @@
 								<option style="display:none" value="">Select Group</option>
 							</select>
 						</div>
+					</li>
+					<li>
+						<label>Placement</label>
+						<select class="originUI-select originUI-bgColorSecondary" ng:model="adTagPlacement" ng:options="placement.id as placement.name for placement in placements" ng:change="embedAd()">
+							<option style="display:none" value="">Select Placement</option>
+						</select>
 					</li>
 <!--
 					<li id="demoPanelContent-auto">

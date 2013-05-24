@@ -40,9 +40,11 @@
 			    </div> 
 			</div>
 		</div>
-		<div style="position: relative">
-			<ul id="layers" class="content-list originUI-list" ng:show="ui.layer=='Layers'" ng:animate="'originUI-fade'" ng:model="layers" layer-sortable style="display:none"></ul>
-			<ul id="library" class="content-list originUI-list" ng:show="ui.layer=='Library'" ng:animate="'originUI-fade'" style="display:none">
+		<div id="layers" style="display:none" ng:show="ui.layer=='Layers'" ng:animate="'originUI-fade'">
+			<ul id="layers-list" class="content-list originUI-list" ng:model="layers" layer-sortable></ul>
+		</div>
+		<div id="library" ng:show="ui.layer=='Library'" ng:animate="'originUI-fade'" style="display:none">
+			<ul id="library-list" class="content-list originUI-list">
 				<li class="content-item asset originUIList-item" data-asset="{{$index}}" ng:repeat="asset in library" asset>
 					<a href="javascript:void(0);" class="content-label inline originUI-hover">{{asset.name}}</a>
 					<!-- <span class="content-edit inline">handle</span> -->
@@ -57,10 +59,9 @@
 					</div>
 				</li>
 			</ul>
-		</div>
-		
-		<div id="options-wrapper" data-intro="Ad creator options" data-position="bottom" class="originUI-borderColor">
-			<a href="javascript:void(0)" id="options" class="dropdown-toggle originUI-borderColor originUI-hover">Options</a>
+		</div>		
+		<div id="options-wrapper" data-intro="Ad creator options" data-position="bottom" class="originUI-borderColor originUI-bgColorSecondary">
+			<span id="options" class="dropdown-toggle originUI-borderColor originUI-hover">Options</span>
 			<ul class="dropdown-menu originUI-bgColorSecondary originUI-borderColor">
 				<li>
 					<a href="javascript:void(0)" id="option-embed" class="option originUI-hover" ng:click="embedModalOpen()">Create Embed</a>
@@ -93,6 +94,10 @@
 				</ul>
 			</div>
 		</div>
+		<div id="actions-wrapper" class="none">
+			<span id="workspace-undo" class="inline" ng:click="workspaceUndo()">Undo</span><!--
+			--><span id="workspace-save" class="inline" ng:click="workspaceUpdate()">Save</span>
+		</div>
 		<!--
 <div id="options-wrapper" data-intro="Ad creator options" data-position="bottom">
 			<a href="javascript:void(0)" id="options" class="dropdown-toggle originUI-borderColor">Options</a>
@@ -113,10 +118,7 @@
 		</div>
 -->
 		
-		<div id="actions-wrapper" class="originUI-bgColor originUI-borderColor originUI-shadow none">
-			<a href="javascript:void(0)" id="workspace-undo" class="inline" ng:click="workspaceUndo()">Undo</a><!--
-			--><a href="javascript:void(0)" id="workspace-save" class="inline" ng:click="workspaceUpdate()">Save</a>
-		</div>
+		
 		
 			<!--
 			<div id="schedules" class="">
@@ -148,7 +150,7 @@
 			
 			<a href="javascript:void(0)" id="creatorModal-remove" class="originUI-hover" ng:click="creatorModalRemove(editor)" ng:show="editor.remove">remove</a>
 			<div id="creatorModal-content" class="originUI-modalContent">
-				<div ng:include src="editor.template"></div>
+				<div ng:include src="editor.template" ng:animate="'originUI-fade'"></div>
 			</div>
 			
 			<div id="creatorModal-config">

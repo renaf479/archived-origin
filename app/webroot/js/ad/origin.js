@@ -6,7 +6,7 @@ var originParams = {
 	'close':	originScript.getAttribute('data-close'),
 	'hover':	originScript.getAttribute('data-hover'),
 	'bg':		originScript.getAttribute('data-bg'),
-	'type':		originScript.getAttribute('data-type'),
+	'type':		originScript.getAttribute('data-template'),
 	'id':		originScript.getAttribute('data-id'),
 	'src':		'http://'+originScript.getAttribute('data-domain')+'/ad/'+originScript.getAttribute('data-id')+'/Desktop',
 	'originDomain':originScript.getAttribute('data-domain'),
