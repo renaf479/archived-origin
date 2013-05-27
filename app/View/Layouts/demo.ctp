@@ -6,10 +6,10 @@
 	<link rel="shortcut icon" href="/favicon.ico"/>
 	<?php
 		echo $this->Minify->css(array('normalize', 'bootstrap', 'chardinjs', 'origin', 'origin-new', 'demo'));
-		echo $this->Minify->script(array('jquery/jquery', 'jquery/jquery.ui.widget', 'jquery/jquery.fileupload', 'jquery/chardinjs.min', 'angularjs', 'angular-ui', 'angularui-bootstrap', 'origin', 'controller', 'controllers/demoController', 'services', 'directives', 'filters'));
+		echo $this->Minify->script(array('jquery/jquery', 'jquery/jquery-ui.min', 'jquery/jquery-touch', 'jquery/jquery.fileupload', 'jquery/chardinjs.min', 'angularjs', 'apps/demoEditApp', 'controllers/demoEditController', 'services', 'directives'));
 	?>
 </head>
-<body class="originUI-bgTexture" ng:app="originApp" ng:controller="originGeneral">
+<body class="originUI-bgTexture" ng:app="demoEditApp">
 	<?php echo $this->fetch('content'); ?>
 </body>
 </html>

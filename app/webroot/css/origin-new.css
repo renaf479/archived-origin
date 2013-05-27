@@ -19,65 +19,42 @@ body:not(.originUI-superAdmin) .originUI-superAdmin {
 	border-color: #303030;
 }
 
-.originUI-fade-hide-setup,
-.originUI-fade-show-setup,
-.originUI-fade-enter-setup,
-.originUI-fade-leave-setup,
-.originUI-fade-move-setup {
+.originUI-fade-hide,
+.originUI-fade-show,
+.originUI-fade-enter,
+.originUI-fade-leave,
+.originUI-fade-move {
 	-webkit-transition: all .27s ease;
 	-moz-transition: all .27s ease;
 	-o-transition: all .27s ease;
 	transition: all .27s ease;
 }
 
-.originUI-fade-hide-setup,
-.originUI-fade-show-setup.originUI-fade-show-start,
-.originUI-fade-leave-setup,
-.originUI-fade-enter-setup.originUI-fade-enter-start,
-.originUI-fade-move-setup.originUI-fade-move-start  {
+.originUI-fade-hide,
+.originUI-fade-show.originUI-fade-show-active,
+.originUI-fade-leave,
+.originUI-fade-enter.originUI-fade-enter-active,
+.originUI-fade-move.originUI-fade-move-active  {
 	opacity: 1;
 }
 
-.originUI-fade-show-setup,
-.originUI-fade-enter-setup {
+.originUI-fade-show,
+.originUI-fade-enter {
 	opacity: 0;
 }
 
-.originUI-fade-hide-setup.originUI-fade-hide-start,
-.originUI-fade-leave-setup.originUI-fade-leave-start {
+.originUI-fade-hide.originUI-fade-hide-active,
+.originUI-fade-leave.originUI-fade-leave-active {
 	height: 0;
 }
 
-.originUI-fade-move-setup {
+.originUI-fade-move {
 	opacity: .5;
 }
 
-.originUI-fade-move-setup.originUI-fade-move-start {
+.originUI-fade-move.originUI-fade-move-active {
 	opacity: 1;
 }
-/*
-
-
-.custom-enter-setup {
-  left:-10px;
-  opacity:0;
-}
-.custom-enter-setup.custom-enter-start {
-  left:0;
-  opacity:1;
-}
-
-.custom-leave-setup {
-  left:0;
-  opacity:1;
-}
-.custom-leave-setup.custom-leave-start {
-  left:-10px;
-  opacity:0;
-}
-*/
-
-
 
 .originUI-fixed {
 	position: fixed; 
@@ -1062,12 +1039,17 @@ body.originClass-edit #originBar-search {
 	top: 50%;
 	margin: -150px 0 0 0;
 	
-	border-width: 1px 3px 1px 0;
+	border-width: 1px 3px;
 	border-style: solid;
+}
+
+#demo-panel.ui-draggable-dragging {
+	opacity: .8;
 }
 
 #demoPanel-header {
 	background: transparent url(/img/demo-26x26.png) no-repeat 10px center;
+	cursor: pointer;
 }
 
 #demoPanelContent-auto {

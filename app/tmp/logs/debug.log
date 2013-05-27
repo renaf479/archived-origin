@@ -253,3 +253,4 @@ Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 161
 2013-05-15 19:41:41 Debug: permission: actionUrl-origin/jsonTemplate
 2013-05-15 19:46:04 Debug: permission: actionUrl-origin/jsonActivity
 2013-05-15 19:46:05 Debug: permission: actionUrl-origin/ad_list
+2013-05-24 14:03:49 Debug: permission: actionUrl-origin/demoEdit

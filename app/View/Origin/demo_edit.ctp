@@ -9,7 +9,7 @@
 		<form id="demoPanel-form" name="demoPanelForm" class="originUI-bgColorSecondary" novalidate>
 			<input type="hidden" name="uploadDir" value="/assets/demos/"/>
 			
-			<h3 id="demoPanel-header" class="originUI-tileHeader originUI-borderColor originUI-textColor">Demo Options</h3>
+			<h3 id="demoPanel-header" class="originUI-tileHeader originUI-borderColor originUI-textColor">Demo Creator</h3>
 			<div id="demoPanel-content" class="originUI-tileContent">
 				<ul class="originUI-list">
 					<li>
@@ -22,14 +22,14 @@
 					<li>
 						<label>Template</label>
 						<div class="originUI-field">
-							<select class="originUI-select originUI-bgColorSecondary" ng:model="demo.templateAlias" ng:options="template.OriginSite.alias as template.OriginSite.name for template in templates|filter:{OriginSite.status: '1'}" ng:change="loadTemplate()">
+							<select class="originUI-select originUI-bgColorSecondary" ng:model="demo.templateAlias" ng:options="template.OriginSite.alias as template.OriginSite.name for template in templates|filter:{OriginSite.status: '1'}" ng:change="demoTemplate()">
 								<option style="display:none" value="">Select Group</option>
 							</select>
 						</div>
 					</li>
 					<li>
 						<label>Placement</label>
-						<select class="originUI-select originUI-bgColorSecondary" ng:model="adTagPlacement" ng:options="placement.id as placement.name for placement in placements" ng:change="embedAd()">
+						<select class="originUI-select originUI-bgColorSecondary" ng:model="demo.placement" ng:options="placement.id as placement.name for placement in placements" ng:change="demoPlacement()">
 							<option style="display:none" value="">Select Placement</option>
 						</select>
 					</li>
@@ -65,7 +65,7 @@
 						<label>Reskin Color</label>
 						<div class="originUI-field">
 							<div class="originUI-fieldBracket"></div>
-							<input type="text" class="originUI-input originUI-bgColorSecondary" ng:model="demo.reskin_color" placeholder="Reskin Hex Code"  maxlength="7" hex>
+							<input type="text" class="originUI-input originUI-bgColorSecondary" ng:model="demo.reskin_color" placeholder="Reskin Hex Code" maxlength="7" hex>
 						</div>
 					</li>
 					<li ng:show="link">
@@ -87,7 +87,4 @@
 			</div>
 		</form>
 	</div>
-	
-	
-	
 </div>

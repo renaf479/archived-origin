@@ -71,5 +71,4 @@ var templatesController	= function($scope, $filter, Origin) {
 			$scope.$parent.notificationOpen(notification.message, notification.type);
 		});
 	}
-
 }
