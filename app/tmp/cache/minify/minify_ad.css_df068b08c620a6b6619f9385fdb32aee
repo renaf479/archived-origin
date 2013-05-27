@@ -1,4 +1,0 @@
-/* Minify: at least one missing file. See http://code.google.com/p/minify/wiki/Debugging */
-body{margin:0;padding:0;overflow:hidden;position:relative}a{outline:none}#initial,#triggered{position:absolute}#initial.hidden .toggle,
-#triggered.hidden
-.toggl{display:none}
