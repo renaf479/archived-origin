@@ -83,7 +83,8 @@ angular.module('originAd.services', [])
 						animateTo	= animateObj.start+'px';
 						duration	= animateObj.closeDuration/1000;
 						
-						$rootScope.xdDataToggle.resizeTo	= $rootScope.originAd_config.dimensions.Initial[origin_platform].height+'px';
+						$rootScope.xdDataToggle.resizeHeight= $rootScope.originAd_config.dimensions.Initial[origin_platform].height+'px';
+						$rootScope.xdDataToggle.resizeWidth	= $rootScope.originAd_config.dimensions.Initial[origin_platform].width+'px';
 						$rootScope.xdDataToggle.duration	= animateObj.closeDuration/1000;
 						$rootScope.hiddenView				= 'triggered';	
 						$rootScope.xdDataToggle.action		= 'open';
@@ -93,7 +94,8 @@ angular.module('originAd.services', [])
 						animateTo	= animateObj.end+'px',
 						duration	= animateObj.openDuration/1000;
 						
-						$rootScope.xdDataToggle.resizeTo	= $rootScope.originAd_config.dimensions.Triggered[origin_platform].height+'px';
+						$rootScope.xdDataToggle.resizeHeight= $rootScope.originAd_config.dimensions.Triggered[origin_platform].height+'px';
+						$rootScope.xdDataToggle.resizeWidth	= $rootScope.originAd_config.dimensions.Triggered[origin_platform].width+'px';
 						$rootScope.xdDataToggle.duration	= animateObj.openDuration/1000;
 						$rootScope.hiddenView				= 'initial';
 						$rootScope.xdDataToggle.action		= 'close';

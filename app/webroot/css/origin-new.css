@@ -1,3 +1,65 @@
+body {
+	font-family: 'Segoe UI', Arial, sans-serif;
+/* 	font-family: roboto; */
+	margin: 0;
+	padding: 0;
+	position: relative;
+	/* color: #BDBDBD; */
+	color: #ffffff;
+	background-color: #0a3960;
+}
+
+a {
+	color: inherit;
+	/* color: #BDBDBD; */
+	text-decoration: none;
+	outline: none !important;
+}
+
+a:hover {
+	/* color: #BDBDBD; */
+}
+
+textarea {
+	height: auto;
+}
+
+.wrapper {
+	height: inherit;
+	width: 1000px;
+	margin: 0 auto;
+	position: relative;
+}
+
+.content {
+	background-color: #fff;
+	margin-bottom: 10px;
+}
+
+.clear {
+	clear: both;
+}
+
+.inline {
+	display: inline-block;
+	vertical-align: top;
+}
+
+.none {
+	display: none;
+}
+
+#footer {
+	clear: both;
+	font-size: 12px;
+	text-align: center;
+	margin: 15px 0;
+}
+
+
+
+
+
 body.originUI-superAdmin .originUI-superAdmin {
 	visibility: visible;
 }
@@ -5,6 +67,19 @@ body.originUI-superAdmin .originUI-superAdmin {
 body:not(.originUI-superAdmin) .originUI-superAdmin {
 	visibility: hidden;
 	height: 0 !important;
+}
+
+.originUI-bgColor {
+	background-color: #212123;
+}
+
+.originUI-bgColorSecondary {
+	background-color: #282828;
+}
+
+.originUI-bgTexture {
+	background-image: url(/img/bg-texture.png);
+	background-repeat: repeat;
 }
 
 .originUI-borderColor {
@@ -105,7 +180,8 @@ body:not(.originUI-superAdmin) .originUI-superAdmin {
 	border-style: solid;
 }
 
-.originUI-listItem > a:hover {
+.originUI-listItem > a:hover,
+.originUI-listHover:hover {
 	background-image: none;
 	background-color: rgba(51, 181, 229, .25);
 }
@@ -737,6 +813,14 @@ body.originClass-edit #originBar-search {
 /* =======================================================================
 	Tables
 ========================================================================== */
+/*
+.originUI-table {
+	margin: 0 0 10px;
+}
+*/
+
+
+
 .originUI-tableHead {
 	text-align: left;
 }
@@ -1110,6 +1194,20 @@ body.originClass-edit #originBar-search {
 	overflow: hidden;
 }
 
+/*
+.adList-item:not(.adList-itemShowcase) + .adList-item:not(.adList-itemShowcase) {
+	margin-left: 5px;
+}
+
+.adList-item.adList-itemShowcase {
+	width: 100%;
+}
+
+.adList-item.adList-itemShowcase .adList-itemImage {
+	display: block;
+}
+*/
+
 .adList-itemActive {
 	border-width: 1px 1px 2px 5px;
 }
@@ -1235,26 +1333,73 @@ body.originClass-edit #originBar-search {
 	background-image: url(/img/details-26x26.png);
 }
 
+#adList-moduleAdHeader,
+#adList-moduleAdShowcase {
+	height: 26px;
+	margin: 5px 0 0;
+}
+
 #adList-moduleAdHeader {
 	background: transparent url(/img/edit-26x26.png) no-repeat left center;
 	background-size: 18px 18px;
 	text-indent: 25px;
-	height: 26px;
+	width: 245px;
 	white-space: nowrap;
 	overflow: hidden;
-	margin: 5px 0 0;
+	font-size: 18px;
+}
+
+#adList-moduleAdShowcase {
+	background: transparent url(/img/star-empty-18x18.png) no-repeat center center;
+	width: 18px;
+	text-indent: -5000em;
+	opacity: .1;
+}
+
+#adList-moduleAdShowcase.showcase {
+	background-image: url(/img/star-full-18x18.png);
+}
+
+#adList-moduleAdShowcase:hover {
+	opacity: 1;
+}
+
+#adList-moduleAdShowcase.showcase:hover {
+	background-image: url(/img/star-empty-18x18.png);
+}
+
+#adList-moduleAdShowcase:hover {
+	background-image: url(/img/star-full-18x18.png);
+}
+
+#adList-moduleRemove {
+	position: absolute;
+	top: 8px;
+	right: 10px;
+	background: transparent url(/img/delete-26x26.png) no-repeat 0 0;
+	width: 26px;
+	height: 26px;
+	text-indent: -5000em;
+	opacity: .1;
+}
+
+#adList-moduleRemove:hover {
+	opacity: 1;
 }
 
 #adList-moduleAdThumbnail {
 	margin: 5px auto;
+	width: 270px;
+	height: 77px;
+	display: block;
+	background-size: 100% 100%;
 }
 
 .adList-moduleAdDetails {
 	display: block;
-	font-size: 12px;
+	font-size: 10px;
 	margin: 2px 0;
 }
-
 
 #adList-moduleEmbedHeader,
 #adList-moduleDemoHeader {
@@ -1269,20 +1414,64 @@ body.originClass-edit #originBar-search {
 	height: 18px;
 	line-height: 16px;
 	font-weight: normal;
+	cursor: pointer;
+	display: block;
 }
 
 #adList-moduleEmbedHeader {
 	background-image: url(/img/embed-18x18.png);
-	cursor: pointer;
 }
 
-#adList-moduleDemoHeader {
-	
+#adList-moduleDemoHeader {	
 	background-image: url(/img/demo-26x26.png);
 }
 
+#adList-moduleDemoList {
+	max-height: 175px;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+.adList-moduleDemoListEdit,
+.adList-moduleDemoListDelete {
+	width: 18px;
+	height: 18px;
+	background-size: 18px 18px !important;
+	text-indent: -5000em;
+	opacity: 0;
+}
+
+.adList-moduleDemoListEdit:hover,
+.adList-moduleDemoListDelete:hover {
+	opacity: 1 !important;
+}
+
+.adList-moduleDemoListEdit {
+	background: transparent url(/img/edit-26x26.png) no-repeat left center;
+}
+
+.adList-moduleDemoListLink {
+	height: 18px;
+	padding: 0 10px;
+	width: 215px;
+}
+
+.adList-moduleDemoListDelete {
+	background: transparent url(/img/delete-26x26.png) no-repeat left center;
+	position: absolute;
+	right: 0;
+}
+
 .adList-moduleDemoListItem {
-	margin: 5px 0 5px 10px;	
+	line-height: 16px;
+	position: relative;
+	padding: 3px 5px;
+	margin: 0;
+}
+
+.adList-moduleDemoListItem:hover .adList-moduleDemoListEdit,
+.adList-moduleDemoListItem:hover .adList-moduleDemoListDelete {
+	opacity: .1
 }
 
 #adList-moduleDemoList .originUI-listItem {
@@ -1291,6 +1480,10 @@ body.originClass-edit #originBar-search {
 
 #adList-modalHeader {
 	background-image: url(/img/origin-26x26.png);
+}
+
+body.originUI-superAdmin #adSettings-modal.originUI-modalContent {
+	height: 275px;
 }
 
 #adSettings-modal.originUI-modalContent {

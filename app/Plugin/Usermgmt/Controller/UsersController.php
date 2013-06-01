@@ -204,7 +204,7 @@ class UsersController extends UserMgmtAppController {
 			}
 		} else {
 			$this->Session->setFlash(__('Sorry new registration is currently disabled, please try again later'));
-			$this->redirect('/administrator/login');
+			$this->redirect('/');//HOMEPAGE LOGIN
 		}
 	}
 	/**
@@ -424,7 +424,7 @@ class UsersController extends UserMgmtAppController {
 		} else {
 			$this->Session->setFlash(__('Sorry something went wrong, please click on the link again'));
 		}
-		$this->redirect('/administrator/login');
+		$this->redirect('/');//HOMEPAGE LOGIN
 	}
 	/**
 	 * Used to send forgot password email to user
@@ -452,7 +452,7 @@ class UsersController extends UserMgmtAppController {
 				}
 				$this->User->forgotPassword($user);
 				$this->Session->setFlash(__('Please check your mail for reset your password'));
-				$this->redirect('/administrator/login');
+				$this->redirect('/');//HOMEPAGE LOGIN
 			}
 		}
 	}
@@ -482,7 +482,7 @@ class UsersController extends UserMgmtAppController {
 							$user['User']['password'] = $this->UserAuth->makePassword($user['User']['password'], $salt);
 							$this->User->save($user,false);
 							$this->Session->setFlash(__('Your password has been reset successfully'));
-							$this->redirect('/administrator/login');
+							$this->redirect('/');//HOMEPAGE LOGIN
 						} else {
 							$this->Session->setFlash(__('Something went wrong, please send password reset link again'));
 						}
@@ -525,7 +525,7 @@ class UsersController extends UserMgmtAppController {
 				} else {
 					$this->Session->setFlash(__('Your email is already verified'));
 				}
-				$this->redirect('/administrator/login');
+				$this->redirect('/');//HOMEPAGE LOGIN
 			}
 		}
 	}

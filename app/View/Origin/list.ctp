@@ -1,12 +1,7 @@
-<?php
-	//print_r($this->UserAuth->getNameById(1));
-	//print_r($this->User->findById(1));
-?>
-
 <div id="ad-list" ng:controller="listController" class="">
 	<h2 class="originUI-header">Ad Manager</h2>
 	<div id="adList-left" class="inline">
-		<div class="adList-item originUI-bgColor originUI-shadow originUI-borderColor" ng:repeat="ad in ads|filter:searchOrigin" ng:class="{'adList-itemActive':ad.OriginAd.id == module.id}" ng:animate="'originUI-fade'">
+		<div class="adList-item originUI-bgColor originUI-shadow originUI-borderColor inline" ng:repeat="ad in ads|filter:searchOrigin" ng:class="{'adList-itemActive': ad.OriginAd.id == module.id}" ng:animate="'originUI-fade'">		
 			<div class="adList-itemMeta">
 				<div class="adList-itemId">{{ad.OriginAd.id}}</div>
 				<div class="adList-itemName originUI-borderColor">{{ad.OriginAd.name}}</div>
@@ -22,31 +17,26 @@
 		</div>
 	</div><!--
 	--><div id="adList-right" class="inline">
-	
-<!--
-		<a href="javascript:void(0)" id="adList-create" class="originUI-bgColor originUI-shadow" ng:click="adCreate()">
-			<h3 id="adList-createHeader" class="originUI-tileHeader originUI-borderColor originUI-textColor">Create New Ad</h3>
-		</a>
--->
 		<a href="javascript:void(0)" id="adList-create" class="originUI-shadow" ng:click="adCreate()">Create New Ad</a>
-		
 		<div id="adList-module" class="originUI-bgColor originUI-shadow">
 			<h3 id="adList-moduleHeader" class="originUI-tileHeader originUI-borderColor originUI-textColor">Ad Details</h3>
+			<a href="javascript:void(0)" id="adList-moduleRemove" class="originUI-hover originUI-superAdmin" ng:click="adRemove()">remove</a>
 			<div class="originUI-tileContent">
-				<h3 id="adList-moduleAdHeader">
-					<a href="/administrator/Origin/ad/edit/{{module.id}}">{{module.name}}</a>
-				</h3>
-				<img id="adList-moduleAdThumbnail" ng:src="{{module.content.img_thumbnail}}"/>
+				<a href="/administrator/Origin/ad/edit/{{module.id}}" id="adList-moduleAdHeader" class="inline">{{module.name}}</a>
+				<a href="javascript:void(0)" id="adList-moduleAdShowcase" ng:click="adShowcase()" class="inline originUI-hover originUI-superAdmin" ng:class="(module.showcase == 1)? 'showcase': ''">showcase</a>
+				<img id="adList-moduleAdThumbnail" ng:src="{{module.content.img_thumbnail}}" ng:show="module.content.img_thumbnail"/>
 				<span class="adList-moduleAdDetails">Last Modified {{module.modify_date}} by {{module.modify_by}}</span>
 				<span class="adList-moduleAdDetails">Created {{module.create_date}} by {{module.create_by}}</span>
 				<!-- <h4>Metrics</h4> -->
 				<h4 id="adList-moduleEmbedHeader" class="originUI-borderColorSecondary" ng:click="embedCreate()">Generate Embed</h4>
-				<h4 id="adList-moduleDemoHeader" class="originUI-borderColorSecondary">
-					<a href="/administrator/demo/{{module.id}}" target="_blank">Demo</a>
-				</h4>
+				<a href="/administrator/demo/create/{{module.id}}" id="adList-moduleDemoHeader" class="originUI-borderColorSecondary" target="_blank">Demo Creator</a>
 				<ul id="adList-moduleDemoList" class="originUI-list">
 					<!-- <li class="originUI-listItem"><a href="/demo/Origin/{{module.id}}" -->
-					<li ng:repeat="demo in demos"><a href="/demo/{{demo.OriginDemo.alias}}" target="_blank">{{demo.OriginDemo.name}}</a></li>
+					<li class="adList-moduleDemoListItem originUI-hover originUI-listHover" ng:repeat="demo in demos">
+						<a href="/administrator/demo/edit/{{demo.OriginDemo.alias}}" class="inline originUI-hover adList-moduleDemoListEdit" target="_blank">Edit</a><!--
+						--><a href="/demo/{{demo.OriginDemo.alias}}" class="inline adList-moduleDemoListLink" target="_blank">{{demo.OriginDemo.name}}</a><!--
+						--><a href="javascript:void(0)" class="inline originUI-hover adList-moduleDemoListDelete originUI-superAdmin" ng:click="demoRemove(demo)">delete</a>
+					</li>
 				</ul>
 			</div>
 		</div>

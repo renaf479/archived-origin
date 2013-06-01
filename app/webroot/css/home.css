@@ -1,3 +1,31 @@
+body.originClass-display #origin-bar {
+	height: 65px;
+}
+
+body.originClass-display #originBar-logo:hover {
+	height: inherit;
+	background-position: center center;
+	border: 0px solid black;
+}
+
+body.originClass-display #originBar-login {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 320px;
+	height: 45px;
+	margin-top: 15px;
+}
+
+body.originClass-display #login-email,
+body.originClass-display #login-password {
+	margin: 0 5px;
+}
+
+body.originClass-display #login-settings {
+	margin: 0 0 0 5px;
+}
+
 #homepage-cover {
 	margin: 15px auto;
 }

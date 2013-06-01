@@ -1,7 +1,5 @@
 <div id="ad-edit" ng:controller="creatorController" ng:cloak>
 	<input id="originAd_id" type="hidden" value="<?php echo $origin_ad['OriginAd']['id'];?>"/>
-	
-	
 	<form id="creator-panel-left" class="originUI-bgColor">
 		<input type="hidden" name="uploadDir" value="/assets/creator/<?php echo $this->params['originAd_id'];?>/"/>
 		<div id="display-wrapper" ng:click="creatorToggle('view')" data-intro="Toggle between the initial and triggered states of the unit" data-position="bottom" ng:show="workspace.ad.OriginAd.config.dimensions.Triggered[ui.platform].height > 0">
@@ -22,7 +20,6 @@
 			    </div> 
 			</div>
 		</div>
-		
 		<div id="layer-wrapper" ng:click="creatorToggle('layer')">
 			<div id="layer-switch" class="inline" ng:class="{true: 'layer-layers', false: 'layer-library'}[ui.layer=='Layers']">
 				<div class="originUI-switch">
@@ -67,7 +64,7 @@
 					<a href="javascript:void(0)" id="option-embed" class="option originUI-hover" ng:click="embedModalOpen()">Create Embed</a>
 				</li>
 				<li>
-					<a href="/administrator/demo/<?php echo $this->params['originAd_id'];?>" id="option-demo" class="option originUI-hover" target="_blank">View Demo</a>
+					<a href="/administrator/demo/create/<?php echo $this->params['originAd_id'];?>" id="option-demo" class="option originUI-hover" target="_blank">View Demo</a>
 				</li>
 				<li>
 					<a href="javascript:void(0)" id="option-settings" class="option originUI-hover" ng:click="settingsModalOpen()">Settings</a>
@@ -78,11 +75,6 @@
 			</ul>
 		</div>
 	</form>
-	
-	
-	
-	
-	
 	<div id="creator-panel-top" class="originUI-bgColor originUI-borderColor">
 		<div id="components-wrapper" data-intro="Add components (images, video, etc) to unit" data-position="bottom">
 			<div ng:repeat="(groupName, group) in workspace.components" class="inline component-menu originUI-borderColor">

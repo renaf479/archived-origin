@@ -2,14 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<?php echo $this->Html->charset(); ?>
-	<title><?php echo $title_for_layout;?> | Origin</title>
+	<title><?php echo $title_for_layout;?> | Origin Demo</title>
 	<link rel="shortcut icon" href="/favicon.ico"/>
 	<?php
-		echo $this->Minify->css(array('normalize'));
-		echo $this->Minify->script(array('angularjs', 'apps/demoPublicApp'));
+		echo $this->Minify->css(array('demo/public.css'));
+		echo $this->Minify->script(array('jquery/jquery', 'angularjs', 'apps/demoPublicApp', 'controllers/demoPublicController'));
 	?>
 </head>
-<body ng:app="demoPublicApp">
+<body ng:app="demoPublicApp" ng:controller="demoPublicController">
 	<?php echo $this->fetch('content'); ?>
 </body>
 </html>

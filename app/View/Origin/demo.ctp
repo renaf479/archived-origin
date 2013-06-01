@@ -6,8 +6,10 @@
 
 <div ng:cloak>
 	<div ng:include src="demo.template" onload="demoAdTags()"></div>
-	<?php
-		//$config		= json_decode($demo['OriginDemo']['config']);
-		//echo $this->element('sites/'.$config->templateAlias);
-	?>
+	
+	
+	<div id="demoQR">
+		<!-- <span id="demoQR-title">Hover to Display QR</span> -->
+		<div style="background-image: url(https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=<?php echo urlencode('http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);?>&choe=UTF-8)"; id="demoQR-image"></div>
+	</div>
 </div>

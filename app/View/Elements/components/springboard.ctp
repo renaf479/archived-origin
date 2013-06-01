@@ -18,44 +18,6 @@
 		<div id="editorSpringboard-config" ng:show="springboardPanel=='Options'">
 			<ul class="originUI-list">
 			<?php
-				/*
-					var springboard = {
-			autoClose: function(timer) {
-				$sb(springboardPlayerId).onFinish(function() {
-					setTimeout(function(){emcOriginAd.adClose();}, timer * 1000);
-				});	
-			},
-			autoMute: function() {
-				if(autoOpen) {
-					$sb(springboardPlayerId).mute();
-				}
-			},
-			autoPlay: function() {
-				$sb(springboardPlayerId).play();
-			},
-			playerMute: function(toggle) {
-				if(!autoOpen && toggle === "off") {
-					$sb(springboardPlayerId).unmute();
-				} else if(!autoOpen && toggle === "on") {
-					$sb(springboardPlayerId).mute();
-				}
-			},
-			unmuteHover: function() {
-				$sb(springboardPlayerId).onMouseOver(function() {
-					if($sb(springboardPlayerId).getStatus().muted) {
-						$sb(springboardPlayerId).unmute();
-					}
-				});
-			},
-			unmuteRestart: function() {
-				$sb(springboardPlayerId).onUnmute(function() {
-					$sb(springboardPlayerId).seek(0);
-				});
-			}
-		}
-				*/
-			
-			
 				$settings	= array(
 					'Auto - Play'=>'autoplay',
 					'Auto - Mute'=>'automute',
@@ -98,8 +60,8 @@
 				videoId;
 			
 			_scope.editor.content.iframe= true;
-			_scope.editor.config.width	= '300px',
-			_scope.editor.config.height	= '169px';
+			_scope.editor.config.width	= (_scope.editor.config.width !== '50px')? _scope.editor.config.width: '300px',
+			_scope.editor.config.height	= (_scope.editor.config.height !== '50px')? _scope.editor.config.height:'169px';
 			
 			//Set defaults if creating instead of edit
 			if(!$scope.editor.content.videoId) {
@@ -150,10 +112,10 @@
 				$scope.editor.content.embed 	= '<scri'+'pt language="javascript" type="text/javascript" src="http://www.springboardplatform.com/jsapi/embed"></scri'+'pt>';
 				$scope.editor.content.embed		+= '<div class="videoPlayer" id="evor001_'+$scope.editor.content.videoId+'"></div>';
 				$scope.editor.content.embed		+= '<scri'+'pt type="text/javascript">$sb("evor001_'+$scope.editor.content.videoId+'",{"sbFeed":{"partnerId":1307,"type":"video","contentId":'+$scope.editor.content.videoId+',"cname":"evolve-origin"},"style":{"width":"'+_scope.editor.config.width+'","height":"'+_scope.editor.config.height+'"}});</scri'+'pt>';
-				$scope.editor.content.embed		+= '<scri'+'pt type="text/javascript"></scri'+'pt>';
+				$scope.editor.content.embed		+= '<scri'+'pt type="text/javascript">iframe.springboard("evor001_'+$scope.editor.content.videoId+'", {"autoplay":'+$scope.editor.content.autoplay+',"automute":'+$scope.editor.content.automute+',"autoclose":'+$scope.editor.content.autoclose+',"muteplayer":'+$scope.editor.content.muteplayer+',"unmutehover":'+$scope.editor.content.unmutehover+',"unmuterestart":'+$scope.editor.content.unmuterestart+'})</scri'+'pt>';
 				$scope.editor.content.embed		+= '<scri'+'pt type="text/javascript" src="http://s0.2mdn.net/instream/html5/ima3.js"></scri'+'pt>';
 				
-				$scope.editor.render 	= '<iframe class="embed" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/adIframe/%model%/%id%" frameborder="0" scrolling="no" collapseIframe></iframe>';
+				$scope.editor.render 	= '<iframe class="embed" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/adIframe/%model%/%id%" frameborder="0" scrolling="no" collapse="iframe"></iframe>';
 			
 				_scope.creatorModalSaveContent($scope.editor);
 			};

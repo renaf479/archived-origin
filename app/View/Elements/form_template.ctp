@@ -6,8 +6,7 @@
 		<select class="originUI-select originUI-bgColorSecondary" ng:model="<?php echo $editor;?>.config.type">
 			<option style="display:none" value="">Select Group</option>
 			<option value="inpage">In-Page</option>
-			<option value="expandable">Expandable</option>
-			<option value="overlay">Overlay</option>
+			<option value="outofpage">Out of Page</option>
 		</select>
 	</li>
 	<li>

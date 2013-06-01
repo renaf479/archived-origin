@@ -9,33 +9,42 @@ body {
 	background-image: url(/img/_sites/gamerevolution/background.jpg);
 }
 
+#header {
+	background: transparent url(/img/_sites/gamerevolution/header.png) no-repeat center top;
+	width: 100%;
+	height: 165px;
+	margin: 0 auto;
+}
+
 #wrapper {
-	background: transparent url(/img/_sites/gamerevolution/body.png) no-repeat center top;
+	background-color: #fff;
 	width: 980px;
-	height: 1447px;
 	display: block;
+	margin: 0 auto;
+}
+
+#content {
+	background: transparent url(/img/_sites/gamerevolution/body.jpg) no-repeat center top;
+	width: 980px;
+	height: 1285px;
 	margin: 0 auto;
 	position: relative;
 }
 
-
-.embedLeaderboard,
-.embedSidebar {
+.embedAd {
 	overflow: hidden;
-	position: absolute;
 }
 
 .embedLeaderboard {
 	width: 970px;
 	min-height: 66px;
-	top: 175px;
-	right: 5px;
+	margin: 0 auto;
 }
 
 .embedSidebar {
 	position: absolute;
 	right: 5px;
-	top: 270px;
+	top: 5px;
 	width: 300px;
 	height: 250px;
 }

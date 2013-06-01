@@ -55,7 +55,7 @@ class OriginController extends AppController {
 		header('Access-Control-Allow-Methods: OPTIONS, HEAD, GET, POST, PUT, DELETE');
 		header('Access-Control-Allow-Headers: X-File-Name, X-File-Type, X-File-Size');
 		
-		switch ($_SERVER['REQUEST_METHOD']) {
+		switch($_SERVER['REQUEST_METHOD']) {
 			case 'POST':
 				$upload_handler->post();
 		        break;
@@ -78,11 +78,17 @@ class OriginController extends AppController {
 */
 	}
 	
+	/**
+	* 
+	*/
+	public function modal() {
+		$this->layout 	= 'modal';
+		$template 		= $this->request->params['template'];
+		
+		$this->set('title_for_layout', ucfirst($template));
+		$this->set('template', $template);
+	}
 
-
-	
-
-	
 	/**
 	* ?
 	*/
@@ -134,6 +140,26 @@ class OriginController extends AppController {
 		if($this->{$data['model']}->save($data)) {
 			return $this->{'_load'.$data['model']}();
 		}
+	}
+	
+	/**
+	* System level folder removal
+	*/
+	private function _removeFolder($dir) {
+	    $files = scandir($dir);
+	    array_shift($files);    // remove '.' from array
+	    array_shift($files);    // remove '..' from array
+	    
+	    foreach ($files as $file) {
+	        $file = $dir . '/' . $file;
+	        if (is_dir($file)) {
+	            $this->_removeFolder($file);
+	            rmdir($file);
+	        } else {
+	            unlink($file);
+	        }
+	    }
+	    rmdir($dir);
 	}
 	
 	
@@ -323,9 +349,9 @@ class OriginController extends AppController {
 	}
 	
 	/**
-	* Edit a demo page
+	* Create a demo page
 	*/
-	public function demoEdit() {
+	public function demoCreate() {
 		$this->layout 	= 'demo';
 		$origin_ad		= $this->OriginAd->find('first', 
 			array(
@@ -339,14 +365,47 @@ class OriginController extends AppController {
 		$origin_ad['OriginAd']['config']	= json_decode($origin_ad['OriginAd']['config']);
 		$origin_ad['OriginAd']['content']	= json_decode($origin_ad['OriginAd']['content']);
 		
+		$this->set('demoEdit', false);
 		$this->set('origin_ad', json_encode($origin_ad));
-		
-		
 		$this->set('title_for_layout', $origin_ad['OriginAd']['name'].' Demo');
 		
 		
 		//$this->jsonAdUnit($this->request->params['originAd_id']);
 		//$this->render('/Origin/json/json_ad_unit');	
+	}
+	
+	/**
+	* Edit a demo page
+	*/
+	public function demoEdit() {
+		$this->layout 	= 'demo';
+		$origin_demo 	= $this->OriginDemo->find('first', 
+			array(
+				'conditions'=>array(
+					'OriginDemo.alias'=>$this->request->params['alias']
+				),
+				'recursive'=>-1
+			)
+		);
+		
+		$origin_demo['OriginDemo']['config']	= json_decode($origin_demo['OriginDemo']['config']);
+		
+		$this->set('origin_ad', json_encode($origin_demo));
+		$this->set('demoEdit', true);
+		$this->set('title_for_layout', $origin_demo['OriginDemo']['name'].' Demo');
+		
+		$this->render('/Origin/demo_create');
+	}
+	
+	/**
+	* Delete a demo page
+	*/
+	public function demoDelete($data) {
+		if($this->OriginDemo->delete($data['id'])) {
+			$this->layout	= 'ajax';
+			$this->jsonDemo($data);
+			return $this->render('/Origin/json/json_demo');
+		}
 	}
 	
 	/**
@@ -395,7 +454,7 @@ class OriginController extends AppController {
 				$this->OriginDemo->save($aliasData);
 
 			}
-			return $data['alias'];
+			echo $data['alias'];
 		}
 	}
 	
@@ -609,8 +668,8 @@ class OriginController extends AppController {
 	/**
 	* JSON feed of a demos for a specific ad unit
 	*/
-	public function jsonDemo() {
-		$originAd_id	= $this->request->params['originAd_id'];
+	public function jsonDemo($data = '') {
+		$originAd_id	= ($data)? $data['origin_ad_id']: $this->request->params['originAd_id'];
 		$origin_demo 	= $this->OriginDemo->find('all', 
 			array(
 				'conditions'=>array(
@@ -736,6 +795,20 @@ class OriginController extends AppController {
 	}
 	
 	/**
+	* Deletes an Origin ad unit
+	*/
+	private function adDelete($data) {
+		if($this->OriginAd->delete($data['id'], true)) {
+			//Remove folder
+			$this->_removeFolder('../webroot/assets/creator/'.$data['id']);
+		
+			$this->layout	= 'ajax';
+			$this->jsonList();
+			return $this->render('/Origin/json/json_list');
+		}
+	}
+	
+	/**
 	* Creates a new Origin ad unit
 	*/
 	private function adCreate($data) {
@@ -767,7 +840,22 @@ class OriginController extends AppController {
 				
 				$this->OriginAd->save($updateData);
 			}
-			return '/administrator/Origin/ad/edit/'.$this->OriginAd->id;
+			echo $this->OriginAd->id;
+			//return '/administrator/Origin/ad/edit/'.$this->OriginAd->id;
+		}
+	}
+	
+	/**
+	* Toggle an ad unit's showcase status
+	*/
+	private function adShowcase($data) {
+		$showcase['id']			= $data['id'];
+		$showcase['showcase']	= $data['showcase'];
+	
+		if($this->OriginAd->save($showcase)) {
+			$this->layout	= 'ajax';
+			$this->jsonList();
+			return $this->render('/Origin/json/json_list');
 		}
 	}
 
@@ -816,10 +904,12 @@ class OriginController extends AppController {
 				$updateData['render'] 	= str_replace(array('%model%', '%id%'), array('OriginAd'.$data['model'].'Content', $updateData['id']), $data['render']);
 				$this->{'OriginAd'.$data['model'].'Content'}->save($updateData);
 			}
-		
+			
+			//$this->_adModifyUpdate($data['originAd_id']);
+			
+			$this->creatorWorkspaceUpdate($data);
 			return $this->_creatorAdLoad($data);
 		}
-		$this-> _adModifyUpdate($data['originAd_id']);
 	}
 	
 	/**
@@ -827,9 +917,9 @@ class OriginController extends AppController {
 	*/
 	private function creatorContentRemove($data) {
 		if($this->{'OriginAd'.$data['model'].'Content'}->delete($data['id'])) {
+			$this->creatorWorkspaceUpdate($data);
 			return $this->_creatorAdLoad($data);	
 		}
-		$this-> _adModifyUpdate($data['originAd_id']);
 	}
 	
 	/**
@@ -864,7 +954,7 @@ class OriginController extends AppController {
 			}
 		}
 		
-		$this-> _adModifyUpdate($data['originAd_id']);
+		$this->_adModifyUpdate($data['originAd_id']);
 	}
 	
 	/**
@@ -874,6 +964,6 @@ class OriginController extends AppController {
 		if($this->{'OriginAd'.$data['model'].'Content'}->saveAll($data['data'])) {
 			return $this->_creatorAdLoad($data);	
 		}
-		$this-> _adModifyUpdate($data['originAd_id']);
+		$this->_adModifyUpdate($data['originAd_id']);
 	}
 }

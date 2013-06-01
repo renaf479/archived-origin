@@ -21,6 +21,14 @@ angular.module('originApp.directives', [])
 			}
 		}
 	})
+	.directive('flashMessage', function() {
+		return {
+			restrict: 'E',
+			link: function(scope, element, attrs) {
+				scope.notificationOpen(angular.element(element).html());
+			}
+		}
+	})
 	.directive('hex', function(){
 		return {
 			require: 'ngModel',

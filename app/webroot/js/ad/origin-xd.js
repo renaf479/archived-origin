@@ -75,7 +75,7 @@ var originXd = (function() {
 			*/	
 		},
 		toggleExpand: function(data) {
-			anim(document.getElementById(data.id), {height:data.resizeTo}, data.duration, 'ease-out');
+			anim(document.getElementById(data.id), {height:data.resizeHeight,width:data.resizeWidth}, data.duration, 'ease-out');
 		},
 		toggleOverlay: function(data) {
 			var originAdOverlay	= document.getElementById(data.idTriggered);

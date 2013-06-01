@@ -29,8 +29,7 @@ body {
 	position: relative;
 }
 
-.embedLeaderboard,
-.embedSidebar {
+.embedAd {
 	overflow: hidden;
 }
 

@@ -1,36 +1,16 @@
-var demoController = function($scope, $rootScope, $compile, Origin) {	
+var demoController = function($scope, $rootScope, $compile, $timeout, Origin) {	
 	
-	
-		
-
 	$scope.demoPlacement = function() {
 		//Reset
 		for(var i = 0; i < $scope.placements.length; i++) {
 			$scope[$scope.placements[i].id]	= '';
 		}
 		
-		//Issue when re-selecting 1st entry
-		angular.element(document.getElementById('originAd-'+$scope.origin_ad.OriginAd.id)).remove();
-		$scope[$scope.demo.placement]	= $compile(decodeURIComponent(origin_embed.replace(/\+/g, ' ')))($scope);
-	}
-	
-
-	/**
-	* Loads the site demo templates
-	*/
-/*
-	$scope.demoInit = function() {		
-		Origin.get('sites').then(function(response) {
-			$scope.templates = response;
-			$scope.demoTemplate();
-		});
+		angular.element(document.getElementById('originAd-'+$rootScope.origin_ad.id)).remove();
 		
-		$j('#demo-panel').draggable({
-			containment:'window',
-			handle: 	'#demoPanel-header'
-		});	
+		//Issue when re-selecting 1st entry - RACE CONDITION?
+		$timeout(function (){$scope[$scope.demo.placement]	= $rootScope.render}, 0);
 	}
-*/
 	
 	/**
 	* Change reskin color when a custom one is available
@@ -46,7 +26,7 @@ var demoController = function($scope, $rootScope, $compile, Origin) {
 	*/
 	$rootScope.demoTemplate = function() {
 		//Clear any out-of-page ads
-		angular.element(document.getElementById('originAd-'+$scope.origin_ad.OriginAd.id)).remove();
+		angular.element(document.getElementById('originAd-'+$rootScope.origin_ad.id)).remove();
 		$scope.demo.template	= '/administrator/get/templates/'+$scope.demo.templateAlias;
 	}
 	
@@ -69,7 +49,7 @@ var demoController = function($scope, $rootScope, $compile, Origin) {
 	*/
 	$scope.demoSave = function() {
 		$scope.demo.route			= 'demoSave';
-		$scope.demo.origin_ad_id	= $scope.origin_ad.OriginAd.id;
+		$scope.demo.origin_ad_id	= $rootScope.origin_ad.id;
 
 		$scope.demo.config = {
 			embedOptions:	$scope.embedOptions,
@@ -77,12 +57,13 @@ var demoController = function($scope, $rootScope, $compile, Origin) {
 			reskin_color:	$scope.demo.reskin_color,
 			reskin_img:		$scope.demo.reskin_img,
 			templateAlias:	$scope.demo.templateAlias,
-			type:			$scope.origin_ad.OriginAd.config.template
+			type:			$rootScope.origin_ad_template
 		};
-		
 		Origin.post($scope.demo).then(function(response) {
-			$scope.link 	= 'http://'+document.domain+'/demo/'+response;
-			//window.open('http://'+document.domain+'/demo/'+response,'_blank');
+			if($scope.demo.id) {
+				$scope.link 	= 'http://'+document.domain+'/demo/'+response;
+				window.open('http://'+document.domain+'/demo/'+response, '_blank');
+			}
 		});
 	}
 };

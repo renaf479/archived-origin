@@ -33,7 +33,7 @@ angular.module('originAd.directives', [])
 				}
 			
 				$rootScope.$watch('hiddenView', function(newValue, oldValue) {
-					if(scope.originAd_config.type === 'expandable') {
+					if(scope.originAd_config.type === 'inpage') {
 						if(element.parent().parent().attr('id') === newValue) {
 							/**
 							* Hide elements

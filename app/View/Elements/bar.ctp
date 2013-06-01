@@ -41,9 +41,46 @@
 		</div>
 		<?php } else { ?>
 		
+		
+		<form id="originBar-login" name="UserLoginForm" class="originBar-login" method="post" action="/administrator/login" novalidate>
+			<div id="login-email" class="inline">
+				<div class="originUI-field">
+					<div class="originUI-fieldBracket"></div>
+					<input type="text" class="originUI-input originUI-bgColorSecondary" name="data[User][email]" id="UserEmail" placeholder="Username or Email" required/>
+				</div>
+			</div>
+			<div id="login-password" class="inline">
+				<div class="originUI-field">
+					<div class="originUI-fieldBracket"></div>
+					<input type="password" class="originUI-input originUI-bgColorSecondary" name="data[User][password]" id="UserPassword" placeholder="Password" required/>
+				</div>
+			</div>
+			<button id="originBar-loginSubmit" class="none" ng:click="formSubmit('UserLoginForm')" ng-disabled="UserLoginForm.$invalid">Login</button>
+			<div id="login-settings" class="">
+			<?php 
+				if(!isset($this->request->data['User']['remember'])) {
+					$this->request->data['User']['remember']=true;
+					$checked	= "checked='checked'";
+				} else {
+					$checked	= "";
+				}
+			?>
+				<div class="inline login-remember-input">
+					<input type="hidden" value="0" id="remember_" name="data[User][remember]">
+					<input type="checkbox" id="remember" value="1" name="data[User][remember]"<?php echo $checked;?>>
+					<label for="remember">Remember me</label>
+				</div> |
+				<a class="inline login-forgot" href="/administrator/forgotPassword">Forgot Password?</a>
+			</div>
+	</form>
+		
+		
+		
+<!--
 		<div id="originBar-login" class="">
 			<a href="/administrator/login" class="originUI-icon originUiIcon-login originUI-borderColor">Login</a>
 		</div>
+-->
 		<?php } ?>
 		<?php echo $this->element('notification');?>
 	</div>

@@ -3,6 +3,33 @@ body {
 	position: static;
 }
 
+body.originClass-edit #origin-bar {
+	height: 18px;
+}
+
+body.originClass-edit #originBar-logo {
+	width: 50px;
+	background-size: 45px 10px;
+	border-width: 0 0 2px;
+	margin-left: 20px;
+}
+
+body.originClass-edit #originBar-logo:hover {
+	background-position: center 4px;
+	height: 16px;
+}
+
+body.originClass-edit #originBar-settingsIcon {
+	background-size: 12px 12px;
+	border-width: 0 0 2px;
+}
+
+body.originClass-edit #originBar-settingsIcon:hover,
+body.originClass-edit #originBar-settings.open #originBar-settingsIcon {
+	height: 16px;
+	background-position: center 3px;
+}
+
 #container {
 	width: auto;
 	position: static;
@@ -17,13 +44,13 @@ body {
 
 #creator-panel-left,
 #creator-panel-workspace {
-	top: 38px;
+	top: 20px;
 }
 
 #creator-panel-workspace {
 	right: 0;
 	left: 200px;
-	top: 80px;
+	top: 61px;
 	z-index: 0;
 	border-width: 3px;
 	border-style: solid;
@@ -482,20 +509,20 @@ body {
 	padding-bottom: 65px;
 }
 
-#layers.originUI-fade-hide-setup,
-#layers.originUI-fade-show-setup.originUI-fade-show-start,
-#library.originUI-fade-hide-setup,
-#library.originUI-fade-show-setup.originUI-fade-show-start {
+#layers.originUI-fade-hide,
+#layers.originUI-fade-show.originUI-fade-show-active,
+#library.originUI-fade-hide,
+#library.originUI-fade-show.originUI-fade-show-active {
 	left: 0;
 }
 
-#layers.originUI-fade-show-setup,
-#layers.originUI-fade-hide-setup.originUI-fade-hide-start {
+#layers.originUI-fade-show,
+#layers.originUI-fade-hide.originUI-fade-hide-active {
 	left: -100%;
 }
 
-#library.originUI-fade-show-setup,
-#library.originUI-fade-hide-setup.originUI-fade-hide-start {
+#library.originUI-fade-show,
+#library.originUI-fade-hide.originUI-fade-hide-active {
 	left: 100%;
 }
 

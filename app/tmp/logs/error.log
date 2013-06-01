@@ -7919,3 +7919,117 @@ Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 161
 2013-05-25 01:12:58 Error: [MissingControllerException] Controller class ImgController could not be found.
 #0 /Users/razor/Sites/evolveorigin/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2013-05-30 02:30:04 Error: [MissingControllerException] Controller class AdministratorController could not be found.
+#0 /Users/razor/Sites/evolveorigin/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-05-30 02:34:29 Error: [MissingControllerException] Controller class AdministratorController could not be found.
+#0 /Users/razor/Sites/evolveorigin/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-05-29 17:48:51 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'OriginAdDesktopInitialContent.origin_ad_schedule' in 'where clause'
+#0 /Users/razor/Sites/evolveorigin/lib/Cake/Model/Datasource/DboSource.php(459): PDOStatement->execute(Array)
+#1 /Users/razor/Sites/evolveorigin/lib/Cake/Model/Datasource/DboSource.php(425): DboSource->_execute('SELECT `OriginA...', Array)
+#2 /Users/razor/Sites/evolveorigin/lib/Cake/Model/Datasource/DboSource.php(669): DboSource->execute('SELECT `OriginA...', Array, Array)
+#3 /Users/razor/Sites/evolveorigin/lib/Cake/Model/Datasource/DboSource.php(1080): DboSource->fetchAll('SELECT `OriginA...', false)
+#4 /Users/razor/Sites/evolveorigin/lib/Cake/Model/Model.php(2637): DboSource->read(Object(OriginAdDesktopInitialContent), Array)
+#5 /Users/razor/Sites/evolveorigin/lib/Cake/Model/Model.php(2433): Model->find('all', Array)
+#6 /Users/razor/Sites/evolveorigin/lib/Cake/Model/Model.php(2364): Model->_deleteDependent('16', true)
+#7 /Users/razor/Sites/evolveorigin/lib/Cake/Model/Model.php(2437): Model->delete('16')
+#8 /Users/razor/Sites/evolveorigin/lib/Cake/Model/Model.php(2364): Model->_deleteDependent('17', true)
+#9 /Users/razor/Sites/evolveorigin/app/Controller/OriginController.php(742): Model->delete('17', true)
+#10 /Users/razor/Sites/evolveorigin/app/Controller/OriginController.php(38): OriginController->adDelete(Array)
+#11 [internal function]: OriginController->post()
+#12 /Users/razor/Sites/evolveorigin/lib/Cake/Controller/Controller.php(485): ReflectionMethod->invokeArgs(Object(OriginController), Array)
+#13 /Users/razor/Sites/evolveorigin/lib/Cake/Routing/Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#14 /Users/razor/Sites/evolveorigin/lib/Cake/Routing/Dispatcher.php(161): Dispatcher->_invoke(Object(OriginController), Object(CakeRequest), Object(CakeResponse))
+#15 /Users/razor/Sites/evolveorigin/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#16 {main}
+2013-05-31 01:27:36 Error: [MissingControllerException] Controller class AdministratorController could not be found.
+#0 /Users/razor/Sites/evolveorigin/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-05-31 01:34:54 Error: [MissingControllerException] Controller class AdministratorController could not be found.
+#0 /Users/razor/Sites/evolveorigin/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-05-31 01:35:01 Error: [MissingControllerException] Controller class AdministratorController could not be found.
+#0 /Users/razor/Sites/evolveorigin/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-05-30 17:13:29 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Array' in 'field list'
+#0 /Users/razor/Sites/evolveorigin/lib/Cake/Model/Datasource/DboSource.php(459): PDOStatement->execute(Array)
+#1 /Users/razor/Sites/evolveorigin/lib/Cake/Model/Datasource/DboSource.php(425): DboSource->_execute('UPDATE `evolveo...', Array)
+#2 /Users/razor/Sites/evolveorigin/lib/Cake/Model/Datasource/Database/Mysql.php(360): DboSource->execute('UPDATE `evolveo...')
+#3 /Users/razor/Sites/evolveorigin/lib/Cake/Model/Model.php(1719): Mysql->update(Object(OriginAd), Array, Array)
+#4 /Users/razor/Sites/evolveorigin/app/Controller/OriginController.php(853): Model->save(Array)
+#5 /Users/razor/Sites/evolveorigin/app/Controller/OriginController.php(38): OriginController->adShowcase(Array)
+#6 [internal function]: OriginController->post()
+#7 /Users/razor/Sites/evolveorigin/lib/Cake/Controller/Controller.php(485): ReflectionMethod->invokeArgs(Object(OriginController), Array)
+#8 /Users/razor/Sites/evolveorigin/lib/Cake/Routing/Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#9 /Users/razor/Sites/evolveorigin/lib/Cake/Routing/Dispatcher.php(161): Dispatcher->_invoke(Object(OriginController), Object(CakeRequest), Object(CakeResponse))
+#10 /Users/razor/Sites/evolveorigin/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#11 {main}
+2013-05-30 17:13:57 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Array' in 'field list'
+#0 /Users/razor/Sites/evolveorigin/lib/Cake/Model/Datasource/DboSource.php(459): PDOStatement->execute(Array)
+#1 /Users/razor/Sites/evolveorigin/lib/Cake/Model/Datasource/DboSource.php(425): DboSource->_execute('UPDATE `evolveo...', Array)
+#2 /Users/razor/Sites/evolveorigin/lib/Cake/Model/Datasource/Database/Mysql.php(360): DboSource->execute('UPDATE `evolveo...')
+#3 /Users/razor/Sites/evolveorigin/lib/Cake/Model/Model.php(1719): Mysql->update(Object(OriginAd), Array, Array)
+#4 /Users/razor/Sites/evolveorigin/app/Controller/OriginController.php(853): Model->save(Array)
+#5 /Users/razor/Sites/evolveorigin/app/Controller/OriginController.php(38): OriginController->adShowcase(Array)
+#6 [internal function]: OriginController->post()
+#7 /Users/razor/Sites/evolveorigin/lib/Cake/Controller/Controller.php(485): ReflectionMethod->invokeArgs(Object(OriginController), Array)
+#8 /Users/razor/Sites/evolveorigin/lib/Cake/Routing/Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#9 /Users/razor/Sites/evolveorigin/lib/Cake/Routing/Dispatcher.php(161): Dispatcher->_invoke(Object(OriginController), Object(CakeRequest), Object(CakeResponse))
+#10 /Users/razor/Sites/evolveorigin/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#11 {main}
+2013-05-30 17:15:23 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Array' in 'field list'
+#0 /Users/razor/Sites/evolveorigin/lib/Cake/Model/Datasource/DboSource.php(459): PDOStatement->execute(Array)
+#1 /Users/razor/Sites/evolveorigin/lib/Cake/Model/Datasource/DboSource.php(425): DboSource->_execute('UPDATE `evolveo...', Array)
+#2 /Users/razor/Sites/evolveorigin/lib/Cake/Model/Datasource/Database/Mysql.php(360): DboSource->execute('UPDATE `evolveo...')
+#3 /Users/razor/Sites/evolveorigin/lib/Cake/Model/Model.php(1719): Mysql->update(Object(OriginAd), Array, Array)
+#4 /Users/razor/Sites/evolveorigin/app/Controller/OriginController.php(853): Model->save(Array)
+#5 /Users/razor/Sites/evolveorigin/app/Controller/OriginController.php(38): OriginController->adShowcase(Array)
+#6 [internal function]: OriginController->post()
+#7 /Users/razor/Sites/evolveorigin/lib/Cake/Controller/Controller.php(485): ReflectionMethod->invokeArgs(Object(OriginController), Array)
+#8 /Users/razor/Sites/evolveorigin/lib/Cake/Routing/Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#9 /Users/razor/Sites/evolveorigin/lib/Cake/Routing/Dispatcher.php(161): Dispatcher->_invoke(Object(OriginController), Object(CakeRequest), Object(CakeResponse))
+#10 /Users/razor/Sites/evolveorigin/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#11 {main}
+2013-05-30 17:40:50 Error: [MissingViewException] View file "/Users/razor/Sites/evolveorigin/app/View/Origin/demo_edit.ctp" is missing.
+#0 /Users/razor/Sites/evolveorigin/lib/Cake/View/View.php(472): View->_getViewFileName(NULL)
+#1 /Users/razor/Sites/evolveorigin/lib/Cake/Controller/Controller.php(956): View->render(NULL, NULL)
+#2 /Users/razor/Sites/evolveorigin/lib/Cake/Routing/Dispatcher.php(193): Controller->render()
+#3 /Users/razor/Sites/evolveorigin/lib/Cake/Routing/Dispatcher.php(161): Dispatcher->_invoke(Object(OriginController), Object(CakeRequest), Object(CakeResponse))
+#4 /Users/razor/Sites/evolveorigin/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-05-30 17:41:14 Error: [MissingViewException] View file "/Users/razor/Sites/evolveorigin/app/View/Origin/demo_edit.ctp" is missing.
+#0 /Users/razor/Sites/evolveorigin/lib/Cake/View/View.php(472): View->_getViewFileName(NULL)
+#1 /Users/razor/Sites/evolveorigin/lib/Cake/Controller/Controller.php(956): View->render(NULL, NULL)
+#2 /Users/razor/Sites/evolveorigin/lib/Cake/Routing/Dispatcher.php(193): Controller->render()
+#3 /Users/razor/Sites/evolveorigin/lib/Cake/Routing/Dispatcher.php(161): Dispatcher->_invoke(Object(OriginController), Object(CakeRequest), Object(CakeResponse))
+#4 /Users/razor/Sites/evolveorigin/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-06-01 00:06:59 Error: [MissingControllerException] Controller class AdministratorController could not be found.
+#0 /Users/razor/Sites/evolveorigin/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-06-01 00:49:45 Error: [MissingControllerException] Controller class LoginController could not be found.
+#0 /Users/razor/Sites/evolveorigin/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-05-31 16:37:55 Error: [MissingViewException] View file "/Users/razor/Sites/evolveorigin/app/View/Origin/demo_edit.ctp" is missing.
+#0 /Users/razor/Sites/evolveorigin/lib/Cake/View/View.php(472): View->_getViewFileName(NULL)
+#1 /Users/razor/Sites/evolveorigin/lib/Cake/Controller/Controller.php(956): View->render(NULL, NULL)
+#2 /Users/razor/Sites/evolveorigin/lib/Cake/Routing/Dispatcher.php(193): Controller->render()
+#3 /Users/razor/Sites/evolveorigin/lib/Cake/Routing/Dispatcher.php(161): Dispatcher->_invoke(Object(OriginController), Object(CakeRequest), Object(CakeResponse))
+#4 /Users/razor/Sites/evolveorigin/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-05-31 16:43:03 Error: [MissingViewException] View file "/Users/razor/Sites/evolveorigin/app/View/Origin/demo_edit.ctp" is missing.
+#0 /Users/razor/Sites/evolveorigin/lib/Cake/View/View.php(472): View->_getViewFileName(NULL)
+#1 /Users/razor/Sites/evolveorigin/lib/Cake/Controller/Controller.php(956): View->render(NULL, NULL)
+#2 /Users/razor/Sites/evolveorigin/lib/Cake/Routing/Dispatcher.php(193): Controller->render()
+#3 /Users/razor/Sites/evolveorigin/lib/Cake/Routing/Dispatcher.php(161): Dispatcher->_invoke(Object(OriginController), Object(CakeRequest), Object(CakeResponse))
+#4 /Users/razor/Sites/evolveorigin/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-05-31 16:54:10 Error: Fatal Error (4): syntax error, unexpected '}' in [/Users/razor/Sites/evolveorigin/app/View/Origin/demo_create.ctp, line 7]
+2013-05-31 16:54:10 Error: [FatalErrorException] syntax error, unexpected '}'
+#0 /Users/razor/Sites/evolveorigin/lib/Cake/Error/ErrorHandler.php(161): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/Users/razor/Si...', 7)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/Users/razor/Si...', 7, Array)
+#2 /Users/razor/Sites/evolveorigin/lib/Cake/Core/App.php(926): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/Users/razor/Si...', 7, Array)
+#3 /Users/razor/Sites/evolveorigin/lib/Cake/Core/App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}

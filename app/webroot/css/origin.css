@@ -7,67 +7,12 @@
 }
 */
 
-body {
-	font-family: 'Segoe UI', Arial, sans-serif;
-/* 	font-family: roboto; */
-	margin: 0;
-	padding: 0;
-	position: relative;
-	/* color: #BDBDBD; */
-	color: #ffffff;
-	background-color: #0a3960;
-}
-
-a {
-	color: inherit;
-	/* color: #BDBDBD; */
-	text-decoration: none;
-	outline: none !important;
-}
-
-a:hover {
-	/* color: #BDBDBD; */
-}
-
-.wrapper {
-	height: inherit;
-	width: 1000px;
-	margin: 0 auto;
-	position: relative;
-}
-
-.content {
-	background-color: #fff;
-	margin-bottom: 10px;
-}
-
-.clear {
-	clear: both;
-}
-
-.inline {
-	display: inline-block;
-	vertical-align: top;
-}
-
-.none {
-	display: none;
-}
-
-#footer {
-	clear: both;
-	font-size: 12px;
-	text-align: center;
-	margin: 15px 0;
-}
 
 
 
 
 /***** START: UI *****/
-textarea {
-	height: auto;
-}
+
 
 /*
 input[type="text"]:focus,
@@ -102,22 +47,6 @@ input:-ms-input-placeholder {
 }
 */
 
-.originUI-bgColor {
-	background-color: #212123;
-}
-
-.originUI-bgColorSecondary {
-	background-color: #282828;
-}
-
-.originUI-bgTexture {
-	background-image: url(/img/bg-texture.png);
-	background-repeat: repeat;
-}
-
-.originUI-borderColor {
-	border-color: #0099cc;
-}
 
 .originUI-outlineColor {
 	outline-color: #0099cc;
@@ -529,10 +458,13 @@ height: 26px;
 }
 ******/
 
+/*
 .originUI-table {
 	margin: 0 0 10px;
 }
+*/
 
+/*
 .originUiTable-head {
 	text-align: left;
 	color: #fff;
@@ -551,6 +483,7 @@ height: 26px;
 	width: 50px;
 	text-align: center;
 }
+*/
 
 
 /***** END: UI *****/

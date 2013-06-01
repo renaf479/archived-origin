@@ -39,8 +39,19 @@ class AppController extends Controller {
 		function beforeFilter(){
 			$this->userAuth();
 		}
+
 		private function userAuth(){
 			$this->UserAuth->beforeFilter($this);
 		}
+
+		function beforeRender(){
+		    if ($this->Session->check('Message.flash')) {
+		        $flash = $this->Session->read('Message.flash');
 		
+		        if ($flash['element'] == 'default') {
+		            $flash['element'] = 'flash_notification';
+		            $this->Session->write('Message.flash', $flash);
+		        }
+		    }
+		}
 }

@@ -1,0 +1,31 @@
+body {
+	font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+#demoQR {
+	position: fixed;
+	width: 180px;
+	height: 160px;
+	bottom: 0;
+	right: 0;
+	font-weight: bold;
+	text-align: center;
+	font-size: 14px;
+	
+	opacity: .1;
+	
+	-webkit-transition: all .4s ease;
+	-moz-transition: all .4s ease;
+	-o-transition: all .4s ease;
+	transition: all .4s ease;
+}
+
+#demoQR-image {
+	width: 160px;
+	height: 160px;
+	background-position: -20px -20px;
+}
+
+#demoQR:hover {
+	opacity: 1;
+}

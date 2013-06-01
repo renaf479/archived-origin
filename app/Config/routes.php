@@ -114,7 +114,8 @@ Router::connect('/administrator/get/rss/:url', array('controller'=>'origin', 'ac
 //DEMO
 Router::connect('/administrator/get/templates/:template', array('controller'=>'origin', 'action'=>'demoLoadTemplate'));
 Router::connect('/administrator/demos', array('controller'=>'origin', 'action'=>'demoList'));
-Router::connect('/administrator/demo/:originAd_id', array('controller'=>'origin', 'action'=>'demoEdit'));
+Router::connect('/administrator/demo/create/:originAd_id', array('controller'=>'origin', 'action'=>'demoCreate'));
+Router::connect('/administrator/demo/edit/:alias', array('controller'=>'origin', 'action'=>'demoEdit'));
 Router::connect('/administrator/settings/sites', array('controller'=>'origin', 'action'=>'siteList'));
 Router::connect('/demo/Origin/:originAd_id', array('controller'=>'origin', 'action'=>'demoOrigin'));
 Router::connect('/demo/:alias', array('controller'=>'origin', 'action'=>'demo'));
@@ -123,6 +124,7 @@ Router::connect('/demo/:alias', array('controller'=>'origin', 'action'=>'demo'))
 Router::connect('/administrator', array('controller'=>'origin', 'action'=>'index'));
 Router::connect('/administrator/list', array('controller'=>'origin', 'action'=>'ad_list'));
 Router::connect('/administrator/Origin/ad/edit/:originAd_id', array('controller'=>'origin', 'action'=>'edit'));
+Router::connect('/administrator/modal/:template', array('controller'=>'origin', 'action'=>'modal'));
 
 //AD
 Router::connect('/ad/:originAd_id/:originAd_platform/*', array('controller'=>'origin', 'action'=>'ad'));

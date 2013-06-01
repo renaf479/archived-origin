@@ -69,7 +69,7 @@ var listController = function($scope, $filter, Origin) {
 		delete $scope.editor.type;
 				
 		Origin.post($scope.editor).then(function(response) {
-			window.location		= response;
+			window.location		= '/administrator/Origin/ad/edit/'+response;
 		});
 	}
 	
@@ -79,14 +79,15 @@ var listController = function($scope, $filter, Origin) {
 			type:	'embed'
 		}
 		
-		$scope.embedOptions.id	= $scope.module.id;
-		$scope.embedOptions.type= $scope.module.config.template;
+		$scope.embedOptions.id		= $scope.module.id;
+		$scope.embedOptions.type	= $scope.module.config.template;
+		$scope.embedOptions.dcopt	= ($scope.module.config.type === 'outofpage')? 'true': 'false';
 		$scope.$parent.originModalOpen();
 	}
 	
 	$scope.loadModule = function(model) {
 		//console.log(model);
-		$scope.module = model.OriginAd;
+		$scope.module 						= model.OriginAd;
 		$scope.refreshDemo();
 	}
 	
@@ -110,6 +111,62 @@ var listController = function($scope, $filter, Origin) {
 				$scope.editor.advance = false;
 				break;
 		}
+	}
+	
+	$scope.demoRemove = function(data) {
+		var ask = confirm('Do you want to delete this demo page?');
+		if(ask){
+			data.OriginDemo.route		= 'demoDelete';
+			
+			Origin.post(data.OriginDemo).then(function(response) {
+				$scope.$parent.notificationOpen('Demo page deleted', 'alert');
+				$j('#actions-wrapper').fadeOut(200);
+				
+				$scope.demos 	= response;		
+			});
+		} else {
+			return false;
+		}
+	}
+	
+	$scope.adRemove = function() {
+		var ask = confirm('Do you want to delete this ad unit?');
+		if(ask){
+			$scope.module.route			= 'adDelete';
+			
+			Origin.post($scope.module).then(function(response) {
+				$scope.$parent.notificationOpen('Ad Deleted', 'alert');
+				$j('#actions-wrapper').fadeOut(200);
+				
+				$scope.ads 		= response.origin_ads;
+				$scope.module	= $scope.ads[0].OriginAd;
+				//console.log($scope.originCreator.list.origin_ads[0].Creator);
+				
+				$scope.refreshDemo();
+				
+			});
+		} else {
+			return false;
+		}
+	}
+	
+	$scope.adShowcase = function() {
+		$scope.module.route		= 'adShowcase';
+		switch($scope.module.showcase) {
+			case '0':
+				$scope.module.showcase	= '1';
+				break;
+			case '1':
+				$scope.module.showcase	= '0';
+				break;
+		}
+		
+		Origin.post($scope.module).then(function(response) {
+			$scope.$parent.notificationOpen('Showcase updated', 'alert');
+			$j('#actions-wrapper').fadeOut(200);
+			//$scope.ads 		= response.origin_ads;
+			//$scope.module	= $scope.ads[0].OriginAd;
+		});
 	}
 	
 	

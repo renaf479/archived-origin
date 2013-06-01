@@ -25,7 +25,7 @@
 			var _scope 	= $scope.$parent;
 			
 			$rootScope.creatorModalSave = function() {				
-				$scope.editor.render	= ($scope.editor.content.iframe)? '<iframe class="embed" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/adIframe/%model%/%id%" frameborder="0" scrolling="no" collapseIframe></iframe>': '<div class="embed" collapse>'+$scope.editor.content.embed+'</div>';
+				$scope.editor.render	= ($scope.editor.content.iframe)? '<iframe class="embed" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/adIframe/%model%/%id%" frameborder="0" scrolling="no" collapse="iframe"></iframe>': '<div class="embed" collapse="content">'+$scope.editor.content.embed+'</div>';
 				
 				_scope.creatorModalSaveContent($scope.editor);
 			}

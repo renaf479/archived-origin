@@ -213,27 +213,15 @@ height:	$scope.workspace.template.config.dimensions[$scope.ui.view][$scope.ui.pl
 		
 		$scope.editor.content 				= data.content;
 		$scope.editor.render				= data.render;
+		$scope.editor.data 					= $scope.workspace.ad.OriginAdSchedule;
 		
 		Origin.post($scope.editor).then(function(response) {
 			$scope.creatorModal	= false;
 			$scope.refreshUI(response);
 			$scope.$parent.notificationOpen('Content saved');
+			$j('#actions-wrapper').fadeOut(200);
 		});
 	}
-/*
-	$scope.creatorModalSave = function() {
-		$scope.editor.route					= 'creatorContentSave';
-		$scope.editor.model					= $scope.ui.platform + $scope.ui.view;
-		$scope.editor.origin_ad_schedule_id	= $scope.ui.origin_ad_schedule_id;
-		$scope.editor.originAd_id			= originAd_id;
-		
-		Origin.post($scope.editor).then(function(response) {
-			$scope.creatorModal	= false;
-			$scope.refreshUI(response);
-			$scope.$parent.notificationOpen('Content saved');
-		});
-	}
-*/
 	
 	/**
 	* Removes the content from the ad
@@ -245,11 +233,13 @@ height:	$scope.workspace.template.config.dimensions[$scope.ui.view][$scope.ui.pl
 			$scope.editor.route			= 'creatorContentRemove';
 			$scope.editor.model			= $scope.ui.platform + $scope.ui.view;
 			$scope.editor.originAd_id	= originAd_id;
+			$scope.editor.data 			= $scope.workspace.ad.OriginAdSchedule;
 
 			Origin.post($scope.editor).then(function(response) {
 				$scope.creatorModal	= false;
 				$scope.refreshUI(response);
 				$scope.$parent.notificationOpen('Content deleted', 'alert');
+				$j('#actions-wrapper').fadeOut(200);
 			});	
 		} else {
 			return false;
@@ -265,11 +255,13 @@ height:	$scope.workspace.template.config.dimensions[$scope.ui.view][$scope.ui.pl
 		$scope.editor.model					= $scope.ui.platform + $scope.ui.view;
 		$scope.editor.origin_ad_schedule_id	= $scope.ui.origin_ad_schedule_id;
 		$scope.editor.originAd_id			= originAd_id;
+		$scope.editor.data 					= $scope.workspace.ad.OriginAdSchedule;
 		
 		Origin.post($scope.editor).then(function(response) {
 			$scope.editor = {};
 			$scope.refreshUI(response);
 			$scope.$parent.notificationOpen('Asset added to workspace');
+			$j('#actions-wrapper').fadeOut(200);
 		});
 	}
 	
@@ -290,8 +282,9 @@ height:	$scope.workspace.template.config.dimensions[$scope.ui.view][$scope.ui.pl
 	* Embed code modal window
 	*/
 	$scope.embedModalOpen = function() {
-		$scope.embedOptions.id	= $scope.workspace.ad.OriginAd.id;
-		$scope.embedOptions.type= $scope.workspace.ad.OriginAd.config.template;
+		$scope.embedOptions.id		= $scope.workspace.ad.OriginAd.id;
+		$scope.embedOptions.type	= $scope.workspace.ad.OriginAd.config.template;
+		$scope.embedOptions.dcopt	= ($scope.workspace.ad.OriginAd.config.type === 'outofpage')? 'true': 'false';
 		$scope.embedModal = true;
 	}
 	
@@ -322,13 +315,13 @@ height:	$scope.workspace.template.config.dimensions[$scope.ui.view][$scope.ui.pl
 	
 	/**
 	* Settings modal's template toggle - Part deux (advanced)
+	* Wut???
 	*/
 	$scope.templateLoad = function() {
 		//console.log($scope.editor.template);
 		$scope.editor.config			= angular.copy($scope.editor.template.OriginTemplate.config);
 		$scope.editor.config.template	= $scope.editor.template.OriginTemplate.alias;
 	}
-	
 	
 	/**
 	* Update Origin ad settings
