@@ -1,6 +1,7 @@
-<div ng:controller="demoController">
-	<?php echo $this->element('sites/origin');?>
-</div>
-
+<script type="text/javascript">
+	var _config			= '<?php echo $origin_ad;?>';
+	var origin_embed	= '<?php echo urlencode($this->element('origin_embed'));?>';
+</script>
 <?php
-	print_r($origin_ad);
+	echo $this->element('sites/origin');
+?>

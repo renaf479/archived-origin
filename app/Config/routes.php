@@ -94,6 +94,7 @@ Router::connect('/administrator/get/ads', array('controller'=>'origin', 'action'
 Router::connect('/administrator/get/ad/:originAd_id', array('controller'=>'origin', 'action'=>'jsonAdUnit'));
 Router::connect('/administrator/get/components', array('controller'=>'origin', 'action'=>'jsonComponent'));
 Router::connect('/administrator/get/components/:component', array('controller'=>'origin', 'action'=>'loadComponent'));
+Router::connect('/administrator/get/demos', array('controller'=>'origin', 'action'=>'jsonDemoList'));
 Router::connect('/administrator/get/demo/:originAd_id', array('controller'=>'origin', 'action'=>'jsonDemo'));
 Router::connect('/administrator/get/library/:originAd_id', array('controller'=>'origin', 'action'=>'jsonLibrary'));
 Router::connect('/administrator/get/templates', array('controller'=>'origin', 'action'=>'jsonTemplate'));
@@ -104,6 +105,7 @@ Router::connect('/administrator/get/monitor/list/:start_date/:end_date/:category
 Router::connect('/administrator/get/monitor/event/:category', array('controller' => 'monitor', 'action' => 'jsonEvent'));
 Router::connect('/administrator/get/monitor/visits', array('controller' => 'monitor', 'action' => 'jsonVisits'));
 Router::connect('/administrator/get/monitor/visits/:start_date/:end_date/:category', array('controller' => 'monitor', 'action' => 'jsonVisits'));
+Router::connect('/administrator/get/showcase/:type', array('controller'=>'origin', 'action'=>'jsonListShowcase'));
 Router::connect('/administrator/get/sites', array('controller'=>'origin', 'action'=>'jsonSite'));
 //Router::connect('/administrator/get/monitor/export/:data', array('controller'=>'monitor', 'action'=>'monitorExport'));
 

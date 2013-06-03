@@ -412,9 +412,22 @@ class OriginController extends AppController {
 	* Default Origin Demo page
 	*/
 	public function demoOrigin() {
-		$this->layout 	= 'demo_public';
+		$this->layout 	= 'demo_default';
+		$origin_ad		= $this->OriginAd->find('first', 
+			array(
+				'recursive'=>-1,
+				'conditions'=>array(
+					'OriginAd.id'=>$this->request->params['originAd_id']
+				),
+				'fields'=>array(
+					'OriginAd.id',
+					'OriginAd.type'
+				)
+			)
+		);
+		
 		$this->set('title_for_layout', 'Origin Demo');
-		$this->set('origin_ad', $this->request->params['originAd_id']);
+		$this->set('origin_ad', json_encode($origin_ad));
 	}
 
 	/**
@@ -491,11 +504,13 @@ class OriginController extends AppController {
 	}
 	
 	/**
-	* Origin system permissions page
+	* Origin system permissions page //UNUSED?
 	*/
+/*
 	public function dashboardAccess() {
 		$this->set('title_for_layout', 'System Settings');
 	}
+*/
 	
 	/**
 	* Adds a new user permissions group
@@ -622,11 +637,11 @@ class OriginController extends AppController {
 								FROM origin_ads ORDER BY create_date DESC LIMIT 30
 								) AS A
 							UNION ALL (
-								SELECT id, name, create_by, modify_by, modify_date as "date", "modified" as "action"
+								SELECT id, name, create_by, modify_by, modify_date as "date", "updated" as "action"
 								FROM origin_ads ORDER BY modify_date DESC LIMIT 30
 								)
 							) AS activity
-						ORDER BY date DESC LIMIT 30');
+						ORDER BY date DESC LIMIT 10');
 		
 		$users		= $this->User->find('all');
 		$this->set('activities', $activities);
@@ -681,6 +696,13 @@ class OriginController extends AppController {
 	}
 	
 	/**
+	* JSON feed of all demos
+	*/
+	public function jsonDemoList() {
+		
+	}
+	
+	/**
 	* JSON feed of a specific Origin ad unit's library
 	*/
 	public function jsonLibrary() {
@@ -700,6 +722,31 @@ class OriginController extends AppController {
 		
 		$this->set('origin_ads', $origin_ads);
 		$this->set('users', $users);
+	}
+	
+	/**
+	* JSON feed of all showcase Origin ad units
+	*/
+	public function jsonListShowcase() {
+		
+		$origin_ads		= $this->OriginAd->find('all', 
+			array(
+				'conditions'=>array(
+					'OriginAd.status'=>1,
+					'OriginAd.showcase'=>1,
+					'OriginAd.type'=>$this->request->params['type']
+				),
+				'fields'=>array(
+					'OriginAd.id',
+					'OriginAd.name',
+					'OriginAd.config',
+					'OriginAd.content',
+					'OriginAd.status',
+					'OriginAd.showcase'),
+				'order'=>array('OriginAd.id DESC'),
+				'recursive'=>2
+			));
+		$this->set('origin_ads', $origin_ads);
 	}
 	
 	/**

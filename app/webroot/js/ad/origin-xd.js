@@ -90,7 +90,7 @@ var originXd = (function() {
 				case 'close':
 					originAdOverlay.width	= '0';
 					originAdOverlay.height	= '0';
-					originAdOverlay.removeAttribute('src');
+					originAdOverlay.setAttribute('src', 'about:blank');
 					break;
 				case 'open':
 					originAdOverlay.src	= originAdOverlay.getAttribute('data-src');

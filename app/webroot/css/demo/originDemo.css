@@ -1,40 +1,142 @@
-#originBar-search,
-#originBar-settings {
-	display: none;
+body {
+	font-family: 'Segoe UI', Arial, sans-serif;
+/* 	font-family: roboto; */
+	margin: 0;
+	padding: 0;
+	position: relative;
+	/* color: #BDBDBD; */
+	color: #ffffff;
+	background-color: #0a3960;
+	background-image: url(/img/bg-texture.png);
+	background-repeat: repeat;
 }
+
+.originUI-borderColor {
+	border-color: #0099cc;
+	transition : border .1s ease-in; 
+	-webkit-transition : border .1s ease-in; 
+	-moz-transition : border .1s ease-in;
+	-o-transition : border .1s ease-in;  
+}
+
+.originUI-bgColor {
+	background-color: #212123;
+}
+
+.originUI-bgColorSecondary {
+	background-color: #282828;
+}
+
+.clear {
+	clear: both;
+}
+
+
 
 #originDemo-wrapper {
 	width: 970px;
 	margin: 0 auto;
 }
 
-#originDemo-leaderboard {
-	width: 970px;
-	min-height: 66px;
-	margin: 10px auto;
+.originDemo-advertisement {
+	display: block;
+	text-align: center;
+	width: 100%;
+	font-size: 12px;
+}
+
+#originDemo-feature {
+	border-width: 1px 0 2px 0;
+	border-style: solid;
+	margin: 10px 0 0;
+	width: 100%;
+	height: 150px;
+	display: block;
+	background-color: gray;	
+}
+
+#originDemo-left,
+#originDemo-right {
+	float: left;
 	display: block;
 }
 
-#originDemoContent-wrapper {
-	padding: 10px 0;
+#originDemo-left {
+	margin: 0 15px 0 0;
+	width: 640px;
+	
+	height: 500px;
 }
 
-#originDemoContent-center {
-	border-width: 3px 0 1px;
+#originDemo-right {
+	width: 300px;
+}
+
+.embedLeaderboard {
+	display: block;
+	width: 970px;
+	margin: 0 auto;
+}
+
+.embedSidebar {
+	width: 300px;
+}
+
+
+
+
+
+
+
+
+#footer {
+	clear: both;
+	font-size: 12px;
+	text-align: center;
+	padding: 15px 0;
+}
+
+
+
+/* =======================================================================
+	Origin Bar
+========================================================================== */
+#origin-bar {
+	width: 100%;
+	height: 37px;
+	border-width: 0 0 1px;
+	border-style: solid;
+	background-color: #000;	
+}
+
+#origin-bar.originUI-fixed {
+	opacity: .85;
+}
+
+#originBar-logo {
+	background: transparent url(/img/logo-small.png) no-repeat center center;
+	width: 110px;
+	height: inherit;
+	text-indent: -5000em;
+	display: block;
+}
+
+#originBar-logo:hover {
+	height: 32px;
+	background-position: center 9px;
+	border-width: 0 0 5px;
 	border-style: solid;
 }
 
-#originDemoContent-left,
-#originDemoContent-right {
-	height: 100%;
+#originBar-login {
+	height: inherit;
+	position: absolute;
+	right: 0;
+	top: 0;
 }
 
-#originDemoContent-left {
-	width: 645px;
-	margin: 0 15px 0 5px;
-}
-
-#originDemoContent-right {
-	width: 300px;
-	margin: 0 5px 0 0;
+#originBar-search,
+#originBar-settings,
+#origin-notification {
+	display: none;
 }

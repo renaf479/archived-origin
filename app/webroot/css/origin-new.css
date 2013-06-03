@@ -309,11 +309,11 @@ li {
 	Elements
 ========================================================================== */
 .originUI-header {
-	margin: 10px 0;
+	margin: 5px 0;
 	text-transform: uppercase;
 	font-weight: normal;
 	line-height: normal;
-	font-size: 30px;
+	font-size: 28px;
 }
 
 
@@ -522,55 +522,34 @@ body.originClass-edit #originBar-search {
 /* =======================================================================
 	Guidelines
 ========================================================================== */
-#guidelines-summary,
-#guidelines-dimensions {
-	position: relative;
-	padding: 10px 0;
-	border-width: 0 0 1px 0;
-	border-style: solid;
+#guidelines-header {
+	text-transform: none;
 }
 
 #guidelines-summary {
-	height: 130px;	
+	font-style: italic;
+	font-size: 13px;
+}
+
+#guidelines-left {
+	width: 630px;
+	margin-right: 15px;
+	position: relative;
+	padding-bottom: 5px;
+}
+
+#guidelines-dimensionsHeader {
+	text-indent: 15px;
 }
 
 #guidelines-dimensions {
-	height: 200px;
-}
-
-.guidelines-left {
-	width: 60%;
-	position: absolute;
-}
-
-.guidelines-right {
-	width: 300px;
-	position: absolute;
-	right: 0;
-}
-
-.guidelines-header {
-	font-weight: normal;
-	border-width: 0 0 1px 0;
-	border-style: solid;
-	margin: 0;
-	line-height: normal;
-	width: 100%;
-}
-
-#guidelines-summaryDescription {
-	position: absolute;
-	width: 100%;
-}
-
-#guidelines-summaryStoryboard {
-	top: 20px;
+	position: relative;
 }
 
 #guidelines-dimensionsPlatforms {
 	position: absolute;
-	top: 0;
-	left: 450px;
+	top: 10px;
+	right: 5px;
 }
 
 .guidelines-dimensionsIcon {
@@ -581,7 +560,64 @@ body.originClass-edit #originBar-search {
 	background-repeat: no-repeat;
 	background-position: center center;
 	display: inline-block;
-	margin: 8px;
+	margin: 0 3px;
+	opacity: .1
+}
+
+.guidelines-dimensionsIcon:hover,
+.guidelines-dimensionsIcon.active {
+	opacity: 1;
+}
+
+.guidelines-dimensionsIcon.active:hover {
+	cursor: default;
+}
+
+#guidelines-dimensionsInitialHeader,
+#guidelines-dimensionsTriggeredHeader {
+	margin: 10px 0 0 0;
+	height: 18px;
+	line-height: 18px;
+	font-size: 18px;
+	text-indent: 25px;
+}
+
+#guidelines-dimensionsInitialHeader {
+	background: transparent url(/img/creator-view.png) no-repeat left bottom / 18px auto;
+}
+
+#guidelines-dimensionsTriggeredHeader {
+	background: transparent url(/img/creator-view.png) no-repeat left top / 18px auto;
+}
+
+#guidelines-dimensionsTriggered {
+	border-width: 1px 0 0;
+	border-style: solid;
+}
+
+.guidelines-dimensionsPreview {
+	position: relative;
+	padding: 22px 25px 10px 0;
+	margin-top: -10px;
+}
+
+.guidelines-dimensionsWidth,
+.guidelines-dimensionsHeight {
+	position: absolute;
+	font-size: 14px;
+}
+
+.guidelines-dimensionsWidth {
+	top: 0;
+	left: 45%;
+}
+
+.guidelines-dimensionsHeight {
+	right: 0;
+	top: 50%;
+	transform: rotate(90deg);
+	line-height: 0;
+	height: 14px;
 }
 
 #guidelines-dimensionsDesktop {
@@ -596,15 +632,38 @@ body.originClass-edit #originBar-search {
 	background-image: url(/img/mobile-26x26.png);
 }
 
-.guidelines-component {
-	margin: 10px 15px;
-	width: 150px;
-	height: 100px;
-	border-width: 0 0 1px 3px;
-	border-style: solid;
+
+
+#guidelines-showcase {
+	width: 350px;
+	padding-bottom: 5px;
 }
 
+#guidelines-showcaseHeader {
+	background-image: url(/img/origin-26x26.png);
+}
 
+.guidelines-showcaseAd + .guidelines-showcaseAd {
+	border-top: 1px solid #303030;
+}
+
+/*
+#guidelines-components {
+	margin-top: 20px;
+}
+
+.guidelines-component {
+	width: 100px;
+	height: 50px;
+	border-width: 0 0 1px 3px;
+	border-style: solid;
+	margin-right: 20px;
+}
+
+.guidelines-component + .guidelines-component {
+
+}
+*/
 /*
 #guidelines-summary {
 	width: 330px;

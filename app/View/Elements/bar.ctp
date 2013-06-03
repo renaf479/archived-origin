@@ -1,6 +1,11 @@
 <?php
+	$url	= $_SERVER['REQUEST_URI'];
+	$path	= parse_url($url);
+	$path	= explode('/', $path['path'])[1];
+	
 	$userId		= $this->UserAuth->getUserId();
-	$linkLogo	= ($userId)? '/administrator/': '/';
+	//$linkLogo	= ($userId)? '/administrator/': '/';
+	$linkLogo	= ($path === 'administrator')? '/administrator': '/';
 ?>
 <div id="origin-bar" class="originUI-borderColor">
 	<div class="wrapper">

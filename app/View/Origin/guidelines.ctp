@@ -1,148 +1,53 @@
 <script type="text/javascript">
-	var _template	= '<?php echo json_encode($specsheet);?>';
+	var _template	= '<?php echo addslashes(json_encode($specsheet));?>';
 </script>
-<div id="guidelines" ng:controller="guidelinesController">
-	<h2 class="originUI-header">{{template.name}}</h2>
+<div id="guidelines" ng:controller="guidelinesController" ng:cloak>
+	<h2 id="guidelines-header" class="originUI-header">{{template.name}} Unit Guidelines</h2>
 	
-	
-	<div class="originUI-bgColor originUI-shadow originUI-tileContent">
-		<div id="guidelines-summary" class="originUI-borderColorSecondary">
-			<div class="guidelines-left">
-				<h2 id="guidelines-summaryHeader" class="originUI-borderColor guidelines-header">Summary</h2>
-				<p id="guidelines-summaryDescription" class="">{{template.content.description}}</p>
-			</div>
-			<img id="guidelines-summaryStoryboard" class="guidelines-right" ng:src="{{template.content.file_storyboard}}"/>
-		</div>
-		<div id="guidelines-dimensions" class="originUI-borderColorSecondary">
-			<div class="guidelines-left">
-				<h2 id="guidelines-dimensionsHeader" class="originUI-borderColor guidelines-header">Guidelines</h2>
-				<ul id="guidelines-dimensionsPlatforms" class="originUI-list">
-					<li id="guidelines-dimensions{{platform.name}}" class="guidelines-dimensionsIcon" ng:show="template.config.dimensions.Initial[platform.name]" ng:repeat="platform in platforms" ng:click="dimensionsShow(platform.name)">{{platform.name}}</li>
-				</ul>
-			</div>
-			
-			<div class="guidelines-right">
-				<ul class="originUI-list">
-					<li>Initial: {{template.config.dimensions.Initial[platformShow].width}} x {{template.config.dimensions.Initial[platformShow].height}}</li>
-					<li>Triggered: {{template.config.dimensions.Triggered[platformShow].width}} x {{template.config.dimensions.Triggered[platformShow].height}}</li>
-				</ul>
-			</div>
-			<div id="" ng:repeat="platform in platforms" ng:show="platform.name == platformShow">
-				
-			
-<!--
-				<div class="guidelines-dimensionsInitial" style="width:{{template.config.dimensions.Initial[platform.name].width}}px;height:{{template.config.dimensions.Initial[platform.name].height}}px">
-					<span class="guidelines-dimensionsMeta">{{template.config.dimensions.Initial[platform.name].width}} x {{template.config.dimensions.Initial[platform.name].height}}</span>
-				</div>
-				<img class="guidelines-dimensionsImage" ng:src="http://placehold.it/{{template.config.dimensions.Triggered[platform.name].width}}x{{template.config.dimensions.Triggered[platform.name].height}}"/>
--->
-			</div>
-			
-		</div>
-		<div id="guidelines-components">
-			<h2 id="guidelines-componentsHeader" class="originUI-borderColor guidelines-header">Features</h2>
-			<div ng:repeat="component in components" class="originUI-bgColorSecondary originUI-borderColor inline guidelines-component" tooltip-placement="bottom" tooltip="{{component.OriginComponent.content.description}}">
-				{{component.OriginComponent.name}}
-				<img ng:src="{{component.OriginComponent.config.img_icon}}"/>
-			</div>
-		</div>
-	</div>
-
-	
-<!--
-	<div id="guidelines-dimensions" class="originUI-tileRight originUI-shadow originUI-bgColor" data-intro="Ad unit dimension guidelines. Click on the Desktop, Tablet or Mobile icons to switch views." data-position="bottom">
-		<h3 id="guidelines-dimensionsHeader" class="originUI-tileHeader originUI-borderColor originUI-textColor">{{platformShow}} Ad Dimensions</h3>
+	<div id="guidelines-left" class="originUI-borderColorSecondary originUI-bgColor originUI-shadow inline">
+		<h3 id="guidelines-dimensionsHeader" class="originUI-tileHeader originUI-borderColor originUI-textColor">Ad Unit Guides</h3>
 		<ul id="guidelines-dimensionsPlatforms" class="originUI-list">
-			<li id="guidelines-dimensions{{platform.name}}" class="guidelines-dimensionsIcon" ng:show="template.config.dimensions.Initial[platform.name]" ng:repeat="platform in platforms" ng:click="dimensionsShow(platform.name)">{{platform.name}}</li>
+			<li id="guidelines-dimensions{{platform.name}}" class="guidelines-dimensionsIcon originUI-hover" ng:show="template.config.dimensions.Initial[platform.name].width" ng:repeat="platform in platforms" ng:click="dimensionsShow(platform.name)" ng:class="(platform.name == platformShow)? 'active': ''">{{platform.name}}</li>
 		</ul>
-		<div class="originUI-tileContent">
-			<div id="" ng:repeat="platform in platforms" ng:show="platform.name == platformShow" ng:cloak>
-				<div class="guidelines-dimensionsInitial" style="width:{{template.config.dimensions.Initial[platform.name].width}}px;height:{{template.config.dimensions.Initial[platform.name].height}}px">
-					<span class="guidelines-dimensionsMeta">{{template.config.dimensions.Initial[platform.name].width}} x {{template.config.dimensions.Initial[platform.name].height}}</span>
+		<div id="guidelines-dimensions" class="originUI-tileContent">
+			<p id="guidelines-summary" class="">{{template.content.description}}</p>
+			<h4 id="guidelines-dimensionsInitialHeader">Initial</h4>
+			<div id="guidelines-dimensionsInitial" class="guidelines-dimensionsPreview">
+				<span class="guidelines-dimensionsWidth">{{template.config.dimensions.Initial[platformShow].width}}px</span>
+				<span class="guidelines-dimensionsHeight">{{template.config.dimensions.Initial[platformShow].height}}px</span>
+				<img id="" class="guidelines-dimensionsImage" ng:src="{{dimensionsInitial}}" src="http://placehold.it/100/100"/>
+			</div>
+			<div id="guidelines-dimensionsTriggered" class="originUI-borderColorSecondary" ng:show="template.config.dimensions.Triggered[platformShow].width > 0">
+				<h4 id="guidelines-dimensionsTriggeredHeader">Triggered</h4>
+				<div class="guidelines-dimensionsPreview">
+					<span class="guidelines-dimensionsWidth">{{template.config.dimensions.Triggered[platformShow].width}}px</span>
+					<span class="guidelines-dimensionsHeight">{{template.config.dimensions.Triggered[platformShow].height}}px</span>
+					<img id="" class="guidelines-dimensionsImage" ng:src="{{dimensionsTriggered}}" src="http://placehold.it/100/100"/>
 				</div>
-				<img class="guidelines-dimensionsImage" ng:src="http://placehold.it/{{template.config.dimensions.Triggered[platform.name].width}}x{{template.config.dimensions.Triggered[platform.name].height}}"/>
 			</div>
 		</div>
 	</div>
-</div>
+	<div id="guidelines-showcase" class="inline originUI-bgColor originUI-shadow">
+		<h2 id="guidelines-showcaseHeader" class="originUI-tileHeader originUI-borderColor originUI-textColor">Showcase Units</h2>
+		<div class="originUI-tileContent">
+			<ul class="originUI-list">
+				<li ng:repeat="ad in showcase|filter:{OriginAd.config.template: template.alias}" class="guidelines-showcaseAd">
+					<a href="/demo/Origin/{{ad.OriginAd.id}}" target="_blank">
+						<h3>{{ad.OriginAd.name}}</h3>
+						<img ng:src="{{ad.OriginAd.content.img_thumbnail}}"/>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+<!--
+	<div id="guidelines-components">
+		<div ng:repeat="component in components" class="originUI-bgColorSecondary originUI-borderColor inline guidelines-component" tooltip-placement="bottom" tooltip="{{component.OriginComponent.content.description}}">
+			{{component.OriginComponent.name}}
+			<img ng:src="{{component.OriginComponent.config.img_icon}}"/>
+		</div>
+	</div>
 -->
-
 
 <?php
 	echo $this->Minify->script(array('controllers/guidelinesController'));
-
-
-	//print_r($specsheet);
-
-
-	/*
-	
-	
-	<img src="http://placehold.it/<?php echo $specsheet['config']->dimensions->Initial->Desktop->width;?>x<?php echo $specsheet['config']->dimensions->Initial->Desktop->height;?>"/>
-	
-	
-	
-	Array
-(
-    [OriginTemplate] => Array
-        (
-            [id] => 1
-            [name] => Sliver
-            [alias] => horizon
-            [content] => stdClass Object
-                (
-                    [alias] => horizon
-                    [description] => This out-of-page unit appears above the site. Triggering the expansion will pushdown the site to reveal the contents.
-                    [file_storyboard] => /assets/templates/horizon.png
-                    [file_specs] => 
-                    [file_logo] => 
-                )
-
-            [config] => stdClass Object
-                (
-                    [type] => expandable
-                    [dimensions] => stdClass Object
-                        (
-                            [Initial] => stdClass Object
-                                (
-                                    [Desktop] => stdClass Object
-                                        (
-                                            [width] => 1500
-                                            [height] => 66
-                                        )
-
-                                )
-
-                            [Triggered] => stdClass Object
-                                (
-                                    [Desktop] => stdClass Object
-                                        (
-                                            [width] => 1500
-                                            [height] => 415
-                                        )
-
-                                )
-
-                        )
-
-                    [animations] => stdClass Object
-                        (
-                            [start] => 0
-                            [end] => 415
-                            [selector] => initial
-                            [openDuration] => 500
-                            [closeDuration] => 400
-                        )
-
-                )
-
-            [create_date] => 2013-04-20 23:35:45
-            [modify_date] => 2013-04-23 16:59:46
-            [create_by] => 1
-            [modify_by] => 1
-            [status] => 1
-        )
-
-)
-	
-	*/
