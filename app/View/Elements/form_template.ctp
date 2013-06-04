@@ -30,12 +30,14 @@
 			<textarea class="originUI-textarea originUI-bgColorSecondary" ng:model="<?php echo $editor;?>.content.description" required></textarea>
 		</div>
 	</li>
+<!--
 	<li>
 		<div id="adTemplate-storyboardUpload" class="originUI-upload originUI-icon originUiIcon-upload">
 			<span class="originUI-uploadLabel">Upload Storyboard</span>
 			<input type="file" name="files[]" id="adTemplate-upload-storyboard" class="originUI-uploadInput" ng:model="<?php echo $editor;?>.content.file_storyboard" fileupload>
 		</div>
 	</li>
+-->
 </ul>
 
 <?php } else if($view === 'right') { ?>

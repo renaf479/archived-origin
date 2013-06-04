@@ -385,25 +385,40 @@ li {
 }
 
 #originBar-logo {
-	background: transparent url(/img/logo-small.png) no-repeat center center;
 	width: 110px;
-	height: inherit;
+	height: 100%;
+	display: block;
+	cursor: pointer;
+}
+
+#originBar-logoIcon {
+	background: transparent url(/img/logo-small.png) no-repeat center center;
 	text-indent: -5000em;
+	width: 100%;
+	height: 100%;
 	display: block;
 }
 
-#originBar-logo:hover {
+#originBar-logoIcon:hover,
+#originBar-logo.open #originBar-logoIcon {
 	height: 32px;
 	background-position: center 9px;
 	border-width: 0 0 5px;
 	border-style: solid;
 }
 
+#originBar-logoMenu {
+	border-width: 0 0 1px 3px;
+	border-style: solid;
+	margin: 0;
+}
+
 #originBar-login,
-#originBar-settings {
+#originBar-settings,
+#originBar-help {
 	height: inherit;
 	position: absolute;
-	right: 0;
+	right: 30px;
 	top: 0;
 }
 
@@ -431,8 +446,8 @@ body.originClass-edit #originBar-search {
 
 #originBar-settingsIcon {
 	cursor: pointer;
-	background: transparent url(/img/user-26x26.png) no-repeat center center;
-	width: 26px;
+	background: transparent url(/img/user-18x18.png) no-repeat center center;
+	width: 18px;
 	height: 100%;
 	text-indent: -5000em;
 	display: block;
@@ -440,7 +455,7 @@ body.originClass-edit #originBar-search {
 
 #originBar-settingsIcon:hover,
 #originBar-settings.open #originBar-settingsIcon {
-	background-position: center 6px;
+	background-position: center 10px;
 	border-width: 0 0 5px;
 	border-style: solid;
 	height: 32px;
@@ -453,7 +468,8 @@ body.originClass-edit #originBar-search {
 	border-style: solid;
 }
 
-#originBar-settings a.originBar-settings {
+#originBar-settings a.originBar-settings,
+#originBar-logoMenu a.originBar-settings {
 	background-repeat: no-repeat;
 	background-position: 10px center;
 	text-indent: 10px;
@@ -464,7 +480,7 @@ body.originClass-edit #originBar-search {
 }
 
 #originBar-config {
-	background-image: url(/img/dropdown-setting.png);
+	background-image: url(/img/settings-18x18.png);
 }
 
 #originBar-account {
@@ -472,12 +488,51 @@ body.originClass-edit #originBar-search {
 }
 
 #originBar-help {
-	background-image: url(/img/dropdown-help.png);
+	background: transparent url(/img/dropdown-help.png) no-repeat center center;
+	right: 0;
+	cursor: pointer;
+	text-indent: -5000em;
+	width: 18px;
+	height: 100%;
+	display: block;
+}
+
+#originBar-home {
+	background-image: url(/img/home-18x18.png);
 }
 
 #originBar-logout {
 	background-image: url(/img/dropdown-exit.png);
 }
+
+#origin-bar.originBar-guest {
+	height: 65px;
+}
+
+#origin-bar.originBar-guest #originBar-logoIcon:hover {
+	height: inherit;
+	background-position: center center;
+	border: 0px solid black;
+}
+
+#origin-bar.originBar-guest #originBar-login {
+	position: absolute;
+	top: 0;
+	right: 20px;
+	width: 320px;
+	height: 45px;
+	margin-top: 15px;
+}
+
+#origin-bar.originBar-guest #login-email,
+#origin-bar.originBar-guest #login-password {
+	margin: 0 5px;
+}
+
+#origin-bar.originBar-guest #login-settings {
+	margin: 0 0 0 5px;
+}
+
 
 /* =======================================================================
 	Dashboard
@@ -801,73 +856,6 @@ body.originClass-edit #originBar-search {
 	float: right;
 }
 
-/* =======================================================================
-	Scrollbar
-========================================================================== */
-.antiscroll-wrap {
-  display: inline-block;
-  position: relative;
-  overflow: hidden;
-}
-
-.antiscroll-scrollbar {
-  background: gray;
-  background: rgba(0, 0, 0, 0.5);
-  -webkit-border-radius: 7px;
-  -moz-border-radius: 7px;
-  border-radius: 7px;
-  -webkit-box-shadow: 0 0 1px #fff;
-  -moz-box-shadow: 0 0 1px #fff;
-  box-shadow: 0 0 1px #fff;
-  position: absolute;
-  opacity: 0;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
-  -webkit-transition: linear 300ms opacity;
-  -moz-transition: linear 300ms opacity;
-  -o-transition: linear 300ms opacity;
-}
-
-.antiscroll-scrollbar-shown {
-  opacity: 1;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
-}
-
-.antiscroll-scrollbar-horizontal {
-  height: 7px;
-  margin-left: 2px;
-  bottom: 2px;
-  left: 0;
-}
-
-.antiscroll-scrollbar-vertical {
-  width: 7px;
-  margin-top: 2px;
-  right: 2px;
-  top: 0;
-}
-
-.antiscroll-inner {
-  overflow: scroll;
-}
-
-/** A bug in Chrome 25 on Lion requires each selector to have their own
-    blocks. E.g. the following:
-
-    .antiscroll-inner::-webkit-scrollbar, .antiscroll-inner::scrollbar {...}
-
-    causes the width and height rules to be ignored by the browser resulting
-    in both native and antiscroll scrollbars appearing at the same time.
- */
-.antiscroll-inner::-webkit-scrollbar {
-  width: 0;
-  height: 0;
-}
-
-.antiscroll-inner::scrollbar {
-  width: 0;
-  height: 0;
-}
-
 
 /* =======================================================================
 	Tables
@@ -907,6 +895,10 @@ body.originClass-edit #originBar-search {
 	padding-top: 10px;
 	width: 50px;
 	text-align: center;
+}
+
+.originUI-tableDescription {
+	padding: 5px;
 }
 
 .originUI-tableGroup {
@@ -1075,7 +1067,7 @@ body.originClass-edit #originBar-search {
 ========================================================================== */
 #adTemplate-create,
 #adTemplate-list {
-	min-height: 622px;
+	min-height: 586px;
 }
 
 #adTemplate-createHeader {

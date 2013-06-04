@@ -1,5 +1,14 @@
 <div id="demo-reskin" back-img='{{demo.reskin_img}}' ng:style="reskin">
-	<?php echo $this->element('bar');?>
+
+	<div id="origin-bar" class="originUI-borderColor">
+		<div class="wrapper">
+			<div id="originBar-logo">
+				<a href="/" id="originBar-logoIcon" class="originUI-borderColor">Origin</a>
+			</div>
+		</div>
+	</div>
+
+
 	
 	<div class="embedLeaderboard">
 		<span class="originDemo-advertisement">advertisement</span>
@@ -10,12 +19,18 @@
 	
 	<div id="originDemo-wrapper" class="originUI-bgColor">
 		
-		<div id="originDemo-left"></div>
+		<div id="originDemo-left">
+			<h2 id="originDemo-contentHeader" class="originUI-borderColor">Lorem ipsum dolor</h2>
+			<img src="/img/_sites/origin/content.jpg"/>
+		</div>
 		<div id="originDemo-right">		
 			<div class="embedSidebar">
 				<span class="originDemo-advertisement">advertisement</span>
 				<adTag data-name="Sidebar" id="embedSidebar" class="embedAd" ng:bind-html-unsafe="embedSidebar"></adTag>
 				<img src="http://placehold.it/300x250" ng:show="!embedSidebar"/>
+			</div>
+			
+			<div id="originDemo-sideContent">
 			</div>
 		</div>
 		<?php echo $this->element('footer');?>

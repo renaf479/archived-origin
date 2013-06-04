@@ -4,7 +4,7 @@
 <div id="guidelines" ng:controller="guidelinesController" ng:cloak>
 	<h2 id="guidelines-header" class="originUI-header">{{template.name}} Unit Guidelines</h2>
 	
-	<div id="guidelines-left" class="originUI-borderColorSecondary originUI-bgColor originUI-shadow inline">
+	<div id="guidelines-left" class="originUI-borderColorSecondary originUI-bgColor originUI-shadow inline" data-intro="Ad unit dimension guidelines" data-position="left">
 		<h3 id="guidelines-dimensionsHeader" class="originUI-tileHeader originUI-borderColor originUI-textColor">Ad Unit Guides</h3>
 		<ul id="guidelines-dimensionsPlatforms" class="originUI-list">
 			<li id="guidelines-dimensions{{platform.name}}" class="guidelines-dimensionsIcon originUI-hover" ng:show="template.config.dimensions.Initial[platform.name].width" ng:repeat="platform in platforms" ng:click="dimensionsShow(platform.name)" ng:class="(platform.name == platformShow)? 'active': ''">{{platform.name}}</li>
@@ -27,7 +27,7 @@
 			</div>
 		</div>
 	</div>
-	<div id="guidelines-showcase" class="inline originUI-bgColor originUI-shadow">
+	<div id="guidelines-showcase" class="inline originUI-bgColor originUI-shadow" data-intro="Showcase units of this ad unit type. Click to see a demo." data-position="right">
 		<h2 id="guidelines-showcaseHeader" class="originUI-tileHeader originUI-borderColor originUI-textColor">Showcase Units</h2>
 		<div class="originUI-tileContent">
 			<ul class="originUI-list">

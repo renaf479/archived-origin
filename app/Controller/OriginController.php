@@ -421,12 +421,13 @@ class OriginController extends AppController {
 				),
 				'fields'=>array(
 					'OriginAd.id',
+					'OriginAd.name',
 					'OriginAd.type'
 				)
 			)
 		);
 		
-		$this->set('title_for_layout', 'Origin Demo');
+		$this->set('title_for_layout', $origin_ad['OriginAd']['name']);
 		$this->set('origin_ad', json_encode($origin_ad));
 	}
 
