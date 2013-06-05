@@ -74,8 +74,15 @@ var originXd = (function() {
 				}
 			*/	
 		},
-		toggleExpand: function(data) {
-			anim(document.getElementById(data.id), {height:data.resizeHeight,width:data.resizeWidth}, data.duration, 'ease-out');
+		toggleExpand: function(data) {	
+			switch(data.type) {
+				case 'horizon':
+					anim(document.getElementById(data.id), {height:data.resizeHeight}, data.duration, 'ease-out');
+					break;
+				default:
+					anim(document.getElementById(data.id), {height:data.resizeHeight,width:data.resizeWidth}, data.duration, 'ease-out');
+					break;
+			}
 		},
 		toggleOverlay: function(data) {
 			var originAdOverlay	= document.getElementById(data.idTriggered);

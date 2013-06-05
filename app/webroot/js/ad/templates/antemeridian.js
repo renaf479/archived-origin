@@ -12,7 +12,8 @@ var antemeridianController = function($scope, $rootScope, $timeout, OriginAdServ
 		callback:	'toggleOverlay',
 		action:		'close',
 		idInitial:	'originAd-'+$scope.origin_ad.OriginAd.id,
-		idTriggered:'originAd-'+$scope.origin_ad.OriginAd.id
+		idTriggered:'originAd-'+$scope.origin_ad.OriginAd.id,
+		type:		'antemeridian'
 	};
 	
 	$scope.close = function() {

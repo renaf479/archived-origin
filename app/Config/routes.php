@@ -88,7 +88,7 @@ Router::connect('/administrator/Origin/Post', array('controller'=>'origin', 'act
 Router::connect('/administrator/Origin/upload', array('controller'=>'origin', 'action'=>'upload'));
 
 
-//JSON Feeds
+//JSON Feeds (Admin)
 Router::connect('/administrator/get/activity', array('controller'=>'origin', 'action'=>'jsonActivity'));
 Router::connect('/administrator/get/ads', array('controller'=>'origin', 'action'=>'jsonList'));
 Router::connect('/administrator/get/ad/:originAd_id', array('controller'=>'origin', 'action'=>'jsonAdUnit'));
@@ -108,6 +108,11 @@ Router::connect('/administrator/get/monitor/visits/:start_date/:end_date/:catego
 Router::connect('/administrator/get/showcase/:type', array('controller'=>'origin', 'action'=>'jsonListShowcase'));
 Router::connect('/administrator/get/sites', array('controller'=>'origin', 'action'=>'jsonSite'));
 //Router::connect('/administrator/get/monitor/export/:data', array('controller'=>'monitor', 'action'=>'monitorExport'));
+
+//JSON Feeds (Public)
+Router::connect('/get/templates', array('controller'=>'origin', 'action'=>'jsonTemplateHome'));
+Router::connect('/get/ads', array('controller'=>'origin', 'action'=>'jsonList'));
+Router::connect('/get/ad/:originAd_id', array('controller'=>'origin', 'action'=>'jsonAdUnit'));
 
 //RSS Feed
 Router::connect('/administrator/get/rss/:url', array('controller'=>'origin', 'action'=>'rssFeed'), array('url'=>'(.*)', 'pass'=>array('url')));
@@ -141,7 +146,7 @@ Router::connect('/administrator/Monitor/Post', array('controller'=>'monitor', 'a
 * PUBLIC VIEWS
 */
 //Spec Sheets/Guidelines
-Router::connect('/guidelines/:specsheet_alias', array('controller'=>'origin', 'action'=>'guidelines'));
+Router::connect('/guidelines/:specsheet_alias', array('controller'=>'pages', 'action'=>'display'));
 
 
 /**

@@ -1,6 +1,6 @@
 <div id="ad-template" ng:controller="templatesController" ng:cloak>
 	<h2 class="originUI-header">Ad Templates</h2>
-	<form id="adTemplate-create" name="adTemplateCreateForm" class="originUI-tileLeft originUI-bgColor originUI-shadow" novalidate>
+	<form id="adTemplate-create" name="adTemplateCreateForm" class="originUI-tileLeft originUI-bgColorSecondary originUI-shadow" novalidate>
 		<input type="hidden" name="uploadDir" value="/assets/templates/"/>
 		<h3 id="adTemplate-createHeader" class="originUI-tileHeader originUI-borderColor originUI-textColor">Create</h3>
 		<div class="originUI-tileContent">

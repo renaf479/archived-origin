@@ -21,7 +21,8 @@ var postmeridianController = function($scope, $rootScope, $timeout, OriginAdServ
 		callback:	'toggleOverlay',
 		action:		'continue',
 		idInitial:	'originAd-'+$scope.origin_ad.OriginAd.id,
-		idTriggered:'originAd-'+$scope.origin_ad.OriginAd.id+'-overlay'
+		idTriggered:'originAd-'+$scope.origin_ad.OriginAd.id+'-overlay',
+		type:		'postmeridian'
 	};
 	
 	$scope.close = function() {

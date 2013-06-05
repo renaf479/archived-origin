@@ -94,11 +94,43 @@ body:not(.originUI-superAdmin) .originUI-superAdmin {
 	border-color: #303030;
 }
 
+
+/*
+.fade-hide, .fade-show {
+  -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+  -moz-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+  -o-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+}
+
+.fade-hide {
+  opacity:1;
+}
+.fade-hide.fade-hide-active {
+  opacity:0;
+}
+
+.fade-show {
+  opacity:0;
+}
+.fade-show.fade-show-active {
+  opacity:1;
+}
+
+foo-setup/foo-start to foo/foo-active
+*/
+
 .originUI-fade-hide,
 .originUI-fade-show,
 .originUI-fade-enter,
 .originUI-fade-leave,
 .originUI-fade-move {
+/*
+	-webkit-transition: all 5s ease;
+	-moz-transition: all 5s ease;
+	-o-transition: all 5s ease;
+	transition: all 5s ease;
+*/
 	-webkit-transition: all .27s ease;
 	-moz-transition: all .27s ease;
 	-o-transition: all .27s ease;
@@ -121,6 +153,7 @@ body:not(.originUI-superAdmin) .originUI-superAdmin {
 .originUI-fade-hide.originUI-fade-hide-active,
 .originUI-fade-leave.originUI-fade-leave-active {
 	height: 0;
+	opacity: 0;
 }
 
 .originUI-fade-move {
@@ -577,197 +610,7 @@ body.originClass-edit #originBar-search {
 /* =======================================================================
 	Guidelines
 ========================================================================== */
-#guidelines-header {
-	text-transform: none;
-}
 
-#guidelines-summary {
-	font-style: italic;
-	font-size: 13px;
-}
-
-#guidelines-left {
-	width: 630px;
-	margin-right: 15px;
-	position: relative;
-	padding-bottom: 5px;
-}
-
-#guidelines-dimensionsHeader {
-	text-indent: 15px;
-}
-
-#guidelines-dimensions {
-	position: relative;
-}
-
-#guidelines-dimensionsPlatforms {
-	position: absolute;
-	top: 10px;
-	right: 5px;
-}
-
-.guidelines-dimensionsIcon {
-	width: 26px;
-	height: 26px;
-	cursor: pointer;
-	text-indent: -5000em;
-	background-repeat: no-repeat;
-	background-position: center center;
-	display: inline-block;
-	margin: 0 3px;
-	opacity: .1
-}
-
-.guidelines-dimensionsIcon:hover,
-.guidelines-dimensionsIcon.active {
-	opacity: 1;
-}
-
-.guidelines-dimensionsIcon.active:hover {
-	cursor: default;
-}
-
-#guidelines-dimensionsInitialHeader,
-#guidelines-dimensionsTriggeredHeader {
-	margin: 10px 0 0 0;
-	height: 18px;
-	line-height: 18px;
-	font-size: 18px;
-	text-indent: 25px;
-}
-
-#guidelines-dimensionsInitialHeader {
-	background: transparent url(/img/creator-view.png) no-repeat left bottom / 18px auto;
-}
-
-#guidelines-dimensionsTriggeredHeader {
-	background: transparent url(/img/creator-view.png) no-repeat left top / 18px auto;
-}
-
-#guidelines-dimensionsTriggered {
-	border-width: 1px 0 0;
-	border-style: solid;
-}
-
-.guidelines-dimensionsPreview {
-	position: relative;
-	padding: 22px 25px 10px 0;
-	margin-top: -10px;
-}
-
-.guidelines-dimensionsWidth,
-.guidelines-dimensionsHeight {
-	position: absolute;
-	font-size: 14px;
-}
-
-.guidelines-dimensionsWidth {
-	top: 0;
-	left: 45%;
-}
-
-.guidelines-dimensionsHeight {
-	right: 0;
-	top: 50%;
-	transform: rotate(90deg);
-	line-height: 0;
-	height: 14px;
-}
-
-#guidelines-dimensionsDesktop {
-	background-image: url(/img/desktop-26x26.png);
-}
-
-#guidelines-dimensionsTablet {
-	background-image: url(/img/tablet-26x26.png);
-}
-
-#guidelines-dimensionsMobile {
-	background-image: url(/img/mobile-26x26.png);
-}
-
-
-
-#guidelines-showcase {
-	width: 350px;
-	padding-bottom: 5px;
-}
-
-#guidelines-showcaseHeader {
-	background-image: url(/img/origin-26x26.png);
-}
-
-.guidelines-showcaseAd + .guidelines-showcaseAd {
-	border-top: 1px solid #303030;
-}
-
-/*
-#guidelines-components {
-	margin-top: 20px;
-}
-
-.guidelines-component {
-	width: 100px;
-	height: 50px;
-	border-width: 0 0 1px 3px;
-	border-style: solid;
-	margin-right: 20px;
-}
-
-.guidelines-component + .guidelines-component {
-
-}
-*/
-/*
-#guidelines-summary {
-	width: 330px;
-}
-
-#guidelines-dimensions {
-	width: 645px;
-}
-
-#guidelines-dimensionsPlatforms {
-	position: absolute;
-	top: 0;
-	right: 0;
-}
-
-.guidelines-dimensionsIcon {
-	width: 26px;
-	height: 26px;
-	cursor: pointer;
-	text-indent: -5000em;
-	background-repeat: no-repeat;
-	background-position: center center;
-	display: inline-block;
-	margin: 8px;
-}
-
-.guidelines-dimensionsIcon:active {
-	
-}
-
-#guidelines-dimensionsDesktop {
-	background-image: url(/img/desktop-26x26.png);
-}
-
-#guidelines-dimensionsTablet {
-	background-image: url(/img/tablet-26x26.png);
-}
-
-#guidelines-dimensionsMobile {
-	background-image: url(/img/mobile-26x26.png);
-}
-
-
-.guidelines-dimensionsInitial {
-	position: relative;
-	max-width: 100%;
-	margin: 15px auto;
-}
-*/
 
 
 
@@ -920,12 +763,12 @@ body.originClass-edit #originBar-search {
 }
 
 .originUI-tileLeft {
-	width: 290px;
-	margin-right: 20px;
+	width: 250px;
+	margin-top: 20px;
 }
 
 .originUI-tileRight {
-	width: 690px;
+	width: 750px;
 }
 
 .originUI-tileHeader {
@@ -1065,9 +908,12 @@ body.originClass-edit #originBar-search {
 /* =======================================================================
 	Ad Template Manager
 ========================================================================== */
-#adTemplate-create,
-#adTemplate-list {
+#adTemplate-create {
 	min-height: 586px;
+}
+
+#adTemplate-list {
+	min-height: 606px;
 }
 
 #adTemplate-createHeader {
@@ -1129,7 +975,7 @@ body.originClass-edit #originBar-search {
 }
 
 #adComponent-list {
-	min-height: 382px;
+	min-height: 402px;
 }
 
 #adComponent-table .originUI-tableHeadName {
@@ -1215,7 +1061,7 @@ body.originClass-edit #originBar-search {
 }
 
 #user-list {
-	min-height: 475px;
+	min-height: 495px;
 }
 
 #user-table .originUI-tableHeadName {

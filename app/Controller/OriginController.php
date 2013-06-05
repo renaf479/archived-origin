@@ -727,6 +727,7 @@ class OriginController extends AppController {
 	
 	/**
 	* JSON feed of all showcase Origin ad units
+	* UNUSED
 	*/
 	public function jsonListShowcase() {
 		
@@ -780,6 +781,36 @@ class OriginController extends AppController {
 	public function jsonTemplate() {
 		$origin_templates	= $this->OriginTemplate->find('all',
 			array(
+				'order'=>array('OriginTemplate.name ASC')
+			)
+		);
+		$this->set('origin_templates', $origin_templates);
+	}
+	
+	/**
+	* JSON feed of unique Origin Ad Templates for the homepage
+	*/
+	public function jsonTemplateHome() {
+		$origin_templates	= $this->OriginTemplate->find('all',
+			array(
+				'conditions'=>array(
+					'OriginTemplate.status'=>1
+				),
+				'fields'=>array(
+					'OriginTemplate.*',
+					'OriginAds.*'
+				),
+				'group'=>array('OriginTemplate.alias'),
+				'joins'=>array(
+					array(
+						'table'=>'origin_ads',
+						'alias'=>'OriginAds',
+						'type'=>'LEFT',
+						'conditions'=>array(
+							'OriginAds.type = OriginTemplate.alias'
+						)
+					)
+				),
 				'order'=>array('OriginTemplate.name ASC')
 			)
 		);
@@ -939,9 +970,11 @@ class OriginController extends AppController {
 		
 		
 		$embedIframe			= isset($data['content']['iframe'])? true: false;
+		$data['origin_ad_id']	= $data['originAd_id'];
 		$data['content']		= json_encode($data['content']);
 		$data['config']			= json_encode($data['config']);
 		$data['order']			= $order;
+		
 		if($this->{'OriginAd'.$data['model'].'Content'}->save($data)) {
 			
 			if($embedIframe) {
@@ -953,9 +986,8 @@ class OriginController extends AppController {
 				$this->{'OriginAd'.$data['model'].'Content'}->save($updateData);
 			}
 			
-			//$this->_adModifyUpdate($data['originAd_id']);
-			
-			$this->creatorWorkspaceUpdate($data);
+			//TEMP DISABLE
+			//$this->creatorWorkspaceUpdate($data);
 			return $this->_creatorAdLoad($data);
 		}
 	}

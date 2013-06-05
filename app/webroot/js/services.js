@@ -9,6 +9,12 @@ angular.module('originApp.services', [])
 				});
 				return promise;
 			},
+			getPublic: function(action) {
+				var promise = $http.get('/get/'+action+'.json').then(function(response) {
+					return response.data;
+				});
+				return promise;	
+			},
 			getRss: function(url) {
 				var promise = $http.get('/administrator/get/rss/'+url).then(function(response) {
 					return response.data;

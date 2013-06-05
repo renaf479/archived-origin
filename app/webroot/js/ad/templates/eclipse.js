@@ -9,7 +9,8 @@ var eclipseController = function($scope, $rootScope, OriginAdService, serviceFre
 	$rootScope.xdDataToggle = {
 		callback: 	'toggleExpand',
 		id:			'originAd-'+$scope.origin_ad.OriginAd.id,
-		action:		'open'
+		action:		'open',
+		type:		'eclipse'
 	};
 	
 	OriginAdService.analyticsLog('Load');

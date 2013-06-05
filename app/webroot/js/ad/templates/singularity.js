@@ -3,7 +3,8 @@ var singularityController = function($scope, $rootScope, OriginAdService, servic
 	$rootScope.xdDataToggle = {
 		callback: 	'toggleExpand',
 		id:			'originAd-'+$scope.origin_ad.OriginAd.id,
-		action:		'open'
+		action:		'open',
+		type:		'singularity'
 	};
 	
 	OriginAdService.analyticsLog('Load');

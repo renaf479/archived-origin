@@ -5,7 +5,7 @@
 
 <div id="user-list" class="" ng:controller="usersController">	
 
-	<form id="user-create" name="userCreateForm" class="originUI-tileLeft originUI-bgColor originUI-shadow" novalidate>
+	<form id="user-create" name="userCreateForm" class="originUI-tileLeft originUI-bgColorSecondary originUI-shadow" novalidate>
 		<h3 id="user-createHeader" class="originUI-tileHeader originUI-borderColor originUI-textColor">Create</h3>
 		<div class="originUI-tileContent">
 			<?php echo $this->element('form_user', array('view'=>'left', 'editor' => 'editor', 'userGroups'=>$userGroups));?>

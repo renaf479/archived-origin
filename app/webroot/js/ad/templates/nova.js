@@ -15,7 +15,8 @@ var novaController = function($scope, $rootScope, OriginAdService, serviceFreque
 		callback:	'toggleOverlay',
 		action:		originAd_action,
 		idInitial:	'originAd-'+$scope.origin_ad.OriginAd.id,
-		idTriggered:'originAd-'+$scope.origin_ad.OriginAd.id+'-overlay'
+		idTriggered:'originAd-'+$scope.origin_ad.OriginAd.id+'-overlay',
+		type:		'nova'
 	};
 	
 	OriginAdService.xd($scope.xdData, $scope.originParams.xdSource);

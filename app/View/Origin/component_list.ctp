@@ -1,6 +1,6 @@
 <div id="ad-component" ng:controller="originComponents" ng:cloak>
 	<h2 class="originUI-header">Ad Components</h2>
-	<form id="adComponent-create" name="adComponentCreateForm" class="originUI-tileLeft originUI-bgColor originUI-shadow" novalidate>
+	<form id="adComponent-create" name="adComponentCreateForm" class="originUI-tileLeft originUI-bgColorSecondary originUI-shadow" novalidate>
 		<input type="hidden" name="uploadDir" value="/assets/components/"/>
 		<h3 id="adComponent-createHeader" class="originUI-tileHeader originUI-borderColor originUI-textColor">Create</h3>
 		<div class="originUI-tileContent">
