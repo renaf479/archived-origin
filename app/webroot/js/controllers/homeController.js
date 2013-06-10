@@ -18,15 +18,19 @@ var homeController = function($scope, $filter, $timeout, Origin) {
 	$scope.loadGuideline = function(data) {
 		$scope.guidelinesDisplay	= false;
 		
+		//Clear out images
+		//document.getElementById('guidelines-imageInitial').setAttribute('src', '');
+		//document.getElementById('guidelines-imageTriggered').setAttribute('src', '');
+		
 		Origin.getPublic('ad/'+data.OriginAds.id).then(function(response) {
 			$scope.guidelines			= data;
-			$scope.guidelinesDisplay	= true;
 			var ad 	= response;
 			
-			$scope.guidelinesInitial	= ($filter('filter')(ad.OriginAdSchedule[0]['OriginAd'+$scope.platformShow+'InitialContent'], 'background').length > 0)? angular.fromJson($filter('filter')(ad.OriginAdSchedule[0]['OriginAd'+$scope.platformShow+'InitialContent'], 'background')[0].content).image: null;
+			$scope.guidelinesInitial	= ($filter('filter')(ad.OriginAdSchedule[0]['OriginAd'+$scope.platformShow+'InitialContent'], 'background').length > 0)? angular.fromJson($filter('filter')(ad.OriginAdSchedule[0]['OriginAd'+$scope.platformShow+'InitialContent'], 'background')[0].content).image: 'http://placehold.it/'+$scope.guidelines.OriginTemplate.config.dimensions.Initial[$scope.platformShow].width+'x'+$scope.guidelines.OriginTemplate.config.dimensions.Initial[$scope.platformShow].height;
 			
+			$scope.guidelinesTriggered	= ($filter('filter')(ad.OriginAdSchedule[0]['OriginAd'+$scope.platformShow+'TriggeredContent'], 'background').length > 0)? angular.fromJson($filter('filter')(ad.OriginAdSchedule[0]['OriginAd'+$scope.platformShow+'TriggeredContent'], 'background')[0].content).image: 'http://placehold.it/'+$scope.guidelines.OriginTemplate.config.dimensions.Triggered[$scope.platformShow].width+'x'+$scope.guidelines.OriginTemplate.config.dimensions.Triggered[$scope.platformShow].height;
 			
-			$scope.guidelinesTriggered	= ($filter('filter')(ad.OriginAdSchedule[0]['OriginAd'+$scope.platformShow+'TriggeredContent'], 'background').length > 0)? angular.fromJson($filter('filter')(ad.OriginAdSchedule[0]['OriginAd'+$scope.platformShow+'TriggeredContent'], 'background')[0].content).image: null;
+			$timeout(function() {$scope.guidelinesDisplay	= true;}, 200);
 		});
 	}
 };

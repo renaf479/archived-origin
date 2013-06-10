@@ -60,7 +60,7 @@ var demoController = function($scope, $rootScope, $compile, $timeout, Origin) {
 			type:			$rootScope.origin_ad_template
 		};
 		Origin.post($scope.demo).then(function(response) {
-			if($scope.demo.id) {
+			if(!$scope.demo.id) {
 				$scope.link 	= 'http://'+document.domain+'/demo/'+response;
 				window.open('http://'+document.domain+'/demo/'+response, '_blank');
 			}

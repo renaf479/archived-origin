@@ -83,6 +83,7 @@ input:-ms-input-placeholder {
 	color: inherit;
 	text-indent: 5px;
 	font-size: 14px;
+	box-sizing: border-box;
 }
 
 .originUI-textarea {

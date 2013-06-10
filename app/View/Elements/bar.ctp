@@ -29,7 +29,7 @@
 		<?php } ?>
 		
 		
-		<div id="originBar-search" class="originUI-field">
+		<div id="originBar-search" class="originUI-field" data-intro="Page search" data-position="left">
 			<div class="originUI-fieldBracket"></div>
 			<input type="text" class="originUI-input originUI-bgColor" ng:model="searchOrigin"/>
 		</div>
@@ -57,7 +57,7 @@
 			</ul>
 		</div>
 		<?php } else { ?>
-			<form id="originBar-login" name="UserLoginForm" class="originBar-login" method="post" action="/administrator/login" data-intro="Login for registered users to access Origin Ad Creator" data-position="left" novalidate>
+			<form id="originBar-login" name="UserLoginForm" class="originBar-login" method="post" action="/administrator/login" data-intro="Login for  access to Origin Ad Creator" data-position="right" novalidate>
 				<div id="login-email" class="inline">
 					<div class="originUI-field">
 						<div class="originUI-fieldBracket"></div>
@@ -70,7 +70,7 @@
 						<input type="password" class="originUI-input originUI-bgColorSecondary" name="data[User][password]" id="UserPassword" placeholder="Password" required/>
 					</div>
 				</div>
-				<button id="originBar-loginSubmit" class="none" ng:click="formSubmit('UserLoginForm')" ng-disabled="UserLoginForm.$invalid">Login</button>
+				<button id="originBar-loginSubmit" class="originUI-bgColorSecondary" ng:click="formSubmit('UserLoginForm')" ng-disabled="UserLoginForm.$invalid">Login</button>
 				<div id="login-settings" class="">
 				<?php 
 					if(!isset($this->request->data['User']['remember'])) {

@@ -1,5 +1,4 @@
 var dashboardController = function($scope, Origin) {
-	$scope.activities = {};
 	
 	Origin.get('activity').then(function(response) {
 		$scope.activities = response;

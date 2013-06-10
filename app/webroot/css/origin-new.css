@@ -464,7 +464,7 @@ li {
 }
 
 body.originClass-guidelines #originBar-search,
-body.originClass-display #originBar-search,
+/* body.originClass-display #originBar-search, */
 body.originClass-login #originBar-search,
 body.originClass-edit #originBar-search {
 	display: none;
@@ -563,7 +563,24 @@ body.originClass-edit #originBar-search {
 }
 
 #origin-bar.originBar-guest #login-settings {
-	margin: 0 0 0 5px;
+	margin: 3px 0 0 5px;
+}
+
+#origin-bar.originBar-guest #originBar-loginSubmit {
+	position: absolute;
+	color: #fff;
+	font-size: 11px;
+	bottom: 0;
+	right: 7px;
+	border-color: #bdbdbd;
+	border-width: 1px 0 0 0;
+	border-style: solid;
+	width: 70px;
+	height: 20px;
+}
+
+#origin-bar.originBar-guest #originBar-loginSubmit:hover {
+	border-width: 2px 1px 1px 1px;
 }
 
 

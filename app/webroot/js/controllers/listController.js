@@ -15,7 +15,6 @@ var listController = function($scope, $filter, Origin) {
 	$scope.demos		= {};
 	$scope.editor		= {};
 	$scope.editor.content = {}
-	$scope.module		= {};
 	$scope.templates	= {};
 	$scope.users		= {};
 	$scope.embedOptions = {
@@ -70,7 +69,7 @@ var listController = function($scope, $filter, Origin) {
 		//delete $scope.editor.type;
 				
 		Origin.post($scope.editor).then(function(response) {
-			//window.location		= '/administrator/Origin/ad/edit/'+response;
+			window.location		= '/administrator/Origin/ad/edit/'+response;
 		});
 	}
 	

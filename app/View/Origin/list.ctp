@@ -1,6 +1,6 @@
 <div id="ad-list" ng:controller="listController" class="">
 	<h2 class="originUI-header">Ad Manager</h2>
-	<div id="adList-left" class="inline">
+	<div id="adList-left" class="inline" data-intro="Created Origin Ad unit listing" data-position="left">
 		<div class="adList-item originUI-bgColor originUI-shadow originUI-borderColor inline" ng:repeat="ad in ads|filter:searchOrigin" ng:class="{'adList-itemActive': ad.OriginAd.id == module.id}" ng:animate="'originUI-fade'">		
 			<div class="adList-itemMeta">
 				<div class="adList-itemId">{{ad.OriginAd.id}}</div>
@@ -17,8 +17,8 @@
 		</div>
 	</div><!--
 	--><div id="adList-right" class="inline">
-		<a href="javascript:void(0)" id="adList-create" class="originUI-shadow" ng:click="adCreate()">Create New Ad</a>
-		<div id="adList-module" class="originUI-bgColor originUI-shadow">
+		<a href="javascript:void(0)" id="adList-create" class="originUI-shadow" ng:click="adCreate()" data-intro="Create new Origin Ad" data-position="right">Create New Ad</a>
+		<div id="adList-module" class="originUI-bgColor originUI-shadow" ng:show="module" ng:animate="'originUI-fade'" data-intro="Preview details" data-position="right">
 			<h3 id="adList-moduleHeader" class="originUI-tileHeader originUI-borderColor originUI-textColor">Ad Details</h3>
 			<a href="javascript:void(0)" id="adList-moduleRemove" class="originUI-hover originUI-superAdmin" ng:click="adRemove()">remove</a>
 			<div class="originUI-tileContent">

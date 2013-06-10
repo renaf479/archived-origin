@@ -1,4 +1,4 @@
-var novaController = function($scope, $rootScope, OriginAdService, serviceFrequency) {
+var novaController = function($scope, $rootScope, OriginAdService, serviceFrequency, serviceToggle) {
 	
 	//OriginAdService.init();
 		
@@ -22,4 +22,8 @@ var novaController = function($scope, $rootScope, OriginAdService, serviceFreque
 	OriginAdService.xd($scope.xdData, $scope.originParams.xdSource);
 	
 	serviceFrequency.init();
+	
+	$scope.close = function() {
+		serviceToggle.toggleOverlay();
+	}
 }

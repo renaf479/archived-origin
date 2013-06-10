@@ -9,6 +9,7 @@ var demoCreateApp = angular.module('demoCreateApp', ['originApp.services', 'orig
 						$rootScope.placements			= [];
 						$rootScope.reskin 				= {};
 						$rootScope.origin_ad			= angular.fromJson(origin_ad);
+						$rootScope.origin_ad.id 		= $rootScope.origin_ad.OriginAd.id;
 						
 						$rootScope.embedOptions = {
 							auto: 	0,

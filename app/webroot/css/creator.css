@@ -229,7 +229,7 @@ body.originClass-edit #originBar-settings.open #originBar-settingsIcon {
 }
 
 #option-settings {
-	background-image: url(/img/dropdown-setting.png);
+	background-image: url(/img/settings-18x18.png);
 }
 
 #option-demo {
@@ -654,7 +654,7 @@ body.originClass-edit #originBar-settings.open #originBar-settingsIcon {
 }
 
 .CodeMirror {
-	height: 135px;
+	height: 250px;
 	border: 1px solid #444444;
 }
 
@@ -662,6 +662,7 @@ body.originClass-edit #originBar-settings.open #originBar-settingsIcon {
 	border-top: 1px solid #444444;
 	margin: 0 15px;
 	padding: 10px 0;
+	font-size: 12px;
 }
 
 #creatorModal-config .originUI-list,

@@ -960,20 +960,24 @@ class OriginController extends AppController {
 	* Creates an Origin ad unit's content record
 	*/
 	private function creatorContentSave($data) {
-		$order	= $this->{'OriginAd'.$data['model'].'Content'}->find('first',
-			array(
-				'conditions'=>array('OriginAd'.$data['model'].'Content.origin_ad_schedule_id'=>$data['origin_ad_schedule_id']),
-				'fields'=>array('MAX(`order`) as `order`')
-			)
-		);
-		$order	= (int)$order[0]['order'] + 1;
+		//Save workspace updates first...
+		$this->creatorWorkspaceUpdate($data);
 		
+		if(!isset($data['id'])) {
+			$order	= $this->{'OriginAd'.$data['model'].'Content'}->find('first',
+				array(
+					'conditions'=>array('OriginAd'.$data['model'].'Content.origin_ad_schedule_id'=>$data['origin_ad_schedule_id']),
+					'fields'=>array('MAX(`order`) as `order`')
+				)
+			);
+			//$order	= (int)$order[0]['order'] + 1;
+			$data['order']			= (int)$order[0]['order'] + 1;
+		}
 		
 		$embedIframe			= isset($data['content']['iframe'])? true: false;
 		$data['origin_ad_id']	= $data['originAd_id'];
 		$data['content']		= json_encode($data['content']);
 		$data['config']			= json_encode($data['config']);
-		$data['order']			= $order;
 		
 		if($this->{'OriginAd'.$data['model'].'Content'}->save($data)) {
 			
@@ -986,8 +990,6 @@ class OriginController extends AppController {
 				$this->{'OriginAd'.$data['model'].'Content'}->save($updateData);
 			}
 			
-			//TEMP DISABLE
-			//$this->creatorWorkspaceUpdate($data);
 			return $this->_creatorAdLoad($data);
 		}
 	}
@@ -1030,6 +1032,8 @@ class OriginController extends AppController {
 				
 				if($dataSave) {
 					$this->$modelName->saveAll($dataSave);
+					//Wipe previous ID
+					$this->$modelName->create();
 				}
 			}
 		}

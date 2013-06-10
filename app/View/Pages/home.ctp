@@ -14,44 +14,47 @@
 -->
 
 
-	<div id="homepage-products" class="inline originUI-bgColorSecondary originUI-shadow">
-		<ul class="originUI-list">
-			<li ng:repeat="product in products" class="homepage-product originUI-hover originUI-borderColorSecondary" ng:click="loadGuideline(product, $index)" ng:class="(guidelines.OriginTemplate.alias == product.OriginTemplate.alias)?'active':''" ng:cloak>
-				<span class="product-name">{{product.OriginTemplate.name}}</span>
-				<img class="product-image" ng:src="{{product.OriginAds.content.img_thumbnail}}"/>
+	<div id="homepage-products" class="inline originUI-bgColorSecondary originUI-shadow" data-intro="Supported ad units" data-position="left">
+		<ul class="originUI-list originUI-tileContent">
+			<li ng:repeat="product in products|filter:searchOrigin" class="homepage-product originUI-borderColorSecondary" ng:click="loadGuideline(product, $index)" ng:class="(guidelines.OriginTemplate.alias == product.OriginTemplate.alias)?'active':''"  ng:animate="'originUI-fade'" ng:cloak>
+				<div class="product-wrapper originUI-hover">
+					<span class="product-name originUI-textColor">{{product.OriginTemplate.name}}</span>
+					<img class="product-image" ng:src="{{product.OriginAds.content.img_thumbnail}}"/>
+				</div>
 			</li>
 		</ul>
 	</div><!--
 	--><div id="homepage-guidelines" class="inline originUI-bgColor originUI-shadow">
-		<h3 id="" class="originUI-tileHeader originUI-borderColor originUI-textColor">{{guidelines.OriginTemplate.name}} Ad Unit</h3>
-		<ul id="guidelines-platforms" class="originUI-list">
-			<li id="guidelines-platforms{{platform.name}}" class="guidelines-platformsIcon originUI-hover" ng:show="guidelines.OriginTemplate.config.dimensions.Initial[platform.name].width" ng:repeat="platform in platforms" ng:click="dimensionsShow(platform.name)" ng:class="(platform.name == platformShow)? 'active': ''">{{platform.name}}</li>
-		</ul>
-		
-		<div class="originUI-tileContent" ng:show="guidelinesDisplay" ng:animate="'originUI-fade'">
-			<div id="guidelines-summaryWrapper" class="originUI-borderColorSecondary">
-				<img id="guidelines-summaryImage" class="inline" ng:src="{{guidelines.OriginAds.content.img_thumbnail}}"/>
-				<p id="guidelines-summaryDescription" class="inline">{{guidelines.OriginTemplate.content.description}}</p>
-			</div>
+		<div ng:show="guidelinesDisplay" ng:animate="'originUI-fade'">
+			<h3 id="homepage-guidelinesHeader" class="originUI-tileHeader originUI-borderColor originUI-textColor">{{guidelines.OriginTemplate.name}} Ad Unit</h3>
+			<ul id="guidelines-platforms" class="originUI-list" data-intro="Supported platforms" data-position="right">
+				<li id="guidelines-platforms{{platform.name}}" class="guidelines-platformsIcon originUI-hover" ng:show="guidelines.OriginTemplate.config.dimensions.Initial[platform.name].width" ng:repeat="platform in platforms" ng:click="dimensionsShow(platform.name)" ng:class="(platform.name == platformShow)? 'active': ''">{{platform.name}}</li>
+			</ul>
 			
-			<div id="guidelines-initial" class="originUI-borderColorSecondary">
-				<h4 id="">Initial</h4>
-				<div id="" class="guidelines-imageWrapper">
-					<span class="guidelines-imageWidth">{{guidelines.OriginTemplate.config.dimensions.Initial[platformShow].width}}px</span>
-					<span class="guidelines-imageHeight">{{guidelines.OriginTemplate.config.dimensions.Initial[platformShow].height}}px</span>
-					<img id="" class="guidelines-image" ng:src="{{guidelinesInitial}}" src="http://placehold.it/100/100"/>
+			<div class="originUI-tileContent" data-intro="Detailed specifications of unit" data-position="right">
+				<div id="guidelines-summaryWrapper" class="">
+					<img id="guidelines-summaryImage" class="inline" ng:src="{{guidelines.OriginAds.content.img_thumbnail}}"/>
+					<p id="guidelines-summaryDescription" class="inline">{{guidelines.OriginTemplate.content.description}}</p>
 				</div>
-			</div>
-			<div id="guidelines-triggered" class="originUI-borderColorSecondary" ng:show="guidelines.OriginTemplate.config.dimensions.Triggered[platformShow].width > 0">
-				<h4 id="">Triggered</h4>
-				<div id="" class="guidelines-imageWrapper">
-					<span class="guidelines-imageWidth">{{guidelines.OriginTemplate.config.dimensions.Triggered[platformShow].width}}px</span>
-					<span class="guidelines-imageHeight">{{guidelines.OriginTemplate.config.dimensions.Triggered[platformShow].height}}px</span>
-					<img id="" class="guidelines-image" ng:src="{{guidelinesTriggered}}" src="http://placehold.it/100/100"/>
+				
+				<div id="guidelines-initial" class="originUI-borderColorSecondary">
+					<h4 id="">Initial</h4>
+					<div id="" class="guidelines-imageWrapper">
+						<span class="guidelines-imageWidth">{{guidelines.OriginTemplate.config.dimensions.Initial[platformShow].width}}px</span>
+						<span class="guidelines-imageHeight">{{guidelines.OriginTemplate.config.dimensions.Initial[platformShow].height}}px</span>
+						<img id="guidelines-imageInitial" class="guidelines-image" ng:src="{{guidelinesInitial}}"/>
+					</div>
+				</div>
+				<div id="guidelines-triggered" class="originUI-borderColorSecondary" ng:show="guidelines.OriginTemplate.config.dimensions.Triggered[platformShow].width > 0">
+					<h4 id="">Triggered</h4>
+					<div id="" class="guidelines-imageWrapper">
+						<span class="guidelines-imageWidth">{{guidelines.OriginTemplate.config.dimensions.Triggered[platformShow].width}}px</span>
+						<span class="guidelines-imageHeight">{{guidelines.OriginTemplate.config.dimensions.Triggered[platformShow].height}}px</span>
+						<img id="guidelines-imageTriggered" class="guidelines-image" ng:src="{{guidelinesTriggered}}"/>
+					</div>
 				</div>
 			</div>
 		</div>
-		
 	</div>
 	
 

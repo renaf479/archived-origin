@@ -18,7 +18,9 @@ var iframe = (function() {
 			*/
 		},
 		autoplay: function() {
-			$sb(springboardId).play();
+			//$sb(springboardId).play();
+			window.name = 'test';
+			console.log(window.name);
 		},
 		muteplayer: function() {
 			/*
