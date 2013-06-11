@@ -15,7 +15,7 @@
 		</script>
 		<div id="overlay" ng:click="close()"></div>
 		<div id="initial" style="<?php echo $dimensions->initial;?>">
-			<countdown id="countdown" ng:click="close()">Skip ad in {{countdown}} seconds</countdown>
+			<countdown id="countdown" ng:click="close()" ng:show="countdownShow">Skip ad in {{countdown}} seconds</countdown>
 			<div id="continue" ng:click="close()"></div>
 			<div ng:repeat="content in originAd_content['OriginAd<?php echo $originAd_platform;?>InitialContent']" content="content"></div>
 		</div>

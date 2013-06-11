@@ -15,18 +15,40 @@ angular.module('originAd.services', [])
 		}
 		return OriginAdService;
 	})
-	.factory('serviceFrequency', function($rootScope, serviceToggle, OriginAdService) {
-		return {
+	.factory('serviceTimer', function($rootScope, $timeout, serviceToggle) {
+		var timer;
+	
+		var serviceTimer = {
 			init: function() {
+				if($rootScope.timeout > 0 && $rootScope.originParams.auto > 0) {
+					timer = $timeout(serviceToggle[$rootScope.xdDataToggle.callback], $rootScope.timeout * 1000);
+				}
+			},
+			cancel: function() {
+				if($rootScope.timeout === 0 && $rootScope.originParams.auto > 0) {
+					$timeout.cancel(timer);
+					$rootScope.countdownShow = false;
+				}
+			}
+		}
+		
+		return serviceTimer;
+	})
+	.factory('serviceFrequency', function($rootScope, serviceToggle, serviceTimer, OriginAdService) {
+		return {
+			init: function() {				
 				/**
-				* Auto-expand logic //NEEDS WORK!
+				* Auto-expand logic
 				*/
 				if(this.check($rootScope.originAd_id, $rootScope.originParams.auto)) {
-					switch($rootScope.originAd_config.template) {
-						case 'horizon':
+					//Initialize Timer service
+					serviceTimer.init();
+				
+					switch($rootScope.xdDataToggle.callback) {
+						case 'toggleExpand':
 							serviceToggle.toggleExpand('auto');
 							break;
-						case 'nova':
+						case 'toggleOverlay':
 							if(originAd_action !== 'close') {
 								serviceToggle.toggleOverlay('auto');
 							}

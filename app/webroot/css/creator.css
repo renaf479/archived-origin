@@ -495,14 +495,16 @@ body.originClass-edit #originBar-settings.open #originBar-settingsIcon {
 	z-index: 1000000;
 }
 
+.layer-expand #layers,
+.layer-expand #library {
+	top: 50px;
+}
+
 #layers,
 #library {
 	position: absolute;
 	top: 100px;
-	width: 100%;
-	
-	
-	
+	width: 100%;	
 	overflow-x: hidden;
 	overflow-y: auto;
 	height: 100%;

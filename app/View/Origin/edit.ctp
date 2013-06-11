@@ -37,26 +37,28 @@
 			    </div> 
 			</div>
 		</div>
-		<div id="layers" style="display:none" ng:show="ui.layer=='Layers'" ng:animate="'originUI-fade'">
-			<ul id="layers-list" class="content-list originUI-list" ng:model="layers" layer-sortable></ul>
-		</div>
-		<div id="library" ng:show="ui.layer=='Library'" ng:animate="'originUI-fade'" style="display:none">
-			<ul id="library-list" class="content-list originUI-list">
-				<li class="content-item asset originUIList-item" data-asset="{{$index}}" ng:repeat="asset in library" asset>
-					<a href="javascript:void(0);" class="content-label inline originUI-hover">{{asset.name}}</a>
-					<!-- <span class="content-edit inline">handle</span> -->
-				</li>
-				<li id="library-instructions" ng:show="!library.length">
-					Drag and drop assets here to upload or click the button below.
-				</li>
-				<li>
-					<div id="library-upload" class="originUI-upload originUI-icon originUiIcon-upload originUI-bgColorSecondary">
-						<span class="originUI-uploadLabel">Upload Assets</span>
-						<input type="file" name="files[]" id="templateAdd-upload-template" class="originUI-uploadInput" multiple="multiple" panel-upload>
-					</div>
-				</li>
-			</ul>
-		</div>		
+		<div ng:class="(workspace.ad.OriginAd.config.dimensions.Triggered[ui.platform].height > 0)? '': 'layer-expand'">
+			<div id="layers" style="display:none" ng:show="ui.layer=='Layers'" ng:animate="'originUI-fade'">
+				<ul id="layers-list" class="content-list originUI-list" ng:model="layers" layer-sortable></ul>
+			</div>
+			<div id="library" ng:show="ui.layer=='Library'" ng:animate="'originUI-fade'" style="display:none">
+				<ul id="library-list" class="content-list originUI-list">
+					<li class="content-item asset originUIList-item" data-asset="{{$index}}" ng:repeat="asset in library" asset>
+						<a href="javascript:void(0);" class="content-label inline originUI-hover">{{asset.name}}</a>
+						<!-- <span class="content-edit inline">handle</span> -->
+					</li>
+					<li id="library-instructions" ng:show="!library.length">
+						Drag and drop assets here to upload or click the button below.
+					</li>
+					<li>
+						<div id="library-upload" class="originUI-upload originUI-icon originUiIcon-upload originUI-bgColorSecondary">
+							<span class="originUI-uploadLabel">Upload Assets</span>
+							<input type="file" name="files[]" id="templateAdd-upload-template" class="originUI-uploadInput" multiple="multiple" panel-upload>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>	
 		<div id="options-wrapper" data-intro="Ad creator options" data-position="bottom" class="originUI-borderColor originUI-bgColorSecondary">
 			<span id="options" class="dropdown-toggle originUI-borderColor originUI-hover">Options</span>
 			<ul class="dropdown-menu originUI-bgColorSecondary originUI-borderColor">

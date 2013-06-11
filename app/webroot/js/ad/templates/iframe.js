@@ -71,7 +71,7 @@ var iframe = (function() {
 				
 				setTimeout(function() {
 					xd({'originAdAction': 'toggle'});
-				}, 5000);
+				}, springboardObj.timeout * 1000);
 			})
 		},
 		automute: function() {
@@ -112,7 +112,7 @@ var iframe = (function() {
 	return {
 		springboard: function(id, params) {
 			springboardId	= id;
-			
+			xd({'originAdAction': 'timeouthide'});
 			
 			$sb(id).onLoad(function() {
 				var sbClip	 	= $sb(id).getClip($sb(id).getIndex());
@@ -120,7 +120,8 @@ var iframe = (function() {
 				springboardObj 	= {
 					id:		id,
 					clip:	sbClip,
-					title:	decodeURIComponent(sbClip.title)
+					title:	decodeURIComponent(sbClip.title),
+					timeout: '1.5'
 				}
 				
 				for(var i in params) {

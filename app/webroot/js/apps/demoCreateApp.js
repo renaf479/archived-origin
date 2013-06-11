@@ -19,7 +19,17 @@ var demoCreateApp = angular.module('demoCreateApp', ['originApp.services', 'orig
 							type:	$rootScope.origin_ad.OriginAd.config.template
 						};
 						
-						$rootScope.render	= $compile(decodeURIComponent(origin_embed.replace(/\+/g, ' ')))($rootScope)
+						
+						var originEmbed	= decodeURIComponent(origin_embed.replace(/\+/g, ' '));
+							originEmbed = originEmbed.replace(/{{embedOptions.id}}/g, $rootScope.embedOptions.id);
+							originEmbed = originEmbed.replace(/{{embedOptions.auto}}/g, $rootScope.embedOptions.auto);
+							originEmbed = originEmbed.replace(/{{embedOptions.close}}/g, $rootScope.embedOptions.close);
+							originEmbed = originEmbed.replace(/{{embedOptions.hover}}/g, $rootScope.embedOptions.hover);
+							originEmbed = originEmbed.replace(/{{embedOptions.dcopt}}/g, $rootScope.embedOptions.dcopt);
+							originEmbed = originEmbed.replace(/{{embedOptions.type}}/g, $rootScope.embedOptions.type);
+						
+						$rootScope.render 	= originEmbed;
+						//$rootScope.render	= $compile(decodeURIComponent(origin_embed.replace(/\+/g, ' ')))($rootScope)
 						
 						Origin.get('sites').then(function(response) {
 							$rootScope.templates = response;

@@ -84,10 +84,12 @@ body:not(.originUI-superAdmin) .originUI-superAdmin {
 
 .originUI-borderColor {
 	border-color: #0099cc;
+/*
 	transition : border .1s ease-in; 
 	-webkit-transition : border .1s ease-in; 
 	-moz-transition : border .1s ease-in;
-	-o-transition : border .1s ease-in;  
+	-o-transition : border .1s ease-in; 
+*/ 
 }
 
 .originUI-borderColorSecondary {
@@ -278,8 +280,9 @@ li {
 	opacity: .6;
 }
 
-.dropdown-menu {
+.open > .dropdown-menu {
 	z-index: 1000010;
+	opacity: .95;
 }
 
 .dropdown-menu>li,
