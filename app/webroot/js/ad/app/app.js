@@ -1,7 +1,7 @@
 'use strict';
 
 var originAdApp = angular.module('originAdApp', ['originAd.directives', 'originAd.services'])
-					.run(function($rootScope, OriginAdService) {
+					.run(function($rootScope, $timeout, OriginAdService, serviceToggle) {
 						$rootScope.hiddenView				= 'triggered';
 						$rootScope.origin_ad 				= angular.fromJson(origin_ad);
 						$rootScope.originAd_id				= 'originAd-'+$rootScope.origin_ad.OriginAd.id;
@@ -22,7 +22,8 @@ var originAdApp = angular.module('originAdApp', ['originAd.directives', 'originA
 							height:		$rootScope.originAd_config.dimensions.Initial[origin_platform].height+'px'
 						};
 						
-						$rootScope.timeout	= ($rootScope.originParams.close > 0)? $rootScope.originParams.close: $rootScope.originAd_config.animations.closeDuration;
+						//$rootScope.timeout	= ($rootScope.originParams.close > 0)? $rootScope.originParams.close: $rootScope.originAd_config.animations.closeDuration;
+						$rootScope.timeout	= ($rootScope.originParams.close > 0)? $rootScope.originParams.close: '15';
 						
 						/**
 						* Loads the content based on the current date
@@ -44,4 +45,29 @@ var originAdApp = angular.module('originAdApp', ['originAd.directives', 'originA
 						if(!date) {
 							$rootScope.originAd_content = $rootScope.origin_ad.OriginAdSchedule[0];
 						}
+												
+						/**
+						* XD listener for override methods from Origin Ad Iframe
+						*/
+						XD.receiveMessage(function(message) {
+							try {
+								JSON.parse(message.data);
+							} catch(e) {
+								return false;
+							}
+							message		= JSON.parse(message.data);
+							
+							switch(message.originAdAction) {
+								case 'analytics':
+									OriginAdService.analyticsLog(message.type, message.data);
+									break;
+								case 'timeout':
+									//console.log(message.timeout);
+									$rootScope.timeout = message.timeout + 5;
+									break;
+								case 'toggle':
+									serviceToggle[$rootScope.xdDataToggle.callback]();
+									break;
+							}
+						}, 'http://'+$rootScope.originParams.originDomain);						
 					});

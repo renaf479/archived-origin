@@ -1,12 +1,76 @@
 var iframe = (function() {
-	var springboardId;
+	var springboardId,
+		springboardObj;
+	
+	function xd(data) {
+		XD.postMessage(JSON.stringify(data), window.parent.document.location.href);
+	}
 
 	var springboard = {
-		//NEEDS TO FIND FREQUENCY FLAG FROM PARENT... SOMEHOW?
+		analytics: function() {
+			$sb(springboardObj.id).onStart(function() {
+				xd({'originAdAction': 'timeout', 'timeout': Math.floor(springboardObj.clip.duration)});
+			
+				var quartiles	= new Array(),
+					_25			= springboardObj.clip.duration/4,
+					_50			= springboardObj.clip.duration/2,
+					_75			= parseInt(_50) + parseInt(_25);
+					
+				quartiles.push({time: parseInt(_25)*1000, title: '25%'});
+				quartiles.push({time: parseInt(_50)*1000, title: '50%'});
+				quartiles.push({time: parseInt(_75)*1000, title: '75%'});
+				
+				$sb(springboardObj.id).onCuepoint(quartiles, function(clip, cuepoints) {
+					xd({'originAdAction': 'analytics', 'type': 'Video '+cuepoints.title+' ['+springboardObj.title+']', 'data': ''});	
+				});
+			});
+		
+			$sb(springboardObj.id).onBegin(function() {
+				xd({'originAdAction': 'analytics', 'type': 'Video Begin ['+springboardObj.title+']', 'data': ''});		
+			});
+		
+			$sb(springboardObj.id).onFinish(function() {
+				xd({'originAdAction': 'analytics', 'type': 'Video Complete ['+springboardObj.title+']', 'data': ''});		
+			});
+			
+			$sb(springboardObj.id).onMouseOut(function() {
+				xd({'originAdAction': 'analytics', 'type': 'Video MouseExit ['+springboardObj.title+']', 'data': ''});		
+			});
+			
+			$sb(springboardObj.id).onMouseOver(function() {
+				xd({'originAdAction': 'analytics', 'type': 'Video MouseOver ['+springboardObj.title+']', 'data': ''});		
+			});
+			
+			$sb(springboardObj.id).onMute(function() {
+				xd({'originAdAction': 'analytics', 'type': 'Video Mute ['+springboardObj.title+']', 'data': ''});		
+			});
+
+			$sb(springboardObj.id).onPause(function() {
+				xd({'originAdAction': 'analytics', 'type': 'Video Pause ['+springboardObj.title+']', 'data': ''});		
+			});
+			
+			$sb(springboardObj.id).onResume(function() {
+				xd({'originAdAction': 'analytics', 'type': 'Video Resume ['+springboardObj.title+']', 'data': ''});		
+			});
+			
+			$sb(springboardObj.id).onSeek(function() {
+				xd({'originAdAction': 'analytics', 'type': 'Video Seek ['+springboardObj.title+']', 'data': ''});		
+			});
+			
+			$sb(springboardObj.id).onStop(function() {
+				xd({'originAdAction': 'analytics', 'type': 'Video Stop ['+springboardObj.title+']', 'data': ''});		
+			});
+			
+			$sb(springboardObj.id).onUnmute(function() {
+				xd({'originAdAction': 'analytics', 'type': 'Video Unmute ['+springboardObj.title+']', 'data': ''});		
+			});
+		
+		},
 		autoclose: function() {
-			$sb(springboardId).onFinish(function() {
+			$sb(springboardObj.id).onFinish(function() {
+				
 				setTimeout(function() {
-					console.log('close ad unit');
+					xd({'originAdAction': 'toggle'});
 				}, 5000);
 			})
 		},
@@ -18,9 +82,8 @@ var iframe = (function() {
 			*/
 		},
 		autoplay: function() {
-			//$sb(springboardId).play();
-			window.name = 'test';
-			console.log(window.name);
+			//Override close timer
+			$sb(springboardObj.id).play();
 		},
 		muteplayer: function() {
 			/*
@@ -33,13 +96,15 @@ var iframe = (function() {
 			*/
 		},
 		unmutehover: function() {
-			$sb(springboardId).onMouseOver(function() {
-				if($sb(springboardId).getStatus().muted) $sb(springboardId).unmute();
+			$sb(springboardObj.id).onMouseOver(function() {
+				if($sb(springboardObj.id).getStatus().muted) {
+					$sb(springboardObj.id).unmute();
+				}
 			});
 		},
 		unmuterestart: function() {
-			$sb(springboardId).onUnmute(function() {
-				$sb(springboardId).seek(0);
+			$sb(springboardObj.id).onUnmute(function() {
+				$sb(springboardObj.id).seek(0);
 			});
 		}
 	}
@@ -48,13 +113,27 @@ var iframe = (function() {
 		springboard: function(id, params) {
 			springboardId	= id;
 			
-			$sb(springboardId).onLoad(function() {
+			
+			$sb(id).onLoad(function() {
+				var sbClip	 	= $sb(id).getClip($sb(id).getIndex());
+				
+				springboardObj 	= {
+					id:		id,
+					clip:	sbClip,
+					title:	decodeURIComponent(sbClip.title)
+				}
+				
 				for(var i in params) {
 					if(params.hasOwnProperty(i) && params[i]) {
 						springboard[i]();
 					}
 				}
+				
+				springboard.analytics();
 			});
+		},
+		xd: function(data) {
+			xd(data);
 		}
 	}
 	

@@ -189,10 +189,29 @@ class OriginController extends AppController {
 				)
 			)
 		);
+		
+		//If content doesn't exist, fallback to Desktop version
+		if(sizeof($origin_ad['OriginAdSchedule'][0]['OriginAd'.$originAd_platform.'InitialContent']) === 0) {
+			$originAd_platform	= 'Desktop';
+			$origin_ad		= $this->OriginAd->find('first', 
+				array(
+					'conditions'=>array(
+						'OriginAd.id'=>$originAd_id
+					),
+					'contain' => array(
+						'OriginAdSchedule'=>array(
+							'OriginAd'.$originAd_platform.'InitialContent',
+							'OriginAd'.$originAd_platform.'TriggeredContent'
+						)
+					)
+				)
+			);
+		}
+		
 		$this->set('origin_ad', $origin_ad);
 		$this->set('originAd_platform', $originAd_platform);
 		$this->set('originAd_state', $originAd_state);
-		$this->set('title_for_layout', $origin_ad['OriginAd']['name']);
+		$this->set('title_for_layout', $origin_ad['OriginAd']['name']);	
 	}
 	
 	/**

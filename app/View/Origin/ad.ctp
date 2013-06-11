@@ -32,6 +32,7 @@
 	<?php echo $this->element('/ad/'.$template, array('origin_ad'=>$origin_ad));?>
 </div>
 
+
 <?php
 	echo $this->Minify->css(array('ad/ad', 'ad/'.$template));
 	echo $this->Minify->script(array('ad/app/angularjs', 'ad/app/anim', 'ad/app/cm', 'ad/app/xd', 'ad/app/app', 'ad/app/directives', 'ad/app/services', 'ad/templates/'.$template));

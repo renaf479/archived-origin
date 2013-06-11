@@ -62,6 +62,7 @@ angular.module('originAd.directives', [])
 									break;
 								case 'iframe':
 									element.attr('src', element.data('source'));
+									//setInterval(function() {console.log(element.attr('data-status'));}, 3000);
 									break;
 							}
 						}
@@ -81,9 +82,7 @@ angular.module('originAd.directives', [])
 						$timeout(countdownTimer, 1000);
 					}
 				};
-				
 				countdownTimer();
-				
 			}
 		}
 	})

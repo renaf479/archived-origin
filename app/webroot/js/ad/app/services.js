@@ -5,7 +5,7 @@ angular.module('originAd.services', [])
 		var OriginAdService = {
 			analyticsLog: function(type, data) {
 				if(typeof(_gaq) !== 'undefined') {
-					console.log('Tracking:'+document.title+' [OriginID: '+originAd_id+']'+type);
+					console.log('Tracking:'+document.title+' [OriginID: '+originAd_id+'] '+type);
 					//_gaq.push(['_trackEvent', document.title+' [OriginID: ]', type]);
 				}
 			},

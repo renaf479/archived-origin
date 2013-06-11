@@ -92,6 +92,7 @@ var originScript, originParams, originXd;
 				'originDomain':data.domain,
 				'xdSource':	document.location.href
 			};
+			
 			originScript 	= document.getElementById('originEmbed-'+originParams.id);
 			originXd		= (data.debug === 'true')? 'http://'+data.domain+'/js/ad/origin-xd.js':'http://'+data.domain+'/min-js?f=/js/ad/origin-xd.js';
 			if(top === self) {				
