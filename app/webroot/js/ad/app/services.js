@@ -25,10 +25,8 @@ angular.module('originAd.services', [])
 				}
 			},
 			cancel: function() {
-				if($rootScope.timeout === 0 && $rootScope.originParams.auto > 0) {
-					$timeout.cancel(timer);
-					$rootScope.countdownShow = false;
-				}
+				$timeout.cancel(timer);
+				$rootScope.countdownShow = false;
 			}
 		}
 		

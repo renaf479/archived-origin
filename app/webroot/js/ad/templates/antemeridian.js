@@ -2,14 +2,14 @@ var antemeridianController = function($scope, $rootScope, $timeout, OriginAdServ
 	
 	$scope.xdData.width		= '100%';
 	$scope.xdData.height	= '100%';
-	$scope.countdownShow	= true;
+	$rootScope.countdownShow= true;
 	$scope.countdown		= angular.copy($rootScope.timeout);
 	var timer 				= $timeout(serviceToggle.toggleOverlay, $rootScope.timeout * 1000);
 	
 	$rootScope.$watch('timeout', function(newValue, oldValue) {
 		if(newValue !== oldValue) {
-			$scope.countdownShow	= true;
-			$scope.countdown		= angular.copy($rootScope.timeout);
+			$rootScope.countdownShow	= true;
+			$scope.countdown			= angular.copy($rootScope.timeout);
 			$timeout.cancel(timer);
 			$timeout(serviceToggle.toggleOverlay, $rootScope.timeout * 1000);
 		}

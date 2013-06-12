@@ -1,6 +1,24 @@
 'use strict';
 
 angular.module('originAd.directives', [])
+	.directive('analytics', function(OriginAdService) {
+		return {
+			restrict: 'A',
+			link: function(scope, element, attrs) {
+				element.bind('mouseenter', function() {
+					OriginAdService.analyticsLog('Mouse Over');
+				});
+				
+				element.bind('mouseleave', function() {
+					OriginAdService.analyticsLog('Mouse Exit');
+				})
+				
+				element.bind('click', function(event) {
+					OriginAdService.analyticsLog('Mouse Click (X:'+event.clientX+', Y:'+event.clientY+')');
+				})
+			}
+		}
+	})
 	.directive('content', function($compile){
 		return {
 			restrict: 'A',

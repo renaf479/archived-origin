@@ -8,7 +8,7 @@
 		//echo $this->Minify->script(array('jquery/jquery', 'jquery/jquery.ui.widget', 'jquery/jquery.fileupload', 'jquery/chardinjs.min', 'angularjs', 'angular-ui', 'angularui-bootstrap', 'origin', 'controller', 'controllers/demoController', 'services', 'directives', 'filters'));
 	?>
 </head>
-<body ng:app="originAdApp" ng:cloak>
+<body ng:app="originAdApp" ng:cloak analytics>
 	<?php echo $this->fetch('content'); ?>
 </body>
 </html>
