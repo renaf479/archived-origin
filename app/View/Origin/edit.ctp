@@ -59,7 +59,7 @@
 				</ul>
 			</div>
 		</div>	
-		<div id="options-wrapper" data-intro="Ad creator options" data-position="bottom" class="originUI-borderColor originUI-bgColorSecondary">
+		<div id="options-wrapper" data-intro="Ad creator options" data-position="top" class="originUI-borderColor originUI-bgColorSecondary">
 			<span id="options" class="dropdown-toggle originUI-borderColor originUI-hover">Options</span>
 			<ul class="dropdown-menu originUI-bgColorSecondary originUI-borderColor">
 				<li>
@@ -75,10 +75,36 @@
 					<a href="javascript:void(0)" id="option-exit" class="option originUI-hover" ng:click="creatorSaveExit()">Save &amp; Exit</a>
 				</li>
 			</ul>
-		</div>
+		</div><!--
+		--><div id="platforms-wrapper" class="originUI-borderColor originUI-bgColorSecondary" data-intro="Select between supported platforms" data-position="top">
+			<a href="javascript:void(0)" id="platforms" class="dropdown-toggle originUI-hover platforms-{{ui.platform}}">{{ui.platform}}</a>
+			<ul class="dropdown-menu originUI-bgColorSecondary originUI-borderColor">
+				<li class="dropdown-item">
+					<a href="javascript:void(0)" id="platform-desktop" class="platform originUI-hover" ng:click="platformSwitch('Desktop')" ng:class="(workspace.ad.OriginAd.config.dimensions.Initial.Desktop.width)? 'active': 'inactive'">Desktop</a>
+				</li>
+				<li class="dropdown-item">
+					<a href="javascript:void(0)" id="platform-tablet" class="platform originUI-hover" ng:click="platformSwitch('Tablet')" ng:class="(workspace.ad.OriginAd.config.dimensions.Initial.Tablet.width)? 'active': 'inactive'">Tablet</a>
+				</li>
+				<li class="dropdown-item">
+					<a href="javascript:void(0)" id="platform-mobile" class="platform originUI-hover" ng:click="platformSwitch('Mobile')" ng:class="(workspace.ad.OriginAd.config.dimensions.Initial.Mobile.width)? 'active': 'inactive'">Mobile</a>
+				</li>
+			</ul>
+		</div><!--
+			<div id="schedules" class="">
+				<a href="javascript:void(0)" class="dropdown-toggle originUI-select">Test</a>
+				<ul class="dropdown-menu originUI-bgColorSecondary">
+					<li id="schedules-add">
+						<a href="javascript:void(0)" ng:click="scheduleModalOpen()">Add New Schedule</a>
+					</li>
+					<li ng:repeat="schedule in workspace.ad.OriginAdSchedule" ng:class="{active: workspace.ui.schedule == $index}">
+						<a href="javascript:void(0)">{{schedule.start_date}}-{{schedule.end_date}}</a>
+					</li>
+				</ul>
+			</div>
+			-->
 	</form>
 	<div id="creator-panel-top" class="originUI-bgColor originUI-borderColor">
-		<div id="components-wrapper" data-intro="Add components (images, video, etc) to unit" data-position="bottom">
+		<div id="components-wrapper" class="inline" data-intro="Add components (images, video, etc) to unit" data-position="bottom">
 			<div ng:repeat="(groupName, group) in workspace.components" class="inline component-menu originUI-borderColor">
 				<a href="javascript:void(0)" id="" class="dropdown-toggle">{{groupName}}</a>
 				<ul class="dropdown-menu originUI-bgColorSecondary originUI-borderColor">
@@ -92,41 +118,6 @@
 			<span id="workspace-undo" class="inline" ng:click="workspaceUndo()">Undo</span><!--
 			--><span id="workspace-save" class="inline" ng:click="workspaceUpdate()">Save</span>
 		</div>
-		<!--
-<div id="options-wrapper" data-intro="Ad creator options" data-position="bottom">
-			<a href="javascript:void(0)" id="options" class="dropdown-toggle originUI-borderColor">Options</a>
-			<ul class="dropdown-menu originUI-bgColorSecondary originUI-borderColor">
-				<li>
-					<a href="javascript:void(0)" id="option-embed" class="option originUI-hover" ng:click="embedModalOpen()">Create Embed</a>
-				</li>
-				<li>
-					<a href="/administrator/demo/<?php echo $this->params['originAd_id'];?>" id="option-demo" class="option originUI-hover" target="_blank">View Demo</a>
-				</li>
-				<li>
-					<a href="javascript:void(0)" id="option-settings" class="option originUI-hover" ng:click="settingsModalOpen()">Settings</a>
-				</li>
-				<li>
-					<a href="javascript:void(0)" id="option-exit" class="option originUI-hover" ng:click="creatorSaveExit()">Save &amp; Exit</a>
-				</li>
-			</ul>
-		</div>
--->
-		
-		
-		
-			<!--
-			<div id="schedules" class="">
-				<a href="javascript:void(0)" class="dropdown-toggle originUI-select">Test</a>
-				<ul class="dropdown-menu originUI-bgColorSecondary">
-					<li id="schedules-add">
-						<a href="javascript:void(0)" ng:click="scheduleModalOpen()">Add New Schedule</a>
-					</li>
-					<li ng:repeat="schedule in workspace.ad.OriginAdSchedule" ng:class="{active: workspace.ui.schedule == $index}">
-						<a href="javascript:void(0)">{{schedule.start_date}}-{{schedule.end_date}}</a>
-					</li>
-				</ul>
-			</div>
-			-->
 	</div>
 	
 	

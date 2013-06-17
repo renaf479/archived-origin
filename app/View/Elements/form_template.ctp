@@ -80,11 +80,25 @@
 	<?php }//End-foreach ?>
 	<accordion-group heading="Animation">
 		<div id="adTemplate-configSelector" class="inline adTemplate-config">
-			<label class="originUI-label">Animation Selector</label>
+			<label class="originUI-label">Selector</label>
 			<div class="originUI-field">
 				<div class="originUI-fieldBracket"></div>
 				<input type="text" class="originUI-input originUI-bgColorSecondary" ng:model="<?php echo $editor;?>.config.animations.selector"/>
 			</div>
+		</div>
+		<div id="adTemplate-configTrigger" class="inline adTemplate-config">
+			<label class="originUI-label">Trigger Effect</label>
+			<select class="originUI-select originUI-bgColorSecondary" ng:model="<?php echo $editor;?>.config.animations.trigger">
+				<option style="display:none" value="">Select Trigger</option>
+				<option value="Expand">Expand</option>
+				<option value="Overlay">Overlay</option>
+			</select>
+			<!--
+<div class="originUI-field">
+				<div class="originUI-fieldBracket"></div>
+				<input type="text" class="originUI-input originUI-bgColorSecondary" ng:model="<?php echo $editor;?>.config.animations.selector"/>
+			</div>
+-->
 		</div>
 		<div class="inline adTemplate-config">
 			<label class="originUI-label">Selector Start</label>

@@ -11,7 +11,8 @@ var originAdApp = angular.module('originAdApp', ['originAd.directives', 'originA
 						$rootScope.originParams				= (window.name)? angular.fromJson(decodeURIComponent(window.name)): {
 							auto: 0,
 							close: 0,
-							hover: .1
+							hover: .1,
+							hex: '#000000'
 						}; //Retrieve embed code params or use defaults
 						$rootScope.xdData = {
 							auto:		{},

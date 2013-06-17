@@ -942,9 +942,9 @@ body.originClass-edit #originBar-search {
 
 .adTemplate-config {
 	width: 20%;
-	margin: 4px;
+	margin: 4px 3px;
 	text-align: center;
-	font-size: 14px;
+	font-size: 12px;
 }
 
 #adTemplate-templateConfig {
@@ -974,8 +974,13 @@ body.originClass-edit #originBar-search {
 	text-align: center;
 }
 
-#adTemplate-configSelector {
-	width: 96%;
+#adTemplate-configSelector,
+#adTemplate-configTrigger {
+	width: 45%;
+}
+
+#adTemplate-configTrigger .originUI-select {
+	height: 20px;
 }
 /* =======================================================================
 	Ad Components Manager
@@ -1496,11 +1501,15 @@ body.originUI-superAdmin #adSettings-modal.originUI-modalContent {
 
 #embedModal-config .originUI-list > li {
 	display: inline-block;
-	width: 185px;
+	width: 125px;
 	margin: 10px 0 0 0;
 }
 
 #embedModal-config .originUI-field {
 	width: 30px;
 	margin: 0 auto;
+}
+
+#embedModal-config #config-hex {
+	width: 70px;
 }

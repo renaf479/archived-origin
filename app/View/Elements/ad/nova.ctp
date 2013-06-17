@@ -15,7 +15,7 @@
 		<script type="text/javascript">
 			var originAd_action	= 'close';
 		</script>
-		<div id="overlay" ng:click="close()"></div>
+		<div id="overlay" ng:click="close()" overlay></div>
 		<div id="triggered" style="<?php echo $dimensions->triggered;?>">
 			<div id="continue" ng:click="close()"></div>
 			<div ng:repeat="content in originAd_content['OriginAd<?php echo $originAd_platform;?>TriggeredContent']" content="content"></div>

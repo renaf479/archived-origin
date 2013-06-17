@@ -52,12 +52,12 @@ angular.module('originAd.directives', [])
 			
 				$rootScope.$watch('hiddenView', function(newValue, oldValue) {
 					// && (originAd_action === undefined)
+					
 					if(scope.originAd_config.type === 'inpage') {
 						//Special case for Overlay type units
 						if((typeof originAd_action !== 'undefined') && (originAd_action === 'close')) {
 							return false;
 						}
-
 						if(element.parent().parent().attr('id') === newValue) {
 							/**
 							* Hide elements
@@ -101,6 +101,14 @@ angular.module('originAd.directives', [])
 					}
 				};
 				countdownTimer();
+			}
+		}
+	})
+	.directive('overlay', function($rootScope) {
+		return {
+			restrict: 'A',
+			link: function(scope, element, attrs) {
+				angular.element(element).css('backgroundColor', $rootScope.originParams.hex);
 			}
 		}
 	})

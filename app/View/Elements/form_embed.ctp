@@ -27,5 +27,12 @@
 				<input type="text" class="originUI-input originUI-bgColorSecondary" ng:model="embedOptions.hover"/>
 			</div>
 		</li>
+		<li>
+			<label>Background Color</label>
+			<div id="config-hex" class="originUI-field">
+				<div class="originUI-fieldBracket"></div>
+				<input type="text" class="originUI-input originUI-bgColorSecondary" ng:model="embedOptions.hex" hex/>
+			</div>
+		</li>
 	</ul>
 </div>

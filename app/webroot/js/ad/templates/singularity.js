@@ -1,7 +1,7 @@
 var singularityController = function($scope, $rootScope, OriginAdService, serviceFrequency) {
 	
 	$rootScope.xdDataToggle = {
-		callback: 	'toggleExpand',
+		callback: 	'toggle'+$rootScope.originAd_config.animations.trigger,
 		id:			'originAd-'+$scope.origin_ad.OriginAd.id,
 		action:		'open',
 		type:		'singularity'

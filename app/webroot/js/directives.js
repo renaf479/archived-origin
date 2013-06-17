@@ -152,6 +152,8 @@ angular.module('originApp.directives', [])
 				//Prep render
 				var render = scope.ngModel.render;
 				
+				element.attr('id', 'workspaceContent-'+scope.ngModel.id);
+				
 				//Compile config into inline styles
 				element.css(css).html(render).append('<span class="workspace-content-label">'+scope.ngModel.content.title+'</span>').addClass('content-'+scope.ngModel.content.type);
 				
@@ -189,6 +191,16 @@ angular.module('originApp.directives', [])
 							left: 	Math.round(ui.position.left)+'px',
 							width: 	Math.round(ui.helper.width())+'px',
 							height: Math.round(ui.helper.height())+'px'
+						}
+						
+						switch(scope.ngModel.type) {
+							case 'springboard':
+								var width	= ui.originalSize.width+'px',
+									height	= ui.originalSize.height+'px';
+								
+								scope.ngModel.content.embed = scope.ngModel.content.embed.replace(width, scope.ngModel.config.width);
+								scope.ngModel.content.embed = scope.ngModel.content.embed.replace(height, scope.ngModel.config.height);
+								break;
 						}
 					}
 				});	
@@ -278,7 +290,7 @@ angular.module('originApp.directives', [])
 			link: function(scope, element, attr) {
 				element.sortable({
 					'axis':		'y',
-					'handle':	'.content-handle',
+					'handle':	'.content-handle, .content-label',
 					'update': function(event, ui) {
 						var newOrder	= $j(element).find('.content-item').length - 1;
 						
@@ -331,6 +343,7 @@ angular.module('originApp.directives', [])
 					stop: function(e, data) {
 						scope.updateLibrary();
 						scope.creatorToggle('library');
+						scope.$apply();
 					}
 				});
 			}
@@ -413,28 +426,4 @@ angular.module('originApp.directives', [])
 			
 		}
       }			
-    })
-	/*
-.directive("accordion", function() {
-        return {
-            restrict: 'E',
-            link: function (scope, element, attrs) {
-				var content = '<accordion accordion-id="'+scope.item.event+'" accordion-title="collapseId" parent="accordion2">';
-                content += '<div class="accordion-heading"><a class="accordion-toggle" data-toggle="collapse" data-parent="'+attrs.parent+'" href="#'+scope.item.event+'">'+scope.item.event+' '+scope.item.totalEvents+' '+scope.item.uniqueEvents+'</a></div>';
-                content += '<div id="'+scope.item.event+'" class="accordion-body in collapse"><div class="accordion-inner">';
-                
-				if(scope.item.labels!='') { //console.log(scope.item.labels);
-					//console.log(scope.item.labels[1].label);
-					content += scope.item.labels[1].label +' '+ scope.item.labels[1].totalEvents +' '+ scope.item.labels[1].uniqueEvents;
-				}
-				else {
-					content += 'no labels';
-				}
-				
-                content += '</div></div>';
-				content += '</accordion>';
-                element.html(content);
-            }
-        };
-    })
-*/;
+    });

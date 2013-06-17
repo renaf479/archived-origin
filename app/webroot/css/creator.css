@@ -7,19 +7,22 @@ body.originClass-edit #origin-bar {
 	height: 18px;
 }
 
-body.originClass-edit #originBar-logo {
+
+body.originClass-edit #originBar-logoIcon {
 	width: 50px;
 	background-size: 45px 10px;
 	border-width: 0 0 2px;
 	margin-left: 20px;
 }
 
-body.originClass-edit #originBar-logo:hover {
+body.originClass-edit #originBar-logoIcon:hover,
+body.originClass-edit #originBar-logo.open #originBar-logoIcon {
 	background-position: center 4px;
 	height: 16px;
 }
 
-body.originClass-edit #originBar-settingsIcon {
+body.originClass-edit #originBar-settingsIcon,
+body.originClass-edit #originBar-help {
 	background-size: 12px 12px;
 	border-width: 0 0 2px;
 }
@@ -50,7 +53,7 @@ body.originClass-edit #originBar-settings.open #originBar-settingsIcon {
 #creator-panel-workspace {
 	right: 0;
 	left: 200px;
-	top: 61px;
+	top: 51px;
 	z-index: 0;
 	border-width: 3px;
 	border-style: solid;
@@ -66,7 +69,7 @@ body.originClass-edit #originBar-settings.open #originBar-settingsIcon {
 /***** START: TOP PANEL *****/
 #creator-panel-top {
 	position: absolute;
-	height: 42px;
+	height: 32px;
 	left: 200px;
 	right: 0;
 	border-width: 0 0 0 2px;
@@ -74,21 +77,23 @@ body.originClass-edit #originBar-settings.open #originBar-settingsIcon {
 }
 
 #components-wrapper,
+#platforms-wrapper,
+#schedules-wrapper,
 /* #display-wrapper, */
 #actions-wrapper,
 #options-wrapper {
 	position: absolute;
 	height: 100%;
 	color: #fff;
-	line-height: 42px;
+	line-height: 32px;
 	font-size: 16px;
 	cursor: pointer;
 }
 
 #components-wrapper {
-	background: transparent url(/img/ad-component-add-26x26.png) no-repeat left 12px;
+	background: transparent url(/img/ad-component-add-26x26.png) no-repeat left 4px;
 	left: 10px;
-	padding-left: 20px;
+	padding-left: 30px;
 	cursor: default;
 }
 
@@ -101,7 +106,7 @@ body.originClass-edit #originBar-settings.open #originBar-settingsIcon {
 .component-menu.open {
 	border-width: 0 0 3px 0;
 	border-style: solid;
-	height: 40px;
+	height: 30px;
 }
 
 .component-menu + .component-menu {
@@ -117,7 +122,8 @@ body.originClass-edit #originBar-settings.open #originBar-settingsIcon {
 	display: block;
 }
 
-#components-wrapper .dropdown-menu {
+#components-wrapper .dropdown-menu,
+#platforms-wrapper .dropdown-menu {
 	border-width: 0 0 1px 3px;
 	border-style: solid;
 	margin: 3px 0 0 0;
@@ -131,11 +137,17 @@ body.originClass-edit #originBar-settings.open #originBar-settingsIcon {
 }
 
 #components-wrapper .component,
-#components-wrapper .component:hover {
+#components-wrapper .component:hover,
+#platforms-wrapper .platform,
+#platforms-wrapper .platform:hover {
 	text-indent: 25px;
 	background-repeat: no-repeat;
 	background-position: 10px center;
 	background-size: 18px 18px;
+}
+
+#components-wrapper  {
+	position: relative;
 }
 
 /*
@@ -180,17 +192,19 @@ body.originClass-edit #originBar-settings.open #originBar-settingsIcon {
 	right: 75px;
 }
 
-#options-wrapper {
+#options-wrapper,
+#platforms-wrapper {
 	/* right: 30px; */
 	bottom: 0;
-	width: 200px;
+	width: 65px;
 	height: 36px;
 	position: fixed;
 	border-width: 1px 0 0 0;
 	border-style: solid;
 }
 
-#options {
+#options,
+#platforms {
 	padding: 5px 0;
 	background: transparent url(/img/creator-options.png) no-repeat center center;
 	width: 100%;
@@ -200,7 +214,9 @@ body.originClass-edit #originBar-settings.open #originBar-settingsIcon {
 }
 
 #options:hover,
-#options-wrapper.open #options {
+#options-wrapper.open #options,
+#platforms:hover,
+#platforms-wrapper.open #platforms {
 	background-color: rgba(255, 255, 255, .1);
 /*
 	border-width: 0 0 3px 0;
@@ -210,7 +226,8 @@ body.originClass-edit #originBar-settings.open #originBar-settingsIcon {
 */
 }
 
-#options-wrapper .dropdown-menu {
+#options-wrapper .dropdown-menu,
+#platforms-wrapper .dropdown-menu {
 	/* background-color: rgba(255, 255, 255, .1); */
 	left: 0;
 	top: -134px;
@@ -218,7 +235,7 @@ body.originClass-edit #originBar-settings.open #originBar-settingsIcon {
 	border-width: 2px 0 0 0;
 	margin: 0;
 	padding: 0;
-	width: 100%;
+	width: 200px;
 	/* border-width: 0 3px 1px 0; */
 }
 
@@ -244,6 +261,47 @@ body.originClass-edit #originBar-settings.open #originBar-settingsIcon {
 	background-image: url(/img/dropdown-exit.png);
 }
 
+#platforms-wrapper {
+	left: 65px;
+}
+
+#platforms.platforms-Desktop {
+	background-image: url(/img/desktop-26x26.png);
+}
+
+#platforms.platforms-Tablet {
+	background-image: url(/img/tablet-26x26.png);
+}
+
+#platforms.platforms-Mobile {
+	background-image: url(/img/mobile-26x26.png);
+}
+
+#platforms-wrapper .dropdown-menu {
+	top: -101px;
+	left: -65px;
+}
+
+.platform.inactive {
+	opacity: .1;
+	pointer-events: none;
+	cursor: default;
+}
+
+#platform-desktop {
+	background-image: url(/img/desktop-26x26.png);
+}
+
+#platform-tablet {
+	background-image: url(/img/tablet-26x26.png);
+}
+
+#platform-mobile {
+	background-image: url(/img/mobile-26x26.png);
+}
+
+
+
 
 /*
 #actions-wrapper,
@@ -257,6 +315,7 @@ body.originClass-edit #originBar-settings.open #originBar-settingsIcon {
 */
 
 #actions-wrapper {
+	top: 0;
 	font-size: 13px;
 	text-transform: uppercase;
 	right: 10%;
@@ -429,8 +488,10 @@ body.originClass-edit #originBar-settings.open #originBar-settingsIcon {
 	line-height: 32px;
 	width: 110px;
 	overflow: hidden;
-	cursor: default;
 	white-space: nowrap;
+	cursor: move;
+	cursor: -moz-grab;
+	cursor: -webkit-grab;
 }
 
 .content-label:after {
@@ -776,14 +837,15 @@ div#editorSpringboard-preview {
 }
 
 #editorSpringboard-config .originUI-switch {
-	width: 60px;
+	width: 65px;
 }
 
 #editorSpringboard-config .originUI-list > li > label {
 	text-indent: 10px;
-	width: 205px;
+	width: 200px;
 }
 
+#editorSpringboard-refresh,
 #editorSpringboard-listPrev,
 #editorSpringboard-listNext,
 #editorSpringboard-btnOptions,
@@ -796,6 +858,7 @@ div#editorSpringboard-preview {
 	height: 23px;
 }
 
+#editorSpringboard-refresh:active,
 #editorSpringboard-listPrev:active,
 #editorSpringboard-listNext:active,
 #editorSpringboard-btnOptions:active,
@@ -803,8 +866,20 @@ div#editorSpringboard-preview {
 	transform: scale(.9, .9);
 }
 
+#editorSpringboard-upload {
+	background: transparent url(/img/upload-14x14.png) no-repeat left center;
+	cursor: pointer;
+	display: block;
+	text-indent: 20px;
+}
+
 #editorSpringboard-listPrev {
 	background: transparent url(/img/prev-14x14.png) no-repeat center center;
+	right: 50px;
+}
+
+#editorSpringboard-refresh {
+	background: transparent url(/img/refresh-14x14.png) no-repeat center center;
 	right: 25px;
 }
 
@@ -823,7 +898,11 @@ div#editorSpringboard-preview {
 	right: 25px;
 }
 
-
+/*
+#editor-toggle {
+	height: 100px;
+}
+*/
 
 /* =======================================================================
 	Settings

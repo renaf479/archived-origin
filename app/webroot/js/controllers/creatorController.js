@@ -58,7 +58,7 @@ var creatorController = function($scope, $filter, Origin) {
 	
 	$scope.embedOptions = {
 		'auto':		0,
-		/* 'bg':		'#000000', WHY IS THIS EVEN AN OPTION? */
+		'hex':		'#000000',
 		'close':	0,
 		'hover':	0
 	};
@@ -81,6 +81,10 @@ var creatorController = function($scope, $filter, Origin) {
 			$scope.$watch('ui.view', function() {
 				$scope.updateUI();
 			});	
+			
+			$scope.$watch('ui.platform', function() {
+				$scope.updateUI();
+			});
 			
 			Origin.get('templates').then(function(response) {
 				$scope.templates		= response;
@@ -147,6 +151,24 @@ height:	$scope.workspace.template.config.dimensions[$scope.ui.view][$scope.ui.pl
 				break;
 		}
 	}
+	
+	/**
+	* Switches between different platform views
+	*/
+	$scope.platformSwitch = function(type) {
+		$scope.ui.platform = type;
+	}
+	
+/*
+	$scope.creatorFocus = function(data) {
+		$j('#workspaceContent-'+data.id).attr('tabindex', -1).focus();
+		
+		
+		//Work on this....
+		$j('.content-item').removeClass('active');
+		$j('#contentItem-'+data.id).addClass('active');
+	}
+*/
 	
 	/**
 	* Closes the modal window
@@ -361,10 +383,10 @@ height:	$scope.workspace.template.config.dimensions[$scope.ui.view][$scope.ui.pl
 		$scope.editor.originAd_id	= originAd_id;
 		$scope.editor.data			= $scope.workspace.ad.OriginAdSchedule;
 		$scope.editor.route			= 'creatorWorkspaceUpdate';
-		
-		Origin.post($scope.editor).then(function() {
+		Origin.post($scope.editor).then(function(response) {
 			$scope.$parent.notificationOpen('Workspace saved');
 			$j('#actions-wrapper').fadeOut(200);
+			$scope.refreshUI(response);
 		});
 	}
 };

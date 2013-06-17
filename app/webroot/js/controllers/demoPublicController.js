@@ -17,6 +17,7 @@ var demoPublicController = function($scope, $rootScope, $compile) {
 			originEmbed = originEmbed.replace(/{{embedOptions.auto}}/g, $rootScope.embedOptions.auto);
 			originEmbed = originEmbed.replace(/{{embedOptions.close}}/g, $rootScope.embedOptions.close);
 			originEmbed = originEmbed.replace(/{{embedOptions.hover}}/g, $rootScope.embedOptions.hover);
+			originEmbed = originEmbed.replace(/{{embedOptions.hex}}/g, $rootScope.embedOptions.hex);
 			originEmbed = originEmbed.replace(/{{embedOptions.dcopt}}/g, $rootScope.embedOptions.dcopt);
 			originEmbed = originEmbed.replace(/{{embedOptions.type}}/g, $rootScope.embedOptions.type);
 

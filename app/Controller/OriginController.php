@@ -345,11 +345,11 @@ class OriginController extends AppController {
 	public function demo() {
 		$this->layout 	= 'demo_public';
 		
-		
 		$demo = $this->OriginDemo->find('first', 
 			array(
 				'conditions'=>array(
-					'OriginDemo.alias'=>$this->request->params['alias']
+					'OriginDemo.alias'=>$this->request->params['alias'],
+					'OriginDemo.status'=>'1'
 				)
 			)
 		);
@@ -813,13 +813,13 @@ class OriginController extends AppController {
 		$origin_templates	= $this->OriginTemplate->find('all',
 			array(
 				'conditions'=>array(
-					'OriginTemplate.status'=>1
+					'OriginTemplate.status'=>1,
+					'OriginAds.showcase'=>1
 				),
 				'fields'=>array(
 					'OriginTemplate.*',
 					'OriginAds.*'
 				),
-				'group'=>array('OriginTemplate.alias'),
 				'joins'=>array(
 					array(
 						'table'=>'origin_ads',
@@ -1042,10 +1042,10 @@ class OriginController extends AppController {
 				
 				foreach($dataSave as $key=>$content) {
 					unset($dataSave[$key]['origin_ad_schedule_id']);
-					unset($dataSave[$key]['content']);
+					//unset($dataSave[$key]['content']);
 					unset($dataSave[$key]['render']);
 					//unset($dataSave[$key]['order']);
-					
+					$dataSave[$key]['content']= json_encode($content['content']);
 					$dataSave[$key]['config'] = json_encode($content['config']);
 				}
 				
@@ -1056,8 +1056,8 @@ class OriginController extends AppController {
 				}
 			}
 		}
-		
 		$this->_adModifyUpdate($data['originAd_id']);
+		return $this->_creatorAdLoad($data);
 	}
 	
 	/**

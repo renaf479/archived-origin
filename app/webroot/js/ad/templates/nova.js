@@ -12,7 +12,7 @@ var novaController = function($scope, $rootScope, OriginAdService, serviceFreque
 	}
 	
 	$rootScope.xdDataToggle = {
-		callback:	'toggleOverlay',
+		callback: 	'toggle'+$rootScope.originAd_config.animations.trigger,
 		action:		originAd_action,
 		idInitial:	'originAd-'+$scope.origin_ad.OriginAd.id,
 		idTriggered:'originAd-'+$scope.origin_ad.OriginAd.id+'-overlay',

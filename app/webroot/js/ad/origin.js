@@ -20,6 +20,7 @@ var originScript, originParams, originXd;
 				ad.width		= 0;
 				ad.height		= 0;
 				ad.scrolling 	= 'no';
+				ad.style.backgroundColor = originParams.hex;
 				ad.name			= encodeURIComponent(JSON.stringify(originParams));
 				ad.src			= originParams.src;
 				
@@ -40,7 +41,7 @@ var originScript, originParams, originXd;
 				switch(originParams.type) {
 					case 'horizon':
 						//originScript.parentNode.insertBefore(ad, originScript);
-						document.body.insertBefore(ad, document.body.firstChild)
+						document.body.insertBefore(ad, document.body.firstChild);
 						//document.body.appendChild(originCSS);
 						break;
 					case 'postmeridian':
@@ -85,6 +86,7 @@ var originScript, originParams, originXd;
 				'auto':		data.auto,
 				'close':	data.close,
 				'hover':	data.hover,
+				'hex':		data.hex,
 				'type':		data.template,
 				'dcopt':	data.dcopt,
 				'id':		data.id,

@@ -26,7 +26,7 @@ var antemeridianController = function($scope, $rootScope, $timeout, OriginAdServ
 	OriginAdService.xd($scope.xdData, $scope.originParams.xdSource);
 	
 	$rootScope.xdDataToggle = {
-		callback:	'toggleOverlay',
+		callback: 	'toggle'+$rootScope.originAd_config.animations.trigger,
 		action:		'close',
 		idInitial:	'originAd-'+$scope.origin_ad.OriginAd.id,
 		idTriggered:'originAd-'+$scope.origin_ad.OriginAd.id,

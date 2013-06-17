@@ -4,6 +4,7 @@
 			auto: 	'{{embedOptions.auto}}',
 			close: 	'{{embedOptions.close}}',
 			hover: 	'{{embedOptions.hover}}',
+			hex: 	'{{embedOptions.hex}}',
 			dcopt: 	'{{embedOptions.dcopt}}',
 			id:		'{{embedOptions.id}}',
 			template:'{{embedOptions.type}}',

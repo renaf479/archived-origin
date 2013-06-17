@@ -19,7 +19,7 @@ var listController = function($scope, $filter, Origin) {
 	$scope.users		= {};
 	$scope.embedOptions = {
 		'auto':		0,
-		/* 'bg':		'#000000', WHY IS THIS EVEN AN OPTION? */
+		'bg':		'#000000',
 		'close':	0,
 		'hover':	0
 	};

@@ -6,7 +6,7 @@
 	<link rel="shortcut icon" href="/favicon.ico"/>
 	<?php
 		echo $this->Minify->css(array('origin-new.css', 'modal.css'));
-		echo $this->Minify->script(array());
+		echo $this->Minify->script(array('angularjs'));
 	?>
 </head>
 <body>

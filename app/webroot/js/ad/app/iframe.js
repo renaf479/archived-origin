@@ -75,11 +75,8 @@ var iframe = (function() {
 			})
 		},
 		automute: function() {
-			/*
-			if(autoOpen) {
-					$sb(springboardPlayerId).mute();
-				}
-			*/
+			$sb(springboardObj.id).mute();
+			
 		},
 		autoplay: function() {
 			//Override close timer
@@ -87,7 +84,6 @@ var iframe = (function() {
 		},
 		muteplayer: function() {
 			/*
-			
 			if(!autoOpen && toggle === "off") {
 					$sb(springboardPlayerId).unmute();
 				} else if(!autoOpen && toggle === "on") {

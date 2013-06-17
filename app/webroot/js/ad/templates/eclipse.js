@@ -7,7 +7,7 @@ var eclipseController = function($scope, $rootScope, OriginAdService, serviceFre
 	$rootScope.xdData.width	= '100%';
 
 	$rootScope.xdDataToggle = {
-		callback: 	'toggleExpand',
+		callback: 	'toggle'+$rootScope.originAd_config.animations.trigger,
 		id:			'originAd-'+$scope.origin_ad.OriginAd.id,
 		action:		'open',
 		type:		'eclipse'

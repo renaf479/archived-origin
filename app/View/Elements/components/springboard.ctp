@@ -1,7 +1,8 @@
 <div id="editor-springboard" ng:controller="componentCtrl">	
 	<div class="originUI-modalLeft">
-		<strong>Select Video</strong>
+		<span id="editorSpringboard-upload" ng:click="springboardUpload()">Upload Video</span>
 		<span id="editorSpringboard-listPrev" ng:click="springboardPage('prev')">Prev</span>
+		<span id="editorSpringboard-refresh" ng:click="springboardLoad()">Refresh</span>
 		<span id="editorSpringboard-listNext" ng:click="springboardPage('next')">Next</span>
 		<ul id="editorSpringboard-list" class="originUI-bgColor originUI-borderColor">
 			<li class="originUIList-item" ng:repeat="video in springboard.item">
@@ -99,6 +100,11 @@
 				Origin.getRss('cms.springboardplatform.com/xml_feeds_advanced/index/1307/0/0/0/'+page+'/7/').then(function(response) {
 					$scope.springboard	= response.rss.channel;
 				});	
+			}
+			
+			$scope.springboardUpload = function() {
+				//window.open('/administrator/modal/springboard', 'springboard-upload','width=600,height=250,toolbar=0,resizable=0');
+				window.open('http://publishers.springboardplatform.com/videos/upload_video/1307/761c8efda2112a9944b61616dd19ce87', 'springboard-upload','width=800,height=500,toolbar=0');
 			}
 			
 			$scope.springboardSelect = function(video) {
