@@ -5,6 +5,7 @@ var horizonController = function($scope, $rootScope, OriginAdService, serviceFre
 	* Horizon units are always 100% page width
 	*/
 	$scope.xdData.width		= '100%';
+	$scope.xdData.hex 		= $rootScope.originAd_configContent.hex;
 	
 	$rootScope.xdDataToggle = {
 		callback: 	'toggle'+$rootScope.originAd_config.animations.trigger,

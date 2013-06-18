@@ -77,7 +77,7 @@
 			</ul>
 		</div><!--
 		--><div id="platforms-wrapper" class="originUI-borderColor originUI-bgColorSecondary" data-intro="Select between supported platforms" data-position="top">
-			<a href="javascript:void(0)" id="platforms" class="dropdown-toggle originUI-hover platforms-{{ui.platform}}">{{ui.platform}}</a>
+			<span id="platforms" class="dropdown-toggle originUI-hover platforms-{{ui.platform}}">{{ui.platform}}</span>
 			<ul class="dropdown-menu originUI-bgColorSecondary originUI-borderColor">
 				<li class="dropdown-item">
 					<a href="javascript:void(0)" id="platform-desktop" class="platform originUI-hover" ng:click="platformSwitch('Desktop')" ng:class="(workspace.ad.OriginAd.config.dimensions.Initial.Desktop.width)? 'active': 'inactive'">Desktop</a>
@@ -90,6 +90,16 @@
 				</li>
 			</ul>
 		</div><!--
+		--><div id="schedules-wrapper" class="originUI-borderColor originUI-bgColorSecondary" data-intro="Select dates" data-position="right">
+			<span id="schedules" class="dropdown-toggle originUI-hover"></span>
+			<ul class="dropdown-menu originUI-bgColorSecondary originUI-borderColor">
+				<li class="dropdown-item">
+					<a href="javascript:void(0)" id="schedule-add" class="schedule originUI-hover" ng:click="">Add New Schedule</a>
+				</li>
+			</ul>
+		</div>
+		
+		<!--
 			<div id="schedules" class="">
 				<a href="javascript:void(0)" class="dropdown-toggle originUI-select">Test</a>
 				<ul class="dropdown-menu originUI-bgColorSecondary">
@@ -124,6 +134,7 @@
 	
 	
 	<div id="creator-panel-workspace" class="originUI-bgColorSecondary originUI-bgTexture originUI-borderColor">
+		<span id="workspace-platform">{{ui.platform}}</span>
 		<div id="workspace" ng:style="workspaceTemplateConfig()" workspace>
 			<workspace-content ng:repeat="content in workspace.ad.OriginAdSchedule[ui.schedule][ui.content]" ng:model="content" double-click="creatorModalOpen('content', '', content)"></workspace-content>
 		</div>

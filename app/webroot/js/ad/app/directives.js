@@ -108,7 +108,7 @@ angular.module('originAd.directives', [])
 		return {
 			restrict: 'A',
 			link: function(scope, element, attrs) {
-				angular.element(element).css('backgroundColor', $rootScope.originParams.hex);
+				angular.element(element).css('backgroundColor', $rootScope.originAd_configContent.hex);
 			}
 		}
 	})
@@ -123,7 +123,8 @@ angular.module('originAd.directives', [])
 				
 			return function() {
 				clearTimeout(trigger);
-				trigger = setTimeout(onMouseStop, 1000 * scope.originParams.hover);
+				trigger = setTimeout(onMouseStop, 100);
+				//trigger = setTimeout(onMouseStop, 1000 * scope.originParams.hover);
 			}();
 		}
 		return {
@@ -136,6 +137,11 @@ angular.module('originAd.directives', [])
 						});
 						break;
 					case 'hover':
+						element.bind('mouseenter', function() {
+							serviceToggle[scope.xdDataToggle.callback]();
+						});
+						break;
+					case 'hoverIntent':
 						element.bind('mousemove', function() {
 							hoverIntent(scope);
 						});						

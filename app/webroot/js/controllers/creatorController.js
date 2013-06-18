@@ -57,10 +57,10 @@ var creatorController = function($scope, $filter, Origin) {
 	}
 	
 	$scope.embedOptions = {
-		'auto':		0,
+		'auto':		'false',
 		'hex':		'#000000',
 		'close':	0,
-		'hover':	0
+		//'hover':	0
 	};
 	
 	
@@ -306,7 +306,7 @@ height:	$scope.workspace.template.config.dimensions[$scope.ui.view][$scope.ui.pl
 	$scope.embedModalOpen = function() {
 		$scope.embedOptions.id		= $scope.workspace.ad.OriginAd.id;
 		$scope.embedOptions.type	= $scope.workspace.ad.OriginAd.config.template;
-		$scope.embedOptions.dcopt	= ($scope.workspace.ad.OriginAd.config.type === 'outofpage')? 'true': 'false';
+		$scope.embedOptions.dcopt	= ($scope.workspace.ad.OriginAd.config.type === 'outofpage' || $scope.embedOptions.type === 'horizon')? 'true': 'false';
 		$scope.embedModal = true;
 	}
 	

@@ -20,7 +20,7 @@ var originScript, originParams, originXd;
 				ad.width		= 0;
 				ad.height		= 0;
 				ad.scrolling 	= 'no';
-				ad.style.backgroundColor = originParams.hex;
+				//ad.style.backgroundColor = originParams.hex;
 				ad.name			= encodeURIComponent(JSON.stringify(originParams));
 				ad.src			= originParams.src;
 				
@@ -85,8 +85,8 @@ var originScript, originParams, originXd;
 			originParams = {
 				'auto':		data.auto,
 				'close':	data.close,
-				'hover':	data.hover,
-				'hex':		data.hex,
+				//'hover':	data.hover,
+				//'hex':		data.hex,
 				'type':		data.template,
 				'dcopt':	data.dcopt,
 				'id':		data.id,

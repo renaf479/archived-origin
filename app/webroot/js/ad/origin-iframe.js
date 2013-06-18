@@ -24,7 +24,7 @@ var originIframe = (function() {
 				new window.top.origin({
 					auto: 	originParams.auto,
 					close: 	originParams.close,
-					hover: 	originParams.hover,
+					//hover: 	originParams.hover,
 					hex:	originParams.hex,
 					dcopt: 	originParams.dcopt,
 					id:		originParams.id,

@@ -1500,14 +1500,16 @@ body.originUI-superAdmin #adSettings-modal.originUI-modalContent {
 }
 
 #embedModal-config .originUI-list > li {
-	display: inline-block;
-	width: 125px;
 	margin: 10px 0 0 0;
 }
 
 #embedModal-config .originUI-field {
 	width: 30px;
 	margin: 0 auto;
+}
+
+#embedModal-config #config-auto {
+	width: 100px;
 }
 
 #embedModal-config #config-hex {

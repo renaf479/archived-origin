@@ -30,6 +30,13 @@
 				<input type="text" class="originUI-input originUI-bgColorSecondary" ng:model="editor.content.ga_id"/>
 			</div>
 		</li>
+		<li id="formCreate-hex">
+			<label class="inline adSettings-label">BG Color</label>
+			<div class="originUI-field inline">
+				<div class="originUI-fieldBracket"></div>
+				<input type="text" class="originUI-input originUI-bgColorSecondary" ng:model="editor.content.hex" maxlength="7" hex/>
+			</div>
+		</li>
 		<li class="originUI-superAdmin">
 			<div id="formCreate-thumbnail" class="originUI-upload">
 				<span class="originUI-uploadLabel">Preview Image (optional)</span>

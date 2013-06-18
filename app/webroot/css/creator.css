@@ -137,9 +137,7 @@ body.originClass-edit #originBar-settings.open #originBar-settingsIcon {
 }
 
 #components-wrapper .component,
-#components-wrapper .component:hover,
-#platforms-wrapper .platform,
-#platforms-wrapper .platform:hover {
+#components-wrapper .component:hover {
 	text-indent: 25px;
 	background-repeat: no-repeat;
 	background-position: 10px center;
@@ -193,7 +191,8 @@ body.originClass-edit #originBar-settings.open #originBar-settingsIcon {
 }
 
 #options-wrapper,
-#platforms-wrapper {
+#platforms-wrapper,
+#schedules-wrapper {
 	/* right: 30px; */
 	bottom: 0;
 	width: 65px;
@@ -204,7 +203,8 @@ body.originClass-edit #originBar-settings.open #originBar-settingsIcon {
 }
 
 #options,
-#platforms {
+#platforms,
+#schedules {
 	padding: 5px 0;
 	background: transparent url(/img/creator-options.png) no-repeat center center;
 	width: 100%;
@@ -216,7 +216,9 @@ body.originClass-edit #originBar-settings.open #originBar-settingsIcon {
 #options:hover,
 #options-wrapper.open #options,
 #platforms:hover,
-#platforms-wrapper.open #platforms {
+#platforms-wrapper.open #platforms,
+#schedules:hover,
+#schedules-wrapper.open #schedules {
 	background-color: rgba(255, 255, 255, .1);
 /*
 	border-width: 0 0 3px 0;
@@ -227,7 +229,8 @@ body.originClass-edit #originBar-settings.open #originBar-settingsIcon {
 }
 
 #options-wrapper .dropdown-menu,
-#platforms-wrapper .dropdown-menu {
+#platforms-wrapper .dropdown-menu,
+#schedules-wrapper .dropdown-menu {
 	/* background-color: rgba(255, 255, 255, .1); */
 	left: 0;
 	top: -134px;
@@ -239,7 +242,10 @@ body.originClass-edit #originBar-settings.open #originBar-settingsIcon {
 	/* border-width: 0 3px 1px 0; */
 }
 
-#options-wrapper .option {
+#options-wrapper .option,
+#platforms-wrapper .platform,
+#schedules-wrapper .schedule {
+	background-size: 18px 18px;
 	background-repeat: no-repeat;
 	background-position: 10px center;
 	text-indent: 10px;
@@ -263,6 +269,7 @@ body.originClass-edit #originBar-settings.open #originBar-settingsIcon {
 
 #platforms-wrapper {
 	left: 65px;
+	width: 70px;
 }
 
 #platforms.platforms-Desktop {
@@ -300,8 +307,22 @@ body.originClass-edit #originBar-settings.open #originBar-settingsIcon {
 	background-image: url(/img/mobile-26x26.png);
 }
 
+#schedules-wrapper {
+	left: 135px;
+}
 
+#schedules {
+	background-image: url(/img/calendar-26x26.png);
+}
 
+#schedules-wrapper .dropdown-menu {
+	left: -135px;
+	top: -35px;/* THIS NEEDS TO BE FIXED.... SOMEHOW... */
+}
+
+#schedule-add {
+	background-image: url(/img/calendar-add-26x26.png);
+}
 
 /*
 #actions-wrapper,
@@ -349,6 +370,7 @@ body.originClass-edit #originBar-settings.open #originBar-settingsIcon {
 	background: transparent url(/img/undo-26x26.png) no-repeat 10px center;
 	left: 0px;
 }
+/*
 
 #schedules {
 	position: absolute;
@@ -375,6 +397,7 @@ body.originClass-edit #originBar-settings.open #originBar-settingsIcon {
 	border-left: 3px solid #0099cc;
 	border-bottom: 1px solid #0099cc;
 }
+*/
 
 
 /***** END: TOP PANEL *****/
@@ -604,6 +627,22 @@ body.originClass-edit #originBar-settings.open #originBar-settingsIcon {
 	background-position: center top;
 }
 
+#workspace-platform {
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	font-size: 50px;
+	text-transform: uppercase;
+	opacity: .05;
+	cursor: default;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;	
+}
+
 .workspace-content {
 	display: block;
 	position: absolute !important;
@@ -785,7 +824,8 @@ body.originClass-edit #originBar-settings.open #originBar-settingsIcon {
 }
 
 #editorLink-type,
-#editorToggle-type {
+#editorToggle-type,
+#editorToggle-hoverIntent {
 	width: 120px;
 	margin: 0 5px;
 }
@@ -896,6 +936,10 @@ div#editorSpringboard-preview {
 #editorSpringboard-btnPreview {
 	background: transparent url(/img/video-14x14.png) no-repeat center center;
 	right: 25px;
+}
+
+#editor-toggle .originUI-list label.inline {
+	width: 100px;
 }
 
 /*

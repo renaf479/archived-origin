@@ -7,13 +7,32 @@
 <div id="embedModal-config">
 	<ul class="originUI-list">
 		<li>
-			<label>Frequency Cap (per 24hrs)</label>
-			<div class="originUI-field">
+			<label class="inline">Auto Open</label>
+			<div id="config-auto" class="inline">
+				<div class="originUI-switch">
+				    <input type="checkbox" name="editorToggleAutoSwitch" class="originUI-switchInput" id="editorToggleAutoSwitch" ng:model="embedOptions.auto" ng:checked="editor.content.event">
+				    <label class="originUI-switchLabel" for="editorToggleAutoSwitch">
+				    	<div class="originUI-switchInner">
+				    		<div class="originUI-switchActive">
+				    			<div class="originUI-switchText">Yes</div>
+						    </div>
+						    <div class="originUI-switchInactive">
+						    	<div class="originUI-switchText">No</div>
+							</div>
+					    </div>
+				    </label>
+			    </div>
+			</div>
+<!--
+			<label class="inline">Frequency Cap (per 24hrs)</label>
+			<div class="originUI-field inline">
 				<div class="originUI-fieldBracket"></div>
 				<input type="text" class="originUI-input originUI-bgColorSecondary" ng:model="embedOptions.auto"/>
 			</div>
+-->
 		</li>
-		<li>
+		<!--
+<li>
 			<label>Close Timer (seconds)</label>
 			<div class="originUI-field">
 				<div class="originUI-fieldBracket"></div>
@@ -27,12 +46,15 @@
 				<input type="text" class="originUI-input originUI-bgColorSecondary" ng:model="embedOptions.hover"/>
 			</div>
 		</li>
+-->
+<!--
 		<li>
-			<label>Background Color</label>
-			<div id="config-hex" class="originUI-field">
+			<label class="inline">Background Color</label>
+			<div id="config-hex" class="originUI-field inline">
 				<div class="originUI-fieldBracket"></div>
 				<input type="text" class="originUI-input originUI-bgColorSecondary" ng:model="embedOptions.hex" hex/>
 			</div>
 		</li>
+-->
 	</ul>
 </div>

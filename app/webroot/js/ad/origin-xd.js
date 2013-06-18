@@ -28,6 +28,7 @@ var originXd = (function() {
 			var originAd				= document.getElementById(data.id);
 				originAd.width			= data.width;
 				originAd.height			= data.height;
+				originAd.style.backgroundColor	= data.hex;
 			switch(data.template) {
 				case 'antemeridian':
 					originAd.style.position	= 'fixed';

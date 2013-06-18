@@ -3,7 +3,7 @@
 		var originOptions = {
 			auto: 	'{{embedOptions.auto}}',
 			close: 	'{{embedOptions.close}}',
-			hover: 	'{{embedOptions.hover}}',
+			//hover: 	'{{embedOptions.hover}}',
 			hex: 	'{{embedOptions.hex}}',
 			dcopt: 	'{{embedOptions.dcopt}}',
 			id:		'{{embedOptions.id}}',
