@@ -9,11 +9,12 @@ var originAdApp = angular.module('originAdApp', ['originAd.directives', 'originA
 						$rootScope.originAd_configContent	= angular.fromJson($rootScope.origin_ad.OriginAd.content);
 						$rootScope.originAd_content			= {};
 						$rootScope.originParams				= (window.name)? angular.fromJson(decodeURIComponent(window.name)): {
-							auto: 0,
-							close: 0,
+							auto: 'false',
+							close: 'false',
 							hover: .1,
 							hex: '#000000'
 						}; //Retrieve embed code params or use defaults
+						
 						$rootScope.xdData = {
 							auto:		{},
 							callback:	'containerInit',
@@ -26,7 +27,9 @@ var originAdApp = angular.module('originAdApp', ['originAd.directives', 'originA
 						//$rootScope.timeout	= ($rootScope.originParams.close > 0)? $rootScope.originParams.close: $rootScope.originAd_config.animations.closeDuration;
 						
 						//CHANGE THIS TO BE SET BY ORIGIN SYSTEM
-						$rootScope.timeout	= ($rootScope.originParams.close > 0)? $rootScope.originParams.close: '15';
+						//$rootScope.timeout 	= ($rootSope.originParams.close === 'true')? '15': '0';
+						
+						//$rootScope.timeout	= ($rootScope.originParams.close > 0)? $rootScope.originParams.close: '15';
 						
 						/**
 						* Loads the content based on the current date
@@ -65,11 +68,10 @@ var originAdApp = angular.module('originAdApp', ['originAd.directives', 'originA
 									OriginAdService.analyticsLog(message.type, message.data);
 									break;
 								case 'timeout':
-									$rootScope.timeout = message.timeout + 5;
+									$rootScope.timeout = message.timeout + 2;
 									break;
 								case 'timeouthide':
 									serviceTimer.cancel();
-									//$rootScope.countdownCancel();
 									break;
 								case 'toggle':
 									serviceToggle[$rootScope.xdDataToggle.callback]();

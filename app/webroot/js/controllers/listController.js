@@ -18,10 +18,8 @@ var listController = function($scope, $filter, Origin) {
 	$scope.templates	= {};
 	$scope.users		= {};
 	$scope.embedOptions = {
-		'auto':		0,
-		'bg':		'#000000',
-		'close':	0,
-		'hover':	0
+		'auto':		'false',
+		'close':	'false',
 	};
 	
 	Origin.get('templates').then(function(response) {
@@ -32,7 +30,7 @@ var listController = function($scope, $filter, Origin) {
 			$scope.ads 		= response.origin_ads;
 			$scope.module	= $scope.ads[0].OriginAd;
 			//console.log($scope.originCreator.list.origin_ads[0].Creator);
-			
+			$scope.showCreate	= true;
 			$scope.refreshDemo();
 			
 		});
@@ -43,6 +41,7 @@ var listController = function($scope, $filter, Origin) {
 		$scope.editor.content 		= {};
 		$scope.editor.content.ga_id = 'UA-12310597-73';
 		$scope.editor.content.img_thumbnail='';
+		$scope.editor.content.hex 	= '#000000';
 		$scope.editor.header		= 'Create New Ad';
 		$scope.editor.statusSwitch	= true;
 		//$scope.editor.template 		= $scope.templates[0];
@@ -83,6 +82,10 @@ var listController = function($scope, $filter, Origin) {
 		$scope.embedOptions.type	= $scope.module.config.template;
 		$scope.embedOptions.dcopt	= ($scope.module.config.type === 'outofpage')? 'true': 'false';
 		$scope.$parent.originModalOpen();
+	}
+	
+	$scope.embedEmail = function() {
+		
 	}
 	
 	$scope.loadModule = function(model) {

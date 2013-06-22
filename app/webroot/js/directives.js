@@ -42,7 +42,11 @@ angular.module('originApp.directives', [])
 					if (transformedInput!=inputValue) {
 						modelCtrl.$setViewValue(transformedInput);
 						modelCtrl.$render();
-					}         
+					}
+					
+					$j(element).prev().css('backgroundColor', transformedInput);
+					$j(element).css('borderColor', transformedInput);
+					
 					
 					return transformedInput; 
 				});

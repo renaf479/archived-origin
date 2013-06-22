@@ -314,7 +314,12 @@ height:	$scope.workspace.template.config.dimensions[$scope.ui.view][$scope.ui.pl
 	* Email embed code to user
 	*/
 	$scope.embedModalEmail = function() {
-		
+		$scope.editor.route		= 'emailEmbed';
+		$scope.editor.ad 		= $scope.workspace.ad.OriginAd;
+		$scope.editor.embed 	= $j('#embedModal-content').val();
+		Origin.post($scope.editor).then(function() {
+			
+		});
 	}
 	
 	/**

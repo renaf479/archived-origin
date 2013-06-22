@@ -20,7 +20,7 @@ angular.module('originAd.services', [])
 	
 		var serviceTimer = {
 			init: function() {
-				if($rootScope.timeout > 0 && $rootScope.originParams.auto > 0) {
+				if($rootScope.timeout > 0 && $rootScope.originParams.auto === 'true') {
 					timer = $timeout(serviceToggle[$rootScope.xdDataToggle.callback], $rootScope.timeout * 1000);
 				}
 			},
@@ -33,14 +33,24 @@ angular.module('originAd.services', [])
 		return serviceTimer;
 	})
 	.factory('serviceFrequency', function($rootScope, serviceToggle, serviceTimer, OriginAdService) {
+		/**
+		* Only in use with non-Meridian type units
+		*/
 		return {
 			init: function() {				
 				/**
 				* Auto-expand logic
 				*/
-				if(this.check($rootScope.originAd_id, $rootScope.originParams.auto)) {
+				var auto 	= ($rootScope.originParams.auto === 'true')? '1': '0';
+				
+				if(this.check($rootScope.originAd_id, auto)) {
+				
+					//Flag to know if the unit has been auto-opened
+					window.originAuto	= true;
+					
 					//Initialize Timer service
-					serviceTimer.init();
+					//Disabled for now... Will control close with video player
+					//serviceTimer.init();
 				
 					switch($rootScope.xdDataToggle.callback) {
 						case 'toggleExpand':

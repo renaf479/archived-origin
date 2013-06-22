@@ -3,6 +3,7 @@ var antemeridianController = function($scope, $rootScope, $timeout, OriginAdServ
 	$scope.xdData.width		= '100%';
 	$scope.xdData.height	= '100%';
 	$rootScope.countdownShow= true;
+	$rootScope.timeout		= '15';
 	$scope.countdown		= angular.copy($rootScope.timeout);
 	var timer 				= $timeout(serviceToggle.toggleOverlay, $rootScope.timeout * 1000);
 	

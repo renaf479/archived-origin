@@ -68,39 +68,23 @@ var iframe = (function() {
 		},
 		autoclose: function() {
 			$sb(springboardObj.id).onFinish(function() {
-				
 				setTimeout(function() {
 					xd({'originAdAction': 'toggle'});
 				}, springboardObj.timeout * 1000);
 			})
 		},
-		automute: function() {
+		mute: function() {
 			$sb(springboardObj.id).mute();
-			
 		},
-		autoplay: function() {
-			//Override close timer
-			$sb(springboardObj.id).play();
+		play: function() {
+			$sb(springboardObj.id).play();	
 		},
-		muteplayer: function() {
-			/*
-			if(!autoOpen && toggle === "off") {
-					$sb(springboardPlayerId).unmute();
-				} else if(!autoOpen && toggle === "on") {
-					$sb(springboardPlayerId).mute();
-				}
-			*/
+		unmute: function() {
+			$sb(springboardObj.id).unmute();
 		},
 		unmutehover: function() {
 			$sb(springboardObj.id).onMouseOver(function() {
-				if($sb(springboardObj.id).getStatus().muted) {
-					$sb(springboardObj.id).unmute();
-				}
-			});
-		},
-		unmuterestart: function() {
-			$sb(springboardObj.id).onUnmute(function() {
-				$sb(springboardObj.id).seek(0);
+				springboard.unmute();
 			});
 		}
 	}
@@ -120,12 +104,25 @@ var iframe = (function() {
 					timeout: '1.5'
 				}
 				
+/*
+				//Oh what to do here...?
 				for(var i in params) {
 					if(params.hasOwnProperty(i) && params[i]) {
 						springboard[i]();
 					}
 				}
+*/
 				
+				if(window.parent.originAuto) {
+					//If auto-triggered unit then mute and auto close
+					springboard.autoclose();
+					springboard.mute();
+					springboard.unmutehover();
+				} else {
+					springboard.unmute();
+				}
+				
+				springboard.play();
 				springboard.analytics();
 			});
 		},

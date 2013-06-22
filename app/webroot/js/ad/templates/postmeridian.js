@@ -7,6 +7,7 @@ var postmeridianController = function($scope, $rootScope, $timeout, OriginAdServ
 		$scope.xdData.autoOpen	= false;
 		OriginAdService.analyticsLog('Load');
 		
+		$rootScope.timeout		= '15';
 		$scope.countdown		= angular.copy($rootScope.timeout);	
 		var timer 				= $timeout(serviceToggle.toggleOverlay, $rootScope.timeout * 1000);
 	

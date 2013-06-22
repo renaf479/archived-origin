@@ -17,7 +17,7 @@
 		</div>
 	</div><!--
 	--><div id="adList-right" class="inline">
-		<a href="javascript:void(0)" id="adList-create" class="originUI-shadow" ng:click="adCreate()" data-intro="Create new Origin Ad" data-position="right">Create New Ad</a>
+		<a href="javascript:void(0)" id="adList-create" class="originUI-shadow" ng:click="adCreate()" data-intro="Create new Origin Ad" data-position="right" ng:show="showCreate" ng:animate="'originUI-fade'">Create New Ad</a>
 		<div id="adList-module" class="originUI-bgColor originUI-shadow" ng:show="module" ng:animate="'originUI-fade'" data-intro="Preview details" data-position="right">
 			<h3 id="adList-moduleHeader" class="originUI-tileHeader originUI-borderColor originUI-textColor">Ad Details</h3>
 			<a href="javascript:void(0)" id="adList-moduleRemove" class="originUI-hover originUI-superAdmin" ng:click="adRemove()">remove</a>
@@ -56,9 +56,9 @@
 				<div ng:show="editor.type=='embed'"><?php echo $this->element('form_embed');?></div>	
 			</div>
 			<div class="originUI-tileFooter">
-				<div class="originUI-tileFooterLeft originUI-hover" ng:click="$parent.originModalClose()">Cancel</div>
-				<button class="originUI-tileFooterRight originUI-hover" ng:click="adCreateSave()" ng:show="editor.type=='create'" ng-disabled="adListModal.$invalid">Save</button>
-<!-- 				<button class="originUI-tileFooterRight" ng:click="embedEmail()" ng:show="editor.type=='embed'" ng-disabled="adList-modal.$invalid">Email</button> -->
+				<div class="originUI-tileFooterLeft originUI-hover" ng:click="$parent.originModalClose()">Close</div>
+				<button class="originUI-tileFooterRight originUI-hover" ng:click="$parent.embedEmail()" ng:show="editor.type=='embed'">E-mail</button>
+				<button class="originUI-tileFooterRight originUI-hover" ng:click="adCreateSave()" ng:show="editor.type=='create'" ng-disabled="adListModal.$invalid">Create</button>
 			</div>
 		</form>
 	</div>

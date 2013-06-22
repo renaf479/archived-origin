@@ -85,8 +85,6 @@ var originScript, originParams, originXd;
 			originParams = {
 				'auto':		data.auto,
 				'close':	data.close,
-				//'hover':	data.hover,
-				//'hex':		data.hex,
 				'type':		data.template,
 				'dcopt':	data.dcopt,
 				'id':		data.id,

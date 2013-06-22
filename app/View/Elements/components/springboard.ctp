@@ -13,19 +13,22 @@
 	<div class="originUI-modalRight">
 		<!-- <div id="editorSpringboard-upload" class="">Upload Video</div> -->
 		<strong>{{springboardPanel}}</strong>
-		<span id="editorSpringboard-btnOptions" ng:click="springboardPage('options')">Options</span>
+		<!--
+<span id="editorSpringboard-btnOptions" ng:click="springboardPage('options')">Options</span>
 		<span id="editorSpringboard-btnPreview" ng:click="springboardPage('preview')">Preview</span>
+-->
 		<div id="editorSpringboard-preview" class="originUI-bgColor" ng:bind-html-unsafe="editor.content.preview" ng:class="{'originUI-placeholder': editor.content.preview == undefined}" ng:show="springboardPanel=='Preview'"></div>
-		<div id="editorSpringboard-config" ng:show="springboardPanel=='Options'">
+		<!--
+<div id="editorSpringboard-config" ng:show="springboardPanel=='Options'">
 			<ul class="originUI-list">
 			<?php
 				$settings	= array(
-					'Auto - Play'=>'autoplay',
+					//'Auto - Play'=>'autoplay',
 					'Auto - Mute'=>'automute',
 					'Auto - Close'=>'autoclose',
 					'Mute Player'=>'muteplayer',
-					'Hover Unmute'=>'unmutehover',
-					'Unmute Restart'=>'unmuterestart'
+					'Hover Unmute'=>'unmutehover'
+					//'Unmute Restart'=>'unmuterestart'
 					);
 				foreach($settings as $key=>$setting) {
 					$id	= 'editorSpringboard'.$setting;
@@ -51,6 +54,7 @@
 				?>
 			</ul>
 		</div>
+-->
 	</div>
 	<div class="clear"></div>
 		

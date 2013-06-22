@@ -87,7 +87,6 @@ Router::connect('/administrator/settings/users', array('plugin' => 'usermgmt', '
 Router::connect('/administrator/Origin/Post', array('controller'=>'origin', 'action'=>'post'));
 Router::connect('/administrator/Origin/upload', array('controller'=>'origin', 'action'=>'upload'));
 
-
 //JSON Feeds (Admin)
 Router::connect('/administrator/get/activity', array('controller'=>'origin', 'action'=>'jsonActivity'));
 Router::connect('/administrator/get/ads', array('controller'=>'origin', 'action'=>'jsonList'));
@@ -117,7 +116,6 @@ Router::connect('/get/ad/:originAd_id', array('controller'=>'origin', 'action'=>
 //RSS Feed
 Router::connect('/administrator/get/rss/:url', array('controller'=>'origin', 'action'=>'rssFeed'), array('url'=>'(.*)', 'pass'=>array('url')));
 
-
 //DEMO
 Router::connect('/administrator/get/templates/:template', array('controller'=>'origin', 'action'=>'demoLoadTemplate'));
 Router::connect('/administrator/demos', array('controller'=>'origin', 'action'=>'demoList'));
@@ -128,7 +126,9 @@ Router::connect('/demo/Origin/:originAd_id', array('controller'=>'origin', 'acti
 Router::connect('/demo/:alias', array('controller'=>'origin', 'action'=>'demo'));
 
 //AD CREATOR
-Router::connect('/administrator', array('controller'=>'origin', 'action'=>'index'));
+//Router::connect('/administrator', array('controller'=>'origin', 'action'=>'index'));
+//TEMP RE-ROUTE
+Router::connect('/administrator', array('controller'=>'origin', 'action'=>'ad_list'));
 Router::connect('/administrator/list', array('controller'=>'origin', 'action'=>'ad_list'));
 Router::connect('/administrator/Origin/ad/edit/:originAd_id', array('controller'=>'origin', 'action'=>'edit'));
 Router::connect('/administrator/modal/:template', array('controller'=>'origin', 'action'=>'modal'));

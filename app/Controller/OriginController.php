@@ -40,6 +40,28 @@ class OriginController extends AppController {
 		}
 	}
 	
+	
+	
+	/**
+	* Email embed code
+	*/
+	public function emailEmbed($data) {
+		App::uses('CakeEmail', 'Network/Email');
+		
+		$email 	= new CakeEmail();
+		$email->template('embed');
+		$email->emailFormat('html');
+		$email->from(array('willie.fu@gmail.com'=>'Evolve Origin'));
+		$email->to('willie.fu@gmail.com');
+		$email->subject('[Evolve Origin] Project Details (ID'+$data['ad']['id']+') - '.$data['ad']['name']);
+		$email->viewVars(array('data' => $data));
+		$test = $email->send();
+		
+		print_r($test);
+	}
+	
+	
+	
 	/**
 	* System-wide AJAX file uploader
 	*/

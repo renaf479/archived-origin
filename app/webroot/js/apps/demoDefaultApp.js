@@ -3,11 +3,12 @@
 var demoDefaultApp = angular.module('demoDefaultApp', [])
 					.run(function($rootScope, $compile) {
 						var placement;
-						$rootScope.origin_ad 	= angular.fromJson(_config);
+						$rootScope.origin_ad 	= angular.fromJson(decodeURIComponent(_config));
 						$rootScope.embedOptions = {
-							auto: 	0,
-							close:	0,
-							hover:	0,
+							auto: 	'false',
+							close:	'false',
+							hex:	'#000000',
+							dcopt:	'false',
 							id:		$rootScope.origin_ad.OriginAd.id,
 							type:	$rootScope.origin_ad.OriginAd.type
 						};
@@ -28,5 +29,13 @@ var demoDefaultApp = angular.module('demoDefaultApp', [])
 								break;
 						}
 						
-						$rootScope[placement]	= $compile(decodeURIComponent(origin_embed.replace(/\+/g, ' ')))($rootScope);
+						var originEmbed	= decodeURIComponent(origin_embed.replace(/\+/g, ' '));
+							originEmbed = originEmbed.replace(/{{embedOptions.id}}/g, $rootScope.embedOptions.id);
+							originEmbed = originEmbed.replace(/{{embedOptions.auto}}/g, $rootScope.embedOptions.auto);
+							originEmbed = originEmbed.replace(/{{embedOptions.close}}/g, $rootScope.embedOptions.close);
+							originEmbed = originEmbed.replace(/{{embedOptions.hex}}/g, $rootScope.embedOptions.hex);
+							originEmbed = originEmbed.replace(/{{embedOptions.dcopt}}/g, $rootScope.embedOptions.dcopt);
+							originEmbed = originEmbed.replace(/{{embedOptions.type}}/g, $rootScope.embedOptions.type);
+						
+						$rootScope[placement]	= originEmbed;
 					});
