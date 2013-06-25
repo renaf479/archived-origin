@@ -979,9 +979,23 @@ class OriginController extends AppController {
 			return $this->render('/Origin/json/json_list');
 		}
 	}
+	
+	/**
+	* Save CSS
+	*/
+	private function cssUpdate($data) {
+		$css['id'] = $css['originAd_id'] = $data['id'];
+		$css['content_css']	= $data['content'];
+	
+		if($this->OriginAd->save($css)) {
+			$this->_adModifyUpdate($css['originAd_id']);
+			
+			return $this->_creatorAdLoad($css);
+		}
+	}
 
 	/**
-	* 
+	* Save settings
 	*/
 	private function creatorSettingsUpdate($data) {
 		unset($data['statusSwitch']);

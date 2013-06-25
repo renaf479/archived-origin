@@ -39,8 +39,8 @@ var creatorController = function($scope, $filter, Origin) {
 	$scope.ad 					= {};
 	$scope.ad.content 			= {};
 	$scope.ad.content.image		= {};
-	$scope.css 					= '/* Prefix selectors with "#initial" and "#triggered" */\n\n';
-    $scope.cssCMOptions 		= {
+	$scope.scripts 				= {};
+    $scope.scriptsCMOptions 	= {
         mode: 			'css',
         lineNumbers: 	true,
         lineWrapping:	true,
@@ -93,6 +93,8 @@ var creatorController = function($scope, $filter, Origin) {
 		Origin.get('ad/'+originAd_id).then(function(response) {
 			template_id					= response.OriginAd.config.type_id;//IS THIS USED?
 			$scope.workspace.ad			= response;
+			$scope.scripts.content 		= (response.OriginAd.content_css)? response.OriginAd.content_css: '<style type="text/css">\n</style>';
+			
 			
 			$scope.$watch('ui.view', function() {
 				$scope.updateUI();
@@ -317,6 +319,38 @@ height:	$scope.workspace.template.config.dimensions[$scope.ui.view][$scope.ui.pl
 			window.location		= '/administrator/list';
 		});
 	}
+	
+	
+	
+	
+	/**
+	* Open Scripts modal window
+	*/
+	$scope.scriptsModalOpen = function() {
+		$scope.scriptsModal = true;
+	}
+	
+	/**
+	*
+	*/
+	$scope.scriptsModalSave = function() {
+		$scope.scripts.id		= $scope.workspace.ad.OriginAd.id;
+		$scope.scripts.route	= 'cssUpdate';
+		
+		Origin.post($scope.scripts).then(function(response) {
+			//$scope.refreshUI(response);
+			//$scope.settingsModalClose();
+			$scope.$parent.notificationOpen('CSS updated');
+		});
+	}
+	
+	/**
+	* Closes the Scripts modal window
+	*/
+	$scope.scriptsModalClose = function() {
+		$scope.scriptsModal	= false;
+	}
+	
 	
 	/**
 	* Embed code modal window

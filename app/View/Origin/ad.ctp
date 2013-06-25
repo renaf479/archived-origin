@@ -13,14 +13,26 @@
 		}
 	}	
 	$template	= $origin_ad['OriginAd']['config']->template;
+
+
+	/**
+	* Add GA tracking if available
+	*/
+	if(isset($origin_ad['OriginAd']['content']->ga_id)) {
+	?>
+		<script type="text/javascript">
+		var _gaq=_gaq||[];_gaq.push(["_setAccount","<?php echo $origin_ad['OriginAd']['content']->ga_id;?>"]);_gaq.push(["_trackPageview"]);var ga=document.createElement("script");ga.type="text/javascript";ga.async=!0;ga.src=("https:"==document.location.protocol?"https://ssl":"http://www")+".google-analytics.com/ga.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(ga,s);
+		</script>
+	<?php 
+	}
+
+	/**
+	* Add Override styles if available
+	*/
+	if(isset($origin_ad['OriginAd']['content_css'])) {
+		echo $origin_ad['OriginAd']['content_css'];
+	}
 ?>
-
-
-<?php if(isset($origin_ad['OriginAd']['content']->ga_id)) {?>
-	<script type="text/javascript">
-	var _gaq=_gaq||[];_gaq.push(["_setAccount","<?php echo $origin_ad['OriginAd']['content']->ga_id;?>"]);_gaq.push(["_trackPageview"]);var ga=document.createElement("script");ga.type="text/javascript";ga.async=!0;ga.src=("https:"==document.location.protocol?"https://ssl":"http://www")+".google-analytics.com/ga.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(ga,s);
-	</script>
-<?php }?>
 
 <script type="text/javascript">
 	var origin_ad		= '<?php echo addslashes(json_encode($origin_ad));?>';

@@ -156,7 +156,7 @@ angular.module('originApp.directives', [])
 				//Prep render
 				var render = scope.ngModel.render;
 				
-				element.attr('id', 'workspaceContent-'+scope.ngModel.id);
+				element.attr('id', 'content-'+scope.ngModel.id);
 				
 				//Compile config into inline styles
 				element.css(css).html(render).append('<span class="workspace-content-label">'+scope.ngModel.content.title+'</span>').addClass('content-'+scope.ngModel.content.type);

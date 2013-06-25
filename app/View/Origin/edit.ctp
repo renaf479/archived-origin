@@ -2,6 +2,25 @@
 	<input id="originAd_id" type="hidden" value="<?php echo $origin_ad['OriginAd']['id'];?>"/>
 	<form id="creator-panel-left" class="originUI-bgColor">
 		<input type="hidden" name="uploadDir" value="/assets/creator/<?php echo $this->params['originAd_id'];?>/"/>
+		<div id="platforms-wrapper" class="" data-intro="Select between supported platforms" data-position="right">
+			<a href="javascript:void(0)" id="platform-desktop" class="platform originUI-hover inline" ng:click="platformSwitch('Desktop')" ng:class="(workspace.ad.OriginAd.config.dimensions.Initial.Desktop.width)? 'active': 'inactive'">Desktop</a>
+			<a href="javascript:void(0)" id="platform-tablet" class="platform originUI-hover inline" ng:click="platformSwitch('Tablet')" ng:class="(workspace.ad.OriginAd.config.dimensions.Initial.Tablet.width)? 'active': 'inactive'">Tablet</a>
+			<a href="javascript:void(0)" id="platform-mobile" class="platform originUI-hover inline" ng:click="platformSwitch('Mobile')" ng:class="(workspace.ad.OriginAd.config.dimensions.Initial.Mobile.width)? 'active': 'inactive'">Mobile</a>
+<!--
+			<span id="platforms" class="dropdown-toggle originUI-hover platforms-{{ui.platform}}">{{ui.platform}}</span>
+			<ul class="dropdown-menu originUI-bgColorSecondary originUI-borderColor">
+				<li class="dropdown-item">
+					<a href="javascript:void(0)" id="platform-desktop" class="platform originUI-hover" ng:click="platformSwitch('Desktop')" ng:class="(workspace.ad.OriginAd.config.dimensions.Initial.Desktop.width)? 'active': 'inactive'">Desktop</a>
+				</li>
+				<li class="dropdown-item">
+					<a href="javascript:void(0)" id="platform-tablet" class="platform originUI-hover" ng:click="platformSwitch('Tablet')" ng:class="(workspace.ad.OriginAd.config.dimensions.Initial.Tablet.width)? 'active': 'inactive'">Tablet</a>
+				</li>
+				<li class="dropdown-item">
+					<a href="javascript:void(0)" id="platform-mobile" class="platform originUI-hover" ng:click="platformSwitch('Mobile')" ng:class="(workspace.ad.OriginAd.config.dimensions.Initial.Mobile.width)? 'active': 'inactive'">Mobile</a>
+				</li>
+			</ul>
+-->
+		</div>
 		<div id="display-wrapper" ng:click="creatorToggle('view')" data-intro="Toggle between the initial and triggered states of the unit" data-position="bottom" ng:show="workspace.ad.OriginAd.config.dimensions.Triggered[ui.platform].height > 0">
 			<div id="display-icon" class="inline" ng:class="{true: 'display-initial', false: 'display-triggered'}[ui.view=='Initial']"></div>
 			<div id="display" class="inline">
@@ -76,21 +95,10 @@
 				</li>
 			</ul>
 		</div><!--
-		--><div id="platforms-wrapper" class="originUI-borderColor originUI-bgColorSecondary" data-intro="Select between supported platforms" data-position="top">
-			<span id="platforms" class="dropdown-toggle originUI-hover platforms-{{ui.platform}}">{{ui.platform}}</span>
-			<ul class="dropdown-menu originUI-bgColorSecondary originUI-borderColor">
-				<li class="dropdown-item">
-					<a href="javascript:void(0)" id="platform-desktop" class="platform originUI-hover" ng:click="platformSwitch('Desktop')" ng:class="(workspace.ad.OriginAd.config.dimensions.Initial.Desktop.width)? 'active': 'inactive'">Desktop</a>
-				</li>
-				<li class="dropdown-item">
-					<a href="javascript:void(0)" id="platform-tablet" class="platform originUI-hover" ng:click="platformSwitch('Tablet')" ng:class="(workspace.ad.OriginAd.config.dimensions.Initial.Tablet.width)? 'active': 'inactive'">Tablet</a>
-				</li>
-				<li class="dropdown-item">
-					<a href="javascript:void(0)" id="platform-mobile" class="platform originUI-hover" ng:click="platformSwitch('Mobile')" ng:class="(workspace.ad.OriginAd.config.dimensions.Initial.Mobile.width)? 'active': 'inactive'">Mobile</a>
-				</li>
-			</ul>
-		</div><!--
-		--><!--
+		--><div id="scripts-wrapper" class="originUI-borderColor originUI-bgColorSecondary">
+			<span id="scripts" class="originUI-borderColor originUI-hover" ng:click="scriptsModalOpen()">Scripts</span>
+		</div>
+		<!--
 <div id="schedules-wrapper" class="originUI-borderColor originUI-bgColorSecondary" data-intro="Select dates" data-position="right">
 			<span id="schedules" class="dropdown-toggle originUI-hover"></span>
 			<ul class="dropdown-menu originUI-bgColorSecondary originUI-borderColor">
@@ -126,13 +134,6 @@
 		<div id="workspace" ng:style="workspaceTemplateConfig()" workspace>
 			<div id="{{ui.view|lowercase}}">
 				<workspace-content ng:repeat="content in workspace.ad.OriginAdSchedule[ui.schedule][ui.content]" ng:model="content" double-click="creatorModalOpen('content', '', content)"></workspace-content>
-			</div>
-		</div>
-		
-		<div id="workspace-cssEditor" class="">
-			<a href="javascript:void(0)" id="cssEditor-button" class="originUI-bgColor originUI-borderColor">CSS</a>
-			<div id="cssEditor-editor" class="originUI-bgColor originUI-borderColor">
-				<textarea ng:model="css" ui:codemirror="cssCMOptions"></textarea>
 			</div>
 		</div>
 	</div>
@@ -229,10 +230,40 @@
 			</div>
 		</form>
 	</div>
+	<div modal="scriptsModal" close="scriptsModalClose()" options="creatorModalOptions">
+		<form id="scripts-modal" class="originUI-bgColorSecondary originUI-modal">
+			<h3 id="scriptsModal-header" class="originUI-tileHeader originUI-borderColor originUI-textColor">CSS Editor</h3>
+			<div class="originUI-modalContent">
+				<textarea id="scriptsEditor-editor" ng:model="css.content" ui:codemirror="scriptsCMOptions"></textarea>
+					<span id="scriptsEditor-instructions">All content items have a wrapper with ID 'content-(id)'. Prefix selectors with '#initial' and '#triggered' are recommended.</span>
+			</div>
+			<div class="originUI-tileFooter">
+				<div class="originUI-tileFooterLeft originUI-hover" ng:click="scriptsModalClose()">Cancel</div>
+				<div class="originUI-tileFooterRight originUI-hover" ng:click="scriptsModalSave()">Save</div>
+			</div>
+		</form>
+	</div>
 	
 	
+<!--
+	
+	<div id="workspace-cssEditor" class="">
+			<a href="javascript:void(0)" id="cssEditor-button" class="originUI-bgColor originUI-borderColor originUI-hover">CSS</a>
+			<div id="cssEditor-wrapper" class="originUI-bgColor originUI-borderColor originUI-shadow">
+				<h3 id="cssEditor-header" class="originUI-tileHeader">CSS Editor</h3>
+				<div id="cssEditor-content" class="originUI-modalContent">
+					<textarea id="cssEditor-editor" ng:model="css.content" ui:codemirror="cssCMOptions"></textarea>
+					<span id="cssEditor-instructions">All content items have a wrapper with ID 'content-(id)'. Prefix selectors with '#initial' and '#triggered' are recommended.</span>
+				</div>
+				<div id="cssEditor-footer" class="originUI-tileFooter">
+					<div class="originUI-tileFooterLeft originUI-hover" ng:click="cssEditorCancel()">Cancel</div>
+					<div class="originUI-tileFooterRight originUI-hover" ng:click="cssEditorSave()">Save</div>
+				</div>
+			</div>
+		</div>
 	
 	
+-->
 	
 	
 	
