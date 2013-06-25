@@ -1,5 +1,5 @@
 <div id="site-manager" ng:controller="siteController" ng:cloak>
-	<h2 class="originUI-header">Site Demo Templates</h2>
+	<h2 class="originUI-header"><a href="/administrator/settings">Site Demo Templates</a></h2>
 	<form id="siteManager-create" name="siteManagerCreateForm" class="originUI-tileLeft originUI-bgColorSecondary originUI-shadow" novalidate>
 		<input type="hidden" name="uploadDir" value="/assets/components/"/>
 		<h3 id="siteManager-createHeader" class="originUI-tileHeader originUI-borderColor originUI-textColor">Create</h3>
@@ -20,7 +20,7 @@
 				<th class="originUI-tableHeadDescription">Description</th>
 			</thead>
 			<tbody class="originUI-tableBody">
-				<tr class="originUI-tableRow originUI-hover" ng:repeat="site in sites|orderBy:siteFilter:reverse|filter:searchOrigin" ng:animate="'originUI-fade'">
+				<tr class="originUI-tableRow originUI-hover" ng:repeat="site in sites|orderBy:siteFilter:reverse|filter:searchOrigin" ng:animate="'originUI-fade'" ng:class="(site.OriginSite.status !== '1')? 'inactive': ''">
 					<td class="originUI-tableStatus originUI-tableCell" ng:show="site.OriginSite.status == '1'" class="userList-status">
 						<img src="/img/icon-check-small.png" alt="Active" ng:click="toggleStatus('OriginSite', site.OriginSite.id, 'disable')"/>
 					</td>

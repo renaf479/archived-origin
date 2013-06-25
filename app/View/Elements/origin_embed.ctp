@@ -3,7 +3,6 @@
 		var originOptions = {
 			auto: 	'{{embedOptions.auto}}',
 			close: 	'{{embedOptions.close}}',
-			dcopt: 	'{{embedOptions.dcopt}}',
 			id:		'{{embedOptions.id}}',
 			template:'{{embedOptions.type}}',
 			domain:	'<?php echo $_SERVER['HTTP_HOST'];?>'
@@ -27,6 +26,45 @@
 </script>
 <?php 
 /*
+6.23.13
+<script type="text/javascript" id="originEmbed-{{embedOptions.id}}">		
+	(function() {
+		var originOptions = {
+			auto: 	'{{embedOptions.auto}}',
+			close: 	'{{embedOptions.close}}',
+			dcopt: 	'{{embedOptions.dcopt}}',
+			dfp:	{},
+			id:		'{{embedOptions.id}}',
+			template:'{{embedOptions.type}}',
+			domain:	'<?php echo $_SERVER['HTTP_HOST'];?>'
+		};
+		if(window.origin) {
+			if(typeof origin == 'function') {
+				new origin(originOptions);
+			} else {
+				origin.push(originOptions);
+			}
+		} else {
+			origin = [originOptions];
+			s = document.createElement('script');
+			s.type='text/javascript';
+			s.async=true;
+			s.src='http://<?php echo $_SERVER['HTTP_HOST'];?>/min-js?f=/js/ad/origin.js';
+			s1 = document.getElementsByTagName('script')[0];
+			s1.parentNode.insertBefore(s, s1);
+		}
+	})();
+</script>
+
+
+
+
+
+
+
+
+
+
 function async(callback) {
 		var o = document.createElement('script'); o.type = 'text/javascript'; o.src = 'http://<?php echo $_SERVER['HTTP_HOST'];?>/js/ad/origin.js'; o.id = 'originEmbed-{{embedOptions.id}}'; o.async = true;
 		var s = document.getElementsByTagName('script')[document.getElementsByTagName('script').length - 1];

@@ -1,5 +1,5 @@
 <div id="settings" class="">
-	<h2 class="originUI-header">Settings</h2>
+	<h2 class="originUI-header"><a href="/administrator">Settings</a></h2>
 	<a href="/administrator/settings/templates" id="settings-templates" class="originUI-tiles" data-intro="Origin ad unit template settings (dimensions, animation, etc)" data-position="bottom">
 		<div class="originTile-title">Ad Templates</div>
 	</a><!--

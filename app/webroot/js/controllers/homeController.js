@@ -14,7 +14,6 @@ var homeController = function($scope, $filter, $timeout, Origin) {
 		$scope.loadGuideline(response[0]);
 	});
 	
-	
 	$scope.loadGuideline = function(data) {
 		$scope.guidelinesDisplay	= false;
 		

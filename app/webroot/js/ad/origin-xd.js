@@ -30,11 +30,28 @@ var originXd = (function() {
 				originAd.height			= data.height;
 				originAd.style.backgroundColor	= data.hex;
 			switch(data.template) {
+				case 'ascension':
+					originAd.style.margin 	= '0 auto';
+					originAd.style.display	= 'block';
+					break;
 				case 'antemeridian':
 					originAd.style.position	= 'fixed';
 					originAd.style.top 		= 0;
 					originAd.style.left		= 0;
 					originAd.style.zIndex	= 10000000;
+					break;
+				case 'horizon':
+					var originCss 			= document.createElement('style');
+						originCss.id		= 'originCss';
+						originCss.type 		= 'text/css';
+						originCss.media		= 'screen';
+						originCssHorizon	= 'body{background-position: 50% '+originAd.height+' !important;}';
+						if(originCss.styleSheet) {
+							originCss.styleSheet.cssText = originCssHorizon;
+						} else {
+							originCss.appendChild(document.createTextNode(originCssHorizon));
+						}
+						document.body.appendChild(originCss);
 					break;
 				case 'postmeridian':
 					//Prep listener code
@@ -78,6 +95,9 @@ var originXd = (function() {
 		toggleExpand: function(data) {	
 			switch(data.type) {
 				case 'horizon':
+					if(document.getElementById('originCss')) { 
+						document.getElementById('originCss').parentNode.removeChild(document.getElementById('originCss'));
+					}
 					anim(document.getElementById(data.id), {height:data.resizeHeight}, data.duration, 'ease-out');
 					break;
 				default:

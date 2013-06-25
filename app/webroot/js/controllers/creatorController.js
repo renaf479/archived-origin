@@ -23,6 +23,7 @@ var originAd_id		= $j('#originAd_id').val(),
 	});
 */
 
+/*
 originApp.value('ui.config', {
     codemirror: {
         mode: 			'htmlmixed',
@@ -31,12 +32,20 @@ originApp.value('ui.config', {
         theme:			'night'
     }
 });
+*/
 
 var creatorController = function($scope, $filter, Origin) {
 	$scope.editor				= {};	//Editor model
 	$scope.ad 					= {};
 	$scope.ad.content 			= {};
 	$scope.ad.content.image		= {};
+	$scope.css 					= '/* Prefix selectors with "#initial" and "#triggered" */\n\n';
+    $scope.cssCMOptions 		= {
+        mode: 			'css',
+        lineNumbers: 	true,
+        lineWrapping:	true,
+        theme:			'night'   
+    };
 	$scope.workspace			= {};	//Workspace wrapper model
 	$scope.workspace.ad 		= {};	//Complete ad unit model
 	$scope.workspace.components = {};	//List of all components
@@ -58,10 +67,17 @@ var creatorController = function($scope, $filter, Origin) {
 	
 	$scope.embedOptions = {
 		'auto':		'false',
-		'hex':		'#000000',
-		'close':	0,
+		//'hex':		'#000000',
+		'close':	'false'
 		//'hover':	0
 	};
+	
+	$scope.embedCMOptions = {
+        mode: 			'htmlmixed',
+        lineNumbers: 	true,
+        lineWrapping:	true,
+        theme:			'night'
+    };
 	
 	
 	/**
@@ -182,6 +198,7 @@ height:	$scope.workspace.template.config.dimensions[$scope.ui.view][$scope.ui.pl
 	*/
 	$scope.creatorModalOpen = function(type, content, model) {
 		$scope.creatorModal = true;
+		
 		switch(type) {
 			case 'component':
 				$scope.workspace.modal.title		= content.name + ' Editor';
@@ -206,7 +223,7 @@ height:	$scope.workspace.template.config.dimensions[$scope.ui.view][$scope.ui.pl
 			$scope.editor 			= angular.copy(model);
 			$scope.editor.remove 	= true;
 		} else {
-			$scope.editor = {
+			$scope.editor 			= {
 				content: {
 					'title': 	content.name,
 					'type': 	content.alias
@@ -219,9 +236,10 @@ height:	$scope.workspace.template.config.dimensions[$scope.ui.view][$scope.ui.pl
 				},
 				type: content.alias,
 				remove: false
-			}
+			};
 		}
-		$scope.editor.template		= '/administrator/get/components/'+$scope.workspace.modal.alias;
+		componentCtrl			= function(){return false};
+		$scope.editor.template	= '/administrator/get/components/'+$scope.workspace.modal.alias;
 	}
 		
 	/**
@@ -306,7 +324,7 @@ height:	$scope.workspace.template.config.dimensions[$scope.ui.view][$scope.ui.pl
 	$scope.embedModalOpen = function() {
 		$scope.embedOptions.id		= $scope.workspace.ad.OriginAd.id;
 		$scope.embedOptions.type	= $scope.workspace.ad.OriginAd.config.template;
-		$scope.embedOptions.dcopt	= ($scope.workspace.ad.OriginAd.config.type === 'outofpage' || $scope.embedOptions.type === 'horizon')? 'true': 'false';
+		//$scope.embedOptions.dcopt	= ($scope.workspace.ad.OriginAd.config.type === 'outofpage' || $scope.embedOptions.type === 'horizon')? 'true': 'false';
 		$scope.embedModal = true;
 	}
 	

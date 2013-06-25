@@ -39,6 +39,7 @@ var originScript, originParams, originXd;
 				adOverlay.setAttribute('data-src', originParams.src+'/triggered');
 				
 				switch(originParams.type) {
+					case 'ascension':
 					case 'horizon':
 						//originScript.parentNode.insertBefore(ad, originScript);
 						document.body.insertBefore(ad, document.body.firstChild);
@@ -87,6 +88,7 @@ var originScript, originParams, originXd;
 				'close':	data.close,
 				'type':		data.template,
 				'dcopt':	data.dcopt,
+				'dfp':		data.dfp,
 				'id':		data.id,
 				'src':		'http://'+data.domain+'/ad/'+data.id+'/'+platform,
 				'originDomain':data.domain,

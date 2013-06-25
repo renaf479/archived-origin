@@ -13,6 +13,6 @@
 	<div id="initial" style="<?php echo $dimensions->initial;?>">
 		<countdown id="countdown" ng:click="close()" ng:show="countdownShow">Continuing to site in {{countdown}} seconds</countdown>
 		<div id="continue" ng:click="close()"></div>
-		<div ng:repeat="content in originAd_content['OriginAd<?php echo $originAd_platform;?>InitialContent']" content="content"></div>
+		<div id="content-{{content.id}}" ng:repeat="content in originAd_content['OriginAd<?php echo $originAd_platform;?>InitialContent']" content="content"></div>
 	</div>
 </div>

@@ -8,9 +8,11 @@ var templatesController	= function($scope, $filter, Origin) {
 		$scope.templates = $scope.$parent.listRefresh(response);
 	});
 	
+/*
 	$scope.createAlias = function(model) {
 		$scope[model].alias		= $scope.$parent.createAlias($scope[model].name);
 	}
+*/
 	
 	$scope.templateCreate = function() {
 		$scope.editor.route	= 'systemSave';

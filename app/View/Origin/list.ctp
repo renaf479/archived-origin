@@ -28,8 +28,8 @@
 				<span class="adList-moduleAdDetails">Last Modified {{module.modify_date}} by {{module.modify_by}}</span>
 				<span class="adList-moduleAdDetails">Created {{module.create_date}} by {{module.create_by}}</span>
 				<!-- <h4>Metrics</h4> -->
-				<h4 id="adList-moduleEmbedHeader" class="originUI-borderColorSecondary" ng:click="embedCreate()">Generate Embed</h4>
-				<a href="/administrator/demo/create/{{module.id}}" id="adList-moduleDemoHeader" class="originUI-borderColorSecondary" target="_blank">Demo Creator</a>
+				<h4 id="adList-moduleEmbedHeader" class="originUI-borderColorSecondary originUI-hover originUI-listHover" ng:click="embedCreate()">Generate Embed</h4>
+				<a href="/administrator/demo/create/{{module.id}}" id="adList-moduleDemoHeader" class="originUI-borderColorSecondary originUI-hover originUI-listHover" target="_blank">Demo Creator</a>
 				<ul id="adList-moduleDemoList" class="originUI-list">
 					<!-- <li class="originUI-listItem"><a href="/demo/Origin/{{module.id}}" -->
 					<li class="adList-moduleDemoListItem originUI-hover originUI-listHover" ng:repeat="demo in demos">

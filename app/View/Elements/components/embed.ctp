@@ -1,5 +1,5 @@
 <div id="editor-embed" ng:controller="componentCtrl">
-	<textarea ng:model="editor.content.embed" ui:codemirror></textarea>
+	<textarea ng:model="editor.content.embed" ui:codemirror="embedCMOptions"></textarea>
 	
 	<div id="editorEmbed-options">
 		<div class="inline">Iframe content</div>

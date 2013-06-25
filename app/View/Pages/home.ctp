@@ -39,7 +39,7 @@
 				
 				<div id="guidelines-initial" class="originUI-borderColorSecondary">
 					<h4 id="">Initial</h4>
-					<div id="" class="guidelines-imageWrapper">
+					<div id="" class="guidelines-imageWrapper" style="width:{{guidelines.OriginTemplate.config.dimensions.Initial[platformShow].width}}px">
 						<span class="guidelines-imageWidth">{{guidelines.OriginTemplate.config.dimensions.Initial[platformShow].width}}px</span>
 						<span class="guidelines-imageHeight">{{guidelines.OriginTemplate.config.dimensions.Initial[platformShow].height}}px</span>
 						<img id="guidelines-imageInitial" class="guidelines-image" ng:src="{{guidelinesInitial}}"/>
@@ -47,7 +47,7 @@
 				</div>
 				<div id="guidelines-triggered" class="originUI-borderColorSecondary" ng:show="guidelines.OriginTemplate.config.dimensions.Triggered[platformShow].width > 0">
 					<h4 id="">Triggered</h4>
-					<div id="" class="guidelines-imageWrapper">
+					<div id="" class="guidelines-imageWrapper" style="width:{{guidelines.OriginTemplate.config.dimensions.Triggered[platformShow].width}}px">
 						<span class="guidelines-imageWidth">{{guidelines.OriginTemplate.config.dimensions.Triggered[platformShow].width}}px</span>
 						<span class="guidelines-imageHeight">{{guidelines.OriginTemplate.config.dimensions.Triggered[platformShow].height}}px</span>
 						<img id="guidelines-imageTriggered" class="guidelines-image" ng:src="{{guidelinesTriggered}}"/>

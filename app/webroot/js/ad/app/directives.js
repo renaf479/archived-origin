@@ -53,7 +53,8 @@ angular.module('originAd.directives', [])
 				$rootScope.$watch('hiddenView', function(newValue, oldValue) {
 					// && (originAd_action === undefined)
 					
-					if(scope.originAd_config.type === 'inpage') {
+					//Is this needed..?
+					//if(scope.originAd_config.type === 'inpage') {
 						//Special case for Overlay type units
 						if((typeof originAd_action !== 'undefined') && (originAd_action === 'close')) {
 							return false;
@@ -84,7 +85,7 @@ angular.module('originAd.directives', [])
 									break;
 							}
 						}
-					}
+					//}
 				});
 			}
 		}
@@ -101,6 +102,14 @@ angular.module('originAd.directives', [])
 					}
 				};
 				countdownTimer();
+			}
+		}
+	})
+	.directive('dfp', function($rootScope) {
+		return {
+			restrict: 'A',
+			link: function(scope, element, attrs) {
+				angular.element(element).attr('href', $rootScope.originParams.dfp[attrs.dfp]);
 			}
 		}
 	})

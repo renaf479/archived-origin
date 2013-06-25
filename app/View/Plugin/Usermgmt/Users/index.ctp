@@ -1,7 +1,7 @@
 <?php
 	unset($userGroups[0]);
 ?>
-<h2 class="originUI-header">User Management</h2>
+<h2 class="originUI-header"><a href="/administrator/settings">User Management</a></h2>
 
 <div id="user-list" class="" ng:controller="usersController">	
 
@@ -25,7 +25,7 @@
 				<th class="originUI-tableHeadGroup" ng:click="userFilter='UserGroup.name';reverse=!reverse">Group</th>
 			</thead>
 			<tbody class="originUI-tableBody">
-				<tr class="originUI-tableRow originUI-hover" ng:repeat="user in users|orderBy:userFilter:reverse|filter:searchOrigin" ng:animate="'originUI-fade'">
+				<tr class="originUI-tableRow originUI-hover" ng:repeat="user in users|orderBy:userFilter:reverse|filter:searchOrigin" ng:animate="'originUI-fade'" ng:class="(user.User.active !== '1')? 'inactive': ''">
 					<td class="originUI-tableStatus originUI-tableCell" ng:show="user.User.active == '1'" class="userList-status">
 						<img src="/img/icon-check-small.png" alt="Active" ng:click="toggleStatus(user.User.id, 'disable')"/>
 					</td>

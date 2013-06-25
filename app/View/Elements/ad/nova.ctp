@@ -18,14 +18,14 @@
 		<div id="overlay" ng:click="close()" overlay></div>
 		<div id="triggered" style="<?php echo $dimensions->triggered;?>">
 			<div id="continue" ng:click="close()"></div>
-			<div ng:repeat="content in originAd_content['OriginAd<?php echo $originAd_platform;?>TriggeredContent']" content="content"></div>
+			<div id="content-{{content.id}}" ng:repeat="content in originAd_content['OriginAd<?php echo $originAd_platform;?>TriggeredContent']" content="content"></div>
 		</div>
 	<?php } else { ?>
 		<script type="text/javascript">
 			var originAd_action	= 'open';
 		</script>
 		<div id="initial" style="<?php echo $dimensions->initial;?>">
-			<div ng:repeat="content in originAd_content['OriginAd<?php echo $originAd_platform;?>InitialContent']" content="content"></div>
+			<div id="content-{{content.id}}" ng:repeat="content in originAd_content['OriginAd<?php echo $originAd_platform;?>InitialContent']" content="content"></div>
 		</div>
 	<?php } ?>
 </div>

@@ -2,7 +2,7 @@
 echo $this->Html->script('/usermgmt/js/umupdate');
 ?>
 <div id="system-config" class="" ng:controller="originSystems">
-	<h2 class="originUI-header">System Configuration</h2>
+	<h2 class="originUI-header"><a href="/administrator/settings">System Configuration</a></h2>
 	<div id="systemConfig-groupAdd" class="originUI-tileLeft originUI-bgColorSecondary originUI-shadow" data-intro="Create new user groups" data-position="bottom">
 		<h3 id="groupAdd-header" class="originUI-tileHeader originUI-borderColor originUI-textColor">Add Group</h3>
 		<form id="groupAdd-form" class="originUI-tileContent" name="groupAddForm" novalidate>

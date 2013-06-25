@@ -90,7 +90,8 @@
 				</li>
 			</ul>
 		</div><!--
-		--><div id="schedules-wrapper" class="originUI-borderColor originUI-bgColorSecondary" data-intro="Select dates" data-position="right">
+		--><!--
+<div id="schedules-wrapper" class="originUI-borderColor originUI-bgColorSecondary" data-intro="Select dates" data-position="right">
 			<span id="schedules" class="dropdown-toggle originUI-hover"></span>
 			<ul class="dropdown-menu originUI-bgColorSecondary originUI-borderColor">
 				<li class="dropdown-item">
@@ -98,20 +99,7 @@
 				</li>
 			</ul>
 		</div>
-		
-		<!--
-			<div id="schedules" class="">
-				<a href="javascript:void(0)" class="dropdown-toggle originUI-select">Test</a>
-				<ul class="dropdown-menu originUI-bgColorSecondary">
-					<li id="schedules-add">
-						<a href="javascript:void(0)" ng:click="scheduleModalOpen()">Add New Schedule</a>
-					</li>
-					<li ng:repeat="schedule in workspace.ad.OriginAdSchedule" ng:class="{active: workspace.ui.schedule == $index}">
-						<a href="javascript:void(0)">{{schedule.start_date}}-{{schedule.end_date}}</a>
-					</li>
-				</ul>
-			</div>
-			-->
+-->
 	</form>
 	<div id="creator-panel-top" class="originUI-bgColor originUI-borderColor">
 		<div id="components-wrapper" class="inline" data-intro="Add components (images, video, etc) to unit" data-position="bottom">
@@ -136,7 +124,16 @@
 	<div id="creator-panel-workspace" class="originUI-bgColorSecondary originUI-bgTexture originUI-borderColor">
 		<span id="workspace-platform">{{ui.platform}}</span>
 		<div id="workspace" ng:style="workspaceTemplateConfig()" workspace>
-			<workspace-content ng:repeat="content in workspace.ad.OriginAdSchedule[ui.schedule][ui.content]" ng:model="content" double-click="creatorModalOpen('content', '', content)"></workspace-content>
+			<div id="{{ui.view|lowercase}}">
+				<workspace-content ng:repeat="content in workspace.ad.OriginAdSchedule[ui.schedule][ui.content]" ng:model="content" double-click="creatorModalOpen('content', '', content)"></workspace-content>
+			</div>
+		</div>
+		
+		<div id="workspace-cssEditor" class="">
+			<a href="javascript:void(0)" id="cssEditor-button" class="originUI-bgColor originUI-borderColor">CSS</a>
+			<div id="cssEditor-editor" class="originUI-bgColor originUI-borderColor">
+				<textarea ng:model="css" ui:codemirror="cssCMOptions"></textarea>
+			</div>
 		</div>
 	</div>
 	
@@ -219,9 +216,6 @@
 			</div>
 		</form>
 	</div>
-	
-	
-	
 	<div modal="embedModal" close="embedModalClose()" options="creatorModalOptions">
 		<form id="embed-modal" class="originUI-bgColorSecondary originUI-modal">
 			<h3 id="embedModal-header" class="originUI-tileHeader originUI-borderColor originUI-textColor">Ad Embed Code</h3>

@@ -370,14 +370,16 @@ class OriginController extends AppController {
 		$demo = $this->OriginDemo->find('first', 
 			array(
 				'conditions'=>array(
-					'OriginDemo.alias'=>$this->request->params['alias'],
-					'OriginDemo.status'=>'1'
+					'OriginDemo.alias'=>$this->request->params['alias']
 				)
 			)
 		);
 		
-		$demo['OriginDemo']['config']	= json_decode($demo['OriginDemo']['config']);
+		if($demo['OriginDemo']['status'] !== '1') {
+			throw new NotFoundException();
+		}
 		
+		$demo['OriginDemo']['config']	= json_decode($demo['OriginDemo']['config']);
 		$this->set('demo', json_encode($demo));
 		$this->set('title_for_layout', $demo['OriginDemo']['name']);
 	}
@@ -848,7 +850,7 @@ class OriginController extends AppController {
 						'alias'=>'OriginAds',
 						'type'=>'LEFT',
 						'conditions'=>array(
-							'OriginAds.type = OriginTemplate.alias'
+							'OriginAds.type_id = OriginTemplate.id'
 						)
 					)
 				),
@@ -961,7 +963,6 @@ class OriginController extends AppController {
 				$this->OriginAd->save($updateData);
 			}
 			echo $this->OriginAd->id;
-			//return '/administrator/Origin/ad/edit/'.$this->OriginAd->id;
 		}
 	}
 	

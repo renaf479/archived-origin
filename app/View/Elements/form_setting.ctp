@@ -59,7 +59,7 @@
 		<div ng:show="editor.template == null">
 		</div>
 		<div ng:show="editor.template != ''">
-			<img ng:src="{{editor.template.OriginTemplate.content.file_storyboard}}"/>
+			<!-- <img ng:src="{{editor.template.OriginTemplate.content.file_storyboard}}"/> -->
 			{{editor.template.OriginTemplate.content.description}}
 		</div>
 	</div>

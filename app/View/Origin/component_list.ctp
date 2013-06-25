@@ -1,5 +1,5 @@
 <div id="ad-component" ng:controller="originComponents" ng:cloak>
-	<h2 class="originUI-header">Ad Components</h2>
+	<h2 class="originUI-header"><a href="/administrator/settings">Ad Components</a></h2>
 	<form id="adComponent-create" name="adComponentCreateForm" class="originUI-tileLeft originUI-bgColorSecondary originUI-shadow" novalidate>
 		<input type="hidden" name="uploadDir" value="/assets/components/"/>
 		<h3 id="adComponent-createHeader" class="originUI-tileHeader originUI-borderColor originUI-textColor">Create</h3>
@@ -21,7 +21,7 @@
 				<th class="originUI-tableHeadGroup" ng:click="componentFilter='OriginComponent.group';reverse=!reverse">Group</th>
 			</thead>
 			<tbody class="originUI-tableBody">
-				<tr class="originUI-tableRow originUI-hover" ng:repeat="component in components|orderBy:componentFilter:reverse|filter:searchOrigin" ng:animate="'originUI-fade'">
+				<tr class="originUI-tableRow originUI-hover" ng:repeat="component in components|orderBy:componentFilter:reverse|filter:searchOrigin" ng:animate="'originUI-fade'" ng:class="(component.OriginComponent.status !== '1')? 'inactive': ''">
 					<td class="originUI-tableStatus originUI-tableCell" ng:show="component.OriginComponent.status == '1'" class="userList-status">
 						<img src="/img/icon-check-small.png" alt="Active" ng:click="toggleStatus('OriginComponent', component.OriginComponent.id, 'disable')"/>
 					</td>

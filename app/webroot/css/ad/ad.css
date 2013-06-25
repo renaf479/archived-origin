@@ -58,3 +58,8 @@ a {
 	cursor: pointer;
 	font-size: 12px;
 }
+
+.link {
+	text-indent: -5000em;
+	cursor: pointer;
+}

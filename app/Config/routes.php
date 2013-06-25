@@ -117,6 +117,7 @@ Router::connect('/get/ad/:originAd_id', array('controller'=>'origin', 'action'=>
 Router::connect('/administrator/get/rss/:url', array('controller'=>'origin', 'action'=>'rssFeed'), array('url'=>'(.*)', 'pass'=>array('url')));
 
 //DEMO
+Router::connect('/get/templates/:template', array('controller'=>'origin', 'action'=>'demoLoadTemplate'));
 Router::connect('/administrator/get/templates/:template', array('controller'=>'origin', 'action'=>'demoLoadTemplate'));
 Router::connect('/administrator/demos', array('controller'=>'origin', 'action'=>'demoList'));
 Router::connect('/administrator/demo/create/:originAd_id', array('controller'=>'origin', 'action'=>'demoCreate'));

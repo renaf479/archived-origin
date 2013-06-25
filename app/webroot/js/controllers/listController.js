@@ -55,6 +55,7 @@ var listController = function($scope, $filter, Origin) {
 		$scope.editor.status			= ($scope.editor.statusSwitch)? 1: 0;
 		//$scope.editor.content.ga_id		= $scope.editor.ga_id;
 		$scope.editor.type 				= $scope.editor.template.OriginTemplate.alias;
+		$scope.editor.type_id			= parseInt($scope.editor.template.OriginTemplate.id);
 		$scope.editor.config			= $scope.editor.template.OriginTemplate.config;
 		$scope.editor.config.template	= $scope.editor.template.OriginTemplate.alias;
 		
@@ -80,7 +81,7 @@ var listController = function($scope, $filter, Origin) {
 		
 		$scope.embedOptions.id		= $scope.module.id;
 		$scope.embedOptions.type	= $scope.module.config.template;
-		$scope.embedOptions.dcopt	= ($scope.module.config.type === 'outofpage')? 'true': 'false';
+		//$scope.embedOptions.dcopt	= ($scope.module.config.type === 'outofpage')? 'true': 'false';
 		$scope.$parent.originModalOpen();
 	}
 	

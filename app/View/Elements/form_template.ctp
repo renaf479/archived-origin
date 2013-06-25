@@ -1,21 +1,37 @@
 <?php if($view === 'left') { ?>
 
 <ul class="originUI-list">
+<!--
 	<li>
-		<label>Type</label>
+		<label>Display Type</label>
 		<select class="originUI-select originUI-bgColorSecondary" ng:model="<?php echo $editor;?>.config.type">
-			<option style="display:none" value="">Select Group</option>
+			<option style="display:none" value="">Select Display Type</option>
 			<option value="inpage">In-Page</option>
 			<option value="outofpage">Out of Page</option>
+		</select>
+	</li>
+-->
+	<li>
+		<label>Template</label>
+		<select class="originUI-select originUI-bgColorSecondary" ng:model="<?php echo $editor;?>.alias">
+			<option style="display:none" value="">Select Template</option>
+			<option value="ascension">Ascension</option>
+			<option value="eclipse">Eclipse</option>
+			<option value="horizon">Horizon</option>
+			<option value="antemeridian">Meridian (Ante)</option>
+			<option value="postmeridian">Meridian (Post)</option>
+			<option value="nova">Nova</option>
+			<option value="singularity">Singularity</option>
 		</select>
 	</li>
 	<li>
 		<label>Name</label>
 		<div class="originUI-field">
 			<div class="originUI-fieldBracket"></div>
-			<input type="text" class="originUI-input originUI-bgColorSecondary" ng:model="<?php echo $editor;?>.name" ng:change="createAlias('<?php echo $editor;?>')" required/>
+			<input type="text" class="originUI-input originUI-bgColorSecondary" ng:model="<?php echo $editor;?>.name" required/>
 		</div>
 	</li>
+<!--
 	<li>
 		<label>Alias</label>
 		<div class="originUI-field">
@@ -23,6 +39,7 @@
 			<input type="text" class="originUI-input originUI-bgColorSecondary" ng:model="<?php echo $editor;?>.alias" required/>
 		</div>
 	</li>
+-->
 	<li>
 		<label>Description</label>
 		<div class="originUI-field">

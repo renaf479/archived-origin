@@ -195,7 +195,7 @@ body.originClass-edit #originBar-settings.open #originBar-settingsIcon {
 #schedules-wrapper {
 	/* right: 30px; */
 	bottom: 0;
-	width: 65px;
+	width: 100px;
 	height: 36px;
 	position: fixed;
 	border-width: 1px 0 0 0;
@@ -268,8 +268,7 @@ body.originClass-edit #originBar-settings.open #originBar-settingsIcon {
 }
 
 #platforms-wrapper {
-	left: 65px;
-	width: 70px;
+	left: 100px;
 }
 
 #platforms.platforms-Desktop {
@@ -286,7 +285,7 @@ body.originClass-edit #originBar-settings.open #originBar-settingsIcon {
 
 #platforms-wrapper .dropdown-menu {
 	top: -101px;
-	left: -65px;
+	left: -100px;
 }
 
 .platform.inactive {
@@ -741,6 +740,28 @@ body.originClass-edit #originBar-settings.open #originBar-settingsIcon {
 	text-transform: uppercase;
 	position: absolute;
 }
+
+/* =======================================================================
+	Workspace Editor
+========================================================================== */
+#workspace-cssEditor {
+	width: 300px;
+	height: 300px;
+	position: absolute;
+	right: 0;
+	top: 50%;
+	margin-top: -150px;
+	z-index: 100;
+}
+
+#cssEditor-button {
+	position: absolute;
+	left: -20px;
+	top: 0;
+	transform: rotate(-90deg);
+}
+
+
 
 /* =======================================================================
 	Creator Modal

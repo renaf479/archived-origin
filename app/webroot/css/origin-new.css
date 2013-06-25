@@ -740,6 +740,10 @@ body.originClass-edit #originBar-search {
 	cursor: pointer;
 }
 
+.originUI-tableRow.inactive {
+	opacity: .1;
+}
+
 .originUI-tableRow + .originUI-tableRow {
 	border-color: #303030;
 	border-width: 1px 0 0 0;
@@ -761,15 +765,15 @@ body.originClass-edit #originBar-search {
 }
 
 .originUI-tableDescription {
-	padding: 5px;
+	padding: 5px 10px;
 }
 
 .originUI-tableGroup {
-	padding: 0 5px;	
+	padding: 0 10px;	
 }
 
 .originUI-tableHeadName {
-	width: 200px;
+	width: 150px;
 }
 
 /* =======================================================================
@@ -1329,10 +1333,10 @@ body.originClass-edit #originBar-search {
 	border-style: solid;
 	margin: 0;
 	padding: 10px;
-	text-indent: 15px;
+	text-indent: 20px;
 	background-size: 18px 18px;
 	background-repeat: no-repeat;
-	background-position: left center;
+	background-position: 5px center;
 	height: 18px;
 	line-height: 16px;
 	font-weight: normal;
@@ -1501,6 +1505,11 @@ body.originUI-superAdmin #adSettings-modal.originUI-modalContent {
 
 #embedModal-config .originUI-list > li {
 	margin: 10px 0 0 0;
+}
+
+#embedModal-config .originUI-list label.inline {
+	text-align: left;
+	width: 250px;
 }
 
 #embedModal-config .originUI-field {
