@@ -1,7 +1,8 @@
 var originScript, originParams, originXd;
     
 (function() {
-	var originParams;
+	var originParams,
+		originDOM	= document;
 	
 	if(window.origin) {
 		if(typeof origin !== 'function') {
@@ -41,9 +42,7 @@ var originScript, originParams, originXd;
 				switch(originParams.type) {
 					case 'ascension':
 					case 'horizon':
-						//originScript.parentNode.insertBefore(ad, originScript);
-						document.body.insertBefore(ad, document.body.firstChild);
-						//document.body.appendChild(originCSS);
+						originDOM.body.insertBefore(ad, originDOM.body.firstChild);
 						break;
 					case 'postmeridian':
 					case 'nova':
@@ -61,11 +60,11 @@ var originScript, originParams, originXd;
 		*/
 		function xd() {
 			if(!document.getElementById('origin-xd')) {
-				var originScriptXd		= document.createElement('script');
+				var originScriptXd		= originDOM.createElement('script');
 					originScriptXd.id	= 'origin-xd';
 					originScriptXd.src	= originXd;
 					originScriptXd.setAttribute('data-domain', originParams.originDomain);
-					document.getElementsByTagName('head')[0].appendChild(originScriptXd);
+					originDOM.getElementsByTagName('head')[0].appendChild(originScriptXd);
 			}
 		}
 	
@@ -100,16 +99,41 @@ var originScript, originParams, originXd;
 			if(top === self) {				
 				xd();
 				template();
-			} else if(originParams.dcopt === 'true') {
-				var iframe					= document.createElement('iframe');
-					iframe.name 			= encodeURIComponent(JSON.stringify(originParams));
-					iframe.src				= 'http://'+document.referrer.split('/')[2]+'/' + 'emcOriginIframe/emcOriginIframe.html';
-					iframe.style.display	= 'none';
-					document.body.appendChild(iframe);
 			} else {
-				window.name 		= encodeURIComponent(JSON.stringify(originParams));
-				window.location 	= 'http://'+document.referrer.split('/')[2]+'/' + 'emcOriginIframe/emcOriginIframe.html';
-			}			
+				//Is iframe in same domain?
+				var sameOrigin;
+				try {
+				    sameOrigin = window.parent.location.host == window.location.host;
+				} catch (e) {
+				    sameOrigin = false;
+				}
+				
+				if(sameOrigin) {
+					//Friendly iframe method
+					originDOM					= window.parent.document;
+					originScript 				= frameElement;
+					
+					if(originParams.dcopt !== 'true') {
+						frameElement.style.display 	= 'none';
+					}
+					
+					xd();
+					template();
+				} else {
+					//Iframe buster method
+					if(originParams.dcopt === 'true') {
+						var iframe					= document.createElement('iframe');
+							iframe.name 			= encodeURIComponent(JSON.stringify(originParams));
+							iframe.src				= 'http://'+document.referrer.split('/')[2]+'/' + 'emcOriginIframe/origin-iframe.html';
+							iframe.style.display	= 'none';
+							document.body.appendChild(iframe);
+					} else {
+						window.name 		= encodeURIComponent(JSON.stringify(originParams));
+						window.location 	= 'http://'+document.referrer.split('/')[2]+'/' + 'emcOriginIframe/origin-iframe.html';
+					}	
+				}
+				
+			}
 		};
 		return init(originParams);
 	}

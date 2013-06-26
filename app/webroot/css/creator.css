@@ -122,8 +122,7 @@ body.originClass-edit #originBar-settings.open #originBar-settingsIcon {
 	display: block;
 }
 
-#components-wrapper .dropdown-menu,
-#scripts-wrapper .dropdown-menu {
+#components-wrapper .dropdown-menu {
 	border-width: 0 0 1px 3px;
 	border-style: solid;
 	margin: 3px 0 0 0;
@@ -209,6 +208,10 @@ body.originClass-edit #originBar-settings.open #originBar-settingsIcon {
 	height: 26px;
 	display: block;
 	text-indent: -5000em;
+}
+
+#scripts {
+	background: transparent url(/img/scripts-26x26.png) no-repeat center center;
 }
 
 #options:hover,
@@ -357,10 +360,16 @@ body.originClass-edit #originBar-settings.open #originBar-settingsIcon {
 	width: 52px;
 	height: 26px;
 	text-indent: -5000em;
+	opacity: .1
 }
 
+#platforms-wrapper .platform.active,
+#platforms-wrapper .platform:hover {
+	opacity: 1;
+}
+
+
 #platforms-wrapper .platform.inactive {
-	opacity: .1;
 	pointer-events: none;
 	cursor: default;
 }
@@ -376,39 +385,6 @@ body.originClass-edit #originBar-settings.open #originBar-settingsIcon {
 #platform-mobile {
 	background-image: url(/img/mobile-26x26.png);
 }
-
-
-/*
-#platforms.platforms-Desktop {
-	background-image: url(/img/desktop-26x26.png);
-}
-
-#platforms.platforms-Tablet {
-	background-image: url(/img/tablet-26x26.png);
-}
-
-#platforms.platforms-Mobile {
-	background-image: url(/img/mobile-26x26.png);
-}
-
-#platforms-wrapper .dropdown-menu {
-	top: -101px;
-	left: -100px;
-}
-
-.platform.inactive {
-	opacity: .1;
-	pointer-events: none;
-	cursor: default;
-}
-
-
-
-*/
-
-
-
-
 
 #display-wrapper {
 	margin: 0 auto;
@@ -867,6 +843,20 @@ body.originClass-edit #originBar-settings.open #originBar-settingsIcon {
 /* =======================================================================
 	Creator Editor - Custom components
 ========================================================================== */
+#scriptsModal-header {
+	background-image: url(/img/scripts-26x26.png);
+}
+
+#scripts-modal .originUI-modalContent {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+#scriptsEditor-instructions {
+	font-size: 12px;
+	width: 100%;
+}
+
 #editorEmbed-options {
 	margin: 10px 0 0 0;
 }

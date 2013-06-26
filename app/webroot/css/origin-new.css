@@ -1,5 +1,14 @@
+@font-face {
+  font-family: 'Roboto';
+  src: url('/fonts/roboto/Roboto-Regular.ttf');
+}
+
+html {
+	font-size: 14px;
+}
+
 body {
-	font-family: 'Segoe UI', Arial, sans-serif;
+	font-family: 'Roboto', Arial, sans-serif;
 /* 	font-family: roboto; */
 	margin: 0;
 	padding: 0;
@@ -638,43 +647,54 @@ body.originClass-edit #originBar-search {
 	Settings
 ========================================================================== */
 
-#settings .originUI-tiles {
-	width: 180px;
-	height: 250px;
-	background-position: center 65px;
+#settings .settings-item {
+	width: 48%;
+	height: 100px;
+	margin: 0 0 15px 15px;
 	background-repeat: no-repeat;
+	background-position: 10px center;
+	background-size: 90px 90px;
+	position: relative;
+	border-width: 0 0 1px 2px;
+	border-style: solid;
 }
 
-#settings .originTile-title {
-	bottom: auto;
-	top: 5px;
+#settings .settings-itemMeta {
+	position: absolute;
 	right: 10px;
+	top: 20px;
+	text-align: right;
+	width: 70%;
+}
+
+#settings .settings-itemTitle {
+	font-size: 20px;
 	border-width: 0 0 1px 0;
-	font-size: 17px;
+	border-style: solid;
+}
+
+#settings .settings-itemDescription {
+	font-size: 13px;
+	opacity: .4;
 }
 
 #settings-templates {
-	background-color: #0099cc;
 	background-image: url(/img/ad-template-150x150.png);
 }
 
 #settings-components {
-	background-color: #669900;
 	background-image: url(/img/settings-components.png);
 }
 
 #settings-demo {
-	background-color: #ff8800;
 	background-image: url(/img/settings-demo.png);
 }
 
 #settings-users {
 	background-image: url(/img/settings-users.png);
-	background-color: #9933cc;
 }
 
 #settings-config {
-	background-color: #cc0000;
 	background-image: url(/img/settings-config.png);
 }
 
@@ -1409,11 +1429,11 @@ body.originClass-edit #originBar-search {
 }
 
 body.originUI-superAdmin #adSettings-modal.originUI-modalContent {
-	height: 305px;
+	height: 290px;
 }
 
 #adSettings-modal.originUI-modalContent {
-	height: 275px;
+	height: 160px;
 }
 
 /*
@@ -1490,6 +1510,10 @@ body.originUI-superAdmin #adSettings-modal.originUI-modalContent {
 	width: 100%;
 	height: 135px;
 	border: 1px solid #444444;
+}
+
+.adList-modalembed #embedModal-content {
+	height: 200px;
 }
 
 #embedModal-config {

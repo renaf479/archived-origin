@@ -1,18 +1,35 @@
 <div id="settings" class="">
 	<h2 class="originUI-header"><a href="/administrator">Settings</a></h2>
-	<a href="/administrator/settings/templates" id="settings-templates" class="originUI-tiles" data-intro="Origin ad unit template settings (dimensions, animation, etc)" data-position="bottom">
-		<div class="originTile-title">Ad Templates</div>
+
+
+	<a href="/administrator/settings/templates" id="settings-templates" class="settings-item originUI-bgColor originUI-shadow originUI-borderColor inline">
+		<div class="settings-itemMeta">
+			<div class="settings-itemTitle originUI-borderColor">Ad Templates</div>
+			<div class="settings-itemDescription">Ad unit template settings - Dimensions, animation, triggers, etc</div>
+		</div>		
 	</a><!--
-	--><a href="/administrator/settings/components" id="settings-components" class="originUI-tiles" data-intro="Manage components and widgets used with ads" data-position="bottom">
-		<div class="originTile-title">Ad Components</div>
+	--><a href="/administrator/settings/components" id="settings-components" class="settings-item originUI-bgColor originUI-shadow originUI-borderColor inline">
+		<div class="settings-itemMeta">
+			<div class="settings-itemTitle originUI-borderColor">Ad Components</div>
+			<div class="settings-itemDescription">Components and widgets used in the ad creator</div>
+		</div>	
 	</a><!--
-	--><a href="/administrator/settings/sites" id="settings-demo" class="originUI-tiles" data-intro="Manage site templates used in demo pages" data-position="bottom">
-		<div class="originTile-title">Ad Demo</div>
+	--><a href="/administrator/settings/sites" id="settings-demo" class="settings-item originUI-bgColor originUI-shadow originUI-borderColor inline">
+		<div class="settings-itemMeta">
+			<div class="settings-itemTitle originUI-borderColor">Ad Demo Templates</div>
+			<div class="settings-itemDescription">Demo page site templates</div>
+		</div>
 	</a><!--
-	--><a href="/administrator/settings/users" id="settings-users" class="originUI-tiles" data-intro="Add/edit/manage users" data-position="bottom">
-		<div class="originTile-title">Users</div>
+	--><a href="/administrator/settings/users" id="settings-users" class="settings-item originUI-bgColor originUI-shadow originUI-borderColor inline">
+		<div class="settings-itemMeta">
+			<div class="settings-itemTitle originUI-borderColor">User Manager</div>
+			<div class="settings-itemDescription">Add/edit/manage users</div>
+		</div>
 	</a><!--
-	--><a href="/administrator/settings/access/?c=-1" id="settings-config" class="originUI-tiles" data-intro="Manage systems access" data-position="bottom">
-		<div class="originTile-title">Config</div>
+	--><a href="/administrator/settings/access/?c=-1" id="settings-config" class="settings-item originUI-bgColor originUI-shadow originUI-borderColor inline">
+		<div class="settings-itemMeta">
+			<div class="settings-itemTitle originUI-borderColor">System Configuration</div>
+			<div class="settings-itemDescription">Manage systems access</div>
+		</div>
 	</a>
 </div>

@@ -2,26 +2,12 @@
 	<input id="originAd_id" type="hidden" value="<?php echo $origin_ad['OriginAd']['id'];?>"/>
 	<form id="creator-panel-left" class="originUI-bgColor">
 		<input type="hidden" name="uploadDir" value="/assets/creator/<?php echo $this->params['originAd_id'];?>/"/>
-		<div id="platforms-wrapper" class="" data-intro="Select between supported platforms" data-position="right">
-			<a href="javascript:void(0)" id="platform-desktop" class="platform originUI-hover inline" ng:click="platformSwitch('Desktop')" ng:class="(workspace.ad.OriginAd.config.dimensions.Initial.Desktop.width)? 'active': 'inactive'">Desktop</a>
-			<a href="javascript:void(0)" id="platform-tablet" class="platform originUI-hover inline" ng:click="platformSwitch('Tablet')" ng:class="(workspace.ad.OriginAd.config.dimensions.Initial.Tablet.width)? 'active': 'inactive'">Tablet</a>
-			<a href="javascript:void(0)" id="platform-mobile" class="platform originUI-hover inline" ng:click="platformSwitch('Mobile')" ng:class="(workspace.ad.OriginAd.config.dimensions.Initial.Mobile.width)? 'active': 'inactive'">Mobile</a>
-<!--
-			<span id="platforms" class="dropdown-toggle originUI-hover platforms-{{ui.platform}}">{{ui.platform}}</span>
-			<ul class="dropdown-menu originUI-bgColorSecondary originUI-borderColor">
-				<li class="dropdown-item">
-					<a href="javascript:void(0)" id="platform-desktop" class="platform originUI-hover" ng:click="platformSwitch('Desktop')" ng:class="(workspace.ad.OriginAd.config.dimensions.Initial.Desktop.width)? 'active': 'inactive'">Desktop</a>
-				</li>
-				<li class="dropdown-item">
-					<a href="javascript:void(0)" id="platform-tablet" class="platform originUI-hover" ng:click="platformSwitch('Tablet')" ng:class="(workspace.ad.OriginAd.config.dimensions.Initial.Tablet.width)? 'active': 'inactive'">Tablet</a>
-				</li>
-				<li class="dropdown-item">
-					<a href="javascript:void(0)" id="platform-mobile" class="platform originUI-hover" ng:click="platformSwitch('Mobile')" ng:class="(workspace.ad.OriginAd.config.dimensions.Initial.Mobile.width)? 'active': 'inactive'">Mobile</a>
-				</li>
-			</ul>
--->
+		<div id="platforms-wrapper" class="" data-intro="Select between supported platforms" data-position="bottom">
+			<a href="javascript:void(0)" id="platform-desktop" class="platform originUI-hover inline" ng:click="platformSwitch('Desktop')" ng:class="{'inactive': !workspace.ad.OriginAd.config.dimensions.Initial.Desktop.width, 'active': ui.platform === 'Desktop'}">Desktop</a>
+			<a href="javascript:void(0)" id="platform-tablet" class="platform originUI-hover inline" ng:click="platformSwitch('Tablet')" ng:class="{'inactive': !workspace.ad.OriginAd.config.dimensions.Initial.Tablet.width, 'active': ui.platform === 'Tablet'}">Tablet</a>
+			<a href="javascript:void(0)" id="platform-mobile" class="platform originUI-hover inline" ng:click="platformSwitch('Mobile')" ng:class="{'inactive': !workspace.ad.OriginAd.config.dimensions.Initial.Mobile.width, 'active': ui.platform === 'Mobile'}">Mobile</a>
 		</div>
-		<div id="display-wrapper" ng:click="creatorToggle('view')" data-intro="Toggle between the initial and triggered states of the unit" data-position="bottom" ng:show="workspace.ad.OriginAd.config.dimensions.Triggered[ui.platform].height > 0">
+		<div id="display-wrapper" ng:click="creatorToggle('view')" data-intro="Toggle between the initial and triggered states of the unit" data-position="right" ng:show="workspace.ad.OriginAd.config.dimensions.Triggered[ui.platform].height > 0">
 			<div id="display-icon" class="inline" ng:class="{true: 'display-initial', false: 'display-triggered'}[ui.view=='Initial']"></div>
 			<div id="display" class="inline">
 				<div class="originUI-switch">
@@ -95,7 +81,7 @@
 				</li>
 			</ul>
 		</div><!--
-		--><div id="scripts-wrapper" class="originUI-borderColor originUI-bgColorSecondary">
+		--><div id="scripts-wrapper" data-intro="CSS editor" data-position="top" class="originUI-borderColor originUI-bgColorSecondary">
 			<span id="scripts" class="originUI-borderColor originUI-hover" ng:click="scriptsModalOpen()">Scripts</span>
 		</div>
 		<!--
@@ -110,7 +96,7 @@
 -->
 	</form>
 	<div id="creator-panel-top" class="originUI-bgColor originUI-borderColor">
-		<div id="components-wrapper" class="inline" data-intro="Add components (images, video, etc) to unit" data-position="bottom">
+		<div id="components-wrapper" class="inline" data-intro="Add components (images, video, etc) to unit" data-position="right">
 			<div ng:repeat="(groupName, group) in workspace.components" class="inline component-menu originUI-borderColor">
 				<a href="javascript:void(0)" id="" class="dropdown-toggle">{{groupName}}</a>
 				<ul class="dropdown-menu originUI-bgColorSecondary originUI-borderColor">
@@ -129,7 +115,7 @@
 	
 	
 	
-	<div id="creator-panel-workspace" class="originUI-bgColorSecondary originUI-bgTexture originUI-borderColor">
+	<div id="creator-panel-workspace" class="originUI-bgColorSecondary originUI-bgTexture originUI-borderColor" overscroll>
 		<span id="workspace-platform">{{ui.platform}}</span>
 		<div id="workspace" ng:style="workspaceTemplateConfig()" workspace>
 			<div id="{{ui.view|lowercase}}">
@@ -234,7 +220,7 @@
 		<form id="scripts-modal" class="originUI-bgColorSecondary originUI-modal">
 			<h3 id="scriptsModal-header" class="originUI-tileHeader originUI-borderColor originUI-textColor">CSS Editor</h3>
 			<div class="originUI-modalContent">
-				<textarea id="scriptsEditor-editor" ng:model="css.content" ui:codemirror="scriptsCMOptions"></textarea>
+				<textarea id="scriptsEditor-editor" ng:model="scripts.content" ui:codemirror="scriptsCMOptions"></textarea>
 					<span id="scriptsEditor-instructions">All content items have a wrapper with ID 'content-(id)'. Prefix selectors with '#initial' and '#triggered' are recommended.</span>
 			</div>
 			<div class="originUI-tileFooter">
@@ -289,4 +275,4 @@
 
 <?php
 	echo $this->Minify->css(array('creator', 'codemirror/night', 'jquery-ui.min'));
-	echo $this->Minify->script(array('codemirror/codemirror', 'codemirror/xml', 'codemirror/javascript', 'codemirror/css', 'codemirror/htmlmixed', 'jquery/jquery-ui.min', 'jquery/jquery-touch', 'controllers/creatorController'));
+	echo $this->Minify->script(array('codemirror/codemirror', 'codemirror/xml', 'codemirror/javascript', 'codemirror/css', 'codemirror/htmlmixed', 'jquery/jquery-ui.min', 'jquery/jquery-touch', 'jquery/jquery.overscroll.js', 'controllers/creatorController'));

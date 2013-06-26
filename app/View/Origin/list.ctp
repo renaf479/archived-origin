@@ -1,7 +1,7 @@
 <div id="ad-list" ng:controller="listController" class="">
 	<h2 class="originUI-header">Ad Manager</h2>
 	<div id="adList-left" class="inline" data-intro="Created Origin Ad unit listing" data-position="left">
-		<div class="adList-item originUI-bgColor originUI-shadow originUI-borderColor inline" ng:repeat="ad in ads|filter:searchOrigin" ng:class="{'adList-itemActive': ad.OriginAd.id == module.id}" ng:animate="'originUI-fade'">		
+		<div class="adList-item originUI-bgColor originUI-shadow originUI-borderColor" ng:repeat="ad in ads|filter:searchOrigin" ng:class="{'adList-itemActive': ad.OriginAd.id == module.id}" ng:animate="'originUI-fade'">		
 			<div class="adList-itemMeta">
 				<div class="adList-itemId">{{ad.OriginAd.id}}</div>
 				<div class="adList-itemName originUI-borderColor">{{ad.OriginAd.name}}</div>

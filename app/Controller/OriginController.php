@@ -40,7 +40,23 @@ class OriginController extends AppController {
 		}
 	}
 	
-	
+	/**
+	* Email demo page
+	*/
+	public function emailDemo($data) {
+		App::uses('CakeEmail', 'Network/Email');
+		
+		$email 	= new CakeEmail();
+		$email->template('demo');
+		$email->emailFormat('html');
+		$email->from(array('willie.fu@gmail.com'=>'Evolve Origin'));
+		$email->to('willie.fu@gmail.com');
+		$email->subject('[Evolve Origin] Demo Page (ID'+$data['ad']['id']+') - '.$data['ad']['name']);
+		$email->viewVars(array('data' => $data));
+		$test = $email->send();
+		
+		print_r($test);
+	}
 	
 	/**
 	* Email embed code
