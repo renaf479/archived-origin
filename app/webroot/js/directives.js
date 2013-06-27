@@ -319,13 +319,16 @@ angular.module('originApp.directives', [])
 			}
 		}
 	})
-	.directive('overscroll', function() {
+	.directive('kinetic', function() {
 		//FIX THIS!!
 		return {
 			restrict: 'A',
 			link: function(scope, element, attrs) {
-				console.log(element);
-				element.overscroll();
+				element.kinetic({
+					filterTarget: function(target) {
+						return !$j(target).hasClass('ui-draggable');
+					}
+				});
 			}
 		}
 	})

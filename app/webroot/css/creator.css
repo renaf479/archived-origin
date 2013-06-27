@@ -57,6 +57,13 @@ body.originClass-edit #originBar-settings.open #originBar-settingsIcon {
 	z-index: 0;
 	border-width: 3px 0 0 3px;
 	border-style: solid;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	overflow: hidden;
 }
 
 #display .originUI-switchInner > .originUI-switchActive,
@@ -557,7 +564,7 @@ body.originClass-edit #originBar-settings.open #originBar-settingsIcon {
 #layers,
 #library {
 	position: absolute;
-	top: 120px;
+	top: 125px;
 	width: 100%;	
 	overflow-x: hidden;
 	overflow-y: auto;

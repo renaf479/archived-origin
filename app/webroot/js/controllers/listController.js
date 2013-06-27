@@ -20,6 +20,8 @@ var listController = function($scope, $filter, Origin) {
 	$scope.embedOptions = {
 		'auto':		'false',
 		'close':	'false',
+		'tablet':	'false',
+		'mobile':	'false'
 	};
 	
 	Origin.get('templates').then(function(response) {

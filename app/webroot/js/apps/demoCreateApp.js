@@ -4,6 +4,8 @@ var $j = jQuery.noConflict();
 var demoCreateApp = angular.module('demoCreateApp', ['originApp.services', 'originApp.directives'])
 					.run(function($rootScope, $compile, Origin) {
 						$rootScope.demo 				= {};
+						$rootScope.demo.status			= true;
+						$rootScope.demo.statusSwitch	= true;
 						$rootScope.demo.templateAlias	= 'gamerevolution';
 						$rootScope.demo.embed 			= {};
 						$rootScope.placements			= [];

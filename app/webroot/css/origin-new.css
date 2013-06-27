@@ -1086,9 +1086,14 @@ body.originClass-edit #originBar-search {
 	
 }
 
-#demoPanelContent-auto .originUI-switch {
-	width: 75px;
+#demoPanel-status label.inline {
+	line-height: 23px;
+}
+
+#demoPanel-status .originUI-switch {
+	width: 110px;
 	margin: 0 0 0 10px;
+	font-size: 11px;
 }
 
 #demoPanel-form .originUI-upload {
@@ -1513,7 +1518,7 @@ body.originUI-superAdmin #adSettings-modal.originUI-modalContent {
 }
 
 .adList-modalembed #embedModal-content {
-	height: 200px;
+	height: 190px;
 }
 
 #embedModal-config {
@@ -1533,7 +1538,7 @@ body.originUI-superAdmin #adSettings-modal.originUI-modalContent {
 
 #embedModal-config .originUI-list label.inline {
 	text-align: left;
-	width: 250px;
+	width: 170px;
 }
 
 #embedModal-config .originUI-field {
@@ -1541,7 +1546,10 @@ body.originUI-superAdmin #adSettings-modal.originUI-modalContent {
 	margin: 0 auto;
 }
 
-#embedModal-config #config-auto {
+#embedModal-config #config-auto,
+#embedModal-config #config-close,
+#embedModal-config #config-tablet,
+#embedModal-config #config-mobile {
 	width: 100px;
 }
 

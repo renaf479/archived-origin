@@ -8,16 +8,18 @@ var demoEditApp = angular.module('demoEditApp', ['originApp.services', 'originAp
 						//$rootScope.demo.embed 			= {};
 						$rootScope.placements			= [];
 						$rootScope.reskin 				= {};
+						
+						
 						$rootScope.origin_ad			= angular.fromJson(origin_ad).OriginDemo;
 						$rootScope.origin_ad_template	= $rootScope.origin_ad.config.type;
 						$rootScope.embedOptions			= $rootScope.origin_ad.config.embedOptions;
 						$rootScope.render				= $compile(decodeURIComponent(origin_embed.replace(/\+/g, ' ')))($rootScope);
-						
 						$rootScope.demo = {
 							alias:			$rootScope.origin_ad.alias,
 							embed:			{},
 							id: 			$rootScope.origin_ad.id,
 							name:			$rootScope.origin_ad.name,
+							statusSwitch:	($rootScope.origin_ad.status === '1')? true: false,
 							placement:		$rootScope.origin_ad.config.placement,
 							reskin_color:	$rootScope.origin_ad.config.reskin_color,
 							reskin_img:		$rootScope.origin_ad.config.reskin_img,

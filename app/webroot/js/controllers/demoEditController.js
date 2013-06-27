@@ -59,6 +59,7 @@ var demoController = function($scope, $rootScope, $compile, $timeout, Origin) {
 			templateAlias:	$scope.demo.templateAlias,
 			type:			$rootScope.origin_ad_template
 		};
+		
 		Origin.post($scope.demo).then(function(response) {
 			if(!$scope.demo.id) {
 				$scope.link 	= 'http://'+document.domain+'/demo/'+response;

@@ -112,10 +112,7 @@
 		</div>
 	</div>
 	
-	
-	
-	
-	<div id="creator-panel-workspace" class="originUI-bgColorSecondary originUI-bgTexture originUI-borderColor" overscroll>
+	<div id="creator-panel-workspace" class="originUI-bgColorSecondary originUI-bgTexture originUI-borderColor" kinetic>
 		<span id="workspace-platform">{{ui.platform}}</span>
 		<div id="workspace" ng:style="workspaceTemplateConfig()" workspace>
 			<div id="{{ui.view|lowercase}}">
@@ -275,4 +272,4 @@
 
 <?php
 	echo $this->Minify->css(array('creator', 'codemirror/night', 'jquery-ui.min'));
-	echo $this->Minify->script(array('codemirror/codemirror', 'codemirror/xml', 'codemirror/javascript', 'codemirror/css', 'codemirror/htmlmixed', 'jquery/jquery-ui.min', 'jquery/jquery-touch', 'jquery/jquery.overscroll.js', 'controllers/creatorController'));
+	echo $this->Minify->script(array('codemirror/codemirror', 'codemirror/xml', 'codemirror/javascript', 'codemirror/css', 'codemirror/htmlmixed', 'jquery/jquery-ui.min', 'jquery/jquery-touch', 'jquery/jquery.kinetic.min', 'controllers/creatorController'));

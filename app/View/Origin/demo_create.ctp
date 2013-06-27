@@ -26,6 +26,22 @@
 							<input type="text" class="originUI-input originUI-bgColorSecondary" ng:model="demo.name" placeholder="Demo Page Title" required>
 						</div>
 					</li>
+					<li id="demoPanel-status">
+						<label class="inline">Status</label>
+						<div class="originUI-switch inline">
+						    <input type="checkbox" name="statusSwitch" class="originUI-switchInput" id="statusSwitch" ng:model="demo.status" ng:checked="demo.statusSwitch">
+						    <label class="originUI-switchLabel" for="statusSwitch">
+						    	<div class="originUI-switchInner">
+						    		<div class="originUI-switchActive">
+						    			<div class="originUI-switchText">Active</div>
+								    </div>
+								    <div class="originUI-switchInactive">
+								    	<div class="originUI-switchText">Inactive</div>
+									</div>
+							    </div>
+						    </label>
+					    </div> 
+					</li>
 					<li>
 						<label>Template</label>
 						<div class="originUI-field">

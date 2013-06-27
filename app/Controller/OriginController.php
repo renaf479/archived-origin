@@ -516,6 +516,7 @@ class OriginController extends AppController {
 			$data['create_by']	= $this->UserAuth->getUserId();
 		}
 		
+		$data['status']			= $data['status']? 1: 0;
 		$data['modify_date']	= date('Y-m-d H:i:s');
 		$data['modify_by']		= $this->UserAuth->getUserId();
 		

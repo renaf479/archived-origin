@@ -75,9 +75,9 @@ var originScript, originParams, originXd;
 			var mobile = (/iphone|ipod|ipad|android/i.test(navigator.userAgent.toLowerCase())),
 				platform = 'Desktop';
 			if(mobile) {
-				if(((navigator.userAgent.search('Android') > -1) && (navigator.userAgent.search('Mobile') > -1)) || ((navigator.userAgent.search('iPhone') > -1) || (navigator.userAgent.search('iPod') > -1))) {
+				if(data.platforms.mobile && (((navigator.userAgent.search('Android') > -1) && (navigator.userAgent.search('Mobile') > -1)) || ((navigator.userAgent.search('iPhone') > -1) || (navigator.userAgent.search('iPod') > -1)))) {
 					platform = 'Mobile';
-				} else if(((navigator.userAgent.search('Android') > -1) && !(navigator.userAgent.search('Mobile') > -1)) || (navigator.userAgent.search('iPad') > -1)) {
+				} else if(data.platforms.tablet && (((navigator.userAgent.search('Android') > -1) && !(navigator.userAgent.search('Mobile') > -1)) || (navigator.userAgent.search('iPad') > -1))) {
 					platform = 'Tablet';
 				}
 			}
