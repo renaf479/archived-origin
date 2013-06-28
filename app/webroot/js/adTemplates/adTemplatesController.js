@@ -1,26 +1,21 @@
-var templatesController	= function($scope, $filter, Origin) {
+var adTemplatesController	= function($scope, $filter, Rest, Notification) {
 	$scope.editor		= {};
 	$scope.editorModal	= {};
 	$scope.status		= {};
 	$scope.templates 	= {};
 	
-	Origin.get('templates').then(function(response) {
+	Rest.get('templates').then(function(response) {
 		$scope.templates = $scope.$parent.listRefresh(response);
 	});
-	
-/*
-	$scope.createAlias = function(model) {
-		$scope[model].alias		= $scope.$parent.createAlias($scope[model].name);
-	}
-*/
 	
 	$scope.templateCreate = function() {
 		$scope.editor.route	= 'systemSave';
 		$scope.editor.model	= 'OriginTemplate';
-		Origin.post($scope.editor).then(function(response) {
+		Rest.post($scope.editor).then(function(response) {
 			$scope.editor		= {};
 			$scope.templates 	= response;
-			$scope.$parent.notificationOpen('Template created');
+			Notification.display('New ad template created');
+			//$scope.$parent.notificationOpen('Template created');
 		});
 	}
 	
@@ -35,8 +30,9 @@ var templatesController	= function($scope, $filter, Origin) {
 		
 		var ask = confirm('Do you want to remove this template?');
 		if(ask){
-			Origin.post($scope.editorModal).then(function(response) {
-				$scope.$parent.notificationOpen('Template removed', 'alert');
+			Rest.post($scope.editorModal).then(function(response) {
+				//$scope.$parent.notificationOpen('Template removed', 'alert');
+				Notification.alert('Ad template removed');
 				$scope.templates = response;
 				$scope.$parent.originModalClose();
 			});
@@ -46,31 +42,26 @@ var templatesController	= function($scope, $filter, Origin) {
 	$scope.templateSave = function() {
 		$scope.editorModal.route	= 'systemSave';
 		$scope.editorModal.model	= 'OriginTemplate';
-		Origin.post($scope.editorModal).then(function(response) {
-			$scope.$parent.notificationOpen('Template updated');
+		Rest.post($scope.editorModal).then(function(response) {
+			//$scope.$parent.notificationOpen('Template updated');
+			Notification.display('Ad template updated');
 			$scope.templates = response;
 			$scope.$parent.originModalClose();
 		});
 	}
 	
 	$scope.toggleStatus = function(model, id, status) {
-		Origin.post($scope.$parent.toggleStatus(model, id, status)).then(function(response) {
+		Rest.post($scope.$parent.toggleStatus(model, id, status)).then(function(response) {
 			$scope.templates = response;
 			switch(status) {
 				case 'disable':
-					var notification = {
-						message: 	'Template disabled',
-						type:		'alert'
-					}
+					Notification.alert('Ad template disabled');
 					break;
 				case 'enable':
-					var notification = {
-						message: 	'Template enabled',
-						type:		'default'
-					}
+					Notification.display('Ad template enabled');
 					break;
 			}
-			$scope.$parent.notificationOpen(notification.message, notification.type);
+			//$scope.$parent.notificationOpen(notification.message, notification.type);
 		});
 	}
 }

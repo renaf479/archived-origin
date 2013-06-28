@@ -51,11 +51,10 @@ class OriginController extends AppController {
 		$email->emailFormat('html');
 		$email->from(array('willie.fu@gmail.com'=>'Evolve Origin'));
 		$email->to('willie.fu@gmail.com');
-		$email->subject('[Evolve Origin] Demo Page (ID'+$data['ad']['id']+') - '.$data['ad']['name']);
+		$email->subject('[Evolve Origin] Demo Page (ID'+$data['id']+') - '.$data['name']);
 		$email->viewVars(array('data' => $data));
-		$test = $email->send();
-		
-		print_r($test);
+		//$test = $email->send();
+		//print_r($test);
 	}
 	
 	/**
@@ -71,9 +70,8 @@ class OriginController extends AppController {
 		$email->to('willie.fu@gmail.com');
 		$email->subject('[Evolve Origin] Project Details (ID'+$data['ad']['id']+') - '.$data['ad']['name']);
 		$email->viewVars(array('data' => $data));
-		$test = $email->send();
-		
-		print_r($test);
+		//$test = $email->send();
+		//print_r($test);
 	}
 	
 	

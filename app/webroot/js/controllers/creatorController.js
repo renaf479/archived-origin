@@ -67,9 +67,9 @@ var creatorController = function($scope, $filter, Origin) {
 	
 	$scope.embedOptions = {
 		'auto':		'false',
-		//'hex':		'#000000',
-		'close':	'false'
-		//'hover':	0
+		'close':	'false',
+		'tablet':	'false',
+		'mobile':	'false'
 	};
 	
 	$scope.embedCMOptions = {
@@ -370,7 +370,8 @@ height:	$scope.workspace.template.config.dimensions[$scope.ui.view][$scope.ui.pl
 		$scope.editor.ad 		= $scope.workspace.ad.OriginAd;
 		$scope.editor.embed 	= $j('#embedModal-content').val();
 		Origin.post($scope.editor).then(function() {
-			
+			$scope.embedModal = false;
+			$scope.$parent.notificationOpen('Embed code emailed');
 		});
 	}
 	

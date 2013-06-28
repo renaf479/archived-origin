@@ -15,13 +15,13 @@ $userAdmin			= ($this->UserAuth->isAdmin())? 'originUI-superAdmin': '';
 		//echo $this->Html->css('/usermgmt/css/umstyle');
 		
 		echo $this->Minify->css(array('normalize', 'bootstrap', 'codemirror', 'chardinjs', 'origin', 'origin-new'));
-		echo $this->Minify->script(array('jquery/jquery', 'jquery/jquery.ui.widget', 'jquery/jquery.fileupload', 'jquery/chardinjs.min', 'angularjs', 'angular-ui', 'angularui-bootstrap', 'origin', 'controller', 'services', 'directives', 'filters'));
+		echo $this->Minify->script(array('jquery/jquery', 'jquery/jquery.ui.widget', 'jquery/jquery.fileupload', 'jquery/chardinjs.min', 'angularjs', 'angular-ui', 'angularui-bootstrap', 'platform/platformApp', 'platform/modalServices', 'platform/notificationServices', 'platform/restServices', 'controller', 'services', 'platform/platformDirectives', 'directives', 'platform/filters'));
 		//echo $this->fetch('meta');
 		//echo $this->fetch('css');
 		//echo $this->fetch('script');
 	?>
 </head>
-<body class="originUI-bgTexture <?php echo $userAdmin;?> <?php echo 'originClass-'.$this->params['action'];?>" ng:app="originApp" ng:controller="originGeneral">
+<body class="originUI-bgTexture <?php echo $userAdmin;?> <?php echo 'originClass-'.$this->params['action'];?>" ng:app="platformApp" ng:controller="originGeneral">
 	<?php echo $this->element('bar');?>
 	<div id="container" class="wrapper">
 		<?php echo $this->Session->flash(); ?>

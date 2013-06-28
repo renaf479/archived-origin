@@ -1,4 +1,4 @@
-<div id="ad-template" ng:controller="templatesController" ng:cloak>
+<div id="ad-template" ng:controller="adTemplatesController" ng:cloak>
 	<h2 class="originUI-header"><a href="/administrator/settings">Ad Templates</a></h2>
 	<form id="adTemplate-create" name="adTemplateCreateForm" class="originUI-tileLeft originUI-bgColorSecondary originUI-shadow" novalidate>
 		<input type="hidden" name="uploadDir" value="/assets/templates/"/>
@@ -61,5 +61,5 @@
 	</div>
 </div>
 <?php
-	echo $this->Minify->script(array('controllers/templatesController'));
+	echo $this->Minify->script(array('adTemplates/adTemplatesController'));
 ?>

@@ -57,12 +57,12 @@
 			</div>
 			<div class="originUI-tileFooter">
 				<div class="originUI-tileFooterLeft originUI-hover" ng:click="$parent.originModalClose()">Close</div>
-				<button class="originUI-tileFooterRight originUI-hover" ng:click="$parent.embedEmail()" ng:show="editor.type=='embed'">E-mail</button>
+				<button class="originUI-tileFooterRight originUI-hover" ng:click="embedModalEmail()" ng:show="editor.type=='embed'">E-mail</button>
 				<button class="originUI-tileFooterRight originUI-hover" ng:click="adCreateSave()" ng:show="editor.type=='create'" ng-disabled="adListModal.$invalid">Create</button>
 			</div>
 		</form>
 	</div>
 </div>
 <?php
-	echo $this->Minify->script(array('controllers/listController'));
+	echo $this->Minify->script(array('adCreator/adListController'));
 ?>

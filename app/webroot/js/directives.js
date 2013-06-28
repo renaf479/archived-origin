@@ -1,7 +1,8 @@
 'use strict';
 
 angular.module('originApp.directives', [])
-	.directive('alias', function(){
+	/*
+.directive('alias', function(){
 		return {
 			require: 'ngModel',
 			restrict: 'A',
@@ -21,7 +22,9 @@ angular.module('originApp.directives', [])
 			}
 		}
 	})
-	.directive('flashMessage', function() {
+*/
+	/*
+.directive('flashMessage', function() {
 		return {
 			restrict: 'E',
 			link: function(scope, element, attrs) {
@@ -29,7 +32,9 @@ angular.module('originApp.directives', [])
 			}
 		}
 	})
-	.directive('hex', function(){
+*/
+	/*
+.directive('hex', function(){
 		return {
 			require: 'ngModel',
 			restrict: 'A',
@@ -53,6 +58,7 @@ angular.module('originApp.directives', [])
 			}
 		}
 	})
+*/
 	.directive('asset', function() {
 		return {
 			restrict: 'A',
@@ -261,7 +267,8 @@ angular.module('originApp.directives', [])
 			}
 		}
 	})
-	.directive('fileupload', function() {
+	/*
+.directive('fileupload', function() {
 		return {
 			restrict: 'A',
 			scope: {
@@ -285,6 +292,7 @@ angular.module('originApp.directives', [])
 			}
 		}
 	})
+*/
 	.directive('layerSortable', function() {
 		return {
 			restrict: 'A',

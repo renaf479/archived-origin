@@ -10,7 +10,9 @@ $j(function() {
     });
 });
 
-var listController = function($scope, $filter, Origin) {
+var listController = function($scope, $filter, Notification, Rest) {
+	//$scope.$parent.notificationOpen('Demo page deleted', 'alert');
+	
 	$scope.ads			= {};
 	$scope.demos		= {};
 	$scope.editor		= {};
@@ -24,17 +26,17 @@ var listController = function($scope, $filter, Origin) {
 		'mobile':	'false'
 	};
 	
-	Origin.get('templates').then(function(response) {
+	Rest.get('templates').then(function(response) {
 		$scope.templates		= response;
 		//$scope.originCreator.form		= $scope.originCreator.templates[$scope.originCreator.index];
 		
-		Origin.get('ads').then(function(response) {
+		//Origin.get('ads').then(function(response) {
+		Rest.get('ads').then(function(response) {
 			$scope.ads 		= response.origin_ads;
 			$scope.module	= $scope.ads[0].OriginAd;
 			//console.log($scope.originCreator.list.origin_ads[0].Creator);
 			$scope.showCreate	= true;
 			$scope.refreshDemo();
-			
 		});
 	});
 	
@@ -70,7 +72,7 @@ var listController = function($scope, $filter, Origin) {
 		delete $scope.editor.template;
 		//delete $scope.editor.type;
 				
-		Origin.post($scope.editor).then(function(response) {
+		Rest.post($scope.editor).then(function(response) {
 			window.location		= '/administrator/Origin/ad/edit/'+response;
 		});
 	}
@@ -87,10 +89,6 @@ var listController = function($scope, $filter, Origin) {
 		$scope.$parent.originModalOpen();
 	}
 	
-	$scope.embedEmail = function() {
-		
-	}
-	
 	$scope.loadModule = function(model) {
 		//console.log(model);
 		$scope.module 						= model.OriginAd;
@@ -98,7 +96,7 @@ var listController = function($scope, $filter, Origin) {
 	}
 	
 	$scope.refreshDemo = function() {
-		Origin.get('demo/'+$scope.module.id).then(function(response) {
+		Rest.get('demo/'+$scope.module.id).then(function(response) {
 			$scope.demos 	= response;
 			//console.log($scope.originCreator.list.origin_ads[0].Creator);
 		});
@@ -124,9 +122,10 @@ var listController = function($scope, $filter, Origin) {
 		if(ask){
 			data.OriginDemo.route		= 'demoDelete';
 			
-			Origin.post(data.OriginDemo).then(function(response) {
-				$scope.$parent.notificationOpen('Demo page deleted', 'alert');
-				$j('#actions-wrapper').fadeOut(200);
+			Rest.post(data.OriginDemo).then(function(response) {
+				//$scope.$parent.notificationOpen('Demo page deleted', 'alert');
+				Notification.alert('Demo page removed');
+				//$j('#actions-wrapper').fadeOut(200);
 				
 				$scope.demos 	= response;		
 			});
@@ -140,9 +139,10 @@ var listController = function($scope, $filter, Origin) {
 		if(ask){
 			$scope.module.route			= 'adDelete';
 			
-			Origin.post($scope.module).then(function(response) {
-				$scope.$parent.notificationOpen('Ad Deleted', 'alert');
-				$j('#actions-wrapper').fadeOut(200);
+			Rest.post($scope.module).then(function(response) {
+				//$scope.$parent.notificationOpen('Ad Deleted', 'alert');
+				Notification.alert('Ad removed');
+				//$j('#actions-wrapper').fadeOut(200);
 				
 				$scope.ads 		= response.origin_ads;
 				$scope.module	= $scope.ads[0].OriginAd;
@@ -167,8 +167,10 @@ var listController = function($scope, $filter, Origin) {
 				break;
 		}
 		
-		Origin.post($scope.module).then(function(response) {
-			$scope.$parent.notificationOpen('Showcase updated', 'alert');
+		Rest.post($scope.module).then(function(response) {
+			Notification.alert('Showcase updated');
+		
+			//$scope.$parent.notificationOpen('Showcase updated', 'alert');
 			$j('#actions-wrapper').fadeOut(200);
 			//$scope.ads 		= response.origin_ads;
 			//$scope.module	= $scope.ads[0].OriginAd;

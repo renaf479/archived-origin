@@ -1,3 +1,6 @@
+<h3>Demo Link</h3>
+<a href="<?php echo $data['link'];?>" target="_blank"><?php echo $data['link'];?></a>
+
 <!--
 <h3>Embed Code</h3>
 <blockquote style="background-color: #ebebeb; padding: 5px">

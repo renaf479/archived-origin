@@ -27,7 +27,7 @@
 				</div>
 			</li>
 			<li>
-				<label class="inline">Auto Close (when Auto Open)</label>
+				<label class="inline">Auto Close</label>
 				<div id="config-close" class="inline">
 					<div class="originUI-switch">
 					    <input type="checkbox" name="editorToggleCloseSwitch" class="originUI-switchInput" id="editorToggleCloseSwitch" ng:model="embedOptions.close">

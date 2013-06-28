@@ -743,13 +743,9 @@ body.originClass-edit #originBar-search {
 /* =======================================================================
 	Tables
 ========================================================================== */
-/*
 .originUI-table {
-	margin: 0 0 10px;
+	margin: 5px 0 0;
 }
-*/
-
-
 
 .originUI-tableHead {
 	text-align: left;
@@ -953,11 +949,11 @@ body.originClass-edit #originBar-search {
 	Ad Template Manager
 ========================================================================== */
 #adTemplate-create {
-	min-height: 586px;
+	min-height: 513px;
 }
 
 #adTemplate-list {
-	min-height: 606px;
+	min-height: 533px;
 }
 
 #adTemplate-createHeader {

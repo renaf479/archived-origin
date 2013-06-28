@@ -1,11 +1,11 @@
-var siteController	= function($scope, $filter, Origin) {
+var siteController	= function($scope, $filter, Rest, Notification) {
 	$scope.sites 		= {};
 	$scope.editor		= {};
 	$scope.editorModal	= {};
 	$scope.status		= {};
 
 	
-	Origin.get('sites').then(function(response) {
+	Rest.get('sites').then(function(response) {
 		$scope.sites = $scope.$parent.listRefresh(response);
 	});
 	
@@ -16,9 +16,10 @@ var siteController	= function($scope, $filter, Origin) {
 	$scope.siteCreate = function() {
 		$scope.editor.route	= 'systemSave';
 		$scope.editor.model	= 'OriginSite';
-		Origin.post($scope.editor).then(function(response) {
+		Rest.post($scope.editor).then(function(response) {
 			$scope.sites = response;
-			$scope.$parent.notificationOpen('Site created');
+			Notification.display('Demo site template created');
+			//$scope.$parent.notificationOpen('Site created');
 		});
 	}
 	
@@ -33,8 +34,9 @@ var siteController	= function($scope, $filter, Origin) {
 		
 		var ask = confirm('Do you want to remove this site?');
 		if(ask){
-			Origin.post($scope.editorModal).then(function(response) {
-				$scope.$parent.notificationOpen('Site removed', 'alert');
+			Rest.post($scope.editorModal).then(function(response) {
+				//$scope.$parent.notificationOpen('Site removed', 'alert');
+				Notification.alert('Demo site template removed');
 				$scope.sites = response;
 				$scope.$parent.originModalClose();
 			});
@@ -44,31 +46,24 @@ var siteController	= function($scope, $filter, Origin) {
 	$scope.siteSave = function() {
 		$scope.editorModal.route	= 'systemSave';
 		$scope.editorModal.model	= 'OriginSite';
-		Origin.post($scope.editorModal).then(function(response) {
-			$scope.$parent.notificationOpen('Site updated');
+		Rest.post($scope.editorModal).then(function(response) {
+			Notification.display('Demo site template updated');
 			$scope.sites = response;
 			$scope.$parent.originModalClose();
 		});
 	}
 	
 	$scope.toggleStatus = function(model, id, status) {
-		Origin.post($scope.$parent.toggleStatus(model, id, status)).then(function(response) {
+		Rest.post($scope.$parent.toggleStatus(model, id, status)).then(function(response) {
 			$scope.sites = response;
 			switch(status) {
 				case 'disable':
-					var notification = {
-						message: 	'Site disabled',
-						type:		'alert'
-					}
+					Notification.alert('Demo site template disabled');
 					break;
 				case 'enable':
-					var notification = {
-						message: 	'Site enabled',
-						type:		'default'
-					}
+					Notification.display('Demo site template enabled');
 					break;
 			}
-			$scope.$parent.notificationOpen(notification.message, notification.type);
 		});
 	}
 }

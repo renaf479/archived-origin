@@ -30,6 +30,20 @@ angular.module('originApp.services', [])
 		}
 		return Origin;
 	})
+	.factory('Email', function(Origin) {
+		var Email = {
+			demo: function(data) {
+				data.route 	= 'emailDemo';
+				Origin.post(data).then(function() {
+					
+				});
+			},
+			embed: function() {
+				
+			}
+		}
+		return Email;
+	})
 	.factory('Notification', function($rootScope) {
 		var notification = {};
 		

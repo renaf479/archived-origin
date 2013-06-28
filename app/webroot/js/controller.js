@@ -3,10 +3,12 @@
 var $j = jQuery.noConflict();
 
 $j(function() {
+/*
 	$j('#originBar-help').click(function() {
 		$j('body').chardinJs('start');
 	});
 	
+*/
 	
 	var fixed = $j('#origin-bar');
 	
@@ -17,12 +19,6 @@ $j(function() {
             fixed.removeClass('originUI-fixed');
         }
     });
-	
-	
-	
-	
-	
-	
 });
 
 var notification = {
@@ -31,7 +27,7 @@ var notification = {
 	};
 
 var originGeneral = function($scope, $filter, Origin, Notification) {
-	$scope.notification = {};
+	//$scope.notification = {};
 	
 	$scope.back = function() {
 		window.history.back();
@@ -70,6 +66,7 @@ var originGeneral = function($scope, $filter, Origin, Notification) {
 	
 	
 	
+/*
 	
 	$scope.notificationOpen = function(content, type, icon) {
 		$scope.notification.type 		= (type)? 'originNotification-'+type: 'originNotification-default';
@@ -79,9 +76,12 @@ var originGeneral = function($scope, $filter, Origin, Notification) {
 		$j('#origin-notification').fadeIn().delay(2700).fadeOut();
 	}
 	
+*/
+/*
 	$scope.notificationClose = function() {
 		$j('#origin-notification').hide();
 	}
+*/
 	
 	$scope.createAlias = function(model) {
 		return $filter('createAlias')(model);
@@ -135,7 +135,6 @@ var originGeneral = function($scope, $filter, Origin, Notification) {
 		backdropClick:	false,
 		backdropFade: 	true
 	}
-	
 } 
 
 var originUser = function($scope, Origin, Notification) {

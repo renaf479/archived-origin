@@ -11,7 +11,6 @@ var demoPublicController = function($scope, $rootScope, $compile) {
 		}
 		
 		//FIND A BETTER WAY
-		
 		var originEmbed	= decodeURIComponent(origin_embed.replace(/\+/g, ' '));
 			originEmbed = originEmbed.replace(/{{embedOptions.id}}/g, $rootScope.embedOptions.id);
 			originEmbed = originEmbed.replace(/{{embedOptions.auto}}/g, $rootScope.embedOptions.auto);
@@ -20,6 +19,9 @@ var demoPublicController = function($scope, $rootScope, $compile) {
 			originEmbed = originEmbed.replace(/{{embedOptions.hex}}/g, $rootScope.embedOptions.hex);
 			originEmbed = originEmbed.replace(/{{embedOptions.dcopt}}/g, $rootScope.embedOptions.dcopt);
 			originEmbed = originEmbed.replace(/{{embedOptions.type}}/g, $rootScope.embedOptions.type);
+			
+			originEmbed = originEmbed.replace(/{{embedOptions.tablet}}/g, $rootScope.embedOptions.tablet);
+			originEmbed = originEmbed.replace(/{{embedOptions.mobile}}/g, $rootScope.embedOptions.mobile);
 
 		
 		$rootScope[$rootScope.demo.OriginDemo.config.placement]	= originEmbed;

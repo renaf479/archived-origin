@@ -1,4 +1,4 @@
-var demoController = function($scope, $rootScope, $compile, $timeout, Origin) {	
+var demoController = function($scope, $rootScope, $compile, $timeout, Origin, Email) {	
 	
 	$scope.demoPlacement = function() {
 		//Reset
@@ -64,6 +64,13 @@ var demoController = function($scope, $rootScope, $compile, $timeout, Origin) {
 			if(!$scope.demo.id) {
 				$scope.link 	= 'http://'+document.domain+'/demo/'+response;
 				window.open('http://'+document.domain+'/demo/'+response, '_blank');
+				
+				Email.demo({
+					id:		$rootScope.origin_ad.OriginAd.id,
+					link: 	$scope.link,
+					name:	$rootScope.origin_ad.OriginAd.name
+				});
+				
 			}
 		});
 	}
