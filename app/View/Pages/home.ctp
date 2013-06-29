@@ -1,18 +1,43 @@
-<?php
-?>
-
-<div id="homepage-container" ng:controller="homeController">
-<!--
-	<div id="homepage-cover">
-		<a href="/demo/Origin/{{ad.OriginAd.id}}" class="showcase-ad" target="_blank" ng:repeat="ad in ads|limitTo:10|filter:{OriginAd.showcase:1}">
-			<img class="showcase-ad" ng:src="{{ad.OriginAd.content.img_thumbnail}}"/>
-			<span class="showcase-adTitle originUI-bgColor">{{ad.OriginAd.name}}</span>
-		</a>
+<div id="homepage-container" ng:controller="homepageController">
+	<div class="homepage-product inline" ng:repeat="product in products|filter:searchOrigin" ng:animate="'originUI-fade'" ng:class="(productShow === product.OriginTemplate.id)? 'expand': ''">
+		<div class="homepageProduct originUI-shadow originUI-borderColor" ng:click="productExpand('open', product, $event)">
+			<img class="homepageProduct-image" ng:src="{{product.OriginAds.content.img_thumbnail}}"/>
+			<h2 class="homepageProduct-title originUI-bgColor">{{product.OriginTemplate.name}}</h2>
+		</div>
+		
+		<div id="homepage-detail" class="originUI-bgColor" >
+			<a href="javascript:void(0)" id="homepageDetail-close" ng:click="productExpand('close', '')">close</a>
+			<div id="homepageDetail-left" class="inline">
+				<h3 id="homepageDetail-title">{{product.OriginTemplate.name}} Ad Unit</h3>
+				<p id="homepageDetail-description">{{product.OriginTemplate.content.description}}</p>
+			</div><!--
+			--><div id="homepageDetail-right" class="inline">
+			
+				<div id="guidelines-initial" class="originUI-borderColorSecondary">
+					<h4 id="">Initial</h4>
+					<div id="" class="guidelines-imageWrapper" !style="width:{{product.OriginTemplate.config.dimensions.Initial[platformShow].width}}px">
+						<span class="guidelines-imageWidth">{{product.OriginTemplate.config.dimensions.Initial[platformShow].width}}px</span>
+						<span class="guidelines-imageHeight">{{product.OriginTemplate.config.dimensions.Initial[platformShow].height}}px</span>
+						<img id="guidelines-imageInitial" class="guidelines-image" guideline-image="{{product[platformShow+'Initial'].content}}"/>
+					</div>
+				</div>
+				<div id="guidelines-triggered" class="originUI-borderColorSecondary" ng:show="product.OriginTemplate.config.dimensions.Triggered[platformShow].width > 0">
+					<h4 id="">Triggered</h4>
+					<div id="" class="guidelines-imageWrapper" !style="width:{{product.OriginTemplate.config.dimensions.Triggered[platformShow].width}}px">
+						<span class="guidelines-imageWidth">{{product.OriginTemplate.config.dimensions.Triggered[platformShow].width}}px</span>
+						<span class="guidelines-imageHeight">{{product.OriginTemplate.config.dimensions.Triggered[platformShow].height}}px</span>
+						<img id="guidelines-imageTriggered" class="guidelines-image" guideline-image="{{product[platformShow+'Triggered'].content}}"/>
+					</div>
+				</div>
+			</div>
+		</div>
+		
 	</div>
-	<div class="clear"></div>
-	 ng:animate="'originUI-fade'"
--->
 
+
+
+
+<!--
 
 	<div id="homepage-products" class="inline originUI-bgColorSecondary originUI-shadow" data-intro="Supported ad units" data-position="left">
 		<ul class="originUI-list originUI-tileContent">
@@ -23,8 +48,7 @@
 				</div>
 			</li>
 		</ul>
-	</div><!--
-	--><div id="homepage-guidelines" class="inline originUI-bgColor originUI-shadow">
+	</div><div id="homepage-guidelines" class="inline originUI-bgColor originUI-shadow">
 		<div ng:show="guidelinesDisplay" ng:animate="'originUI-fade'">
 			<h3 id="homepage-guidelinesHeader" class="originUI-tileHeader originUI-borderColor originUI-textColor">{{guidelines.OriginTemplate.name}} Ad Unit</h3>
 			<ul id="guidelines-platforms" class="originUI-list" data-intro="Supported platforms" data-position="right">
@@ -56,22 +80,10 @@
 			</div>
 		</div>
 	</div>
-	
-
-<!--
-	<div id="homepage-products" class="">
-		<div class="product-item originUI-bgColor originUI-shadow originUI-borderColor" ng:repeat="product in products|unique:OriginTemplate.alias|filter:{OriginTemplate.status: '1'}">
-			<div class="product-meta ">
-				<div class="product-metaName originUI-borderColor">{{product.OriginTemplate.name}}</div>
-				<div class="product-metaDescription">{{product.OriginTemplate.content.description}}</div>
-			</div>
-			<a href="/guidelines/{{product.OriginTemplate.alias}}" class="product-link"></a>
-		</div>
-	</div>
 -->
 </div>
 
 
 <?php
-	echo $this->Minify->script(array('controllers/homeController'));
+	echo $this->Minify->script(array('homepage/homepageController', 'homepage/homepageDirectives'));
 	echo $this->Minify->css(array('home'));

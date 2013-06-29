@@ -857,7 +857,13 @@ class OriginController extends AppController {
 				),
 				'fields'=>array(
 					'OriginTemplate.*',
-					'OriginAds.*'
+					'OriginAds.*',
+					'DesktopInitial.*',
+					'DesktopTriggered.*',
+					'MobileInitial.*',
+					'MobileTriggered.*',
+					'TabletInitial.*',
+					'TabletTriggered.*'
 				),
 				'joins'=>array(
 					array(
@@ -866,6 +872,60 @@ class OriginController extends AppController {
 						'type'=>'LEFT',
 						'conditions'=>array(
 							'OriginAds.type_id = OriginTemplate.id'
+						)
+					),
+					array(
+						'table'=>'origin_ad_desktop_initial_contents',
+						'alias'=>'DesktopInitial',
+						'type'=>'LEFT',
+						'conditions'=>array(
+							'DesktopInitial.origin_ad_id = OriginAds.id',
+							'DesktopInitial.type = "background"'
+						)
+					),
+					array(
+						'table'=>'origin_ad_desktop_triggered_contents',
+						'alias'=>'DesktopTriggered',
+						'type'=>'LEFT',
+						'conditions'=>array(
+							'DesktopTriggered.origin_ad_id = OriginAds.id',
+							'DesktopTriggered.type = "background"'
+						)
+					),
+					array(
+						'table'=>'origin_ad_mobile_initial_contents',
+						'alias'=>'MobileInitial',
+						'type'=>'LEFT',
+						'conditions'=>array(
+							'MobileInitial.origin_ad_id = OriginAds.id',
+							'MobileInitial.type = "background"'
+						)
+					),
+					array(
+						'table'=>'origin_ad_mobile_triggered_contents',
+						'alias'=>'MobileTriggered',
+						'type'=>'LEFT',
+						'conditions'=>array(
+							'MobileTriggered.origin_ad_id = OriginAds.id',
+							'MobileTriggered.type = "background"'
+						)
+					),
+					array(
+						'table'=>'origin_ad_tablet_initial_contents',
+						'alias'=>'TabletInitial',
+						'type'=>'LEFT',
+						'conditions'=>array(
+							'TabletInitial.origin_ad_id = OriginAds.id',
+							'TabletInitial.type = "background"'
+						)
+					),
+					array(
+						'table'=>'origin_ad_tablet_triggered_contents',
+						'alias'=>'TabletTriggered',
+						'type'=>'LEFT',
+						'conditions'=>array(
+							'TabletTriggered.origin_ad_id = OriginAds.id',
+							'TabletTriggered.type = "background"'
 						)
 					)
 				),
