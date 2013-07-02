@@ -1,12 +1,12 @@
 <div id="homepage-container" ng:controller="homepageController">
-	<div class="homepage-product inline" ng:repeat="product in products|filter:searchOrigin" ng:animate="'originUI-fade'" ng:class="{expand: (productShow === product.OriginTemplate.id), noAnimate: (rowExpand)}" product>
+	<div class="homepage-product inline" ng:repeat="product in products|filter:searchOrigin" ng:animate="'originUI-fade'" ng:class="{expand: (productShow === product.OriginTemplate.id), noAnimate: (rowExpand)}" product="{{$index}}">
 		<div class="homepageProduct originUI-shadow originUI-borderColor" ng:click="productExpand('open', product, $index)">
 			<img class="homepageProduct-image" ng:src="{{product.OriginAds.content.img_thumbnail}}"/>
 			<h2 class="homepageProduct-title originUI-bgColor">{{product.OriginTemplate.name}}</h2>
 		</div>
 		
 		<div id="homepage-detail" class="originUI-bgColor" >
-			<a href="javascript:void(0)" id="homepageDetail-close" ng:click="productExpand('close', '')">close</a>
+			<a href="javascript:void(0)" id="homepageDetail-close" class="originUI-hover" ng:click="productExpand('close', '')">close</a>
 			<div id="homepageDetail-left" class="inline">
 				<h3 id="homepageDetail-title">{{product.OriginTemplate.name}} Ad Unit</h3>
 				<p id="homepageDetail-description">{{product.OriginTemplate.content.description}}</p>
@@ -21,9 +21,14 @@
 				</div>
 				<div id="guidelines">
 					<div id="guidelines-imageWrapper">
-						<span id="guidelines-imageWidth">{{product.OriginTemplate.config.dimensions[stateShow][platformShow].width}}px</span>
-						<span id="guidelines-imageHeight">{{product.OriginTemplate.config.dimensions[stateShow][platformShow].height}}px</span>
-						<img id="guidelines-imageInitial" class="guidelines-image" guideline-image="{{product[platformShow+stateShow].content}}"/>
+						<div ng:animate="'originUI-fade'" ng:show="stateShow === 'Initial'" ng:hide="stateShow !== 'Initial'">
+							<img class="guidelines-imageInitial guidelines-image" guideline-image="{{product[platformShow+'Initial'].content}}"/>
+							<span class="guidelines-dimensions">{{product.OriginTemplate.config.dimensions.Initial[platformShow].width}}px by {{product.OriginTemplate.config.dimensions.Initial[platformShow].height}}px</span>
+						</div>
+						<div ng:animate="'originUI-fade'" ng:show="stateShow === 'Triggered'" ng:hide="stateShow !== 'Triggered'">
+							<img class="guidelines-imageTriggered guidelines-image" guideline-image="{{product[platformShow+'Triggered'].content}}"/>
+							<span class="guidelines-dimensions">{{product.OriginTemplate.config.dimensions.Triggered[platformShow].width}}px by {{product.OriginTemplate.config.dimensions.Triggered[platformShow].height}}px</span>
+						</div>
 					</div>
 				</div>
 				

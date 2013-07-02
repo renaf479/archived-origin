@@ -25,7 +25,7 @@ var homepageController = function($scope, $filter, $timeout, Rest) {
 				//console.log(($index/3) < ($scope.row + 1));
 				//console.log($scope.row !== Math.floor($index/3));
 				
-				console.log($scope.row === Math.floor($index/3));
+				//console.log($scope.row === Math.floor($index/3));
 				
 				//Determine row
 				if($scope.row === Math.floor($index/3)) {
