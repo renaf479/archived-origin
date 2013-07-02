@@ -16,6 +16,7 @@
 		<select class="originUI-select originUI-bgColorSecondary" ng:model="<?php echo $editor;?>.alias">
 			<option style="display:none" value="">Select Template</option>
 			<option value="ascension">Ascension</option>
+			<option value="aurora">Aurora</option>
 			<option value="eclipse">Eclipse</option>
 			<option value="horizon">Horizon</option>
 			<option value="antemeridian">Meridian (Ante)</option>

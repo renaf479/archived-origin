@@ -30,15 +30,44 @@ var originXd = (function() {
 				originAd.height			= data.height;
 				originAd.style.backgroundColor	= data.hex;
 			switch(data.template) {
-				case 'ascension':
-					originAd.style.margin 	= '0 auto';
-					originAd.style.display	= 'block';
-					break;
 				case 'antemeridian':
 					originAd.style.position	= 'fixed';
 					originAd.style.top 		= 0;
 					originAd.style.left		= 0;
 					originAd.style.zIndex	= 10000000;
+					break;
+				case 'ascension':
+					originAd.style.margin 	= '0 auto';
+					originAd.style.display	= 'block';
+					break;
+				case 'aurora':
+					/*
+var auroraBody				= document.getElementsByClassName(data.selector)[0];
+					auroraBody.style.zIndex		= 2;
+					auroraBody.style.position	= 'relative';
+*/
+					
+					var originCss 			= document.createElement('style');
+						originCss.id		= 'originCss';
+						originCss.type 		= 'text/css';
+						originCss.media		= 'screen';
+						originCssAurora		= '.'+data.selector+'{z-index: 2; position: relative}';
+						if(originCss.styleSheet) {
+							originCss.styleSheet.cssText = originCssAurora;
+						} else {
+							originCss.appendChild(document.createTextNode(originCssAurora));
+						}
+						document.body.appendChild(originCss);
+					
+					
+					document.body.style.overflowX	= 'hidden';
+					
+					originAd.style.position		= 'absolute';
+					originAd.style.top 			= 0;
+					//originAd.style.left 		= '50%';
+					//originAd.style.marginLeft	= -(originAd.clientWidth/2)+'px';
+					originAd.width 				= '100%';
+					originAd.style.zIndex		= 1;
 					break;
 				case 'horizon':
 					var originCss 			= document.createElement('style');

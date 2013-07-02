@@ -1130,7 +1130,7 @@ class OriginController extends AppController {
 	*/
 	private function creatorContentRemove($data) {
 		if($this->{'OriginAd'.$data['model'].'Content'}->delete($data['id'])) {
-			$this->creatorWorkspaceUpdate($data);
+			//$this->creatorWorkspaceUpdate($data);
 			return $this->_creatorAdLoad($data);	
 		}
 	}

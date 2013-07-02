@@ -1,6 +1,6 @@
 <div id="homepage-container" ng:controller="homepageController">
-	<div class="homepage-product inline" ng:repeat="product in products|filter:searchOrigin" ng:animate="'originUI-fade'" ng:class="(productShow === product.OriginTemplate.id)? 'expand': ''">
-		<div class="homepageProduct originUI-shadow originUI-borderColor" ng:click="productExpand('open', product, $event)">
+	<div class="homepage-product inline" ng:repeat="product in products|filter:searchOrigin" ng:animate="'originUI-fade'" ng:class="{expand: (productShow === product.OriginTemplate.id), noAnimate: (rowExpand)}" product>
+		<div class="homepageProduct originUI-shadow originUI-borderColor" ng:click="productExpand('open', product, $index)">
 			<img class="homepageProduct-image" ng:src="{{product.OriginAds.content.img_thumbnail}}"/>
 			<h2 class="homepageProduct-title originUI-bgColor">{{product.OriginTemplate.name}}</h2>
 		</div>
@@ -12,15 +12,36 @@
 				<p id="homepageDetail-description">{{product.OriginTemplate.content.description}}</p>
 			</div><!--
 			--><div id="homepageDetail-right" class="inline">
-			
+				
+				<div id="guideliens-stateWrapper">
+					<div ng:show="product.OriginTemplate.config.dimensions.Triggered[platformShow].width > 0">
+						<h3 id="guidelines-stateInitial" class="inline guidelines-state originUI-hover" ng:click="state('Initial')" ng:class="{active:stateShow === 'Initial'}">Initial</h3>
+						<h3 id="guidelines-stateTriggered" class="inline guidelines-state originUI-hover" ng:click="state('Triggered')" ng:class="{active:stateShow === 'Triggered'}" ng:show="product.OriginTemplate.config.dimensions.Triggered[platformShow].width > 0">Triggered</h3>
+					</div>
+				</div>
+				<div id="guidelines">
+					<div id="guidelines-imageWrapper">
+						<span id="guidelines-imageWidth">{{product.OriginTemplate.config.dimensions[stateShow][platformShow].width}}px</span>
+						<span id="guidelines-imageHeight">{{product.OriginTemplate.config.dimensions[stateShow][platformShow].height}}px</span>
+						<img id="guidelines-imageInitial" class="guidelines-image" guideline-image="{{product[platformShow+stateShow].content}}"/>
+					</div>
+				</div>
+				
+
+
+
+<!--
 				<div id="guidelines-initial" class="originUI-borderColorSecondary">
-					<h4 id="">Initial</h4>
 					<div id="" class="guidelines-imageWrapper" !style="width:{{product.OriginTemplate.config.dimensions.Initial[platformShow].width}}px">
 						<span class="guidelines-imageWidth">{{product.OriginTemplate.config.dimensions.Initial[platformShow].width}}px</span>
 						<span class="guidelines-imageHeight">{{product.OriginTemplate.config.dimensions.Initial[platformShow].height}}px</span>
 						<img id="guidelines-imageInitial" class="guidelines-image" guideline-image="{{product[platformShow+'Initial'].content}}"/>
 					</div>
 				</div>
+-->
+
+
+<!--
 				<div id="guidelines-triggered" class="originUI-borderColorSecondary" ng:show="product.OriginTemplate.config.dimensions.Triggered[platformShow].width > 0">
 					<h4 id="">Triggered</h4>
 					<div id="" class="guidelines-imageWrapper" !style="width:{{product.OriginTemplate.config.dimensions.Triggered[platformShow].width}}px">
@@ -29,6 +50,7 @@
 						<img id="guidelines-imageTriggered" class="guidelines-image" guideline-image="{{product[platformShow+'Triggered'].content}}"/>
 					</div>
 				</div>
+-->
 			</div>
 		</div>
 		

@@ -63,7 +63,7 @@ body.originClass-edit #originBar-settings.open #originBar-settingsIcon {
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
-	overflow: hidden;
+	/* overflow: hidden; */
 }
 
 #display .originUI-switchInner > .originUI-switchActive,
@@ -558,7 +558,7 @@ body.originClass-edit #originBar-settings.open #originBar-settingsIcon {
 
 .layer-expand #layers,
 .layer-expand #library {
-	top: 50px;
+	top: 75px;
 }
 
 #layers,

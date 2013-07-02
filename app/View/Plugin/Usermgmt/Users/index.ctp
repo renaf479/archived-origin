@@ -1,7 +1,7 @@
 <?php
 	unset($userGroups[0]);
 ?>
-<h2 class="originUI-header"><a href="/administrator/settings">User Management</a></h2>
+<h2 class="originUI-header"><a href="/administrator/settings" class="originUI-back originUI-hover">User Management</a></h2>
 
 <div id="user-list" class="" ng:controller="usersController">	
 

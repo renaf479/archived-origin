@@ -1,5 +1,5 @@
 <div id="site-manager" ng:controller="siteController" ng:cloak>
-	<h2 class="originUI-header"><a href="/administrator/settings">Site Demo Templates</a></h2>
+	<h2 class="originUI-header"><a href="/administrator/settings" class="originUI-back originUI-hover">Site Demo Templates</a></h2>
 	<form id="siteManager-create" name="siteManagerCreateForm" class="originUI-tileLeft originUI-bgColorSecondary originUI-shadow" novalidate>
 		<input type="hidden" name="uploadDir" value="/assets/components/"/>
 		<h3 id="siteManager-createHeader" class="originUI-tileHeader originUI-borderColor originUI-textColor">Create</h3>

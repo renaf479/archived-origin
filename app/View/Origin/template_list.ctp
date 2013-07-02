@@ -1,5 +1,5 @@
 <div id="ad-template" ng:controller="adTemplatesController" ng:cloak>
-	<h2 class="originUI-header"><a href="/administrator/settings">Ad Templates</a></h2>
+	<h2 class="originUI-header"><a href="/administrator/settings" class="originUI-back originUI-hover">Ad Templates</a></h2>
 	<form id="adTemplate-create" name="adTemplateCreateForm" class="originUI-tileLeft originUI-bgColorSecondary originUI-shadow" novalidate>
 		<input type="hidden" name="uploadDir" value="/assets/templates/"/>
 		<h3 id="adTemplate-createHeader" class="originUI-tileHeader originUI-borderColor originUI-textColor">Create</h3>

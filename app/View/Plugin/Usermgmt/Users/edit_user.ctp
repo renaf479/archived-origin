@@ -4,7 +4,7 @@
 ?>
 
 <div id="user-account" ng:controller="originUser">
-	<h2 class="originUI-header">My Account</h2>
+	<h2 class="originUI-header"><a href="/administrator" class="originUI-back originUI-hover">My Account</a></h2>
 	<form id="userAccount-left" class="originUI-tileLeft originUI-bgColor originUI-shadow" name="userAccountPasswordForm" novalidate>
 		<h3 id="userAccountPassword-header" class="originUI-tileHeader originUI-borderColor originUI-textColor">Update Password</h3>
 		<div class="originUI-tileContent">

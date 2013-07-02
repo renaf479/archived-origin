@@ -34,7 +34,7 @@ originApp.value('ui.config', {
 });
 */
 
-var creatorController = function($scope, $filter, Origin) {
+var creatorController = function($scope, $filter, Origin, Notification) {
 	$scope.editor				= {};	//Editor model
 	$scope.ad 					= {};
 	$scope.ad.content 			= {};
@@ -260,7 +260,7 @@ height:	$scope.workspace.template.config.dimensions[$scope.ui.view][$scope.ui.pl
 		Origin.post($scope.editor).then(function(response) {
 			$scope.creatorModal	= false;
 			$scope.refreshUI(response);
-			$scope.$parent.notificationOpen('Content saved');
+			Notification.display('Content saved');
 			$j('#actions-wrapper').fadeOut(200);
 		});
 	}
@@ -280,7 +280,7 @@ height:	$scope.workspace.template.config.dimensions[$scope.ui.view][$scope.ui.pl
 			Origin.post($scope.editor).then(function(response) {
 				$scope.creatorModal	= false;
 				$scope.refreshUI(response);
-				$scope.$parent.notificationOpen('Content deleted', 'alert');
+				Notification.alert('Content removed');
 				$j('#actions-wrapper').fadeOut(200);
 			});	
 		} else {
@@ -302,7 +302,7 @@ height:	$scope.workspace.template.config.dimensions[$scope.ui.view][$scope.ui.pl
 		Origin.post($scope.editor).then(function(response) {
 			$scope.editor = {};
 			$scope.refreshUI(response);
-			$scope.$parent.notificationOpen('Asset added to workspace');
+			Notification.display('Asset added to workspace');
 			$j('#actions-wrapper').fadeOut(200);
 		});
 	}
@@ -340,7 +340,7 @@ height:	$scope.workspace.template.config.dimensions[$scope.ui.view][$scope.ui.pl
 		Origin.post($scope.scripts).then(function(response) {
 			//$scope.refreshUI(response);
 			//$scope.settingsModalClose();
-			$scope.$parent.notificationOpen('CSS updated');
+			Notification.display('CSS updated');
 		});
 	}
 	
@@ -371,7 +371,7 @@ height:	$scope.workspace.template.config.dimensions[$scope.ui.view][$scope.ui.pl
 		$scope.editor.embed 	= $j('#embedModal-content').val();
 		Origin.post($scope.editor).then(function() {
 			$scope.embedModal = false;
-			$scope.$parent.notificationOpen('Embed code emailed');
+			Notification.display('Embed code emailed');
 		});
 	}
 	
@@ -412,7 +412,7 @@ height:	$scope.workspace.template.config.dimensions[$scope.ui.view][$scope.ui.pl
 		Origin.post($scope.editor).then(function(response) {
 			$scope.refreshUI(response);
 			$scope.settingsModalClose();
-			$scope.$parent.notificationOpen('Settings updated', 'alert');
+			Notification.alert('Settings updated');
 		});
 	}
 	
@@ -429,7 +429,7 @@ height:	$scope.workspace.template.config.dimensions[$scope.ui.view][$scope.ui.pl
 	$scope.workspaceUndo = function() {
 		Origin.get('ad/'+originAd_id).then(function(response) {
 			$scope.refreshUI(response);
-			$scope.$parent.notificationOpen('Previous workspace loaded', 'alert');
+			Notification.alert('Previous workspace loaded');
 			$j('#actions-wrapper').fadeOut(200);
 		});
 	}
@@ -442,7 +442,7 @@ height:	$scope.workspace.template.config.dimensions[$scope.ui.view][$scope.ui.pl
 		$scope.editor.data			= $scope.workspace.ad.OriginAdSchedule;
 		$scope.editor.route			= 'creatorWorkspaceUpdate';
 		Origin.post($scope.editor).then(function(response) {
-			$scope.$parent.notificationOpen('Workspace saved');
+			Notification.display('Workspace saved');
 			$j('#actions-wrapper').fadeOut(200);
 			$scope.refreshUI(response);
 		});

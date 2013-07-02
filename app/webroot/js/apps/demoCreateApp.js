@@ -26,10 +26,10 @@ var demoCreateApp = angular.module('demoCreateApp', ['originApp.services', 'orig
 							originEmbed = originEmbed.replace(/{{embedOptions.id}}/g, $rootScope.embedOptions.id);
 							originEmbed = originEmbed.replace(/{{embedOptions.auto}}/g, $rootScope.embedOptions.auto);
 							originEmbed = originEmbed.replace(/{{embedOptions.close}}/g, $rootScope.embedOptions.close);
-							originEmbed = originEmbed.replace(/{{embedOptions.hover}}/g, $rootScope.embedOptions.hover);
-							originEmbed = originEmbed.replace(/{{embedOptions.hex}}/g, $rootScope.embedOptions.hex);
-							originEmbed = originEmbed.replace(/{{embedOptions.dcopt}}/g, $rootScope.embedOptions.dcopt);
 							originEmbed = originEmbed.replace(/{{embedOptions.type}}/g, $rootScope.embedOptions.type);
+			
+							originEmbed = originEmbed.replace(/{{embedOptions.tablet}}/g, $rootScope.embedOptions.tablet);
+							originEmbed = originEmbed.replace(/{{embedOptions.mobile}}/g, $rootScope.embedOptions.mobile);
 						
 						$rootScope.render 	= originEmbed;
 						//$rootScope.render	= $compile(decodeURIComponent(origin_embed.replace(/\+/g, ' ')))($rootScope)

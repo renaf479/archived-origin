@@ -40,6 +40,9 @@ var originScript, originParams, originXd;
 				adOverlay.setAttribute('data-src', originParams.src+'/triggered');
 				
 				switch(originParams.type) {
+					case 'aurora':
+						originDOM.body.appendChild(ad);
+						break;
 					case 'ascension':
 					case 'horizon':
 						originDOM.body.insertBefore(ad, originDOM.body.firstChild);

@@ -353,6 +353,20 @@ li {
 /* =======================================================================
 	Elements
 ========================================================================== */
+.originUI-back {
+	display: block;
+	text-indent: 26px;
+	background: transparent url(/img/back-26x26.png) no-repeat left center;	
+}
+
+.originUI-back:hover {
+	background-position: -2px center;
+}
+
+.originUI-back:active {
+	background-position: 0 center;
+}
+
 .originUI-header {
 	margin: 5px 0;
 	text-transform: uppercase;
@@ -360,7 +374,6 @@ li {
 	line-height: normal;
 	font-size: 28px;
 }
-
 
 .originUI-placeholder {
 	opacity: .5;
@@ -1067,6 +1080,8 @@ body.originClass-edit #originBar-search {
 	
 	border-width: 1px 3px;
 	border-style: solid;
+	
+	z-index: 500;
 }
 
 #demo-panel.ui-draggable-dragging {

@@ -1,7 +1,6 @@
 <div id="settings" class="">
-	<h2 class="originUI-header"><a href="/administrator">Settings</a></h2>
-
-
+	<h2 class="originUI-header"><a href="/administrator" class="originUI-back originUI-hover">Settings</a></h2>
+	
 	<a href="/administrator/settings/templates" id="settings-templates" class="settings-item originUI-bgColor originUI-shadow originUI-borderColor inline">
 		<div class="settings-itemMeta">
 			<div class="settings-itemTitle originUI-borderColor">Ad Templates</div>
