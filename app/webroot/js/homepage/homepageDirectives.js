@@ -1,52 +1,44 @@
 'use strict';
 
-platformApp.directive('guidelineImage', function($rootScope) {
+platformApp.directive('product', function($rootScope) {
+	var elementRow	= 0;
 	return {
+		//replace: false,
 		restrict: 'A',
-		scope: {
-			guidelineImage: '@'	
-		},
-		link: function(scope, element, attr) {
-			//angular.fromJson(scope.guidelineImage).image;
-			/*
-scope.$watch('guidelineImage', function() {
-				//console.log(angular.fromJson(scope.guidelineImage).image);
-				try{
-					angular.fromJson(scope.guidelineImage);
-				} catch(e) {
-					return false;
-				}	
-				
-				//console.log(angular.fromJson(scope.guidelineImage).image);
-				element.attr('src', angular.fromJson(scope.guidelineImage).image);
-			});
-*/
-			
-			try{
-				var image = angular.fromJson(scope.guidelineImage).image;
-			} catch(e) {
-				return false;
-			}
-			element.attr('src', image);
-			element.css('margin-top', '-'+(element.height()/2)+'px');
-			element.css('margin-left', '-'+(element.width()/2)+'px');
-			
-			angular.element(element).next().css('top', (element.height() + 5)+'px');
-		}	
+		//template: '<div ng:transclude></div>',
+		//transclude: true,
+        link: function(scope, element, attr) {
+        	element.click(function() {
+        		$rootScope.productShow	= scope.product.OriginTemplate.id;
+        		$rootScope.$apply();
+        		
+        		if(elementRow !== element.offset().top) {
+        			console.log('open new');
+        		}
+        		elementRow	= element.offset().top;
+        		window.scroll(0, elementRow - 90);
+        	})
+        }
 	}
 });
 
-platformApp.directive('product', function() {
+platformApp.directive('productImage', function() {
 	return {
-		restrict: 'A',
 		replace: true,
+		restrict: 'A',
 		scope: {
-            product: '@'
-        },
-        template: '<div ng:transclude></div>',
-        transclude: true,
-        link: function(scope, element, attr) {
-        	//console.log(scope.product);
-        }
+			productImage: '@'
+		},
+		template: '<div ng:transclude></div>',
+		transclude: true,
+		link: function(scope, element, attr) {
+			try{
+				var imagePath = angular.fromJson(scope.productImage).image;
+			} catch(e) {
+				angular.element(element).remove();
+				return false;
+			}
+			element.find('img').attr('src', imagePath);
+		}
 	}
 });

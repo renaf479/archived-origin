@@ -1,4 +1,4 @@
-var homepageController = function($scope, $filter, $timeout, Rest) {
+var homepageController = function($scope, $rootScope, $filter, $timeout, Rest) {
 	$scope.products		= {};
 	$scope.platforms	= [{name: 'Desktop'}, {name: 'Tablet'}, {name: 'Mobile'}];
 	$scope.platformShow	= 'Desktop';
@@ -18,37 +18,10 @@ var homepageController = function($scope, $filter, $timeout, Rest) {
 		$scope.stateShow	= 'Initial';
 		switch(state) {
 			case 'close':
-				$scope.productShow = '';
+				$rootScope.productShow = '';
 				break;
 			case 'open':
-				//console.log($scope.row <= ($index/3));
-				//console.log(($index/3) < ($scope.row + 1));
-				//console.log($scope.row !== Math.floor($index/3));
-				
-				//console.log($scope.row === Math.floor($index/3));
-				
-				//Determine row
-				if($scope.row === Math.floor($index/3)) {
-					$scope.rowExpand 	= true;
-				} else {
-					$scope.rowExpand	= false;
-					$scope.row 			= Math.floor($index/3);
-				}
-				
-				
-/*
-				if(($scope.row <= ($index/3)) 
-					&& (($index/3) < ($scope.row + 1))
-					&& ($scope.row !== Math.floor($index/3))) {
-					//Don't close
-					$scope.rowExpand	= true;
-					$scope.row 			= Math.floor($index/3);
-				}
-*/
-				
-				
-			
-				$scope.productShow	= product.OriginTemplate.id;
+				//$scope.productShow	= product.OriginTemplate.id;
 				break;
 		}
 	}

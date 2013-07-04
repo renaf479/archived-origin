@@ -24,6 +24,14 @@ angular.module('platformApp.directives', [])
 			}
 		}
 	})
+	.directive('nanoscroller', function() {
+		return {
+			restrict: 'A',
+			link: function(scope, element) {
+				element.nanoScroller({contentClass: 'nano-content'});
+			}
+		}
+	})
 	.directive('fileupload', function() {
 		/**
 		* AJAX uploader

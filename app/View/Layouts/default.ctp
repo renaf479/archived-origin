@@ -15,7 +15,7 @@ $userAdmin			= ($this->UserAuth->isAdmin())? 'originUI-superAdmin': '';
 		//echo $this->Html->css('/usermgmt/css/umstyle');
 		
 		echo $this->Minify->css(array('normalize', 'bootstrap', 'codemirror', 'chardinjs', 'origin', 'origin-new'));
-		echo $this->Minify->script(array('jquery/jquery', 'jquery/jquery.ui.widget', 'jquery/jquery.fileupload', 'jquery/chardinjs.min', 'angularjs', 'angular-ui', 'angularui-bootstrap', 'platform/platformApp', 'platform/modalServices', 'platform/notificationServices', 'platform/restServices', 'controller', 'services', 'platform/platformDirectives', 'directives', 'platform/filters'));
+		echo $this->Minify->script(array('jquery/jquery', 'jquery/jquery.ui.widget', 'jquery/jquery.fileupload', 'jquery/chardinjs.min', 'jquery/jquery.mousewheel', 'jquery/nanoscroller', 'angularjs', 'angular-ui', 'angularui-bootstrap', 'platform/platformApp', 'platform/modalServices', 'platform/notificationServices', 'platform/restServices', 'controller', 'services', 'platform/platformDirectives', 'directives', 'platform/filters'));
 		//echo $this->fetch('meta');
 		//echo $this->fetch('css');
 		//echo $this->fetch('script');

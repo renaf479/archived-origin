@@ -2,6 +2,7 @@
 body {
 	position: static;
 }
+/*
 
 body.originClass-edit #origin-bar {
 	height: 18px;
@@ -32,6 +33,7 @@ body.originClass-edit #originBar-settings.open #originBar-settingsIcon {
 	height: 16px;
 	background-position: center 3px;
 }
+*/
 
 #container {
 	width: auto;
@@ -47,13 +49,13 @@ body.originClass-edit #originBar-settings.open #originBar-settingsIcon {
 
 #creator-panel-left,
 #creator-panel-workspace {
-	top: 20px;
+	top: 38px;
 }
 
 #creator-panel-workspace {
 	right: 0;
 	left: 200px;
-	top: 51px;
+	top: 70px;
 	z-index: 0;
 	border-width: 3px 0 0 3px;
 	border-style: solid;
