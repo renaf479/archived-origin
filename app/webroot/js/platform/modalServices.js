@@ -3,11 +3,10 @@
 platformApp.factory('Modal', function($rootScope) {
 	var Modal = {
 		close: function(modal) {
-			modal = false;
+			$rootScope[modal] = false;
 		},
 		open: function(modal) {
-			//console.log($rootScope);
-			$rootScope.originModal = true;
+			$rootScope[modal] = true;
 		}
 	};
 	return Modal;

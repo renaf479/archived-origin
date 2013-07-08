@@ -1,0 +1,47 @@
+body {
+	background: none;
+}
+
+#adEmbed-content {
+	margin: 0 auto;
+	width: 100%;
+	height: 135px;
+	border: 1px solid #444444;
+}
+
+#adEmbed-config {
+	border-top: 1px solid #444444;
+	margin: 15px 0;
+}
+
+#adEmbed-config .originUI-list,
+#adEmbed-config .originUI-input {
+	text-align: center;
+	text-indent: 0;
+}
+
+#adEmbed-config .originUI-list > li {
+	margin: 10px 0 0 0;
+	list-style: none;
+}
+
+#adEmbed-config .originUI-list label.inline {
+	text-align: left;
+	width: 85px;
+}
+
+#adEmbed-config .originUI-field {
+	width: 30px;
+	margin: 0 auto;
+}
+
+#adEmbed-config #config-auto,
+#adEmbed-config #config-close,
+#adEmbed-config #config-tablet,
+#adEmbed-config #config-mobile {
+	width: 100px;
+}
+
+#adEmbed-config #config-hex {
+	width: 70px;
+}

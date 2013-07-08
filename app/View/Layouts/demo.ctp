@@ -6,7 +6,7 @@
 	<link rel="shortcut icon" href="/favicon.ico"/>
 	<?php
 		echo $this->Minify->css(array('normalize', 'bootstrap', 'chardinjs', 'origin', 'origin-new', 'demo'));
-		echo $this->Minify->script(array('jquery/jquery', 'jquery/jquery-ui.min', 'jquery/jquery-touch', 'jquery/jquery.fileupload', 'jquery/chardinjs.min', 'angularjs', 'controllers/demoEditController', 'services', 'directives'));
+		echo $this->Minify->script(array('jquery/jquery', 'jquery/jquery-ui.min', 'jquery/jquery-touch', 'jquery/jquery.fileupload', 'jquery/chardinjs.min', 'angular/angularjs', 'controllers/demoEditController', 'services', 'directives'));
 	?>
 </head>
 <body class="originUI-bgTexture">

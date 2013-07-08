@@ -131,10 +131,12 @@ var originGeneral = function($scope, $filter, Origin, Notification) {
 		$scope.originModal = true;
 	}
 	
+/*
 	$scope.originModalOptions = {
 		backdropClick:	false,
 		backdropFade: 	true
 	}
+*/
 } 
 
 var originUser = function($scope, Origin, Notification) {

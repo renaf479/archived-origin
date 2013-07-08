@@ -91,8 +91,10 @@ Router::connect('/administrator/Origin/upload', array('controller'=>'origin', 'a
 Router::connect('/administrator/get/activity', array('controller'=>'origin', 'action'=>'jsonActivity'));
 Router::connect('/administrator/get/ads', array('controller'=>'origin', 'action'=>'jsonList'));
 Router::connect('/administrator/get/ad/:originAd_id', array('controller'=>'origin', 'action'=>'jsonAdUnit'));
+Router::connect('/administrator/get/adExpand/:originAd_id', array('controller'=>'origin', 'action'=>'jsonAdUnitExpand'));
 Router::connect('/administrator/get/components', array('controller'=>'origin', 'action'=>'jsonComponent'));
 Router::connect('/administrator/get/components/:component', array('controller'=>'origin', 'action'=>'loadComponent'));
+Router::connect('/administrator/get/element/:element', array('controller'=>'origin', 'action'=>'loadElement'));
 Router::connect('/administrator/get/demos', array('controller'=>'origin', 'action'=>'jsonDemoList'));
 Router::connect('/administrator/get/demo/:originAd_id', array('controller'=>'origin', 'action'=>'jsonDemo'));
 Router::connect('/administrator/get/library/:originAd_id', array('controller'=>'origin', 'action'=>'jsonLibrary'));
@@ -132,7 +134,9 @@ Router::connect('/demo/:alias', array('controller'=>'origin', 'action'=>'demo'))
 Router::connect('/administrator', array('controller'=>'origin', 'action'=>'ad_list'));
 Router::connect('/administrator/list', array('controller'=>'origin', 'action'=>'ad_list'));
 Router::connect('/administrator/Origin/ad/edit/:originAd_id', array('controller'=>'origin', 'action'=>'edit'));
-Router::connect('/administrator/modal/:template', array('controller'=>'origin', 'action'=>'modal'));
+
+
+Router::connect('/administrator/Origin/ad/embed/:originAd_id/:originAd_type', array('controller'=>'origin', 'action'=>'adEmbed'));
 
 //AD
 Router::connect('/ad/:originAd_id/:originAd_platform/*', array('controller'=>'origin', 'action'=>'ad'));

@@ -244,6 +244,67 @@ foo-setup/foo-start to foo/foo-active
 	color: #0099cc;
 }
 
+.originUI-expand .originUI-expandItem::before {
+	bottom: -28px;
+	left: 50%;
+	border: solid transparent;
+	content: ' ';
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+	border-bottom-color: #0099CC;
+	border-width: 19px;
+	margin: -10px 0 0 -14px;
+}
+
+.originUI-expand .originUI-expandItem::after {
+	bottom: -31px;
+	left: 50%;
+	border: solid transparent;
+	content: ' ';
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+	border-bottom-color: #212123;
+	border-width: 20px;
+	margin: -10px 0 0 -15px;
+	z-index: 100;
+}
+
+.originUI-expand .originUI-expandWrapper {
+	position: absolute;
+	top: auto;
+	left: 0;
+	width: 100%;
+	margin-top: 27px;
+	border-width: 1px 0 1px 0;
+	border-style: solid;
+}
+
+.originUI-expandClose {
+	background: transparent url(/img/close-26x26.png) no-repeat center center;
+	opacity: .3;
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	width: 26px;
+	height: 26px;
+	text-indent: -5000em;
+}
+
+.originUI-expandClose:hover {
+	opacity: 1;
+}
+
+
+
+.originUI-filterEmpty {
+	width: 100%;
+	text-align: center;
+	font-size: 26px;
+}
 
 /* =======================================================================
 	Bootstrap
@@ -981,7 +1042,7 @@ body.originClass-edit #originBar-search {
 }
 
 #adTemplate-templateConfig {
-	height: 239px;
+	height: 200px;
 	display: block;
 }
 
@@ -1136,6 +1197,12 @@ body.originClass-edit #originBar-search {
 /* =======================================================================
 	Ad List Manager
 ========================================================================== */
+
+
+/* =======================================================================
+	Ad List Manager *OLD*
+========================================================================== */
+/*
 #adList-left {
 	width: 685px;
 	margin: 0 15px 0 0;
@@ -1156,19 +1223,6 @@ body.originClass-edit #originBar-search {
 	overflow: hidden;
 }
 
-/*
-.adList-item:not(.adList-itemShowcase) + .adList-item:not(.adList-itemShowcase) {
-	margin-left: 5px;
-}
-
-.adList-item.adList-itemShowcase {
-	width: 100%;
-}
-
-.adList-item.adList-itemShowcase .adList-itemImage {
-	display: block;
-}
-*/
 
 .adList-itemActive {
 	border-width: 1px 1px 2px 5px;
@@ -1251,19 +1305,8 @@ body.originClass-edit #originBar-search {
 
 .adList-item:hover .adList-itemLookUp {
 	right: 0;
-/*
-	-webkit-transition-delay: .1s;
-	-moz-transition-delay: .1s;
-	-o-transition-delay: .1s;
-	transition-delay: .1s;
-*/
 }
 
-/*
-.adList-itemLookUp:hover {
-	background-color: rgba(51, 181, 229, .7);
-}
-*/
 
 #adList-right {
 	width: 300px;
@@ -1451,13 +1494,6 @@ body.originUI-superAdmin #adSettings-modal.originUI-modalContent {
 #adSettings-modal.originUI-modalContent {
 	height: 160px;
 }
-
-/*
-#adSettings-modal.originUI-modalContent.adList-moduleAdvance {
-	height: 275px;
-}
-*/
-
 .adSettings-label {
 	width: 120px;	
 }
@@ -1497,15 +1533,6 @@ body.originUI-superAdmin #adSettings-modal.originUI-modalContent {
 
 #formCreate-template {
 	margin: 5px 0 11px 0;
-}
-
-/*
-#adList-createHeader {
-	border-width: 2px 0 0 0;
-	position: absolute;
-	bottom: 0;
-	right: 10px;
-	text-align: right;
 }
 */
 
@@ -1549,7 +1576,7 @@ body.originUI-superAdmin #adSettings-modal.originUI-modalContent {
 
 #embedModal-config .originUI-list label.inline {
 	text-align: left;
-	width: 170px;
+	width: 85px;
 }
 
 #embedModal-config .originUI-field {

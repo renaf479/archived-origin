@@ -9,7 +9,7 @@
 
 		<ul class="originUI-list">
 			<li>
-				<label class="inline">Auto Open (1 per 24hrs)</label>
+				<label class="inline">Auto Open<br/>(1 per 24hrs)</label>
 				<div id="config-auto" class="inline">
 					<div class="originUI-switch">
 					    <input type="checkbox" name="editorToggleAutoSwitch" class="originUI-switchInput" id="editorToggleAutoSwitch" ng:model="embedOptions.auto">
@@ -88,6 +88,7 @@
 	</div>
 	<div class="clear"></div>
 	<script type="text/javascript">
+/*
 		var embedCtrl = function($scope) {
 		
 			$scope.$watch('embedOptions.close', function(newValue, oldValue) {
@@ -95,6 +96,13 @@
 					$scope.embedOptions.auto = true;
 				}
 			});
+			
+			$scope.$watch('embedOptions.auto', function(newValue, oldValue) {
+				if(newValue === false) {
+					$scope.embedOptions.close = false;
+				}
+			});
 		}
+*/
 	</script>
 </div>

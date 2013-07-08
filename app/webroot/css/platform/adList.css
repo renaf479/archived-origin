@@ -1,0 +1,277 @@
+/* =======================================================================
+	Header
+========================================================================== */
+#ad-list {
+	position: relative;
+}
+
+#ad-header {
+	margin: 15px 0;
+	height: 42px;
+	position: relative;
+}
+
+.originUI-header {
+	width: 300px;
+	line-height: 42px;	
+}
+
+#ad-create {
+	width: 250px;
+	height: 42px;
+	border-width: 0 2px 1px 0;
+	border-style: solid;
+	position: absolute;
+	right: 0;
+	top: 0;
+	font-size: 26px;
+	line-height: 42px;
+	text-align: center;
+}
+
+
+/* =======================================================================
+	Ad Tiles
+========================================================================== */
+.ad-wrapper {
+	width: 320px;
+	height: 115px;
+	margin: 0 20px 20px 0;
+}
+
+.ad-wrapper:nth-of-type(3n+3) {
+	margin-right: 0;
+}
+
+.ad-tile {
+	position: relative;
+	background-repeat: no-repeat;
+	background-size: 320px auto;
+	width: 320px;
+	height: 115px;
+	cursor: pointer;
+	border-width: 0 0 1px 2px;
+	border-style: solid;
+}
+
+.adTile-id {
+	position: absolute;
+	top: 3px;
+	left: 5px;
+	opacity: .2;
+}
+
+.adTile-name {
+	position: absolute;
+	bottom: 0;
+	text-indent: 10px;
+	padding: 3px 0;
+	width: 100%;
+	left: 0;
+}
+
+.adTile-watermark {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	opacity: 0;
+	z-index: 0;
+	margin: -10px 0 0 -45px;
+}
+
+.adTile-meta {
+	display: none;
+}
+
+.adTile-create,
+.adTile-modify {
+	display: block;
+}
+
+.adTile-template {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	opacity: .2;
+	font-size: 10px;
+	width: 10px;
+	transform: rotate(90deg);
+}
+
+
+
+/* =======================================================================
+	No-image Tile
+========================================================================== */
+
+.ad-tile.no-image .adTile-name {
+	width: 70%;
+	bottom: auto;
+	top: 50%;
+	left: 10px;
+	text-indent: 0;
+	margin-top: -22px;
+	font-size: 22px;
+	border-width: 0 0 1px 0;
+	border-style: solid;
+	padding: 0;
+}
+
+.ad-tile.no-image .adTile-watermark {
+	opacity: .05;
+}
+
+.ad-tile.no-image .adTile-meta {
+	display: block;
+	position: absolute;
+	top: 65px;
+	left: 10px;
+	opacity: .5;
+	font-size: 10px;
+}
+
+/* =======================================================================
+	Expand
+========================================================================== */
+.ad-wrapper.originUI-expand {
+	height: 500px;
+}
+
+.ad-wrapper.originUI-expand .ad-expand {
+	height: 330px;
+	width: 970px;
+	padding: 10px 15px;
+}
+
+.adExpand-name {
+	margin: 0;
+	font-size: 30px;
+	font-weight: normal;
+	line-height: 30px;
+	height: 30px;
+	margin-bottom: 15px;
+}
+
+.adExpand-left {
+	width: 300px;
+}
+
+/*
+.adExpand-center {
+	width: 200px;
+	height: 275px;
+	border-width: 0 1px;
+	border-style: solid;
+	padding: 0 15px;
+	margin: 0 15px;
+}
+*/
+
+.adExpand-right {
+	width: 635px;
+	height: 275px;
+	border-width: 0 0 0 1px;
+	border-style: solid;
+	padding-left: 15px;
+	margin-left: 15px;
+}
+
+/* =======================================================================
+	Expand - Links
+========================================================================== */
+.adExpand-creator,
+.adExpand-embed,
+.adExpand-demo,
+.adExpand-metrics {
+	border-width: 0 0 1px 2px;
+	border-style: solid;
+	width: 100%;
+	height: 55px;
+	display: block;
+	margin: 0 0 15px 0;
+	position: relative;
+	
+	background-repeat: no-repeat;
+	background-size: 42px 42px;
+	background-position: 10px center;
+}
+
+.adExpand-embed {
+	background-image: url(/img/embed-42x42.png);
+}
+
+.adExpand-demo {
+	background-image: url(/img/settings-demo.png);
+}
+
+.adExpand-itemMeta {
+	position: absolute;
+	right: 10px;
+	text-align: right;
+}
+
+.adExpand-itemTitle {
+	font-size: 20px;
+	line-height: 55px;
+}
+
+.adExpand-itemDescription {
+	opacity: .4;
+}
+
+/* =======================================================================
+	Expand - Image
+========================================================================== */
+.adExpand-right {
+	text-align: center;
+}
+
+.adExpand-image {
+	max-height: 100%;
+	margin: 0 auto;
+}
+
+/* =======================================================================
+	Modal - Embed
+========================================================================== */
+
+#modal-embed .originUI-modalContent {
+	height: 250px;
+}
+
+/* =======================================================================
+	Modal - Create
+========================================================================== */
+#adCreate-modal {
+	height: 200px;
+}
+
+body.originUI-superAdmin #adCreate-modal {
+	height: 215px;
+}
+
+.adSettings-label {
+	width: 120px;	
+}
+
+#formCreate-status .originUI-switch {
+	width: 145px;
+	font-size: 12px;
+	margin-left: 1px;
+}
+
+#formCreate-toggle {
+	background: transparent url(/img/settings-26x26.png) no-repeat center center;
+	width: 26px;
+	height: 26px;
+	text-indent: -5000em;
+	font-size: 12px;
+	position: absolute;
+	top: -35px;
+	right: 10px;
+	opacity: .3;
+}
+
+#formCreate-toggle:hover {
+	opacity: .7;
+}

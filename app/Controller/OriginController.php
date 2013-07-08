@@ -28,6 +28,16 @@ class OriginController extends AppController {
 	General
 ========================================================================== */
 	/**
+	* Load CakePHP element template
+	*/
+	public function loadElement() {
+        $this->autoRender 	= false;
+        $this->layout	 	= 'ajax';
+        $this->render('/elements/'.$this->request->params['element']);
+    }
+	
+	
+	/**
 	* POST data router
 	*/
 	public function post() {
@@ -113,17 +123,7 @@ class OriginController extends AppController {
 		));
 */
 	}
-	
-	/**
-	* 
-	*/
-	public function modal() {
-		$this->layout 	= 'modal';
-		$template 		= $this->request->params['template'];
-		
-		$this->set('title_for_layout', ucfirst($template));
-		$this->set('template', $template);
-	}
+
 
 	/**
 	* ?
@@ -740,6 +740,55 @@ class OriginController extends AppController {
 	}
 	
 	/**
+	* JSON feed for background image data for ad listing page
+	*/
+	public function jsonAdUnitExpand() {
+		$origin_ad	= $this->OriginAd->find('first',
+			array(
+				'conditions'=>array(
+					'OriginAd.id'=>$this->request->params['originAd_id']
+				),
+				'fields'=>array(
+					'Desktop.*',
+					'Mobile.*',
+					'Tablet.*',
+				),
+				'joins'=>array(
+					array(
+						'table'=>'origin_ad_desktop_initial_contents',
+						'alias'=>'Desktop',
+						'type'=>'LEFT',
+						'conditions'=>array(
+							'Desktop.origin_ad_id = OriginAd.id',
+							'Desktop.type = "background"'
+						)
+					),
+					array(
+						'table'=>'origin_ad_mobile_initial_contents',
+						'alias'=>'Mobile',
+						'type'=>'LEFT',
+						'conditions'=>array(
+							'Mobile.origin_ad_id = OriginAd.id',
+							'Mobile.type = "background"'
+						)
+					),
+					array(
+						'table'=>'origin_ad_tablet_initial_contents',
+						'alias'=>'Tablet',
+						'type'=>'LEFT',
+						'conditions'=>array(
+							'Tablet.origin_ad_id = OriginAd.id',
+							'Tablet.type = "background"'
+						)
+					),
+				)
+			)
+		);
+		$this->set('origin_ad', $origin_ad);
+		return $origin_ad;
+	}
+	
+	/**
 	* JSON feed of a demos for a specific ad unit
 	*/
 	public function jsonDemo($data = '') {
@@ -963,8 +1012,21 @@ class OriginController extends AppController {
 	*/
 	public function ad_list() {
 		$this->set('title_for_layout', 'Origin Ads');
-		$this->render('list');
 	}
+	
+	/**
+	* Embed code iframe 
+	*/
+	public function adEmbed() {
+		$this->layout 	= 'embed';
+		$template 		= 'adEmbed';
+		
+		$this->set('title_for_layout', 'Origin Ad Embed');
+		$this->set('originAd_id', $this->request->params['originAd_id']);
+		$this->set('originAd_type', $this->request->params['originAd_type']);
+		$this->set('template', $template);
+	}
+	
 	
 	/**
 	* Opens Origin's ad creator

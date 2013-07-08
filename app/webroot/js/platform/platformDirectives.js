@@ -57,14 +57,15 @@ angular.module('platformApp.directives', [])
 			}
 		}
 	})
-	.directive('flashMessage', function() {
+	.directive('flashMessage', function(Notification) {
 		/**
 		* AngularJS wrapper for CakePHP's Session message
 		*/
 		return {
 			restrict: 'E',
 			link: function(scope, element, attrs) {
-				scope.notificationOpen(angular.element(element).html());
+				//scope.notificationOpen(angular.element(element).html());
+				Notification.alert(angular.element(element).html());
 			}
 		}
 	}).directive('hex', function(){
