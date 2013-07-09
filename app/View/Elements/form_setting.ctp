@@ -42,7 +42,7 @@
 				<span class="originUI-uploadLabel">Preview Image (optional)</span>
 				<input type="file" name="files[]" id="settings-upload-image" class="originUI-uploadInput" ng:model="editor.content.img_thumbnail" fileupload>
 			</div>
-			<div id="formCreate-preview" class="originUI-borderColorSecondary originUI-bgColor" ng:class="{'originUI-placeholder': editor.content.img_thumbnail == ''}" back-img='{{editor.content.img_thumbnail}}'></div>
+<!-- 			<div id="formCreate-preview" class="originUI-borderColorSecondary originUI-bgColor" ng:class="{'originUI-placeholder': editor.content.img_thumbnail == ''}" back-img='{{editor.content.img_thumbnail}}'></div> -->
 		</li>
 <!--
 		<li class="originUI-superAdmin">
@@ -52,7 +52,7 @@
 	</ul>
 <?php } else if($view === 'right') { ?>
 	<a href="javascript:void(0)" class="originUI-superAdmin originUI-hover" id="formCreate-toggle" ng:click="templateToggle()"></a>
-	<select id="formCreate-template" class="originUI-select originUI-bgColorSecondary" ng:model="editor.template" ng:options="template.OriginTemplate.name for template in templates|filter:{OriginTemplate.status: '1'}" ng:change="templateLoad()">
+	<select id="formCreate-template" class="originUI-select originUI-bgColorSecondary" ng:model="editor.template" ng:options="template.OriginTemplate.name for template in templates|filter:{OriginTemplate.status: '1'}" ng:change="templateLoad()" required>
 		<option style="display:none" value="">Select Template</option>
 	</select>
 	<div ng:show="editor.advance == false">

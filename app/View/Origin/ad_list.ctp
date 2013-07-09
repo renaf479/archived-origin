@@ -7,7 +7,7 @@
 		<div class="ad-wrapper inline" ng:repeat="ad in filteredAds = (ads|filter:searchOrigin)" ng:animate="'originUI-fade'" ng:class="{'originUI-expand': (adShow === ad.OriginAd.id)}">
 			<div id="OriginAd-{{ad.OriginAd.id}}" class="ad-tile originUI-bgColor originUI-shadow originUI-borderColor originUI-expandItem" ad ng:click="adExpand(ad.OriginAd)">
 				<img src="/img/logo-small.png" class="adTile-watermark"/>
-				<span class="adTile-id">{{ad.OriginAd.id}}</span>
+				<span class="adTile-id originUI-hover">{{ad.OriginAd.id}}</span>
 				<span class="adTile-template">{{ad.OriginAd.type}}</span>
 				<span class="adTile-name originUI-borderColor">{{ad.OriginAd.name}}</span>
 				<div class="adTile-meta">
@@ -17,9 +17,16 @@
 			</div>
 			<div class="ad-expand originUI-expandWrapper originUI-bgColor originUI-borderColor originUI-bgTexture" ng:show="adShow === ad.OriginAd.id" ng:hide="adShow !== ad.OriginAd.id">
 				<a href="javascript:void(0)" class="originUI-expandClose originUI-hover" ng:click="adClose(ad.OriginAd)">close</a>
+				
+				<div class="originUI-superAdmin">
+					<a href="javascript:void(0)" class="adExpand-showcase originUI-hover" ng:click="adShowcase(ad.OriginAd)" ng:class="(ad.OriginAd.showcase == 1)? 'showcase': ''">showcase</a>
+					<a href="javascript:void(0)" class="adExpand-remove originUI-hover" ng:click="adRemove(ad.OriginAd)">remove</a>
+				</div>
+				
+				
 				<h3 class="adExpand-name">{{ad.OriginAd.name}}</h3>
 				
-				<div class="adExpand-left inline">
+				<div class="adExpand-left originUI-borderColor inline">
 					<a href="/administrator/Origin/ad/edit/{{ad.OriginAd.id}}" class="adExpand-creator originUI-bgColorSecondary originUI-shadow originUI-borderColor">
 						<div class="adExpand-itemMeta">
 							<div class="adExpand-itemTitle">Ad Creator</div>
@@ -30,18 +37,11 @@
 							<div class="adExpand-itemTitle">Embed Code Creator</div>
 						</div>		
 					</a>
-					<a href="javascript:void(0)" class="adExpand-demo originUI-bgColorSecondary originUI-shadow originUI-borderColor">
+					<a href="javascript:void(0)" class="adExpand-demo originUI-bgColorSecondary originUI-shadow originUI-borderColor" ng:click="adDemoOpen(ad.OriginAd)">
 						<div class="adExpand-itemMeta">
-							<div class="adExpand-itemTitle">Ad Demo Creator</div>
+							<div class="adExpand-itemTitle">Ad Demo Pages</div>
 						</div>		
 					</a>
-	<!--
-					<a href="javascript:void(0)" target="blank" class="adExpand-metrics originUI-bgColorSecondary originUI-shadow originUI-borderColor">
-						<div class="adExpand-itemMeta">
-							<div class="adExpand-itemTitle originUI-borderColor">Ad Metrics</div>
-						</div>		
-					</a>
-	-->
 				</div>
 				<?php 
 				/*
@@ -63,8 +63,8 @@
 				</div>
 				*/
 				?>
-				<div class="adExpand-right originUI-borderColor inline">
-					<img class="adExpand-image" ng:src="{{backgroundImage}}"/>
+				<div class="adExpand-right inline">
+					<img class="adExpand-image" ng:src="{{ad.OriginAd.backgroundImage}}"/>
 				</div>
 			</div>
 		</div>
@@ -75,7 +75,7 @@
 	
 	<div modal="modalEmbed" close="adEmbedClose()" options="originModalOptions">
 		<form id="modal-embed" class="originUI-bgColorSecondary originUI-modal">
-			<h3 id="embedModal-header" class="originUI-tileHeader originUI-borderColor originUI-textColor">Ad Embed Code</h3>
+			<h3 id="modalEmbed-header" class="originUI-tileHeader originUI-borderColor originUI-textColor">Ad Embed Code</h3>
 			<div class="originUI-modalContent">
 				<iframe src="/administrator/Origin/ad/embed/{{adEmbedParams.id}}/{{adEmbedParams.type}}" frameborder="0" scrolling="no" width="100%" height="100%"></iframe>
 			</div>
@@ -86,18 +86,33 @@
 		</form>
 	</div>
 	
-	<div modal="modalEmbed" close="adEmbedClose()" options="originModalOptions">
-		<form id="modal-embed" class="originUI-bgColorSecondary originUI-modal">
-			<h3 id="embedModal-header" class="originUI-tileHeader originUI-borderColor originUI-textColor">Ad Embed Code</h3>
+	<div modal="modalDemo" close="adDemoClose()" options="originModalOptions">
+		<form id="modal-demo" class="originUI-bgColorSecondary originUI-modal">
+			<h3 id="modalDemo-header" class="originUI-tileHeader originUI-borderColor originUI-textColor">Ad Demo Pages</h3>
 			<div class="originUI-modalContent">
-				<iframe src="/administrator/Origin/ad/embed/{{adEmbedParams.id}}/{{adEmbedParams.type}}" frameborder="0" scrolling="no" width="100%" height="100%"></iframe>
+				<div class="nano" nanoscroller>
+					<div class="nano-content">
+						<ul id="modalDemo-demos" class="originUI-list">
+							<li class="modalDemo-demo originUI-hover originUI-listHover" ng:repeat="demo in demos">
+								<a href="/administrator/demo/edit/{{demo.OriginDemo.alias}}" class="inline originUI-hover modalDemo-demoEdit" target="_blank">Edit</a><!--
+								--><a href="/demo/{{demo.OriginDemo.alias}}" class="inline modalDemo-demoLink" target="_blank">{{demo.OriginDemo.name}}</a><!--
+								--><a href="javascript:void(0)" class="inline originUI-hover modalDemo-demoRemove originUI-superAdmin" ng:click="demoRemove(demo)">remove</a>
+							</li>
+						</ul>
+						<p class="originUI-filterEmpty" ng:hide="demos.length">No demo pages</p>
+					</div>
+				</div>
 			</div>
 			<div class="originUI-tileFooter">
-				<div class="originUI-tileFooterLeft originUI-hover" ng:click="adEmbedClose()">Close</div>
-				<div class="originUI-tileFooterRight originUI-hover" ng:click="adEmbedEmail()">Email Code</div>
+				<div class="originUI-tileFooterLeft originUI-hover" ng:click="adDemoClose()">Close</div>
+				<a href="/administrator/demo/create/{{demos.id}}" target="_blank" class="originUI-tileFooterRight originUI-hover">Create New Ad Demo</a>
 			</div>
 		</form>
 	</div>
+	
+	
+	
+	
 	
 	<div modal="modalCreate" close="adCreateClose()" options="originModalOptions">
 		<form id="modal-create" name="adCreateModal" class="originUI-bgColorSecondary originUI-modal" novalidate>

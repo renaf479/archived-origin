@@ -54,6 +54,10 @@
 	border-style: solid;
 }
 
+.ad-tile:hover .adTile-id {
+	opacity: 1;
+}
+
 .adTile-id {
 	position: absolute;
 	top: 3px;
@@ -152,8 +156,62 @@
 	margin-bottom: 15px;
 }
 
+body.originUI-superAdmin .adExpand-name {
+	text-indent: 36px;
+}
+
+.adExpand-showcase,
+.adExpand-remove {
+	position: absolute;
+	top: 10px;
+	width: 26px;
+	height: 26px;
+	text-indent: -5000em;
+	opacity: .3;
+}
+
+.adExpand-showcase:hover,
+.adExpand-remove:hover {
+	opacity: 1;
+}
+
+.adExpand-showcase {
+	background: transparent url(/img/star-empty-26x26.png) no-repeat center center;
+}
+
+.adExpand-showcase:hover {
+	background-image: url(/img/star-full-26x26.png);
+}
+
+.adExpand-showcase.showcase {
+	background-image: url(/img/star-full-26x26.png);
+}
+
+.adExpand-showcase.showcase:hover {
+	background-image: url(/img/star-empty-26x26.png);
+}
+
+
+.adExpand-remove {
+	background: transparent url(/img/delete-26x26.png) no-repeat center center;
+	right: 52px;
+}
+
+
+
+
+
+.adExpand-left,
+.adExpand-right {
+	height: 275px;
+}
+
 .adExpand-left {
 	width: 300px;
+	padding-right: 15px;
+	margin-right: 15px;
+	border-width: 0 1px 0 0;
+	border-style: solid;
 }
 
 /*
@@ -169,11 +227,6 @@
 
 .adExpand-right {
 	width: 635px;
-	height: 275px;
-	border-width: 0 0 0 1px;
-	border-style: solid;
-	padding-left: 15px;
-	margin-left: 15px;
 }
 
 /* =======================================================================
@@ -223,21 +276,78 @@
 	Expand - Image
 ========================================================================== */
 .adExpand-right {
-	text-align: center;
+	position: relative;
 }
 
 .adExpand-image {
 	max-height: 100%;
-	margin: 0 auto;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
 }
 
 /* =======================================================================
-	Modal - Embed
+	Modal - Embed/Demo
 ========================================================================== */
+#modalEmbed-header {
+	background: transparent url(/img/embed-26x26.png) no-repeat 10px center;
+}
 
 #modal-embed .originUI-modalContent {
-	height: 250px;
+	height: 320px;
 }
+
+
+#modalDemo-header {
+	background: transparent url(/img/demo-26x26.png) no-repeat 10px center;
+}
+
+#modal-demo .originUI-modalContent {
+	height: 200px;
+}
+
+.modalDemo-demo {
+	height: 26px;
+	line-height: 26px;
+}
+
+.modalDemo-demoEdit,
+.modalDemo-demoRemove {
+	opacity: 0;
+	background-color: transparent;
+	background-repeat: no-repeat;
+	background-position: left center;
+	background-size: 18px 18px;
+	width: 18px;
+	height: 100%;
+	text-indent: -5000em;
+}
+
+.modalDemo-demoEdit {
+	background-image: url(/img/edit-26x26.png);
+}
+
+.modalDemo-demoLink {
+	width: 200px;
+	padding: 0 15px;
+	font-size: 18px;
+}
+
+.modalDemo-demoRemove {
+	background-image: url(/img/delete-26x26.png);
+}
+
+.modalDemo-demo:hover .modalDemo-demoEdit,
+.modalDemo-demo:hover .modalDemo-demoRemove {
+	opacity: .1;
+}
+
+.modalDemo-demoEdit:hover,
+.modalDemo-demoRemove:hover {
+	opacity: 1 !important;
+}
+
 
 /* =======================================================================
 	Modal - Create
@@ -274,4 +384,8 @@ body.originUI-superAdmin #adCreate-modal {
 
 #formCreate-toggle:hover {
 	opacity: .7;
+}
+
+#formCreate-template {
+	margin: 5px 0 11px 0;
 }

@@ -11,11 +11,59 @@ var adListController = function($scope, $rootScope, $filter, Notification, Rest,
 		});
 	});
 	
-	//Load dimensions for advanced create settings
-	$scope.templateLoad = function() {
-		$scope.editor.config= $scope.editor.template.OriginTemplate.config;
+	/**
+	* Tile expansion
+	*/	
+	//Close expanded state
+	$scope.adClose = function(ad) {
+		AdListServices.close(ad);
 	}
 	
+	//Open ad details
+	$scope.adExpand = function(ad) {
+		//if same element, close
+		if($scope.adShow === ad.id) {
+			AdListServices.close(ad);
+		} else {
+			AdListServices.expand(ad);
+		}
+	}
+	
+	//Toggle showcase status
+	$scope.adShowcase = function(ad) {
+		$scope.post = {};
+		$scope.post.route		= 'adShowcase';
+		$scope.post.id 			= ad.id;
+		$scope.post.showcase	= (ad.showcase === '1')? '0': '1';
+		
+		Rest.post($scope.post).then(function(response) {
+			Notification.alert('Showcase updated');
+			//Manual change to avoid flash
+			ad.showcase	= $scope.post.showcase;
+		});
+	}
+	
+	//Removes an ad
+	$scope.adRemove = function(ad) {
+		$scope.post = {};
+		
+		var ask = confirm('Do you want to delete this ad unit?');
+		if(ask){
+			$scope.post.route			= 'adDelete';
+			$scope.post.id 				= ad.id;
+			
+			Rest.post($scope.post).then(function(response) {
+				Notification.alert('Ad removed');
+				$scope.ads 		= response.origin_ads;
+			});
+		} else {
+			return false;
+		}
+	}
+	
+	/**
+	* Modal - Embed
+	*/	
 	//Open embed code modal
 	$scope.adEmbedOpen = function(ad) {
 		$scope.adEmbedParams	= {
@@ -35,6 +83,40 @@ var adListController = function($scope, $rootScope, $filter, Notification, Rest,
 		//HOW WILL THIS WORK INSIDE AN IFRAME???
 	}
 	
+	/**
+	* Modal - Demo
+	*/
+	//Open demo modal
+	$scope.adDemoOpen = function(ad) {
+		AdListServices.modalDemo(ad);
+		Modal.open('modalDemo');
+	}
+	
+	//Close demo modal
+	$scope.adDemoClose = function() {
+		Modal.close('modalDemo');
+	}
+	
+	
+	/**
+	* Modal - Create
+	*/
+	//Load dimensions for advanced create settings
+	$scope.templateLoad = function() {
+		$scope.editor.config= $scope.editor.template.OriginTemplate.config;
+	}
+	
+	//Create ad advance toggle
+	$scope.templateToggle = function() {
+		switch($scope.editor.advance) {
+			case false:
+				$scope.editor.advance = true;
+				break;
+			case true:
+				$scope.editor.advance = false;
+				break;
+		}
+	}
 	
 	//Open ad creator modal
 	$scope.adCreateOpen = function() {
@@ -76,32 +158,4 @@ var adListController = function($scope, $rootScope, $filter, Notification, Rest,
 			window.location		= '/administrator/Origin/ad/edit/'+response;
 		});
 	}
-	
-	//Create ad advance toggle
-	$scope.templateToggle = function() {
-		switch($scope.editor.advance) {
-			case false:
-				$scope.editor.advance = true;
-				break;
-			case true:
-				$scope.editor.advance = false;
-				break;
-		}
-	}
-	
-	//Close expanded state
-	$scope.adClose = function(ad) {
-		AdListServices.close(ad);
-	}
-	
-	//Open ad details
-	$scope.adExpand = function(ad) {
-		//if same element, close
-		if($scope.adShow === ad.id) {
-			AdListServices.close(ad);
-		} else {
-			AdListServices.expand(ad);
-		}
-	}
-	
 }

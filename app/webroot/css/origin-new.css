@@ -1539,10 +1539,12 @@ body.originUI-superAdmin #adSettings-modal.originUI-modalContent {
 /* =======================================================================
 	Embed Modal
 ========================================================================== */
+/*
 .adList-modalembed #adList-modalHeader,
 #embedModal-header {
 	background: transparent url(/img/header-embed.png) no-repeat 10px center;
 }
+*/
 
 .adList-modalembed #adSettings-modal.originUI-modalContent {
 	height: auto;
