@@ -95,6 +95,7 @@ var adListController = function($scope, $rootScope, $filter, Notification, Rest,
 	//Close demo modal
 	$scope.adDemoClose = function() {
 		Modal.close('modalDemo');
+		$rootScope.demos = '';
 	}
 	
 	

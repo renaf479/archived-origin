@@ -9,16 +9,8 @@ $userAdmin			= ($this->UserAuth->isAdmin())? 'originUI-superAdmin': '';
 	<title><?php echo $title_for_layout;?> | Origin</title>
 	<link rel="shortcut icon" href="/favicon.ico"/>
 	<?php
-		//echo $this->Html->meta('icon');
-		//echo $this->Html->css('cake.generic');
-		//echo $this->Html->css('origin');
-		//echo $this->Html->css('/usermgmt/css/umstyle');
-		
-		echo $this->Minify->css(array('normalize', 'bootstrap', 'codemirror', 'chardinjs', 'origin', 'origin-new'));
-		echo $this->Minify->script(array('jquery/jquery', 'jquery/jquery.ui.widget', 'jquery/jquery.fileupload', 'jquery/chardinjs.min', 'jquery/jquery.mousewheel', 'jquery/nanoscroller', 'angular/angularjs', 'angular/angular-ui', 'angular/angularui-bootstrap', 'platform/platformApp', 'platform/modalServices', 'platform/notificationServices', 'platform/restServices', 'controller', 'services', 'platform/platformDirectives', 'directives', 'platform/filters'));
-		//echo $this->fetch('meta');
-		//echo $this->fetch('css');
-		//echo $this->fetch('script');
+		echo $this->Minify->css(array('plugins/normalize', 'plugins/bootstrap', 'plugins/codemirror', 'plugins/chardinjs', 'plugins/antiscroll', 'platform/originUI'));
+		echo $this->Minify->script(array('plugins/jquery', 'plugins/jquery.ui.widget', 'plugins/jquery.fileupload', 'plugins/chardinjs.min', 'plugins/jquery.mousewheel', 'plugins/nanoscroller', 'angular/angularjs', 'angular/angular-ui', 'angular/angularui-bootstrap', 'platform/platformApp', 'platform/modalServices', 'platform/notificationServices', 'platform/restServices', 'controller', 'services', 'platform/platformDirectives', 'directives', 'platform/filters'));
 	?>
 </head>
 <body class="originUI-bgTexture <?php echo $userAdmin;?> <?php echo 'originClass-'.$this->params['action'];?>" ng:app="platformApp" ng:controller="originGeneral">

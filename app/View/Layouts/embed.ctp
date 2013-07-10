@@ -5,7 +5,7 @@
 	<title><?php echo $title_for_layout;?> | Origin</title>
 	<link rel="shortcut icon" href="/favicon.ico"/>
 	<?php
-		echo $this->Minify->css(array('origin', 'origin-new', 'platform/adEmbed'));
+		echo $this->Minify->css(array('platform/originUI', 'platform/adEmbed'));
 		echo $this->Minify->script(array('angular/angularjs'));
 	?>
 </head>

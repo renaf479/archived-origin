@@ -5,8 +5,8 @@
 	<title><?php echo $title_for_layout;?> | Origin</title>
 	<link rel="shortcut icon" href="/favicon.ico"/>
 	<?php
-		echo $this->Minify->css(array('normalize', 'bootstrap', 'chardinjs', 'origin', 'origin-new', 'demo'));
-		echo $this->Minify->script(array('jquery/jquery', 'jquery/jquery-ui.min', 'jquery/jquery-touch', 'jquery/jquery.fileupload', 'jquery/chardinjs.min', 'angular/angularjs', 'controllers/demoEditController', 'services', 'directives'));
+		echo $this->Minify->css(array('plugins/normalize', 'plugins/bootstrap', 'plugins/chardinjs', 'platform/originUI', 'platform/platformSettings'));
+		echo $this->Minify->script(array('plugins/jquery', 'plugins/jquery-ui.min', 'plugins/jquery-touch', 'plugins/jquery.fileupload', 'plugins/chardinjs.min', 'angular/angularjs', 'controllers/demoEditController', 'services', 'directives'));
 	?>
 </head>
 <body class="originUI-bgTexture">

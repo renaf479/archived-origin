@@ -42,7 +42,7 @@
 			<input type="hidden" ng:model="editorModal.id"/>
 			<h3 id="adTemplate-editHeader" class="originUI-tileHeader originUI-borderColor originUI-textColor">Edit Template</h3>
 			
-			<a href="javascript:void(0)" class="originUI-modalRemove originUI-hover" ng:click="templateRemove()">remove</a>
+			<a href="javascript:void(0)" class="originUI-modalRemove originUI-hover originUI-iconHover" ng:click="templateRemove()">remove</a>
 			
 			<div class="originUI-modalContent">
 				<div class="originUI-modalLeft">
@@ -61,5 +61,6 @@
 	</div>
 </div>
 <?php
+	echo $this->Minify->css(array('platform/platformSettings'));
 	echo $this->Minify->script(array('adTemplates/adTemplatesController'));
 ?>

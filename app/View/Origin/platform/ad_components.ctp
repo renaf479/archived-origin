@@ -42,7 +42,7 @@
 			<input type="hidden" ng:model="editorModal.id"/>
 			<h3 id="adComponent-editHeader" class="originUI-tileHeader originUI-borderColor originUI-textColor">Edit Component</h3>
 			
-			<a href="javascript:void(0)" class="originUI-modalRemove originUI-hover" ng:click="componentRemove()">remove</a>
+			<a href="javascript:void(0)" class="originUI-modalRemove originUI-hover originUI-iconHover" ng:click="componentRemove()">remove</a>
 			
 			<div class="originUI-modalContent">
 				<div class="originUI-modalLeft">
@@ -61,4 +61,5 @@
 	</div>
 </div>
 <?php
+	echo $this->Minify->css(array('platform/platformSettings'));
 	echo $this->Minify->script(array('controllers/componentsController'));

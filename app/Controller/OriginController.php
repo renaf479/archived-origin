@@ -314,6 +314,7 @@ class OriginController extends AppController {
 	*/
 	public function componentList() {
 		$this->set('title_for_layout', 'Ad Components');
+		$this->render('platform/ad_components');
 	}
 	
 	/**
@@ -345,6 +346,7 @@ class OriginController extends AppController {
 	*/
 	public function templateList() {
 		$this->set('title_for_layout', 'Ad Templates');
+		$this->render('platform/ad_templates');
 	}
 	
 /* =======================================================================
@@ -550,6 +552,7 @@ class OriginController extends AppController {
 	*/
 	public function siteList() {
 		$this->set('title_for_layout', 'Demo Manager');
+		$this->render('platform/ad_site_list');
 	}
 	
 /* =======================================================================
@@ -560,6 +563,7 @@ class OriginController extends AppController {
 	*/
 	public function settings() {
 		$this->set('title_for_layout', 'Settings');
+		$this->render('platform/settings');
 	}
 	
 	/**
@@ -1012,6 +1016,7 @@ class OriginController extends AppController {
 	*/
 	public function ad_list() {
 		$this->set('title_for_layout', 'Origin Ads');
+		$this->render('creator/ad_list');
 	}
 	
 	/**
@@ -1042,6 +1047,7 @@ class OriginController extends AppController {
 		);
 		$this->set('origin_ad', $origin_ad);
 		$this->set('title_for_layout', $origin_ad['OriginAd']['name'].' - Ad Creator');
+		$this->render('creator/ad_edit');
 	}
 	
 	/**

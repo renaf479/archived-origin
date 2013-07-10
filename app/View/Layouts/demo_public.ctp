@@ -6,7 +6,7 @@
 	<link rel="shortcut icon" href="/favicon.ico"/>
 	<?php
 		echo $this->Minify->css(array('demo/public.css'));
-		echo $this->Minify->script(array('jquery/jquery', 'angular/angularjs', 'apps/demoPublicApp', 'controllers/demoPublicController'));
+		echo $this->Minify->script(array('plugins/jquery', 'angular/angularjs', 'apps/demoPublicApp', 'controllers/demoPublicController'));
 	?>
 </head>
 <body ng:app="demoPublicApp" ng:controller="demoPublicController">
