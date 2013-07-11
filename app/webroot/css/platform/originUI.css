@@ -203,6 +203,10 @@ li {
 	transition: all .25s ease;
 }
 
+.originUI-tileHover:hover {
+	background-color: rgba(255, 255, 255, .1);	
+}
+
 /* =======================================================================
 	Z-Index
 ========================================================================== */
@@ -316,7 +320,7 @@ li {
 ========================================================================== */
 
 .originUI-expand .originUI-expandItem::before {
-	bottom: -28px;
+	bottom: -21px;
 	left: 50%;
 	border: solid transparent;
 	content: ' ';
@@ -325,12 +329,12 @@ li {
 	position: absolute;
 	pointer-events: none;
 	border-bottom-color: #0099CC;
-	border-width: 19px;
+	border-width: 14px;
 	margin: -10px 0 0 -14px;
 }
 
 .originUI-expand .originUI-expandItem::after {
-	bottom: -31px;
+	bottom: -24px;
 	left: 50%;
 	border: solid transparent;
 	content: ' ';
@@ -339,7 +343,7 @@ li {
 	position: absolute;
 	pointer-events: none;
 	border-bottom-color: #212123;
-	border-width: 20px;
+	border-width: 15px;
 	margin: -10px 0 0 -15px;
 	z-index: 100;
 }
@@ -349,7 +353,7 @@ li {
 	top: auto;
 	left: 0;
 	width: 100%;
-	margin-top: 27px;
+	margin-top: 20px;
 	border-width: 1px 0 1px 0;
 	border-style: solid;
 }

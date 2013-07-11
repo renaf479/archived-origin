@@ -98,6 +98,25 @@ var adListController = function($scope, $rootScope, $filter, Notification, Rest,
 		$rootScope.demos = '';
 	}
 	
+	//Removes a demo site
+	$scope.adDemoRemove = function(demo) {
+		$scope.post = {};
+		
+		var ask = confirm('Do you want to delete this demo page?');
+		if(ask){
+			$scope.post.route		= 'demoDelete';
+			$scope.post.id 			= demo.OriginDemo.id;
+			$scope.post.origin_ad_id= demo.OriginDemo.origin_ad_id
+			
+			Rest.post($scope.post).then(function(response) {
+				Notification.alert('Demo page removed');
+				$rootScope.demos 	= response;
+			});
+		} else {
+			return false;
+		}
+	}
+	
 	
 	/**
 	* Modal - Create

@@ -146,7 +146,7 @@
 }
 
 .ad-wrapper.originUI-expand .ad-expand {
-	height: 335px;
+	height: 340px;
 	width: 970px;
 	padding: 10px 15px;
 }
@@ -382,6 +382,19 @@ body.originUI-superAdmin .adExpand-name {
 	transform:translate(-50%, -50%);
 }
 
+#modalDemo-demos {
+	margin: 15px 0;
+}
+
+.modalDemo-demo {
+	margin: 0;
+}
+
+.modalDemo-demo + .modalDemo-demo {
+	border-color: #303030;
+	border-width: 1px 0 0 0;
+	border-style: solid;
+}
 
 /* =======================================================================
 	Modal - Create

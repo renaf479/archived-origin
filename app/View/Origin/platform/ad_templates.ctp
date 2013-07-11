@@ -38,7 +38,7 @@
 	
 	<div modal="originModal" close="$parent.originModalClose()" options="$parent.originModalOptions">
 		<form id="adTemplate-edit" name="adTemplateEdit" class="originUI-bgColorSecondary originUI-modal">
-			<input type="hidden" name="uploadDir" value="/assets/templates/"/>
+			<input type="hidden" name="uploadDir" value="/img/templates/"/>
 			<input type="hidden" ng:model="editorModal.id"/>
 			<h3 id="adTemplate-editHeader" class="originUI-tileHeader originUI-borderColor originUI-textColor">Edit Template</h3>
 			

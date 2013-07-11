@@ -32,3 +32,5 @@
 		</div>
 	</a>
 </div>
+<?php 
+	echo $this->Minify->css(array('platform/platformSettings'));

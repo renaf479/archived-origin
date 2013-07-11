@@ -3,7 +3,7 @@
 		<h2 class="originUI-header">Ad Manager</h2>
 		<a href="javascript:void(0)" id="ad-create" class="originUI-shadow originUI-borderColor originUI-bgColor" ng:click="adCreateOpen()">Create New Ad</a>
 	</div>
-	<div>
+	<div data-intro="Ad Listing" data-position="right">
 		<div class="ad-wrapper inline" ng:repeat="ad in filteredAds = (ads|filter:searchOrigin)" ng:animate="'originUI-fade'" ng:class="{'originUI-expand': (adShow === ad.OriginAd.id)}">
 			<div id="OriginAd-{{ad.OriginAd.id}}" class="ad-tile originUI-bgColor originUI-shadow originUI-borderColor originUI-expandItem" ad ng:click="adExpand(ad.OriginAd)">
 				<img src="/img/logo-small.png" class="adTile-watermark"/>
@@ -30,22 +30,22 @@
 					
 				</div>
 				<div class="adExpand-left originUI-borderColor inline">
-					<a href="/administrator/Origin/ad/edit/{{ad.OriginAd.id}}" class="adExpand-creator originUI-bgColorSecondary originUI-shadow originUI-borderColor">
+					<a href="/administrator/Origin/ad/edit/{{ad.OriginAd.id}}" class="adExpand-creator originUI-bgColorSecondary originUI-shadow originUI-borderColor originUI-tileHover originUI-hover">
 						<div class="adExpand-itemMeta">
 							<div class="adExpand-itemTitle">Ad Creator</div>
 						</div>		
 					</a>
-					<a href="javascript:void(0)" class="adExpand-embed originUI-bgColorSecondary originUI-shadow originUI-borderColor" ng:click="adEmbedOpen(ad.OriginAd)">
+					<a href="javascript:void(0)" class="adExpand-embed originUI-bgColorSecondary originUI-shadow originUI-borderColor originUI-tileHover originUI-hover" ng:click="adEmbedOpen(ad.OriginAd)">
 						<div class="adExpand-itemMeta">
 							<div class="adExpand-itemTitle">Embed Code Creator</div>
 						</div>		
 					</a>
-					<a href="javascript:void(0)" class="adExpand-demo originUI-bgColorSecondary originUI-shadow originUI-borderColor" ng:click="adDemoOpen(ad.OriginAd)">
+					<a href="javascript:void(0)" class="adExpand-demo originUI-bgColorSecondary originUI-shadow originUI-borderColor originUI-tileHover originUI-hover" ng:click="adDemoOpen(ad.OriginAd)">
 						<div class="adExpand-itemMeta">
 							<div class="adExpand-itemTitle">Ad Demo Pages</div>
 						</div>		
 					</a>
-					<a href="javascript:void(0)" class="adExpand-metrics originUI-bgColorSecondary originUI-shadow originUI-borderColor" ng:click="adMetricsOpen(ad.OriginAd)">
+					<a href="javascript:void(0)" class="adExpand-metrics originUI-bgColorSecondary originUI-shadow originUI-borderColor originUI-tileHover originUI-hover" ng:click="adMetricsOpen(ad.OriginAd)">
 						<div class="adExpand-itemMeta">
 							<div class="adExpand-itemTitle">Ad Metrics</div>
 						</div>		
@@ -85,7 +85,7 @@
 							<li class="modalDemo-demo originUI-hover originUI-listHover" ng:repeat="demo in demos">
 								<a href="/administrator/demo/edit/{{demo.OriginDemo.alias}}" class="inline originUI-hover modalDemo-demoEdit" target="_blank">Edit</a><!--
 								--><a href="/demo/{{demo.OriginDemo.alias}}" class="inline modalDemo-demoLink" target="_blank">{{demo.OriginDemo.name}}</a><!--
-								--><a href="javascript:void(0)" class="inline originUI-hover modalDemo-demoRemove originUI-superAdmin" ng:click="demoRemove(demo)">remove</a>
+								--><a href="javascript:void(0)" class="inline originUI-hover modalDemo-demoRemove originUI-superAdmin" ng:click="adDemoRemove(demo)">remove</a>
 							</li>
 						</ul>
 						<p class="originUI-filterEmpty" ng:hide="demos.length">No demo pages</p>

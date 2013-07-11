@@ -89,3 +89,5 @@ echo $this->Html->script('/usermgmt/js/umupdate');
 	</div>
 </div>
 <div class="clear"></div>
+<?php 
+	echo $this->Minify->css(array('platform/platformSettings'));

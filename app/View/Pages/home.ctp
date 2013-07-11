@@ -9,6 +9,7 @@
 			<h2 class="productDetail-title originUI-header">{{product.OriginTemplate.name}} Ad Unit</h2>
 			<div class="productDetail-left inline">
 				{{product.OriginTemplate.content.description}}
+				<img ng:src="{{product.OriginTemplate.content.file_storyboard}}" ng:show="product.OriginTemplate.content.file_storyboard"/>
 			</div>
 			<div class="productDetail-right inline nano" nanoscroller>
 				<div class="nano-content">

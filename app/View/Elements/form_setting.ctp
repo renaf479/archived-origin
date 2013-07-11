@@ -61,7 +61,7 @@
 		<div ng:show="editor.template != ''">
 			<!-- <img ng:src="{{editor.template.OriginTemplate.content.file_storyboard}}"/> -->
 			<!-- {{editor.template.OriginTemplate.content.description}} -->
-			<img ng:src="/img/templates/{{editor.template.OriginTemplate.alias}}.gif"/>
+			<img ng:src="{{editor.template.OriginTemplate.content.file_storyboard}}" ng:show="editor.template.OriginTemplate.content.file_storyboard"/>
 		</div>
 	</div>
 	<div ng:show="editor.advance == true">
