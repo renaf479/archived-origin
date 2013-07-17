@@ -1,17 +1,16 @@
 <?php
-	$app	= ($demoEdit)? 'demoEditApp': 'demoCreateApp';
+	$app	= ($demoEdit)? 'demoCreatorEditApp': 'demoCreatorApp';
 	$button	= ($demoEdit)? 'Update Demo': 'Save &amp; Create Demo';
 
-	echo $this->Minify->script(array('apps/'.$app));
+	echo $this->Minify->script(array('demo/creator/'.$app));
 ?>
 <script type="text/javascript">
-	var origin_embed	= '<?php echo urlencode($this->element('origin_embed'));?>';
 	var origin_ad		= '<?php echo addslashes($origin_ad);?>';
 </script>
-<div id="" ng:controller="demoController" ng:app="<?php echo $app;?>" ng:cloak>
+<div id="" ng:controller="demoCreatorController" ng:cloak>
 	<div ng:include src="demo.template" onload="demoAdTags()"></div>
 	
-	<div id="demo-panel" class="originUI-borderColor originUI-shadow">
+	<div id="demo-panel" class="originUI-borderColor originUI-shadow" draggable="#demoPanel-header">
 		<form id="demoPanel-form" name="demoPanelForm" class="originUI-bgColorSecondary" novalidate>
 			<input type="hidden" name="uploadDir" value="/assets/demos/"/>
 			<input type="hidden" ng:model="demo.id" value="demo.id"/>

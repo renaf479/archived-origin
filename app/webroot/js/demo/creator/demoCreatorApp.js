@@ -1,8 +1,55 @@
 'use strict';
+
 var $j = jQuery.noConflict();
 
-var demoCreateApp = angular.module('demoCreateApp', ['originApp.services', 'originApp.directives'])
-					.run(function($rootScope, $compile, Origin) {
+var demoCreatorApp = angular.module('demoCreatorApp', 
+						[
+						'restServices',
+						'platformApp.directives',
+						'demoApp.directives',
+						'demoApp.services'
+						])
+						.run(function($rootScope, $interpolate, Rest){
+							$rootScope.demo = {
+								status:			true,
+								statusSwitch: 	true,
+								templateAlias:	'origin',
+								embed:			{}
+							};
+							
+							$rootScope.placements	= [];
+							$rootScope.reskin		= {};
+							$rootScope.origin_ad	= angular.fromJson(origin_ad);
+							$rootScope.origin_ad.id	= $rootScope.origin_ad.OriginAd.id;
+							$rootScope.embedOptions = {
+								auto: 	0,
+								close: 	0,
+								tablet: false,
+								mobile: false,
+								id: 	$rootScope.origin_ad.OriginAd.id,
+								type:	$rootScope.origin_ad.OriginAd.config.template
+							}
+							
+							/**
+							* Load Origin embed code template
+							*/
+							Rest.get('element/origin_embed').then(function(response) {
+								$rootScope.render	= $interpolate(response)($rootScope);
+							});
+							
+							/**
+							* Load site template listing
+							*/
+							Rest.get('sites').then(function(response) {
+								$rootScope.templates = response;
+								$rootScope.demoTemplate();
+							});
+
+						})
+
+/*
+var demoCreatorApp = angular.module('demoCreatorApp', ['platformApp.directives'])
+					.run(function($rootScope, $compile, Rest) {
 						$rootScope.demo 				= {};
 						$rootScope.demo.status			= true;
 						$rootScope.demo.statusSwitch	= true;
@@ -34,7 +81,7 @@ var demoCreateApp = angular.module('demoCreateApp', ['originApp.services', 'orig
 						$rootScope.render 	= originEmbed;
 						//$rootScope.render	= $compile(decodeURIComponent(origin_embed.replace(/\+/g, ' ')))($rootScope)
 						
-						Origin.get('sites').then(function(response) {
+						Rest.get('sites').then(function(response) {
 							$rootScope.templates = response;
 							$rootScope.demoTemplate();
 						});
@@ -44,3 +91,4 @@ var demoCreateApp = angular.module('demoCreateApp', ['originApp.services', 'orig
 							handle: 	'#demoPanel-header'
 						});	
 					});
+*/

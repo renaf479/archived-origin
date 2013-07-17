@@ -6,6 +6,8 @@ var platformApp = angular.module('platformApp',
 					'ui.bootstrap', 
 					'originApp.services', 
 					'originApp.directives',
+					'restServices',
+					'notificationServices',
 					'platformApp.directives',
 					'platformApp.filters'
 					])
@@ -16,6 +18,3 @@ var platformApp = angular.module('platformApp',
 							backdropFade: 	true
 						}
 					});
-
-
-//var originApp = angular.module('originApp', ['ui', 'ui.bootstrap', 'originApp.services', 'originApp.directives', 'originApp.filters']);

@@ -381,7 +381,7 @@ class OriginController extends AppController {
 	* Public demo page viewer
 	*/
 	public function demo() {
-		$this->layout 	= 'demo_public';
+		$this->layout 	= 'demo/public';
 		
 		$demo = $this->OriginDemo->find('first', 
 			array(
@@ -398,6 +398,7 @@ class OriginController extends AppController {
 		$demo['OriginDemo']['config']	= json_decode($demo['OriginDemo']['config']);
 		$this->set('demo', json_encode($demo));
 		$this->set('title_for_layout', $demo['OriginDemo']['name']);
+		$this->render('/Origin/demo/public');
 	}
 	
 	/**
@@ -411,7 +412,7 @@ class OriginController extends AppController {
 	* Create a demo page
 	*/
 	public function demoCreate() {
-		$this->layout 	= 'demo';
+		$this->layout 	= 'demo/creator';
 		$origin_ad		= $this->OriginAd->find('first', 
 			array(
 				'conditions'=>array(
@@ -428,6 +429,7 @@ class OriginController extends AppController {
 		$this->set('origin_ad', json_encode($origin_ad));
 		$this->set('title_for_layout', $origin_ad['OriginAd']['name'].' Demo');
 		
+		$this->render('/Origin/demo/create');
 		
 		//$this->jsonAdUnit($this->request->params['originAd_id']);
 		//$this->render('/Origin/json/json_ad_unit');	
@@ -437,7 +439,7 @@ class OriginController extends AppController {
 	* Edit a demo page
 	*/
 	public function demoEdit() {
-		$this->layout 	= 'demo';
+		$this->layout 	= 'demo/creator';
 		$origin_demo 	= $this->OriginDemo->find('first', 
 			array(
 				'conditions'=>array(
@@ -453,7 +455,7 @@ class OriginController extends AppController {
 		$this->set('demoEdit', true);
 		$this->set('title_for_layout', $origin_demo['OriginDemo']['name'].' Demo');
 		
-		$this->render('/Origin/demo_create');
+		$this->render('/Origin/demo/create');
 	}
 	
 	/**
@@ -471,7 +473,7 @@ class OriginController extends AppController {
 	* Default Origin Demo page
 	*/
 	public function demoOrigin() {
-		$this->layout 	= 'demo_default';
+		$this->layout 	= 'demo/default';
 		$origin_ad		= $this->OriginAd->find('first', 
 			array(
 				'recursive'=>-1,

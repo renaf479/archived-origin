@@ -86,6 +86,7 @@ Router::connect('/administrator/settings/users', array('plugin' => 'usermgmt', '
 //Router::connect('/administrator/users/status', array('controller' => 'origin', 'action' => 'dashboardUserStatus'));
 Router::connect('/administrator/Origin/Post', array('controller'=>'origin', 'action'=>'post'));
 Router::connect('/administrator/Origin/upload', array('controller'=>'origin', 'action'=>'upload'));
+Router::connect('/administrator/get/element/:element', array('controller'=>'origin', 'action'=>'loadElement'));
 
 //JSON Feeds (Admin)
 Router::connect('/administrator/get/activity', array('controller'=>'origin', 'action'=>'jsonActivity'));
@@ -94,7 +95,6 @@ Router::connect('/administrator/get/ad/:originAd_id', array('controller'=>'origi
 Router::connect('/administrator/get/adExpand/:originAd_id', array('controller'=>'origin', 'action'=>'jsonAdUnitExpand'));
 Router::connect('/administrator/get/components', array('controller'=>'origin', 'action'=>'jsonComponent'));
 Router::connect('/administrator/get/components/:component', array('controller'=>'origin', 'action'=>'loadComponent'));
-Router::connect('/administrator/get/element/:element', array('controller'=>'origin', 'action'=>'loadElement'));
 Router::connect('/administrator/get/demos', array('controller'=>'origin', 'action'=>'jsonDemoList'));
 Router::connect('/administrator/get/demo/:originAd_id', array('controller'=>'origin', 'action'=>'jsonDemo'));
 Router::connect('/administrator/get/library/:originAd_id', array('controller'=>'origin', 'action'=>'jsonLibrary'));

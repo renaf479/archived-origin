@@ -32,6 +32,23 @@ angular.module('platformApp.directives', [])
 			}
 		}
 	})
+	.directive('draggable', function() {
+		return {
+			replace: true,
+			restrict: 'A',
+			scope: {
+				draggable: '@'	
+			},
+			template: '<div ng:transclude></div>',
+			transclude: true,
+			link: function(scope, element) {
+				element.draggable({
+					containment: 'window',
+					handle: scope.draggable
+				});
+			}
+		}
+	})
 	.directive('fileupload', function() {
 		/**
 		* AJAX uploader
