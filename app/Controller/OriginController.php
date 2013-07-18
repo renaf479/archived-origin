@@ -516,6 +516,9 @@ class OriginController extends AppController {
 		
 		if(!isset($data['id'])) {
 			$data['create_by']	= $this->UserAuth->getUserId();
+		} else {
+			unset($data['origin_ad_id']);
+			//unset($data['render']);
 		}
 		
 		$data['status']			= $data['status']? 1: 0;

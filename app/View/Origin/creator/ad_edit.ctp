@@ -270,6 +270,33 @@
 -->
 </div>
 
+<script>
+/*
+var meny = Meny.create({
+	    // The element that will be animated in from off screen
+	    menuElement: document.querySelector('#creator-panel-top'),
+	
+	    // The contents that gets pushed aside while Meny is active
+	    contentsElement: document.querySelector('#creator-panel-workspace'),
+	
+	    // The alignment of the menu (top/right/bottom/left)
+	    position: 'top',
+	
+	    // The height of the menu (when using top/bottom position)
+	    height: 100,
+	
+	    // The width of the menu (when using left/right position)
+	    width: 300,
+	
+	    // Use mouse movement to automatically open/close
+	    mouse: true,
+	
+	    // Use touch swipe events to open/close
+	    touch: true
+	});
+*/
+</script>
+
 <?php
 	echo $this->Minify->css(array('platform/adCreator', 'plugins/codemirror/night', 'plugins/jquery-ui.min'));
 	echo $this->Minify->script(array('plugins/codemirror/codemirror', 'plugins/codemirror/xml', 'plugins/codemirror/javascript', 'plugins/codemirror/css', 'plugins/codemirror/htmlmixed', 'plugins/jquery-ui.min', 'plugins/jquery-touch', 'plugins/jquery.kinetic.min', 'controllers/creatorController'));

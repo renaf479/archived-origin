@@ -6,7 +6,7 @@
 	<link rel="shortcut icon" href="/favicon.ico"/>
 	<?php
 		echo $this->Minify->css(array('platform/originUI', 'platform/adEmbed'));
-		echo $this->Minify->script(array('angular/angularjs'));
+		echo $this->Minify->script(array('plugins/angular/angularjs'));
 	?>
 </head>
 <body ng:app>

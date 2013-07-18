@@ -9,7 +9,7 @@ var demoCreatorApp = angular.module('demoCreatorApp',
 						'demoApp.directives',
 						'demoApp.services'
 						])
-						.run(function($rootScope, $interpolate, Rest){
+						.run(function($rootScope, $interpolate, Rest, DemoServices){
 							$rootScope.demo = {
 								status:			true,
 								statusSwitch: 	true,
@@ -42,9 +42,9 @@ var demoCreatorApp = angular.module('demoCreatorApp',
 							*/
 							Rest.get('sites').then(function(response) {
 								$rootScope.templates = response;
-								$rootScope.demoTemplate();
 							});
-
+							
+							DemoServices.meny('#demo-panel', '#demo-site', true);
 						})
 
 /*

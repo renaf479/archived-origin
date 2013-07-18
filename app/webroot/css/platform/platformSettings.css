@@ -173,30 +173,26 @@
 ========================================================================== */
 
 #demo-panel {
-	position: fixed;
-	top: 50%;
-	left: 0;
-	
-	z-index: 500;
-	display: block;
-	margin: -150px 0 0 0;
-	width: 200px;
-	
-	border-width: 1px 3px;
+	display: none;
+	border-width: 0 1px 0 0;
 	border-style: solid;
-}
-
-#demo-panel.ui-draggable-dragging {
-	opacity: .8;
 }
 
 #demoPanel-header {
 	background: transparent url(/img/demo-26x26.png) no-repeat 10px center;
-	cursor: pointer;
+	border: 0 none;
 }
 
 #demoPanelContent-auto {
 	
+}
+
+#demoPanel-content .originUI-modalLeft {
+	width: 160px;
+}
+
+#demoPanel-content .originUI-modalRight {
+	width: 100px;	
 }
 
 #demoPanel-status label.inline {
@@ -212,6 +208,12 @@
 #demoPanel-form .originUI-upload {
 	width: 100%;
 	font-size: 16px;
+}
+
+#demo-panel .originUI-tileFooter {
+	border-width: 1px 0;
+	border-color: #444444;
+	border-style: solid;
 }
 
 /* =======================================================================

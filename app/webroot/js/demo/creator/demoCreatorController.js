@@ -3,16 +3,16 @@ var demoCreatorController = function($scope, $rootScope, Rest, DemoServices) {
 	/**
 	* Template selection
 	*/
-	$rootScope.demoTemplate = function() {
+	$scope.$watch('demo.templateAlias', function() {
 		DemoServices.template();
-	}
+	});
 	
 	/**
 	* Placement selection
 	*/
-	$scope.demoPlacement = function() {
+	$scope.$watch('demo.placement', function() {
 		DemoServices.placement();
-	}
+	});
 	
 	/**
 	* Scan for new ad placements
@@ -20,6 +20,13 @@ var demoCreatorController = function($scope, $rootScope, Rest, DemoServices) {
 	$scope.demoAdTags = function() {
 		DemoServices.scan();
 	}
+	
+	/**
+	* Change reskin image when a custom one is available
+	*/
+	$scope.$watch('demo.reskin_img', function() {
+		DemoServices.reskinImage($scope.demo.reskin_img);
+	});
 	
 	/**
 	* Change reskin color when a custom one is available
@@ -34,6 +41,7 @@ var demoCreatorController = function($scope, $rootScope, Rest, DemoServices) {
 	$scope.demoSave = function() {
 		var post = {
 			route: 			'demoSave',
+			id:				$rootScope.demo.id,
 			origin_ad_id:	$rootScope.origin_ad.id,
 			name:			$scope.demo.name,
 			config: {
@@ -43,7 +51,7 @@ var demoCreatorController = function($scope, $rootScope, Rest, DemoServices) {
 				templateAlias:	$scope.demo.templateAlias
 			},
 			render:			$rootScope.render,
-			status:			($scope.demo.status === 'true')? 1: 0
+			status:			($scope.demo.status === true)? 1: 0
 		}
 		
 		Rest.post(post).then(function(response) {
