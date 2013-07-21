@@ -72,43 +72,6 @@
 	background-image: url(/img/ad-template-add-26x26.png);
 }
 
-.adTemplate-config {
-	margin: 4px 3px;
-	width: 20%;
-	text-align: center;
-	font-size: 12px;
-}
-
-#adTemplate-templateConfig {
-	display: block;
-	height: 200px;
-}
-
-#adTemplate-storyboardUpload {
-	width: 100%;
-	height: 18px;
-}
-
-#adTemplate-listHeader,
-#adTemplate-editHeader {
-	background-image: url(/img/ad-template-26x26.png);
-}
-
-#adTemplate-templateConfig .accordion-inner {
-}
-
-#adTemplate-templateConfig .originUI-input {
-	text-align: center;
-}
-
-#adTemplate-configSelector,
-#adTemplate-configTrigger {
-	width: 45%;
-}
-
-#adTemplate-configTrigger .originUI-select {
-	height: 20px;
-}
 
 /* =======================================================================
 	Ad Components

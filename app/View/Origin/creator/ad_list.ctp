@@ -83,9 +83,9 @@
 					<div class="nano-content">
 						<ul id="modalDemo-demos" class="originUI-list">
 							<li class="modalDemo-demo originUI-hover originUI-listHover" ng:repeat="demo in demos">
-								<a href="/administrator/demo/edit/{{demo.OriginDemo.alias}}" class="inline originUI-hover modalDemo-demoEdit" target="_blank">Edit</a><!--
+								<a href="/administrator/demo/edit/{{demo.OriginDemo.alias}}" class="inline originUI-hover modalDemo-demoEdit" target="_blank" ng:hide="demo.OriginDemo.name === 'Origin Demo Page (default)'">Edit</a><!--
 								--><a href="/demo/{{demo.OriginDemo.alias}}" class="inline modalDemo-demoLink" target="_blank">{{demo.OriginDemo.name}}</a><!--
-								--><a href="javascript:void(0)" class="inline originUI-hover modalDemo-demoRemove originUI-superAdmin" ng:click="adDemoRemove(demo)">remove</a>
+								--><a href="javascript:void(0)" class="inline originUI-hover modalDemo-demoRemove originUI-superAdmin" ng:click="adDemoRemove(demo)" ng:hide="demo.OriginDemo.name === 'Origin Demo Page (default)'">remove</a>
 							</li>
 						</ul>
 						<p class="originUI-filterEmpty" ng:hide="demos.length">No demo pages</p>
@@ -115,9 +115,6 @@
 			</div>
 		</form>
 	</div>
-	
-	
-	
 </div>
 <?php
 	echo $this->Minify->script(array('adList/adListController', 'adList/adListDirectives', 'adList/adListServices'));

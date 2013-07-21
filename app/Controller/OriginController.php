@@ -473,23 +473,26 @@ class OriginController extends AppController {
 	* Default Origin Demo page
 	*/
 	public function demoOrigin() {
+		App::import('Vendor', 'pseudocrypt');
 		$this->layout 	= 'demo/default';
+		
 		$origin_ad		= $this->OriginAd->find('first', 
 			array(
 				'recursive'=>-1,
 				'conditions'=>array(
-					'OriginAd.id'=>$this->request->params['originAd_id']
+					'OriginAd.id'=>PseudoCrypt::unhash($this->request->params['originAd_id'])
 				),
 				'fields'=>array(
 					'OriginAd.id',
 					'OriginAd.name',
+					'OriginAd.config',
 					'OriginAd.type'
 				)
 			)
 		);
-		
 		$this->set('title_for_layout', $origin_ad['OriginAd']['name']);
-		$this->set('origin_ad', json_encode($origin_ad));
+		$this->set('demo', json_encode($origin_ad));
+		$this->render('/Origin/demo/default');
 	}
 
 	/**
@@ -801,6 +804,7 @@ class OriginController extends AppController {
 	* JSON feed of a demos for a specific ad unit
 	*/
 	public function jsonDemo($data = '') {
+		App::import('Vendor', 'pseudocrypt');
 		$originAd_id	= ($data)? $data['origin_ad_id']: $this->request->params['originAd_id'];
 		$origin_demo 	= $this->OriginDemo->find('all', 
 			array(
@@ -809,6 +813,14 @@ class OriginController extends AppController {
 				)
 			)
 		);
+		//Append default page
+		array_push($origin_demo, 
+			['OriginDemo'=>
+				[
+					'name'=>'Origin Demo Page (default)',
+					'alias'=>'Origin/'.PseudoCrypt::hash($originAd_id, 6)
+				]
+			]);
 		$this->set('origin_demo', $origin_demo);
 	}
 	

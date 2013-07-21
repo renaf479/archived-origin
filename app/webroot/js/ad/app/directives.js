@@ -109,7 +109,9 @@ angular.module('originAd.directives', [])
 		return {
 			restrict: 'A',
 			link: function(scope, element, attrs) {
-				angular.element(element).attr('href', $rootScope.originParams.dfp[attrs.dfp]);
+				if(typeof $rootScope.originParams.dfp !== 'undefined') {
+					angular.element(element).attr('href', $rootScope.originParams.dfp[attrs.dfp]);
+				}
 			}
 		}
 	})

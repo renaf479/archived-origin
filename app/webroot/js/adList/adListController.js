@@ -158,7 +158,7 @@ var adListController = function($scope, $rootScope, $filter, Notification, Rest,
 	//Submit and create ad
 	$scope.adCreateSave = function() {
 		$scope.editor.route				= 'adCreate';
-		$scope.editor.status			= ($scope.editor.status)? 1: 0;
+		$scope.editor.status			= ($scope.editor.statusSwitch)? 1: 0;
 		//$scope.editor.content.ga_id		= $scope.editor.ga_id;
 		$scope.editor.type 				= $scope.editor.template.OriginTemplate.alias;
 		$scope.editor.type_id			= parseInt($scope.editor.template.OriginTemplate.id);

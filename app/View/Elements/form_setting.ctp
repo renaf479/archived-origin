@@ -56,12 +56,10 @@
 		<option style="display:none" value="">Select Template</option>
 	</select>
 	<div ng:show="editor.advance == false">
-		<div ng:show="editor.template == null">
-		</div>
+		<div ng:show="editor.template == null"></div>
 		<div ng:show="editor.template != ''">
-			<!-- <img ng:src="{{editor.template.OriginTemplate.content.file_storyboard}}"/> -->
-			<!-- {{editor.template.OriginTemplate.content.description}} -->
-			<img ng:src="{{editor.template.OriginTemplate.content.file_storyboard}}" ng:show="editor.template.OriginTemplate.content.file_storyboard"/>
+			<img id="formCreate-storyboard" class="originUI-borderColor" ng:src="{{editor.template.OriginTemplate.content.file_storyboard}}" ng:show="editor.template.OriginTemplate.content.file_storyboard"/>
+			<p id="formCreate-description">{{editor.template.OriginTemplate.content.description}}</p>
 		</div>
 	</div>
 	<div ng:show="editor.advance == true">

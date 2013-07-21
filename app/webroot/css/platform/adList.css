@@ -1,4 +1,9 @@
 /* =======================================================================
+	Override
+========================================================================== */
+
+
+/* =======================================================================
 	Header
 ========================================================================== */
 #ad-list {
@@ -17,6 +22,10 @@
 }
 
 #ad-create {
+	background-image: url(/img/creator-42x42.png);
+	background-repeat: no-repeat;
+	background-position: 10px center;
+	background-size: 26px 26px;
 	width: 250px;
 	height: 42px;
 	border-width: 0 2px 1px 0;
@@ -26,16 +35,20 @@
 	top: 0;
 	font-size: 26px;
 	line-height: 42px;
-	text-align: center;
+	text-indent: 50px;
 }
 
 
 /* =======================================================================
 	Ad Tiles
 ========================================================================== */
-.ad-wrapper {
+.ad-wrapper,
+.ad-tile {
 	width: 320px;
 	height: 115px;
+}
+
+.ad-wrapper {
 	margin: 0 20px 20px 0;
 }
 
@@ -47,8 +60,6 @@
 	position: relative;
 	background-repeat: no-repeat;
 	background-size: 320px auto;
-	width: 320px;
-	height: 115px;
 	cursor: pointer;
 	border-width: 0 0 1px 2px;
 	border-style: solid;
@@ -313,7 +324,7 @@ body.originUI-superAdmin .adExpand-name {
 	Modal - Embed/Demo
 ========================================================================== */
 #modalEmbed-header {
-	background: transparent url(/img/embed-26x26.png) no-repeat 10px center;
+	background: transparent url(/img/embed-42x42.png) no-repeat 10px center/26px 26px;
 }
 
 #modal-embed .originUI-modalContent {
@@ -399,44 +410,6 @@ body.originUI-superAdmin .adExpand-name {
 /* =======================================================================
 	Modal - Create
 ========================================================================== */
-#adCreate-modal {
-	height: 200px;
-}
-
-body.originUI-superAdmin #adCreate-modal {
-	height: 215px;
-}
-
-.adSettings-label {
-	width: 120px;	
-}
-
-#formCreate-status .originUI-switch {
-	width: 145px;
-	font-size: 12px;
-	margin-left: 1px;
-}
-
-#formCreate-thumbnail {
-	height: 18px;
-}
-
-#formCreate-toggle {
-	background: transparent url(/img/settings-26x26.png) no-repeat center center;
-	width: 26px;
-	height: 26px;
-	text-indent: -5000em;
-	font-size: 12px;
-	position: absolute;
-	top: -35px;
-	right: 10px;
-	opacity: .3;
-}
-
-#formCreate-toggle:hover {
-	opacity: .7;
-}
-
-#formCreate-template {
-	margin: 5px 0 11px 0;
+#adCreate-modalHeader {
+	background: transparent url(/img/creator-42x42.png) no-repeat 10px center/26px 26px;
 }

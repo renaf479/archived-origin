@@ -4,12 +4,12 @@
 			<img class="homepageProduct-image" ng:src="{{product.OriginAds.content.img_thumbnail}}"/>
 			<span class="homepageProduct-title originUI-bgColor">{{product.OriginTemplate.name}}</span>
 		</div>
-		<div product-detail class="product-detail originUI-bgColor originUI-borderColor" ng:show="productShow === product.OriginTemplate.id">
+		<div product-detail class="product-detail originUI-bgColor originUI-borderColor originUI-bgTexture" ng:show="productShow === product.OriginTemplate.id">
 			<a href="javascript:void(0)" class="productDetail-close originUI-hover" ng:click="productExpand('close', '')">close</a>
 			<h2 class="productDetail-title originUI-header">{{product.OriginTemplate.name}} Ad Unit</h2>
 			<div class="productDetail-left inline">
-				{{product.OriginTemplate.content.description}}
 				<img ng:src="{{product.OriginTemplate.content.file_storyboard}}" ng:show="product.OriginTemplate.content.file_storyboard"/>
+				<p>{{product.OriginTemplate.content.description}}</p>
 			</div>
 			<div class="productDetail-right inline nano" nanoscroller>
 				<div class="nano-content">

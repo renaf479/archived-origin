@@ -6,10 +6,10 @@
 	<link rel="shortcut icon" href="/favicon.ico"/>
 	<?php
 		echo $this->Minify->css(array('demo/public.css'));
-		echo $this->Minify->script(array('plugins/jquery', 'angular/angularjs', 'apps/demoDefaultApp'));
+		echo $this->Minify->script(array('plugins/jquery', 'plugins/angular/angularjs', 'platform/restServices', 'demo/public/demoPublicDefaultApp', 'demo/shared/demoServices'));
 	?>
 </head>
-<body ng:app="demoDefaultApp">
+<body ng:app="demoPublicApp">
 	<?php echo $this->fetch('content'); ?>
 </body>
 </html>

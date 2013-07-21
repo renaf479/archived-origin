@@ -1,9 +1,9 @@
 
-	<div id="bar">
+	<div id="bar" class="originAurora">
 		<div id="logo"></div>
 	</div>
 	<div id="demo-reskin" back-img='{{demo.reskin_img}}' ng:style="reskin">
-		<div id="wrapper" class="">
+		<div id="wrapper" class="originAurora">
 			<div class="embedLeaderboard">
 				<span class="advertisementLabel">advertisement</span>
 				<adTag data-name="Leaderboard" id="embedLeaderboard" class="embedAd" ng:bind-html-unsafe="embedLeaderboard"></adTag>
