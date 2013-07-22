@@ -28,6 +28,7 @@ angular.module('demoApp.services', [])
 				//Issue when re-selecting 1st entry - RACE CONDITION?
 				$timeout(function (){
 					$rootScope[$rootScope.demo.placement]	= $rootScope.render;
+					console.log(document.getElementById('originAd-40'));
 					}, 0);
 			},
 			reskinColor: function(hex) {

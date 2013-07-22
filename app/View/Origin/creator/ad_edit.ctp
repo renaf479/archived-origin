@@ -213,6 +213,7 @@
 			</div>
 		</form>
 	</div>
+	
 	<div modal="scriptsModal" close="scriptsModalClose()" options="creatorModalOptions">
 		<form id="scripts-modal" class="originUI-bgColorSecondary originUI-modal">
 			<h3 id="scriptsModal-header" class="originUI-tileHeader originUI-borderColor originUI-textColor">CSS Editor</h3>

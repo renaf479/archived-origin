@@ -139,6 +139,7 @@
 	display: none;
 	border-width: 0 1px 0 0;
 	border-style: solid;
+	z-index: 10000;
 }
 
 #demoPanel-header {
@@ -215,8 +216,6 @@
 #UserForgotPasswordForm {
 	margin: 15px auto;
 }
-
-
 
 #userList-add,
 #userList-listing {

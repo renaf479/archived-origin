@@ -8,8 +8,8 @@
 			<a href="javascript:void(0)" class="productDetail-close originUI-hover" ng:click="productExpand('close', '')">close</a>
 			<h2 class="productDetail-title originUI-header">{{product.OriginTemplate.name}} Ad Unit</h2>
 			<div class="productDetail-left inline">
-				<img ng:src="{{product.OriginTemplate.content.file_storyboard}}" ng:show="product.OriginTemplate.content.file_storyboard"/>
-				<p>{{product.OriginTemplate.content.description}}</p>
+				<img id="formCreate-storyboard" class="originUI-borderColor" ng:src="{{product.OriginTemplate.content.file_storyboard}}" ng:show="product.OriginTemplate.content.file_storyboard"/>
+				<p id="formCreate-description">{{product.OriginTemplate.content.description}}</p>
 			</div>
 			<div class="productDetail-right inline nano" nanoscroller>
 				<div class="nano-content">

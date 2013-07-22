@@ -731,6 +731,7 @@ body.originClass-edit #originBar-search {
 	background-position: 2px center;
 	background-repeat: no-repeat;
 	text-indent: 25px;
+	height: 25px;
 }
 
 #originBar-settingsIcon {
@@ -816,6 +817,7 @@ body.originClass-edit #originBar-search {
 #origin-bar.originBar-guest #login-email,
 #origin-bar.originBar-guest #login-password {
 	margin: 0 5px;
+	width: 145px;
 }
 
 #origin-bar.originBar-guest #login-settings {
@@ -842,6 +844,7 @@ body.originClass-edit #originBar-search {
 #login-settings {
 	margin-top: 5px;
 	font-size: 12px;
+	line-height: 22px;
 }
 
 .login-remember-input>label {
