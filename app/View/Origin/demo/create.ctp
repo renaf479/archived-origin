@@ -81,10 +81,7 @@
 			</div>
 		</form>
 	</div>
-	
-	
-	<div id="demo-site" ng:include src="demo.template" onload="demoAdTags()"></div>
-	
+	<div id="demo-site" ng:include src="demo.template" onload="demoAdTags()"></div>	
 </div>
 <script>
 	

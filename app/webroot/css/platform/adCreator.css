@@ -906,7 +906,7 @@ body.originClass-edit #originBar-settings.open #originBar-settingsIcon {
 }
 
 #editorSpringboard-list {
-	margin: 0;
+	margin: 5px 0 0 0;
 	height: 209px;
 	overflow: hidden;
 	position: relative;
