@@ -175,5 +175,5 @@
 </div>
 <?php
 	echo $this->Minify->css(array('platform/platformSettings'));
-	echo $this->Minify->script(array('controllers/usersController'));
+	echo $this->Minify->script(array('platform/usersController'));
 ?>

@@ -118,6 +118,6 @@
 	</div>
 </div>
 <?php
-	echo $this->Minify->script(array('adList/adListController', 'adList/adListDirectives', 'adList/adListServices'));
+	echo $this->Minify->script(array('creator/list/adListController', 'creator/list/adListDirectives', 'creator/list/adListServices'));
 	echo $this->Minify->css(array('platform/adList'));
 ?>

@@ -36,7 +36,7 @@
 		</table> 
 	</div>
 	
-	<div modal="originModal" close="$parent.originModalClose()" options="$parent.originModalOptions">
+	<div modal="originModal" close="templateClose()" options="{backdropClick: false, backdropFade: true}">
 		<form id="adTemplate-edit" name="adTemplateEdit" class="originUI-bgColorSecondary originUI-modal">
 			<input type="hidden" name="uploadDir" value="/img/templates/"/>
 			<input type="hidden" ng:model="editorModal.id"/>
@@ -54,7 +54,7 @@
 				<div class="clear"></div>		
 			</div>
 			<div class="originUI-tileFooter">
-				<button class="originUI-tileFooterLeft originUI-hover" ng:click="$parent.originModalClose()">Cancel</button>
+				<button class="originUI-tileFooterLeft originUI-hover" ng:click="templateClose()">Cancel</button>
 				<button class="originUI-tileFooterRight originUI-hover" ng:click="templateSave()" ng-disabled="adTemplateEdit.$invalid">Save</button>
 			</div>
 		</form>
@@ -62,5 +62,5 @@
 </div>
 <?php
 	echo $this->Minify->css(array('platform/platformSettings'));
-	echo $this->Minify->script(array('adTemplates/adTemplatesController'));
+	echo $this->Minify->script(array('platform/adTemplatesController'));
 ?>

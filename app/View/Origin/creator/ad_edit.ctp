@@ -301,4 +301,4 @@ var meny = Meny.create({
 
 <?php
 	echo $this->Minify->css(array('platform/adCreator', 'plugins/codemirror/night', 'plugins/jquery-ui.min'));
-	echo $this->Minify->script(array('plugins/codemirror/codemirror', 'plugins/codemirror/xml', 'plugins/codemirror/javascript', 'plugins/codemirror/css', 'plugins/codemirror/htmlmixed', 'plugins/jquery-ui.min', 'plugins/jquery-touch', 'plugins/jquery.kinetic.min', 'controllers/creatorController'));
+	echo $this->Minify->script(array('plugins/codemirror/codemirror', 'plugins/codemirror/xml', 'plugins/codemirror/javascript', 'plugins/codemirror/css', 'plugins/codemirror/htmlmixed', 'plugins/jquery-ui.min', 'plugins/jquery-touch', 'plugins/jquery.kinetic.min', 'creator/editor/creatorController'));

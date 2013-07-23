@@ -1,4 +1,4 @@
-<div id="ad-component" ng:controller="originComponents" ng:cloak>
+<div id="ad-component" ng:controller="adComponentsController" ng:cloak>
 	<h2 class="originUI-header"><a href="/administrator/settings" class="originUI-back originUI-hover">Ad Components</a></h2>
 	<form id="adComponent-create" name="adComponentCreateForm" class="originUI-tileLeft originUI-bgColorSecondary originUI-shadow" novalidate>
 		<input type="hidden" name="uploadDir" value="/assets/components/"/>
@@ -36,7 +36,7 @@
 		</table> 
 	</div>
 	
-	<div modal="originModal" close="$parent.originModalClose()" options="$parent.originModalOptions">
+	<div modal="originModal" close="componentClose()" options="{backdropClick: false, backdropFade: true}">
 		<form id="adComponent-edit" name="adComponentEdit" class="originUI-bgColorSecondary originUI-modal" novalidate>
 			<input type="hidden" name="uploadDir" value="/img/components/"/>
 			<input type="hidden" ng:model="editorModal.id"/>
@@ -54,7 +54,7 @@
 				<div class="clear"></div>		
 			</div>
 			<div class="originUI-tileFooter">
-				<button class="originUI-tileFooterLeft originUI-hover" ng:click="$parent.originModalClose()">Cancel</button>
+				<button class="originUI-tileFooterLeft originUI-hover" ng:click="componentClose()">Cancel</button>
 				<button class="originUI-tileFooterRight originUI-hover" ng:click="componentSave()" ng-disabled="adComponentEdit.$invalid">Save</button>
 			</div>
 		</form>
@@ -62,4 +62,4 @@
 </div>
 <?php
 	echo $this->Minify->css(array('platform/platformSettings'));
-	echo $this->Minify->script(array('controllers/componentsController'));
+	echo $this->Minify->script(array('platform/adComponentsController'));

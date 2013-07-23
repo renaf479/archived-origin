@@ -1,4 +1,4 @@
-<div id="site-manager" ng:controller="siteController" ng:cloak>
+<div id="site-manager" ng:controller="adSitesController" ng:cloak>
 	<h2 class="originUI-header"><a href="/administrator/settings" class="originUI-back originUI-hover">Site Demo Templates</a></h2>
 	<form id="siteManager-create" name="siteManagerCreateForm" class="originUI-tileLeft originUI-bgColorSecondary originUI-shadow" novalidate>
 		<input type="hidden" name="uploadDir" value="/assets/components/"/>
@@ -34,7 +34,7 @@
 		</table> 
 	</div>
 	
-	<div modal="originModal" close="$parent.originModalClose()" options="$parent.originModalOptions">
+	<div modal="originModal" close="siteClose()" options="{backdropClick: false, backdropFade: true}">
 		<form id="siteManager-edit" name="siteManagerEdit" class="originUI-bgColorSecondary originUI-modal" novalidate>
 			<input type="hidden" ng:model="editorModal.id"/>
 			<h3 id="siteManager-editHeader" class="originUI-tileHeader originUI-borderColor originUI-textColor">Edit Site</h3>
@@ -51,7 +51,7 @@
 				<div class="clear"></div>		
 			</div>
 			<div class="originUI-tileFooter">
-				<button class="originUI-tileFooterLeft originUI-hover" ng:click="$parent.originModalClose()">Cancel</button>
+				<button class="originUI-tileFooterLeft originUI-hover" ng:click="siteClose()">Cancel</button>
 				<button class="originUI-tileFooterRight originUI-hover" ng:click="siteSave()" ng-disabled="siteManagerEdit.$invalid">Save</button>
 			</div>
 		</form>
@@ -60,4 +60,4 @@
 
 <?php
 	echo $this->Minify->css(array('platform/platformSettings'));
-	echo $this->Minify->script(array('controllers/siteController'));
+	echo $this->Minify->script(array('platform/adSitesController'));
