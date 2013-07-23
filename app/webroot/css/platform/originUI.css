@@ -207,6 +207,36 @@ li {
 	background-color: rgba(255, 255, 255, .1);	
 }
 
+/*
+.originUI-expandAnimate-hide,
+.originUI-expandAnimate-show {
+	-webkit-transition: all 1s ease;
+	-moz-transition: all 1s ease;
+	-o-transition: all 1s ease;
+	transition: all 1s ease;
+}
+
+.originUI-expandAnimate-hide {
+	opacity: 1;
+	height: auto;
+}
+
+.originUI-expandAnimate-hide.originUI-expand-hide-active {
+	opacity: 0;
+	height: 0;
+}
+
+.originUI-expandAnimate-show {
+	opacity: 0;
+	height: 0;
+}
+
+.originUI-expandAnimate-show.originUI-expandAnimate-show-active {
+	opacity: 1;
+	height: auto;
+}
+*/
+
 /* =======================================================================
 	Z-Index
 ========================================================================== */

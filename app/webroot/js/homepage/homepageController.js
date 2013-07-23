@@ -6,7 +6,7 @@ var homepageController = function($scope, $rootScope, $filter, $timeout, Rest) {
 	
 	$scope.row 			= 0;
 	
-	Rest.get('templates', 'public').then(function(response) {
+	Rest.get('homepage', 'public').then(function(response) {
 		$scope.products		= response;
 	});
 	

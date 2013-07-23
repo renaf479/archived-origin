@@ -1003,6 +1003,17 @@ div#editorSpringboard-preview {
 /* =======================================================================
 	Settings
 ========================================================================== */
+#embedModal-header {
+	background: transparent url(/img/embed-42x42.png) no-repeat 10px center/26px 26px;	
+}
+
+#embed-modal .originUI-modalContent {
+	height: 320px;
+}
+
+/* =======================================================================
+	Settings
+========================================================================== */
 #settingsModal-header {
 	background: transparent url(/img/header-settings.png) no-repeat 10px center;
 }

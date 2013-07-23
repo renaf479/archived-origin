@@ -111,7 +111,7 @@ Router::connect('/administrator/get/sites', array('controller'=>'origin', 'actio
 //Router::connect('/administrator/get/monitor/export/:data', array('controller'=>'monitor', 'action'=>'monitorExport'));
 
 //JSON Feeds (Public)
-Router::connect('/get/templates', array('controller'=>'origin', 'action'=>'jsonTemplateHome'));
+Router::connect('/get/homepage', array('controller'=>'origin', 'action'=>'jsonHomepage'));
 Router::connect('/get/ads', array('controller'=>'origin', 'action'=>'jsonList'));
 Router::connect('/get/ad/:originAd_id', array('controller'=>'origin', 'action'=>'jsonAdUnit'));
 

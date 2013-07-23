@@ -205,7 +205,8 @@
 			<h3 id="embedModal-header" class="originUI-tileHeader originUI-borderColor originUI-textColor">Ad Embed Code</h3>
 			
 			<div class="originUI-modalContent">
-				<?php echo $this->element('form_embed');?>
+				<?php //echo $this->element('form_embed');?>
+				<iframe ng:src="/administrator/Origin/ad/embed/{{workspace.ad.OriginAd.id}}/{{workspace.ad.OriginAd.type}}" frameborder="0" scrolling="no" width="100%" height="100%"></iframe>
 			</div>
 			<div class="originUI-tileFooter">
 				<div class="originUI-tileFooterLeft originUI-hover" ng:click="embedModalClose()">Close</div>

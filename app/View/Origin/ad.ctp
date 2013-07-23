@@ -41,7 +41,7 @@
 </script>
 
 <div id="<?php echo $template;?>">
-	<?php echo $this->element('/ad/'.$template, array('origin_ad'=>$origin_ad));?>
+	<?php echo $this->element('/ad/'.strtolower($originAd_platform).'/'.$template, array('origin_ad'=>$origin_ad));?>
 </div>
 
 

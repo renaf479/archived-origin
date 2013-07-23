@@ -918,7 +918,7 @@ class OriginController extends AppController {
 	/**
 	* JSON feed of unique Origin Ad Templates for the homepage
 	*/
-	public function jsonTemplateHome() {
+	public function jsonHomepage() {
 		$origin_templates	= $this->OriginTemplate->find('all',
 			array(
 				'conditions'=>array(
@@ -999,7 +999,9 @@ class OriginController extends AppController {
 						)
 					)
 				),
-				'order'=>array('OriginTemplate.name ASC')
+				'order'=>array(
+					'OriginTemplate.name ASC'
+				)
 			)
 		);
 		$this->set('origin_templates', $origin_templates);
@@ -1084,6 +1086,13 @@ class OriginController extends AppController {
 			//Remove folder
 			$this->_removeFolder('../webroot/assets/creator/'.$data['id']);
 		
+			//Remove associated demo pages
+			$this->OriginDemo->deleteAll(
+				array(
+					'OriginDemo.origin_ad_id'=>$data['id']
+				),
+			false);
+			
 			$this->layout	= 'ajax';
 			$this->jsonList();
 			return $this->render('/Origin/json/json_list');

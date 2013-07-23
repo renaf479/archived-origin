@@ -117,7 +117,16 @@
 	transform:rotate(90deg);
 }
 
-
+.adTile-showcase {
+	background: transparent url(/img/star-full-18x18.png) no-repeat 0 0;
+	width: 18px;
+	height: 18px;
+	position: absolute;
+	text-indent: -5000em;
+	right: 3px;
+	bottom: 3px;
+	opacity: .3;
+}
 
 /* =======================================================================
 	No-image Tile

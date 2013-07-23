@@ -10,6 +10,7 @@
 				<span class="adTile-id originUI-hover">{{ad.OriginAd.id}}</span>
 				<span class="adTile-template">{{ad.OriginAd.type}}</span>
 				<span class="adTile-name originUI-borderColor">{{ad.OriginAd.name}}</span>
+				<span class="adTile-showcase originUI-superAdmin" ng:show="ad.OriginAd.showcase">showcase</span>
 				<div class="adTile-meta">
 					<span class="adTile-create">Created {{ad.OriginAd.create_date}} by {{ad.OriginAd.create_by}}</span>
 					<span class="adTile-modify">Last Modified {{ad.OriginAd.modify_date}} by {{ad.OriginAd.modify_by}}</span>
