@@ -26,7 +26,7 @@ var notification = {
 		'content':	''
 	};
 
-var originGeneral = function($scope, $filter, Origin, Notification) {
+var originGeneral = function($scope, $filter, Notification) {
 	//$scope.notification = {};
 	
 	$scope.back = function() {
@@ -139,7 +139,7 @@ var originGeneral = function($scope, $filter, Origin, Notification) {
 */
 } 
 
-var originUser = function($scope, Origin, Notification) {
+var originUser = function($scope, Rest, Notification) {
 	var notification = {
 		'title': 	'',
 		'content':	''
@@ -155,7 +155,7 @@ var originUser = function($scope, Origin, Notification) {
 	
 	$scope.userPasswordUpdate = function() {
 		$scope.password.route			= 'dashboardUserPasswordUpdate';
-		Origin.post($scope.password).then(function(response) {
+		Rest.post($scope.password).then(function(response) {
 			if(response.oldpassword) {
 				notification.title 		= 'Error';
 				notification.content 	= 'Old password incorrect';

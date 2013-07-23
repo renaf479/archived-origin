@@ -190,7 +190,7 @@
 					<select id="settingsModal-template" class="originUI-select originUI-bgColorSecondary" ng:model="editor.template" ng:options="template.OriginTemplate.name for template in templates|filter:{OriginTemplate.status: '1'}" ng:change="templateLoad()">
 						<option style="display:none" value="">Load Template</option>
 					</select>
-					<?php echo $this->element('form_template', array('view'=>'right', 'editor' => 'editor'));?>
+					<?php echo $this->element('platform/form_template', array('view'=>'right', 'editor' => 'editor'));?>
 				</div>
 				<div class="clear"></div>
 			</div>

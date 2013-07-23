@@ -44,6 +44,7 @@ angular.module('originApp.services', [])
 		}
 		return Email;
 	})
+/*
 	.factory('Notification', function($rootScope) {
 		var notification = {};
 		
@@ -61,6 +62,7 @@ angular.module('originApp.services', [])
 		
 		return notification;
 	})
+*/
 	.factory('Users', function($http) {
 		var Users = {
 			get: function(action) {

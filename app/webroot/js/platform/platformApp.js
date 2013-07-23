@@ -4,7 +4,7 @@ var platformApp = angular.module('platformApp',
 					[
 					'ui', 
 					'ui.bootstrap', 
-					'originApp.services', 
+					//'originApp.services', 
 					'originApp.directives',
 					'restServices',
 					'notificationServices',

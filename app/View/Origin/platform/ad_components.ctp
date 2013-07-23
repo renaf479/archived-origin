@@ -4,8 +4,8 @@
 		<input type="hidden" name="uploadDir" value="/assets/components/"/>
 		<h3 id="adComponent-createHeader" class="originUI-tileHeader originUI-borderColor originUI-textColor">Create</h3>
 		<div class="originUI-tileContent">
-			<?php echo $this->element('form_component', array('view'=>'left', 'editor' => 'editor'));?>
-			<?php echo $this->element('form_component', array('view'=>'right', 'editor' => 'editor'));?>
+			<?php echo $this->element('platform/form_component', array('view'=>'left', 'editor' => 'editor'));?>
+			<?php echo $this->element('platform/form_component', array('view'=>'right', 'editor' => 'editor'));?>
 		</div>
 		<div class="originUI-tileFooter">
 			<button class="originUI-tileFooterCenter originUI-hover" ng:click="componentCreate()" ng-disabled="adComponentCreateForm.$invalid">Create</button>
@@ -46,10 +46,10 @@
 			
 			<div class="originUI-modalContent">
 				<div class="originUI-modalLeft">
-					<?php echo $this->element('form_component', array('view'=>'left', 'editor' => 'editorModal'));?>
+					<?php echo $this->element('platform/form_component', array('view'=>'left', 'editor' => 'editorModal'));?>
 				</div><!--
 				--><div class="originUI-modalRight">
-				<?php echo $this->element('form_component', array('view'=>'right', 'editor' => 'editorModal'));?>
+				<?php echo $this->element('platform/form_component', array('view'=>'right', 'editor' => 'editorModal'));?>
 				</div>
 				<div class="clear"></div>		
 			</div>

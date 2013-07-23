@@ -34,7 +34,7 @@ originApp.value('ui.config', {
 });
 */
 
-var creatorController = function($scope, $filter, Origin, Notification) {
+var creatorController = function($scope, $filter, Rest, Notification) {
 	$scope.editor				= {};	//Editor model
 	$scope.ad 					= {};
 	$scope.ad.content 			= {};
@@ -83,14 +83,14 @@ var creatorController = function($scope, $filter, Origin, Notification) {
 	/**
 	* Init
 	*/
-	Origin.get('components').then(function(response) {
+	Rest.get('components').then(function(response) {
 		$scope.workspace.components		= response;
 		$scope.workspace.componentsRaw	= $scope.workspace.components['raw'];
 		delete $scope.workspace.components['raw'];
 		
 		$scope.updateLibrary();
 		
-		Origin.get('ad/'+originAd_id).then(function(response) {
+		Rest.get('ad/'+originAd_id).then(function(response) {
 			template_id					= response.OriginAd.config.type_id;//IS THIS USED?
 			$scope.workspace.ad			= response;
 			$scope.scripts.content 		= (response.OriginAd.content_css)? response.OriginAd.content_css: '<style type="text/css">\n</style>';
@@ -104,7 +104,7 @@ var creatorController = function($scope, $filter, Origin, Notification) {
 				$scope.updateUI();
 			});
 			
-			Origin.get('templates').then(function(response) {
+			Rest.get('templates').then(function(response) {
 				$scope.templates		= response;
 			});
 		});
@@ -122,7 +122,7 @@ var creatorController = function($scope, $filter, Origin, Notification) {
 	* Refreshes the library panel
 	*/
 	$scope.updateLibrary = function() {
-		Origin.get('library/'+originAd_id).then(function(response) {
+		Rest.get('library/'+originAd_id).then(function(response) {
 			$scope.library				= response.files;
 		});
 	}
@@ -257,7 +257,7 @@ height:	$scope.workspace.template.config.dimensions[$scope.ui.view][$scope.ui.pl
 		$scope.editor.render				= data.render;
 		$scope.editor.data 					= $scope.workspace.ad.OriginAdSchedule;
 		
-		Origin.post($scope.editor).then(function(response) {
+		Rest.post($scope.editor).then(function(response) {
 			$scope.creatorModal	= false;
 			$scope.refreshUI(response);
 			Notification.display('Content saved');
@@ -277,7 +277,7 @@ height:	$scope.workspace.template.config.dimensions[$scope.ui.view][$scope.ui.pl
 			$scope.editor.originAd_id	= originAd_id;
 			$scope.editor.data 			= $scope.workspace.ad.OriginAdSchedule;
 
-			Origin.post($scope.editor).then(function(response) {
+			Rest.post($scope.editor).then(function(response) {
 				$scope.creatorModal	= false;
 				$scope.refreshUI(response);
 				Notification.alert('Content removed');
@@ -299,7 +299,7 @@ height:	$scope.workspace.template.config.dimensions[$scope.ui.view][$scope.ui.pl
 		$scope.editor.originAd_id			= originAd_id;
 		$scope.editor.data 					= $scope.workspace.ad.OriginAdSchedule;
 		
-		Origin.post($scope.editor).then(function(response) {
+		Rest.post($scope.editor).then(function(response) {
 			$scope.editor = {};
 			$scope.refreshUI(response);
 			Notification.display('Asset added to workspace');
@@ -315,7 +315,7 @@ height:	$scope.workspace.template.config.dimensions[$scope.ui.view][$scope.ui.pl
 		$scope.editor.originAd_id	= originAd_id;
 		$scope.editor.route			= 'creatorWorkspaceUpdate';
 		
-		Origin.post($scope.editor).then(function() {
+		Rest.post($scope.editor).then(function() {
 			window.location		= '/administrator/list';
 		});
 	}
@@ -337,7 +337,7 @@ height:	$scope.workspace.template.config.dimensions[$scope.ui.view][$scope.ui.pl
 		$scope.scripts.id		= $scope.workspace.ad.OriginAd.id;
 		$scope.scripts.route	= 'cssUpdate';
 		
-		Origin.post($scope.scripts).then(function(response) {
+		Rest.post($scope.scripts).then(function(response) {
 			//$scope.refreshUI(response);
 			//$scope.settingsModalClose();
 			Notification.display('CSS updated');
@@ -369,7 +369,7 @@ height:	$scope.workspace.template.config.dimensions[$scope.ui.view][$scope.ui.pl
 		$scope.editor.route		= 'emailEmbed';
 		$scope.editor.ad 		= $scope.workspace.ad.OriginAd;
 		$scope.editor.embed 	= $j('#embedModal-content').val();
-		Origin.post($scope.editor).then(function() {
+		Rest.post($scope.editor).then(function() {
 			$scope.embedModal = false;
 			Notification.display('Embed code emailed');
 		});
@@ -409,7 +409,7 @@ height:	$scope.workspace.template.config.dimensions[$scope.ui.view][$scope.ui.pl
 	$scope.settingsModalSave = function() {
 		delete $scope.editor.template;
 		$scope.editor.route			= 'creatorSettingsUpdate';
-		Origin.post($scope.editor).then(function(response) {
+		Rest.post($scope.editor).then(function(response) {
 			$scope.refreshUI(response);
 			$scope.settingsModalClose();
 			Notification.alert('Settings updated');
@@ -427,7 +427,7 @@ height:	$scope.workspace.template.config.dimensions[$scope.ui.view][$scope.ui.pl
 	* Undo workspace changes
 	*/
 	$scope.workspaceUndo = function() {
-		Origin.get('ad/'+originAd_id).then(function(response) {
+		Rest.get('ad/'+originAd_id).then(function(response) {
 			$scope.refreshUI(response);
 			Notification.alert('Previous workspace loaded');
 			$j('#actions-wrapper').fadeOut(200);
@@ -441,7 +441,7 @@ height:	$scope.workspace.template.config.dimensions[$scope.ui.view][$scope.ui.pl
 		$scope.editor.originAd_id	= originAd_id;
 		$scope.editor.data			= $scope.workspace.ad.OriginAdSchedule;
 		$scope.editor.route			= 'creatorWorkspaceUpdate';
-		Origin.post($scope.editor).then(function(response) {
+		Rest.post($scope.editor).then(function(response) {
 			Notification.display('Workspace saved');
 			$j('#actions-wrapper').fadeOut(200);
 			$scope.refreshUI(response);

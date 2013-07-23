@@ -22,7 +22,7 @@
 	<div class="clear"></div>
 		
 	<script type="text/javascript">
-		var componentCtrl = function($scope, $rootScope, Origin) {
+		var componentCtrl = function($scope, $rootScope, Rest) {
 			var _scope 	= $scope.$parent,
 				page 	= 0,
 				videoId;
@@ -64,7 +64,7 @@
 			}
 			
 			$scope.springboardLoad = function() {
-				Origin.getRss('cms.springboardplatform.com/xml_feeds_advanced/index/1307/0/0/0/'+page+'/7/').then(function(response) {
+				Rest.getRss('cms.springboardplatform.com/xml_feeds_advanced/index/1307/0/0/0/'+page+'/7/').then(function(response) {
 					$scope.springboard	= response.rss.channel;
 				});	
 			}
