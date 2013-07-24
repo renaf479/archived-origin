@@ -128,9 +128,11 @@ class OriginController extends AppController {
 	/**
 	* ?
 	*/
+/*
 	public function templateEdit($id) {
 		
 	}
+*/
 
 	/**
 	* Toggles the 'status' field of a model
@@ -278,6 +280,8 @@ class OriginController extends AppController {
 	/**
 	* Displays ad template guidelines
 	*/
+/*
+	
 	public function guidelines() {
 		$specsheet	= $this->OriginTemplate->find('first', 
 			array(
@@ -293,6 +297,42 @@ class OriginController extends AppController {
 		$this->set('specsheet', $specsheet);
 		$this->set('title_for_layout', $specsheet['name'].' Guidelines');
 	}
+*/
+
+/* =======================================================================
+	SUPER ADMIN ONLY
+========================================================================== */
+	/**
+	* Settings page
+	*/
+	public function adminSettings() {
+		$this->set('title_for_layout', 'Settings');
+		$this->render('platform/settings');
+	}
+
+	/**
+	* Origin ad component manager
+	*/
+	public function adminComponentList() {
+		$this->set('title_for_layout', 'Ad Components');
+		$this->render('platform/ad_components');
+	}
+	
+	/**
+	* Origin ad template manager
+	*/
+	public function adminTemplateList() {
+		$this->set('title_for_layout', 'Ad Templates');
+		$this->render('platform/ad_templates');
+	}
+
+	/**
+	* Origin site manager
+	*/
+	public function adminSiteList() {
+		$this->set('title_for_layout', 'Demo Manager');
+		$this->render('platform/ad_site_list');
+	}
 
 /* =======================================================================
 	Ad components
@@ -307,14 +347,6 @@ class OriginController extends AppController {
 		);
 		$this->set('origin_components', $origin_components);
 		return $this->render('/Origin/json/json_component');
-	}
-
-	/**
-	* Origin ad component manager
-	*/
-	public function componentList() {
-		$this->set('title_for_layout', 'Ad Components');
-		$this->render('platform/ad_components');
 	}
 	
 	/**
@@ -339,14 +371,6 @@ class OriginController extends AppController {
 		);
 		$this->set('origin_templates', $origin_templates);
 		return $this->render('/Origin/json/json_template');
-	}
-	
-	/**
-	* Origin ad template manager
-	*/
-	public function templateList() {
-		$this->set('title_for_layout', 'Ad Templates');
-		$this->render('platform/ad_templates');
 	}
 	
 /* =======================================================================
@@ -555,24 +579,12 @@ class OriginController extends AppController {
 /* =======================================================================
 	Site Demo Template
 ========================================================================== */
-	/**
-	* Origin site manager
-	*/
-	public function siteList() {
-		$this->set('title_for_layout', 'Demo Manager');
-		$this->render('platform/ad_site_list');
-	}
+	
 	
 /* =======================================================================
 	Settings
 ========================================================================== */		
-	/**
-	* Settings page
-	*/
-	public function settings() {
-		$this->set('title_for_layout', 'Settings');
-		$this->render('platform/settings');
-	}
+	
 	
 	/**
 	* Origin system permissions page //UNUSED?
@@ -857,6 +869,7 @@ class OriginController extends AppController {
 	* JSON feed of all showcase Origin ad units
 	* UNUSED
 	*/
+/*
 	public function jsonListShowcase() {
 		
 		$origin_ads		= $this->OriginAd->find('all', 
@@ -878,6 +891,7 @@ class OriginController extends AppController {
 			));
 		$this->set('origin_ads', $origin_ads);
 	}
+*/
 	
 	/**
 	* JSON feed of all Origin ad components

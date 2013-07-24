@@ -202,7 +202,7 @@ var originAllGroups = function($scope, Users) {
 
 
 
-var originSystems = function($scope, $filter, Origin, Notification) {
+var originSystems = function($scope, $filter, Rest, Notification) {
 	$scope.editor				= {};
 	
 	$scope.groupAlias = function() {

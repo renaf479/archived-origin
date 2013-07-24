@@ -69,12 +69,12 @@ Router::connect('/administrator/viewUser/*', array('plugin' => 'usermgmt', 'cont
 
 
 //SYSTEMS
-Router::connect('/administrator/settings', array('controller' => 'origin', 'action' => 'settings'));
+Router::connect('/administrator/settings', array('controller' => 'origin', 'action' => 'adminSettings'));
 Router::connect('/administrator/settings/access', array('plugin' => 'usermgmt', 'controller' => 'user_group_permissions', 'action' => 'index'));
-Router::connect('/administrator/settings/components', array('controller'=>'origin', 'action'=>'componentList'));
+Router::connect('/administrator/settings/components', array('controller'=>'origin', 'action'=>'adminComponentList'));
 Router::connect('/administrator/settings/password', array('plugin' => 'usermgmt', 'controller' => 'users', 'action' => 'changePassword'));
 Router::connect('/administrator/settings/profile/*', array('plugin' => 'usermgmt', 'controller' => 'users', 'action' => 'editUser'));
-Router::connect('/administrator/settings/templates', array('controller'=>'origin', 'action'=>'templateList'));
+Router::connect('/administrator/settings/templates', array('controller'=>'origin', 'action'=>'adminTemplateList'));
 Router::connect('/administrator/settings/users', array('plugin' => 'usermgmt', 'controller' => 'users', 'action' => 'index'));
 
 
@@ -124,7 +124,7 @@ Router::connect('/administrator/get/templates/:template', array('controller'=>'o
 Router::connect('/administrator/demos', array('controller'=>'origin', 'action'=>'demoList'));
 Router::connect('/administrator/demo/create/:originAd_id', array('controller'=>'origin', 'action'=>'demoCreate'));
 Router::connect('/administrator/demo/edit/:alias', array('controller'=>'origin', 'action'=>'demoEdit'));
-Router::connect('/administrator/settings/sites', array('controller'=>'origin', 'action'=>'siteList'));
+Router::connect('/administrator/settings/sites', array('controller'=>'origin', 'action'=>'adminSiteList'));
 Router::connect('/demo/Origin/:originAd_id', array('controller'=>'origin', 'action'=>'demoOrigin'));
 Router::connect('/demo/:alias', array('controller'=>'origin', 'action'=>'demo'));
 
@@ -151,7 +151,7 @@ Router::connect('/administrator/Monitor/Post', array('controller'=>'monitor', 'a
 * PUBLIC VIEWS
 */
 //Spec Sheets/Guidelines
-Router::connect('/guidelines/:specsheet_alias', array('controller'=>'pages', 'action'=>'display'));
+//Router::connect('/guidelines/:specsheet_alias', array('controller'=>'pages', 'action'=>'display'));
 
 
 /**

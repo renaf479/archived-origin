@@ -119,7 +119,7 @@ class UserGroup extends UserMgmtAppModel {
 		$cacheKey = 'rules_for_group_'.$userGroupID;
 		$actions = Cache::read($cacheKey, 'UserMgmt');
 		if ($actions === false) {
-			$actions = $this->UserGroupPermission->find('all',array('conditions'=>'UserGroupPermission.user_group_id = '.$userGroupID.' AND UserGroupPermission.allowed = 1'));
+			$actions = $this->UserGroupPermission->find('all', array('conditions'=>'UserGroupPermission.user_group_id = '.$userGroupID.' AND UserGroupPermission.allowed = 1'));
 			Cache::write($cacheKey, $actions, 'UserMgmt');
 		}
 		foreach ($actions as $action) {

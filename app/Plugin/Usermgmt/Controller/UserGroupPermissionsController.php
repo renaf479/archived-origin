@@ -47,6 +47,7 @@ class UserGroupPermissionsController extends UserMgmtAppController {
 			} else {
 				$user_group_permissions=$this->UserGroupPermission->find('all', array('order'=>array('controller', 'action'), 'conditions'=>array('controller'=>$allControllers[$c])));
 				$con[$allControllers[$c]]= (isset($conAll[$allControllers[$c]])) ? $conAll[$allControllers[$c]] : array();
+				sort($con['Origin']);
 			}
 			foreach ($user_group_permissions as $row) {
 				$cont=$row['UserGroupPermission']['controller'];
