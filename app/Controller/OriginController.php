@@ -1169,7 +1169,6 @@ class OriginController extends AppController {
 	private function creatorSettingsUpdate($data) {
 		unset($data['statusSwitch']);
 		
-		$data['type']			= $data['config']['template'];
 		$data['config']			= json_encode($data['config']);
 		$data['content']		= json_encode($data['content']);
 		$data['modify_date']	= date('Y-m-d H:i:s');

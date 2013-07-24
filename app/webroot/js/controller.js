@@ -21,23 +21,28 @@ $j(function() {
     });
 });
 
+/*
 var notification = {
 		'title': 	'',
 		'content':	''
 	};
+*/
 
 var originGeneral = function($scope, $filter, Notification) {
 	//$scope.notification = {};
+/*
 	
 	$scope.back = function() {
 		window.history.back();
 	}
+*/
 
 	$scope.formSubmit = function(form) {
 		$j('#'+form).submit();
 		//$j('#UserEditUserForm').submit();
 	}
 	
+/*
 	$scope.$on('notificationBroadcast', function() {
 		$scope.notification.type 		= Notification.type;
 		$scope.notification.icon 		= Notification.icon;
@@ -45,6 +50,9 @@ var originGeneral = function($scope, $filter, Notification) {
 		$j('#origin-notification').fadeIn().delay(2700).fadeOut();
 	});   
 	
+*/
+/*
+	//WHAT WAS THIS FOR?
 	$scope._arrayLoop = function(array, index, direction) {
 		var i 		= (index)? index: 0;
 		var size	= array.length;
@@ -64,6 +72,7 @@ var originGeneral = function($scope, $filter, Notification) {
 		return i;
 	}
 	
+*/
 	
 	
 /*
@@ -83,10 +92,13 @@ var originGeneral = function($scope, $filter, Notification) {
 	}
 */
 	
+/*
 	$scope.createAlias = function(model) {
 		return $filter('createAlias')(model);
 	}
+*/
 	
+/*
 	$scope.toggleStatus = function(model, id, status) {
 		$scope.status = {
 			id:		id,
@@ -106,6 +118,7 @@ var originGeneral = function($scope, $filter, Notification) {
 		}
 		return $scope.status;
 	}
+*/
 	
 	
 	
@@ -117,12 +130,15 @@ var originGeneral = function($scope, $filter, Notification) {
 	
 	
 	
+/*
 	
 	$scope.listRefresh = function(data) {
 		$scope.originModal = false;
 		return data;
 	}
 	
+*/
+/*
 	$scope.originModalClose = function() {
 		$scope.originModal = false;
 	}
@@ -131,6 +147,7 @@ var originGeneral = function($scope, $filter, Notification) {
 		$scope.originModal = true;
 	}
 	
+*/
 /*
 	$scope.originModalOptions = {
 		backdropClick:	false,

@@ -40,7 +40,7 @@
 		</table> 
 	</div>
 	
-	<div modal="originModal" close="$parent.originModalClose()" options="$parent.originModalOptions">
+	<div modal="originModal" close="userClose()" options="{backdropClick: false, backdropFade: true}">
 		<form id="user-edit" name="user-edit" class="originUI-bgColorSecondary originUI-modal">
 			<input type="hidden" ng:model="editorModal.id"/>
 			<h3 id="user-editHeader" class="originUI-tileHeader originUI-borderColor originUI-textColor">Edit User</h3>
@@ -57,7 +57,7 @@
 				<div class="clear"></div>		
 			</div>
 			<div class="originUI-tileFooter">
-				<div class="originUI-tileFooterLeft originUI-hover" ng:click="$parent.originModalClose()">Cancel</div>
+				<div class="originUI-tileFooterLeft originUI-hover" ng:click="userClose()">Cancel</div>
 				<div class="originUI-tileFooterRight originUI-hover" ng:click="userSave()">Save</div>
 			</div>
 		</form>

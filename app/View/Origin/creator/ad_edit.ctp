@@ -71,7 +71,7 @@
 					<a href="javascript:void(0)" id="option-embed" class="option originUI-hover" ng:click="embedModalOpen()">Create Embed</a>
 				</li>
 				<li>
-					<a href="/administrator/demo/create/<?php echo $this->params['originAd_id'];?>" id="option-demo" class="option originUI-hover" target="_blank">View Demo</a>
+					<a href="/administrator/demo/create/<?php echo $this->params['originAd_id'];?>" id="option-demo" class="option originUI-hover" target="_blank">Create Demo</a>
 				</li>
 				<li>
 					<a href="javascript:void(0)" id="option-settings" class="option originUI-hover" ng:click="settingsModalOpen()">Settings</a>

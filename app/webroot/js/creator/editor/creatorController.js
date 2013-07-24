@@ -407,8 +407,10 @@ height:	$scope.workspace.template.config.dimensions[$scope.ui.view][$scope.ui.pl
 	* Update Origin ad settings
 	*/
 	$scope.settingsModalSave = function() {
-		delete $scope.editor.template;
 		$scope.editor.route			= 'creatorSettingsUpdate';
+		$scope.editor.type_id		= $scope.editor.template.OriginTemplate.id;
+		$scope.editor.type 			= $scope.editor.template.OriginTemplate.alias;
+		delete $scope.editor.template;
 		Rest.post($scope.editor).then(function(response) {
 			$scope.refreshUI(response);
 			$scope.settingsModalClose();
