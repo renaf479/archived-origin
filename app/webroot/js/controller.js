@@ -202,7 +202,7 @@ var originAllGroups = function($scope, Users) {
 
 
 
-var originSystems = function($scope, $filter, Origin, Notification) {
+var originSystems = function($scope, $filter, Rest, Notification) {
 	$scope.editor				= {};
 	
 	$scope.groupAlias = function() {
@@ -214,7 +214,7 @@ var originSystems = function($scope, $filter, Origin, Notification) {
 			$scope.editor.route					= 'dashboardGroupAdd';
 			$scope.editor.allowRegistration		= 1;
 			
-			Origin.post($scope.editor).then(function(response) {
+			Rest.post($scope.editor).then(function(response) {
 				$editor	= {};
 				//$scope.componentRefresh(response);
 			});

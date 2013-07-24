@@ -153,7 +153,9 @@ var adListController = function($scope, $rootScope, $filter, Notification, Rest,
 	//Close ad creator modal
 	$scope.adCreateClose = function() {
 		Modal.close('modalCreate');
-		$scope.editor = {};
+		$scope.editor = {
+			advance: false
+		};
 	}
 
 	//Submit and create ad

@@ -1,4 +1,6 @@
-
+<?
+	echo $this->Minify->css(array('demo/origin'));
+?>
 	<div id="bar" class="originAurora">
 		<div id="logo"></div>
 	</div>
@@ -55,5 +57,3 @@
 		
 		<adTag data-name="Out of Page" id="embedOutOfPage" ng:bind-html-unsafe="embedOutOfPage"></adTag>
 	</div>
-<?
-	echo $this->Minify->css(array('demo/origin'));
