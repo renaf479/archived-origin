@@ -214,7 +214,7 @@ var originSystems = function($scope, $filter, Rest, Notification) {
 			$scope.editor.route					= 'dashboardGroupAdd';
 			$scope.editor.allowRegistration		= 1;
 			
-			Origin.post($scope.editor).then(function(response) {
+			Rest.post($scope.editor).then(function(response) {
 				$editor	= {};
 				//$scope.componentRefresh(response);
 			});
