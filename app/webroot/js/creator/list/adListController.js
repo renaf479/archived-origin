@@ -32,7 +32,7 @@ var adListController = function($scope, $rootScope, $filter, Notification, Rest,
 	//Toggle showcase status
 	$scope.adShowcase = function(ad) {
 		$scope.post = {};
-		$scope.post.route		= 'adShowcase';
+		$scope.post.route		= 'creatorAdShowcase';
 		$scope.post.id 			= ad.id;
 		$scope.post.showcase	= (ad.showcase === '1')? '0': '1';
 		
@@ -49,7 +49,7 @@ var adListController = function($scope, $rootScope, $filter, Notification, Rest,
 		
 		var ask = confirm('Do you want to delete this ad unit?');
 		if(ask){
-			$scope.post.route			= 'adDelete';
+			$scope.post.route			= 'creatorAdDelete';
 			$scope.post.id 				= ad.id;
 			
 			Rest.post($scope.post).then(function(response) {
@@ -160,7 +160,7 @@ var adListController = function($scope, $rootScope, $filter, Notification, Rest,
 
 	//Submit and create ad
 	$scope.adCreateSave = function() {
-		$scope.editor.route				= 'adCreate';
+		$scope.editor.route				= 'creatorAdCreate';
 		$scope.editor.status			= ($scope.editor.statusSwitch)? 1: 0;
 		//$scope.editor.content.ga_id		= $scope.editor.ga_id;
 		$scope.editor.type 				= $scope.editor.template.OriginTemplate.alias;
