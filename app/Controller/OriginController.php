@@ -199,6 +199,7 @@ class OriginController extends AppController {
 	* Permissions: Developers and Designers
 	*/
 	public function creatorAdEdit() {
+		$this->layout	= 'creator';
 		$origin_ad		= $this->OriginAd->find('first', 
 			array(
 				'recursive'=>-1,

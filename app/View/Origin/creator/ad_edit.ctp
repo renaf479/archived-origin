@@ -1,5 +1,8 @@
 <div id="ad-edit" ng:controller="creatorController" ng:cloak>
 	<input id="originAd_id" type="hidden" value="<?php echo $origin_ad['OriginAd']['id'];?>"/>
+	<div id="creator-bar-wrapper" class="originUI-bgColor originUI-borderColor">
+		<h1 class="originUI-header">{{workspace.ad.OriginAd.name}}</h1>
+	</div>
 	<form id="creator-panel-left" class="originUI-bgColor">
 		<input type="hidden" name="uploadDir" value="/assets/creator/<?php echo $this->params['originAd_id'];?>/"/>
 		<div id="platforms-wrapper" class="" data-intro="Select between supported platforms" data-position="bottom">

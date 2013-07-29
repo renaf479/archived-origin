@@ -1,4 +1,4 @@
-<div id="site-manager" ng:controller="adSitesController" ng:cloak>
+<div id="site-manager" ng:controller="adSitesController">
 	<h2 class="originUI-header"><a href="/administrator/settings" class="originUI-back originUI-hover">Site Demo Templates</a></h2>
 	<form id="siteManager-create" name="siteManagerCreateForm" class="originUI-tileLeft originUI-bgColorSecondary originUI-shadow" novalidate>
 		<input type="hidden" name="uploadDir" value="/assets/components/"/>
@@ -20,12 +20,12 @@
 				<th class="originUI-tableHeadDescription">Description</th>
 			</thead>
 			<tbody class="originUI-tableBody">
-				<tr class="originUI-tableRow originUI-hover" ng:repeat="site in sites|orderBy:siteFilter:reverse|filter:searchOrigin" ng:animate="'originUI-fade'" ng:class="(site.OriginSite.status !== '1')? 'inactive': ''">
+				<tr class="originUI-tableRow originUI-hover" ng:repeat="site in sites|orderBy:siteFilter:reverse|filter:searchOrigin" ng:class="(site.OriginSite.status !== '1')? 'inactive': ''">
 					<td class="originUI-tableStatus originUI-tableCell" ng:show="site.OriginSite.status == '1'" class="userList-status">
-						<img src="/img/icon-check-small.png" alt="Active" ng:click="toggleStatus('OriginSite', site.OriginSite.id, 'disable')"/>
+						<img src="/img/icon-check-small.png" alt="Active" ng:click="toggleStatus('OriginSite', site.OriginSite.id, 'disable', site)"/>
 					</td>
 					<td class="originUI-tableStatus originUI-tableCell" ng:show="site.OriginSite.status != '1'" class="userList-status">
-						<img src="/img/icon-cross-small.png" alt="Inactive" ng:click="toggleStatus('OriginSite', site.OriginSite.id, 'enable')"/>
+						<img src="/img/icon-cross-small.png" alt="Inactive" ng:click="toggleStatus('OriginSite', site.OriginSite.id, 'enable', site)"/>
 					</td>
 					<td class="originUI-tableName originUI-tableCell" ng:click="siteEdit(site)">{{site.OriginSite.name}} ({{site.OriginSite.alias}})</td>
 					<td class="originUI-tableDescription originUI-tableCell" ng:click="siteEdit(site)">{{site.OriginSite.content.description}}</td>

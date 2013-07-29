@@ -76,9 +76,6 @@
 	<div modal="modalDemo" close="adDemoClose()" options="originModalOptions">
 		<form id="modal-demo" class="originUI-bgColorSecondary originUI-modal">
 			<h3 id="modalDemo-header" class="originUI-tileHeader originUI-borderColor originUI-textColor">Ad Demo Pages</h3>
-			
-			
-			
 			<div class="originUI-modalContent">
 				<div class="nano" nanoscroller>
 					<div class="nano-content">

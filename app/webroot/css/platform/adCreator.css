@@ -40,6 +40,13 @@ body.originClass-edit #originBar-settings.open #originBar-settingsIcon {
 	position: static;
 }
 
+#creator-bar-wrapper {
+	width: 100%;
+	height: 50px;
+	border-width: 0 0 1px 0;
+	border-style: solid;
+}
+
 #creator-panel-left,
 #creator-panel-workspace {
 	position: absolute;
@@ -49,13 +56,13 @@ body.originClass-edit #originBar-settings.open #originBar-settingsIcon {
 
 #creator-panel-left,
 #creator-panel-workspace {
-	top: 38px;
+	top: 51px;
 }
 
 #creator-panel-workspace {
 	right: 0;
 	left: 200px;
-	top: 70px;
+	top: 83px;
 	z-index: 0;
 	border-width: 3px 0 0 3px;
 	border-style: solid;

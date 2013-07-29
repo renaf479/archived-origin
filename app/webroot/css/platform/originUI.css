@@ -163,11 +163,12 @@ li {
 .originUI-fade-enter,
 .originUI-fade-leave,
 .originUI-fade-move {
-	-webkit-transition: all .27s ease;
-	-moz-transition: all .27s ease;
-	-o-transition: all .27s ease;
-	transition: all .27s ease;
+	-webkit-transition: all .27s ease !important;
+	-moz-transition: all .27s ease !important;
+	-o-transition: all .27s ease !important;
+	transition: all .27s ease !important;
 }
+
 
 .originUI-fade-hide,
 .originUI-fade-show.originUI-fade-show-active,

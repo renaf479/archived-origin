@@ -21,7 +21,7 @@
 				<th class="originUI-tableHeadGroup" ng:click="templateFilter='OriginTemplate.config.type';reverse=!reverse">Template</th>
 			</thead>
 			<tbody class="originUI-tableBody">
-				<tr class="originUI-tableRow originUI-hover" ng:repeat="template in templates|orderBy:templateFilter:reverse|filter:searchOrigin" ng:animate="'originUI-fade'" ng:class="(template.OriginTemplate.status !== '1')? 'inactive': ''">
+				<tr class="originUI-tableRow originUI-hover" ng:repeat="template in templates|orderBy:templateFilter:reverse|filter:searchOrigin" ng:class="(template.OriginTemplate.status !== '1')? 'inactive': ''">
 					<td class="originUI-tableStatus originUI-tableCell" ng:show="template.OriginTemplate.status == '1'" class="userList-status">
 						<img src="/img/icon-check-small.png" alt="Active" ng:click="toggleStatus('OriginTemplate', template.OriginTemplate.id, 'disable')"/>
 					</td>

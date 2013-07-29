@@ -1,4 +1,4 @@
-var adSitesController	= function($scope, $filter, Rest, Notification) {
+var adSitesController	= function($scope, $filter, Rest, Notification, $timeout) {
 	$scope.editor		= {};
 	$scope.editorModal	= {};
 	$scope.status		= {};
@@ -31,7 +31,7 @@ var adSitesController	= function($scope, $filter, Rest, Notification) {
 	/**
 	* Status toggle
 	*/
-	$scope.toggleStatus = function(model, id, status) {
+	$scope.toggleStatus = function(model, id, status, site) {
 		var post = {
 			route: 'toggleStatus',
 			id:		id,
@@ -49,6 +49,7 @@ var adSitesController	= function($scope, $filter, Rest, Notification) {
 	
 		Rest.post(post).then(function(response) {
 			$scope.sites = response;
+			
 			switch(status) {
 				case 'disable':
 					Notification.alert('Site template disabled');

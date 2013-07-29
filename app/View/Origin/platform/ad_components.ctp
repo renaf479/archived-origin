@@ -21,7 +21,7 @@
 				<th class="originUI-tableHeadGroup" ng:click="componentFilter='OriginComponent.group';reverse=!reverse">Group</th>
 			</thead>
 			<tbody class="originUI-tableBody">
-				<tr class="originUI-tableRow originUI-hover" ng:repeat="component in components|orderBy:componentFilter:reverse|filter:searchOrigin" ng:animate="'originUI-fade'" ng:class="(component.OriginComponent.status !== '1')? 'inactive': ''">
+				<tr class="originUI-tableRow originUI-hover" ng:repeat="component in components|orderBy:componentFilter:reverse|filter:searchOrigin" ng:class="(component.OriginComponent.status !== '1')? 'inactive': ''">
 					<td class="originUI-tableStatus originUI-tableCell" ng:show="component.OriginComponent.status == '1'" class="userList-status">
 						<img src="/img/icon-check-small.png" alt="Active" ng:click="toggleStatus('OriginComponent', component.OriginComponent.id, 'disable')"/>
 					</td>
