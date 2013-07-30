@@ -261,7 +261,7 @@ height:	$scope.workspace.template.config.dimensions[$scope.ui.view][$scope.ui.pl
 			$scope.creatorModal	= false;
 			$scope.refreshUI(response);
 			Notification.display('Content saved');
-			$j('#actions-wrapper').fadeOut(200);
+			//$j('#actions-wrapper').fadeOut(200);
 		});
 	}
 	
@@ -281,7 +281,7 @@ height:	$scope.workspace.template.config.dimensions[$scope.ui.view][$scope.ui.pl
 				$scope.creatorModal	= false;
 				$scope.refreshUI(response);
 				Notification.alert('Content removed');
-				$j('#actions-wrapper').fadeOut(200);
+				//$j('#actions-wrapper').fadeOut(200);
 			});	
 		} else {
 			return false;
@@ -303,7 +303,7 @@ height:	$scope.workspace.template.config.dimensions[$scope.ui.view][$scope.ui.pl
 			$scope.editor = {};
 			$scope.refreshUI(response);
 			Notification.display('Asset added to workspace');
-			$j('#actions-wrapper').fadeOut(200);
+			//$j('#actions-wrapper').fadeOut(200);
 		});
 	}
 	
@@ -432,7 +432,7 @@ height:	$scope.workspace.template.config.dimensions[$scope.ui.view][$scope.ui.pl
 		Rest.get('ad/'+originAd_id).then(function(response) {
 			$scope.refreshUI(response);
 			Notification.alert('Previous workspace loaded');
-			$j('#actions-wrapper').fadeOut(200);
+			//$j('#actions-wrapper').fadeOut(200);
 		});
 	}
 	
@@ -445,7 +445,7 @@ height:	$scope.workspace.template.config.dimensions[$scope.ui.view][$scope.ui.pl
 		$scope.editor.route			= 'creatorWorkspaceUpdate';
 		Rest.post($scope.editor).then(function(response) {
 			Notification.display('Workspace saved');
-			$j('#actions-wrapper').fadeOut(200);
+			//$j('#actions-wrapper').fadeOut(200);
 			$scope.refreshUI(response);
 		});
 	}

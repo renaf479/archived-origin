@@ -42,7 +42,8 @@ body.originClass-edit #originBar-settings.open #originBar-settingsIcon {
 
 #creator-bar-wrapper {
 	width: 100%;
-	height: 50px;
+	height: 40px;
+	line-height: 40px;
 	border-width: 0 0 1px 0;
 	border-style: solid;
 }
@@ -56,13 +57,13 @@ body.originClass-edit #originBar-settings.open #originBar-settingsIcon {
 
 #creator-panel-left,
 #creator-panel-workspace {
-	top: 51px;
+	top: 41px;
 }
 
 #creator-panel-workspace {
 	right: 0;
 	left: 200px;
-	top: 83px;
+	top: 73px;
 	z-index: 0;
 	border-width: 3px 0 0 3px;
 	border-style: solid;
@@ -82,10 +83,87 @@ body.originClass-edit #originBar-settings.open #originBar-settingsIcon {
 	height: 26px;
 }
 
-/***** START: TOP PANEL *****/
+
+/* =======================================================================
+	Creator bar
+========================================================================== */
+.creatorbar-icon {
+	opacity: .4;
+	cursor: pointer;
+	text-indent: -5000em;
+	width: 26px;
+	height: 100%;
+	background-color: transparent;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: 18px 18px;
+	margin: 0 5px;
+}
+
+.creatorbar-icon:hover,
+.open .creatorbar-icon {
+	opacity: 1;
+}
+
+#creatorbar-exit {
+	background-image: url(/img/exit-26x26.png);
+}
+
+#creatorbar-name {
+	font-size: 22px;
+}
+
+#creatorbar-share {
+	width: 26px;
+	height: 100%;
+	position: relative;
+}
+
+#share {
+	background-image: url(/img/share-18x18.png);
+}
+
+#share-menu {
+	margin: -3px 0 0 0;
+	border-width: 1px 0 1px 3px;
+	border-style: solid;
+}
+
+#shareMenu-demo {
+	background-image: url(/img/demo-26x26.png);
+}
+
+#shareMenu-embed {
+	background-image: url(/img/embed-18x18.png);
+}
+
+#creatorbar-utilities {
+	position: absolute;
+	right: 0px;
+	top: 0;
+}
+
+#creatorbar-undo {
+	background-image: url(/img/undo-26x26.png);
+}
+
+#creatorbar-save {
+	background-image: url(/img/save-26x26.png);
+}
+
+#creatorbar-help {
+	background-image: url(/img/help-18x18.png);
+}
+
+
+/* =======================================================================
+	Components panel
+========================================================================== */
+
 #creator-panel-top {
 	position: absolute;
 	height: 32px;
+	line-height: 32px;
 	left: 200px;
 	right: 0;
 	border-width: 0 0 0 2px;
@@ -95,21 +173,21 @@ body.originClass-edit #originBar-settings.open #originBar-settingsIcon {
 #components-wrapper,
 #scripts-wrapper,
 #schedules-wrapper,
+#options-wrapper
 /* #display-wrapper, */
-#actions-wrapper,
-#options-wrapper {
+/* #actions-wrapper, */
+/* #options-wrapper */ {
+	font-size: 16px;
 	position: absolute;
 	height: 100%;
 	color: #fff;
-	line-height: 32px;
-	font-size: 16px;
 	cursor: pointer;
 }
 
 #components-wrapper {
 	background: transparent url(/img/ad-component-add-26x26.png) no-repeat left 4px;
 	left: 10px;
-	padding-left: 30px;
+	padding-left: 20px;
 	cursor: default;
 }
 
@@ -130,9 +208,9 @@ body.originClass-edit #originBar-settings.open #originBar-settingsIcon {
 }
 
 .component-menu > a {
+	font-variant: small-caps;
 	padding: 0 10px;
 	font-size: 17px;
-	font-variant: small-caps;
 	width: 100%;
 	height: 100%;
 	display: block;
@@ -145,14 +223,18 @@ body.originClass-edit #originBar-settings.open #originBar-settingsIcon {
 	min-width: 200px;
 }
 
-#components-wrapper .component {
+#components-wrapper .component,
+#options-menu .options,
+#share-menu .share {
 	margin: 0 -25px;
 	padding: 0 10px;
 	display: block;
 }
 
 #components-wrapper .component,
-#components-wrapper .component:hover {
+#components-wrapper .component:hover,
+#options-menu .options,
+#share-menu .share {
 	text-indent: 25px;
 	background-repeat: no-repeat;
 	background-position: 10px center;
@@ -163,6 +245,42 @@ body.originClass-edit #originBar-settings.open #originBar-settingsIcon {
 	position: relative;
 }
 
+#options-wrapper {
+	right: 10px;
+	top: 0;
+	height: 100%;
+}
+
+#options {
+	background: transparent url(/img/options-26x26.png) no-repeat right center/18px 18px;
+	padding-right: 25px;
+	font-variant: small-caps;
+	opacity: .2;
+}
+
+#options-wrapper.open #options,
+#options:hover {
+	opacity: 1;
+}
+
+#options-menu {
+	left: auto;
+	right: 0;
+	margin: 1px 0px 0 0;
+	border-width: 0px 3px 1px 0;
+	border-style: solid;
+}
+
+#optionsMenu-css {
+	background-image: url(/img/scripts-26x26.png);
+}
+
+#optionsMenu-settings {
+	background-image: url(/img/settings-18x18.png);
+	
+}
+
+
 /*
 #display-wrapper {
 	width: 165px;
@@ -170,6 +288,8 @@ body.originClass-edit #originBar-settings.open #originBar-settingsIcon {
 }
 */
 
+
+/* WHERE DOES THIS GO??? */
 #display-icon {
 	width: 26px;
 	height: 26px;
@@ -205,9 +325,9 @@ body.originClass-edit #originBar-settings.open #originBar-settingsIcon {
 	right: 75px;
 }
 
+/*
 #options-wrapper,
 #scripts-wrapper {
-	/* right: 30px; */
 	bottom: 0;
 	width: 100px;
 	height: 36px;
@@ -215,7 +335,9 @@ body.originClass-edit #originBar-settings.open #originBar-settingsIcon {
 	border-width: 1px 0 0 0;
 	border-style: solid;
 }
+*/
 
+/*
 #options,
 #scripts {
 	padding: 5px 0;
@@ -229,23 +351,19 @@ body.originClass-edit #originBar-settings.open #originBar-settingsIcon {
 #scripts {
 	background: transparent url(/img/scripts-26x26.png) no-repeat center center;
 }
+*/
+/*
 
 #options:hover,
 #options-wrapper.open #options,
 #scripts:hover,
 #scripts-wrapper.open #scripts {
 	background-color: rgba(255, 255, 255, .1);
-/*
-	border-width: 0 0 3px 0;
-	border-style: solid;
-	height: 40px;
-	background-position: center 8px;
-*/
+
 }
 
 #options-wrapper .dropdown-menu,
 #scripts-wrapper .dropdown-menu {
-	/* background-color: rgba(255, 255, 255, .1); */
 	left: 0;
 	top: -134px;
 	border-style: solid;
@@ -253,7 +371,6 @@ body.originClass-edit #originBar-settings.open #originBar-settingsIcon {
 	margin: 0;
 	padding: 0;
 	width: 200px;
-	/* border-width: 0 3px 1px 0; */
 }
 
 #options-wrapper .option,
@@ -283,7 +400,9 @@ body.originClass-edit #originBar-settings.open #originBar-settingsIcon {
 #scripts-wrapper {
 	left: 100px;
 }
+*/
 
+/*
 #actions-wrapper {
 	top: 0;
 	font-size: 13px;
@@ -293,6 +412,8 @@ body.originClass-edit #originBar-settings.open #originBar-settingsIcon {
 	width: 180px;
 	height: 100%;
 }
+*/
+/*
 
 #workspace-save,
 #workspace-undo {
@@ -319,6 +440,7 @@ body.originClass-edit #originBar-settings.open #originBar-settingsIcon {
 	background: transparent url(/img/undo-26x26.png) no-repeat 10px center;
 	left: 0px;
 }
+*/
 /*
 
 #schedules {
@@ -347,6 +469,13 @@ body.originClass-edit #originBar-settings.open #originBar-settingsIcon {
 	border-bottom: 1px solid #0099cc;
 }
 */
+
+/* options-26x26 */
+
+
+
+
+
 
 
 /***** END: TOP PANEL *****/

@@ -59,6 +59,7 @@ angular.module('originApp.directives', [])
 		}
 	})
 */
+/*
 	.directive('asset', function() {
 		return {
 			restrict: 'A',
@@ -81,7 +82,9 @@ angular.module('originApp.directives', [])
 			}
 		}
 	})
-	.directive('backImg', function() {
+*/
+	/*
+.directive('backImg', function() {
 		return function(scope, element, attrs) {
 			attrs.$observe('backImg', function(value) {
 				if(value) {
@@ -92,6 +95,8 @@ angular.module('originApp.directives', [])
 			});
 		}
 	})
+*/
+/*
 	.directive('config', function() {
 		return {
 			restrict: 'A',
@@ -131,13 +136,14 @@ angular.module('originApp.directives', [])
 			}
 		}
 	})
+*/
+/*
 	.directive('workspaceContent', function() {
 		return {
 			restrict: 'E',
 			replace: true,
 			template: '<div class="workspace-content" ng:dblclick="creatorModalOpen()" ng:click="creatorCompanionSelect()"></div>',
 			scope: {
-				/* creatorCompanionSelect: '&click', */
 				creatorModalOpen: 		'&doubleClick',
 				ngModel: 				'='
 			},
@@ -175,7 +181,7 @@ angular.module('originApp.directives', [])
 					snap: true,
 					snapTolerance: 7,
 					stop: function(event, ui) {
-						$j('#actions-wrapper').fadeIn(300);
+						//$j('#actions-wrapper').fadeIn(300);
 						
 						//construct config dataset
 						scope.ngModel.config = {
@@ -193,7 +199,7 @@ angular.module('originApp.directives', [])
 					containment: $j('#creator-panel-workspace'),
 					handles: 'all',
 					stop: function(event, ui) {
-						$j('#actions-wrapper').fadeIn(300);
+						//$j('#actions-wrapper').fadeIn(300);
 						
 						//construct config dataset
 						scope.ngModel.config = {
@@ -244,7 +250,7 @@ angular.module('originApp.directives', [])
 							}
 							
 							if(event.keyCode !== 8) {							
-								$j('#actions-wrapper').fadeIn(300);
+								//$j('#actions-wrapper').fadeIn(300);
 								var newPosition  = element.position();
 								//construct config dataset
 								scope.ngModel.config = {
@@ -267,6 +273,7 @@ angular.module('originApp.directives', [])
 			}
 		}
 	})
+*/
 	/*
 .directive('fileupload', function() {
 		return {
@@ -293,7 +300,8 @@ angular.module('originApp.directives', [])
 		}
 	})
 */
-	.directive('layerSortable', function() {
+	/*
+.directive('layerSortable', function() {
 		return {
 			restrict: 'A',
 			replace: false,
@@ -321,13 +329,15 @@ angular.module('originApp.directives', [])
 							}
 							
 						});
-						$j('#actions-wrapper').fadeIn(300);
+						//$j('#actions-wrapper').fadeIn(300);
 					}
 				});
 			}
 		}
 	})
-	.directive('kinetic', function() {
+*/
+	/*
+.directive('kinetic', function() {
 		//FIX THIS!!
 		return {
 			restrict: 'A',
@@ -340,6 +350,8 @@ angular.module('originApp.directives', [])
 			}
 		}
 	})
+*/
+/*
 	.directive('panelUpload', function() {
 		return {
 			restrict: 'A',
@@ -365,7 +377,9 @@ angular.module('originApp.directives', [])
 			}
 		}
 	})
-	.directive('workspace', function(){
+*/
+	/*
+.directive('workspace', function(){
 		return {
 			restrict: 'A',
 			link: function(scope, element, attrs) {
@@ -405,6 +419,7 @@ angular.module('originApp.directives', [])
 			}	
 		}
 	})
+*/
 	.directive('chart', function() {
         return {
           restrict: 'A',

@@ -314,7 +314,7 @@ li {
 }
 
 .originUI-iconHover {
-	opacity: .4;
+	opacity: .2;
 }
 
 .originUI-iconHover:hover {
@@ -809,7 +809,7 @@ body.originClass-edit #originBar-search {
 }
 
 #originBar-help {
-	background: transparent url(/img/dropdown-help.png) no-repeat center center;
+	background: transparent url(/img/help-18x18.png) no-repeat center center;
 	right: 0;
 	cursor: pointer;
 	text-indent: -5000em;

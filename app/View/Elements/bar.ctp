@@ -90,6 +90,5 @@
 			</form>
 		<?php } ?>
 		<div id="originBar-help" class="originUI-hover originUI-borderColor" help>Help</div>
-		<?php echo $this->element('notification');?>
 	</div>
 </div>

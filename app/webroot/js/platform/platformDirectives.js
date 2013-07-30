@@ -24,6 +24,30 @@ angular.module('platformApp.directives', [])
 			}
 		}
 	})
+	.directive('backImg', function() {
+		return function(scope, element, attrs) {
+			attrs.$observe('backImg', function(value) {
+				if(value) {
+					element.css({
+						'background-image': 'url('+value+')'
+					});
+				}
+			});
+		}
+	})
+	.directive('kinetic', function() {
+		//FIX THIS!!
+		return {
+			restrict: 'A',
+			link: function(scope, element, attrs) {
+				element.kinetic({
+					filterTarget: function(target) {
+						return !$j(target).hasClass('ui-draggable');
+					}
+				});
+			}
+		}
+	})
 	.directive('nanoscroller', function() {
 		return {
 			restrict: 'A',

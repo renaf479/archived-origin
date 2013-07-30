@@ -1,16 +1,33 @@
 <div id="ad-edit" ng:controller="creatorController" ng:cloak>
 	<input id="originAd_id" type="hidden" value="<?php echo $origin_ad['OriginAd']['id'];?>"/>
 	<div id="creator-bar-wrapper" class="originUI-bgColor originUI-borderColor">
-		<h1 class="originUI-header">{{workspace.ad.OriginAd.name}}</h1>
+		<div id="creatorbar-exit" class="inline creatorbar-icon originUI-hover" ng:click="creatorSaveExit()">exit</div>
+		<div id="creatorbar-name" class="inline originUI-textColor">{{workspace.ad.OriginAd.name}}</div>
+		<div id="creatorbar-share" class="inline">
+			<div id="share" class="dropdown-toggle creatorbar-icon originUI-hover"<?php /* data-intro="Create demo page or generate embed code" data-position="right" */ ?>></div>
+			<ul id="share-menu" class="dropdown-menu originUI-bgColorSecondary originUI-borderColor">
+				<li class="dropdown-item">
+					<a href="/administrator/demo/create/<?php echo $this->params['originAd_id'];?>" target="_blank" id="shareMenu-demo" class="share originUI-hover">Create Demo</a>
+				</li>
+				<li>
+					<a href="javascript:void(0)" id="shareMenu-embed" class="share originUI-hover" ng:click="embedModalOpen()">Create Embed</a>
+				</li class="dropdown-item">
+			</ul>
+		</div>
+		<div id="creatorbar-utilities">
+			<div id="creatorbar-undo" class="inline creatorbar-icon originUI-hover" ng:click="workspaceUndo()">Undo</div>
+			<div id="creatorbar-save" class="inline creatorbar-icon originUI-hover" ng:click="workspaceUpdate()">Save</div>
+			<div id="creatorbar-help" class="inline creatorbar-icon originUI-hover" help>Help</div>
+		</div>
 	</div>
-	<form id="creator-panel-left" class="originUI-bgColor">
+	<form id="creator-panel-left" class="originUI-bgColor" data-intro="Manage workspace views and component layers" data-position="right">
 		<input type="hidden" name="uploadDir" value="/assets/creator/<?php echo $this->params['originAd_id'];?>/"/>
-		<div id="platforms-wrapper" class="" data-intro="Select between supported platforms" data-position="bottom">
+		<div id="platforms-wrapper" class="">
 			<a href="javascript:void(0)" id="platform-desktop" class="platform originUI-hover inline" ng:click="platformSwitch('Desktop')" ng:class="{'inactive': !workspace.ad.OriginAd.config.dimensions.Initial.Desktop.width, 'active': ui.platform === 'Desktop'}">Desktop</a>
 			<a href="javascript:void(0)" id="platform-tablet" class="platform originUI-hover inline" ng:click="platformSwitch('Tablet')" ng:class="{'inactive': !workspace.ad.OriginAd.config.dimensions.Initial.Tablet.width, 'active': ui.platform === 'Tablet'}">Tablet</a>
 			<a href="javascript:void(0)" id="platform-mobile" class="platform originUI-hover inline" ng:click="platformSwitch('Mobile')" ng:class="{'inactive': !workspace.ad.OriginAd.config.dimensions.Initial.Mobile.width, 'active': ui.platform === 'Mobile'}">Mobile</a>
 		</div>
-		<div id="display-wrapper" ng:click="creatorToggle('view')" data-intro="Toggle between the initial and triggered states of the unit" data-position="right" ng:show="workspace.ad.OriginAd.config.dimensions.Triggered[ui.platform].height > 0">
+		<div id="display-wrapper" ng:click="creatorToggle('view')" ng:show="workspace.ad.OriginAd.config.dimensions.Triggered[ui.platform].height > 0">
 			<div id="display-icon" class="inline" ng:class="{true: 'display-initial', false: 'display-triggered'}[ui.view=='Initial']"></div>
 			<div id="display" class="inline">
 				<div class="originUI-switch">
@@ -67,7 +84,8 @@
 				</ul>
 			</div>
 		</div>	
-		<div id="options-wrapper" data-intro="Ad creator options" data-position="top" class="originUI-borderColor originUI-bgColorSecondary">
+		<!--
+<div id="options-wrapper" data-intro="Ad creator options" data-position="top" class="originUI-borderColor originUI-bgColorSecondary">
 			<span id="options" class="dropdown-toggle originUI-borderColor originUI-hover">Options</span>
 			<ul class="dropdown-menu originUI-bgColorSecondary originUI-borderColor">
 				<li>
@@ -83,10 +101,13 @@
 					<a href="javascript:void(0)" id="option-exit" class="option originUI-hover" ng:click="creatorSaveExit()">Save &amp; Exit</a>
 				</li>
 			</ul>
-		</div><!--
-		--><div id="scripts-wrapper" data-intro="CSS editor" data-position="top" class="originUI-borderColor originUI-bgColorSecondary">
+		</div>
+--><!--
+		--><!--
+<div id="scripts-wrapper" data-intro="CSS editor" data-position="top" class="originUI-borderColor originUI-bgColorSecondary">
 			<span id="scripts" class="originUI-borderColor originUI-hover" ng:click="scriptsModalOpen()">Scripts</span>
 		</div>
+-->
 		<!--
 <div id="schedules-wrapper" class="originUI-borderColor originUI-bgColorSecondary" data-intro="Select dates" data-position="right">
 			<span id="schedules" class="dropdown-toggle originUI-hover"></span>
@@ -109,10 +130,38 @@
 				</ul>
 			</div>
 		</div>
-		<div id="actions-wrapper" class="none">
-			<span id="workspace-undo" class="inline" ng:click="workspaceUndo()">Undo</span><!--
-			--><span id="workspace-save" class="inline" ng:click="workspaceUpdate()">Save</span>
+		<div id="options-wrapper" data-intro="Advanced editor options" data-position="left">
+			<div id="options" class="dropdown-toggle originUI-hover">Options</div>
+			<ul id="options-menu" class="dropdown-menu originUI-bgColorSecondary originUI-borderColor">
+				<li class="dropdown-item">
+					<a href="javascript:void(0)" id="optionsMenu-css" class="options originUI-hover" ng:click="scriptsModalOpen()">Code Editor</a>
+				</li>
+				<li class="dropdown-item">
+					<a href="javascript:void(0)" id="optionsMenu-settings" class="options originUI-hover" ng:click="settingsModalOpen()">Settings</a>
+				</li>
+			</ul>
+			
+			
+			<!--
+			<div id="originBar-logo">
+				<div id="originBar-logoIcon" class="originUI-borderColor dropdown-toggle">Origin</div>
+				<ul id="originBar-logoMenu" class="dropdown-menu originUI-bgColorSecondary originUI-borderColor">
+					<li>
+						<a href="/" id="originBar-home" class="originBar-settings originUI-hover">Homepage</a>
+					</li>
+					<li>
+						<a href="/administrator/" id="originBar-dashboard" class="originBar-settings originUI-hover">Dashboard</a>
+					</li>
+				</ul>
+			</div>
+			-->
 		</div>
+<!--
+		<div id="actions-wrapper" class="!none">
+			<span id="workspace-undo" class="inline" ng:click="workspaceUndo()">Undo</span>
+			<span id="workspace-save" class="inline" ng:click="workspaceUpdate()">Save</span>
+		</div>
+-->
 	</div>
 	
 	<div id="creator-panel-workspace" class="originUI-bgColorSecondary originUI-bgTexture originUI-borderColor" kinetic>
@@ -304,4 +353,4 @@ var meny = Meny.create({
 
 <?php
 	echo $this->Minify->css(array('platform/adCreator', 'plugins/codemirror/night', 'plugins/jquery-ui.min'));
-	echo $this->Minify->script(array('plugins/codemirror/codemirror', 'plugins/codemirror/xml', 'plugins/codemirror/javascript', 'plugins/codemirror/css', 'plugins/codemirror/htmlmixed', 'plugins/jquery-ui.min', 'plugins/jquery-touch', 'plugins/jquery.kinetic.min', 'creator/editor/creatorController'));
+	echo $this->Minify->script(array('plugins/codemirror/codemirror', 'plugins/codemirror/xml', 'plugins/codemirror/javascript', 'plugins/codemirror/css', 'plugins/codemirror/htmlmixed', 'plugins/jquery-ui.min', 'plugins/jquery-touch', 'plugins/jquery.kinetic.min', 'creator/editor/creatorController', 'creator/editor/creatorDirectives'));
