@@ -14,7 +14,6 @@
 	}	
 	$template	= $origin_ad['OriginAd']['config']->template;
 
-
 	/**
 	* Add GA tracking if available
 	*/
