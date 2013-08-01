@@ -585,6 +585,7 @@ height: 26px;
 	height: 32px;
 	line-height: 32px;
 	white-space: nowrap;
+	display: block;
 }
 
 .originUI-listItem + .originUI-listItem {

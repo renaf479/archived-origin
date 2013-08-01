@@ -1,0 +1,46 @@
+#homepage-container {
+	margin-top: 50px;
+}
+
+#homepage-left {
+	margin: 0;
+	width: 200px;
+	height: 500px;
+}
+
+#homepage-right {
+	width: 800px;
+	height: 1000px;
+}
+
+
+/* =======================================================================
+	Product
+========================================================================== */
+#product-preview {
+	width: 700px;
+	height: 630px;
+	display: block;
+	margin: 0 auto;
+	position: relative;
+}
+
+#productPreview-grid,
+#productPreview-live {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+}
+
+#productPreview-live {
+	z-index: 10;
+}
+
+#productPreview-grid {
+	background-position: right top;
+	z-index: 0;
+}
+
+#productPreview-live:hover {
+	opacity: 0;
+}

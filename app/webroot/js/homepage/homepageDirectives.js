@@ -1,5 +1,6 @@
 'use strict';
 
+/*
 platformApp.directive('product', function($rootScope) {
 	var elementRow	= 0;
 	return {
@@ -42,3 +43,4 @@ platformApp.directive('productImage', function() {
 		}
 	}
 });
+*/

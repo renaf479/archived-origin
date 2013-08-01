@@ -63,6 +63,6 @@
 		</div>
 	</div>
 	<div ng:show="editor.advance == true">
-		<?php echo $this->element('form_template', array('view'=>'right', 'editor' => 'editor'));?>
+		<?php echo $this->element('platform/form_template', array('view'=>'right', 'editor' => 'editor'));?>
 	</div>
 <?php } ?>

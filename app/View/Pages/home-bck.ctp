@@ -1,24 +1,4 @@
-<div id="homepage-container" data:ng:controller="homepageController">
-	<div id="homepage-left" class="originUI-tileLeft originUI-bgColorSecondary originUI-shadow">
-		<h2>Products</h2>
-		<ul class="originUI-list">
-			<li class="originUI-listItem" data:ng:repeat="product in products|filter:searchOrigin" data:ng:click="loadProduct(product)">
-				<a href="javascript:void(0)" class="originUI-hover">{{product.OriginTemplate.name}}</a>
-			</li>
-		</ul>
-	</div><!--
-	--><div id="homepage-right" class="originUI-tileRight originUI-bgColor originUI-shadow">
-		<div id="product-summary">
-			<h2>{{product.OriginTemplate.name}}</h2>
-			<p>{{product.OriginTemplate.content.description}}</p>
-			<!-- <img data:ng:src="{{product.OriginTemplate.content.file_storyboard}}"/> -->
-		</div>
-		<div id="product-preview">
-			<div id="productPreview-live" class="originUI-hover" back-img="{{product.OriginTemplate.content.file_guideline}}"></div>
-			<div id="productPreview-grid" class="" back-img="{{product.OriginTemplate.content.file_guideline}}"></div>
-		</div>
-	</div>
-<!--
+<div id="homepage-container" ng:controller="homepageController">
 	<div class="homepage-product inline" ng:repeat="product in products|filter:searchOrigin" ng:animate="'originUI-fade'" index="{{$index}}" ng:class="{expand: (productShow === product.OriginTemplate.id)}">
 		<div product class="homepageProduct originUI-shadow originUI-borderColor">
 			<img class="homepageProduct-image" ng:src="{{product.OriginAds.content.img_thumbnail}}"/>
@@ -45,8 +25,7 @@
 			</div>
 		</div>
 	</div>
--->
 </div>
 <?php
 	echo $this->Minify->script(array('homepage/homepageController', 'homepage/homepageDirectives', 'homepage/homepageServices'));
-	echo $this->Minify->css(array('platform/homepage'));
+	echo $this->Minify->css(array('home'));

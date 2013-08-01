@@ -54,6 +54,12 @@
 			<input type="file" name="files[]" id="adTemplate-upload-storyboard" class="originUI-uploadInput" ng:model="<?php echo $editor;?>.content.file_storyboard" fileupload>
 		</div>
 	</li>
+	<li>
+		<div id="adTemplate-guidelineUpload" class="originUI-upload originUI-icon originUiIcon-upload">
+			<span class="originUI-uploadLabel">Upload Guidelines</span>
+			<input type="file" name="files[]" id="adTemplate-upload-guideline" class="originUI-uploadInput" ng:model="<?php echo $editor;?>.content.file_guideline" fileupload>
+		</div>
+	</li>
 </ul>
 
 <?php } else if($view === 'right') { ?>

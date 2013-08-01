@@ -81,6 +81,7 @@ body.originClass-edit #originBar-settings.open #originBar-settingsIcon {
 #layer-switch .originUI-switchInner > .originUI-switchActive,
 #layer-switch .originUI-switchInner > .originUI-switchInactive {
 	height: 26px;
+	line-height: 26px;
 }
 
 
@@ -555,7 +556,7 @@ body.originClass-edit #originBar-settings.open #originBar-settingsIcon {
 }
 
 #layer-switch > .originUI-switch {
-	font-size: 15px;
+	font-size: 12px;
 }
 
 #layer-switch .originUI-switchActive .originUI-switchText:before {

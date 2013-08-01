@@ -90,6 +90,7 @@ class OriginController extends AppController {
 		$this->set('originAd_platform', $originAd_platform);
 		$this->set('originAd_state', $originAd_state);
 		$this->set('title_for_layout', $origin_ad['OriginAd']['name']);	
+		$this->render('/Origin/ad/ad');
 	}
 	
 	/**
@@ -113,6 +114,7 @@ class OriginController extends AppController {
 		$origin_ad 		= json_decode($origin_ad[$originAd_model]['content']);
 		
 		$this->set('origin_ad', $origin_ad);
+		$this->render('/Origin/ad/ad_iframe');
 	}
 	
 /* =======================================================================
