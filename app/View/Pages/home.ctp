@@ -1,6 +1,6 @@
 <div id="homepage-container" data:ng:controller="homepageController">
 	<div id="homepage-left" class="originUI-tileLeft originUI-bgColorSecondary originUI-shadow">
-		<h2>Products</h2>
+		<h2 class="originUI-tileHeader originUI-borderColorSecondary">Products</h2>
 		<ul class="originUI-list">
 			<li class="originUI-listItem" data:ng:repeat="product in products|filter:searchOrigin" data:ng:click="loadProduct(product)">
 				<a href="javascript:void(0)" class="originUI-hover">{{product.OriginTemplate.name}}</a>
@@ -8,10 +8,27 @@
 		</ul>
 	</div><!--
 	--><div id="homepage-right" class="originUI-tileRight originUI-bgColor originUI-shadow">
-		<div id="product-summary">
-			<h2>{{product.OriginTemplate.name}}</h2>
-			<p>{{product.OriginTemplate.content.description}}</p>
-			<!-- <img data:ng:src="{{product.OriginTemplate.content.file_storyboard}}"/> -->
+		<div id="product-summary" class="originUI-borderColorSecondary">
+			<div id="productSummary-left" class="inline">
+				<h2 id="productSummary-title" class="originUI-textColor">{{product.OriginTemplate.name}}</h2>
+				<p id="productSummary-description">{{product.OriginTemplate.content.description}}</p>
+			</div>
+			<div id="productSummary-right" class="inline">
+				<div class="inline" data:ng:repeat="platform in platforms">
+					<h3>{{platform.name}}</h3>
+					<ul class="originUI-list">
+						<li>Initial: {{product.OriginTemplate.config.dimensions.Initial[platform.name].width}} x {{product.OriginTemplate.config.dimensions.Initial[platform.name].height}}</li>
+						<li>Triggered: {{product.OriginTemplate.config.dimensions.Triggered[platform.name].width}} x {{product.OriginTemplate.config.dimensions.Triggered[platform.name].height}}</li>
+					</ul>
+				</div>
+<!--
+				<h3>Desktop</h3>
+				<ul class="originUI-list">
+					<li>Initial: {{product.OriginTemplate.config.dimensions.Initial.Desktop.width}} x {{product.OriginTemplate.config.dimensions.Initial.Desktop.height}}</li>
+					<li>Triggered: {{product.OriginTemplate.config.dimensions.Triggered.Desktop.width}} x {{product.OriginTemplate.config.dimensions.Triggered.Desktop.height}}</li>
+				</ul>
+-->
+			</div>
 		</div>
 		<div id="product-preview">
 			<div id="productPreview-live" class="originUI-hover" back-img="{{product.OriginTemplate.content.file_guideline}}"></div>
