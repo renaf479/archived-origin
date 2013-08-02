@@ -1028,6 +1028,7 @@ class OriginController extends AppController {
 	* Permissions: All
 	*/
 	public function jsonHomepage() {
+		App::import('Vendor', 'pseudocrypt');
 		$origin_templates	= $this->OriginTemplate->find('all',
 			array(
 				'conditions'=>array(
@@ -1036,13 +1037,16 @@ class OriginController extends AppController {
 				),
 				'fields'=>array(
 					'OriginTemplate.*',
-					'OriginAds.*',
+					'OriginAds.id',
+					'OriginAds.type_id'/*
+,
 					'DesktopInitial.*',
 					'DesktopTriggered.*',
 					'MobileInitial.*',
 					'MobileTriggered.*',
 					'TabletInitial.*',
 					'TabletTriggered.*'
+*/
 				),
 				'joins'=>array(
 					array(
@@ -1052,7 +1056,8 @@ class OriginController extends AppController {
 						'conditions'=>array(
 							'OriginAds.type_id = OriginTemplate.id'
 						)
-					),
+					)/*
+,
 					array(
 						'table'=>'origin_ad_desktop_initial_contents',
 						'alias'=>'DesktopInitial',
@@ -1107,6 +1112,7 @@ class OriginController extends AppController {
 							'TabletTriggered.type = "background"'
 						)
 					)
+*/
 				),
 				'order'=>array(
 					'OriginTemplate.name ASC'

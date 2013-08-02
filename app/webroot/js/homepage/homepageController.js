@@ -6,12 +6,14 @@ var homepageController = function($scope, $rootScope, $filter, Rest) {
 	
 	Rest.get('homepage', 'public').then(function(response) {
 		$scope.products		= response;
-		$scope.product		= $scope.products[0];
+		//$scope.product		= $scope.products[2];
+		$scope.loadProduct($scope.products[0]);
 	});
 	
 	
 	$scope.loadProduct = function(model) {
 		$scope.product 		= model;
+		$scope.selected 	= model.OriginTemplate.id;
 	}
 	
 /*

@@ -1,24 +1,27 @@
 <div id="homepage-container" data:ng:controller="homepageController">
 	<div id="homepage-left" class="originUI-tileLeft originUI-bgColorSecondary originUI-shadow">
 		<h2 class="originUI-tileHeader originUI-borderColorSecondary">Products</h2>
-		<ul class="originUI-list">
-			<li class="originUI-listItem" data:ng:repeat="product in products|filter:searchOrigin" data:ng:click="loadProduct(product)">
+		<ul id="product-list" class="originUI-list">
+			<li class="originUI-listItem" data:ng:repeat="product in products|filter:searchOrigin" data:ng:click="loadProduct(product)" data:ng:class="{active: product.OriginTemplate.id === selected}">
 				<a href="javascript:void(0)" class="originUI-hover">{{product.OriginTemplate.name}}</a>
 			</li>
 		</ul>
 	</div><!--
 	--><div id="homepage-right" class="originUI-tileRight originUI-bgColor originUI-shadow">
 		<div id="product-summary" class="originUI-borderColorSecondary">
-			<div id="productSummary-left" class="inline">
-				<h2 id="productSummary-title" class="originUI-textColor">{{product.OriginTemplate.name}}</h2>
-				<p id="productSummary-description">{{product.OriginTemplate.content.description}}</p>
+			<h2 id="productSummary-title" class="originUI-textColor">{{product.OriginTemplate.name}}</h2>
+			<a href="/demo/Origin/{{product.OriginAds.demoLink}}" id="productSummary-demo" target="_blank">Demo</a>
+			<div id="productSummary-left" class="">
+				<div id="productSummary-description" class="">{{product.OriginTemplate.content.description}}</div>
 			</div>
-			<div id="productSummary-right" class="inline">
-				<div class="inline" data:ng:repeat="platform in platforms">
-					<h3>{{platform.name}}</h3>
+			<div id="productSummary-right" class="">
+				<div class="productSummary-dimensions inline" data:ng:repeat="platform in platforms" data:ng:class="{inactive: !product.OriginTemplate.config.dimensions.Initial[platform.name].width}">
+					<h3 class="productSummary-platform" data:ng:class="platform.name">{{platform.name}}</h3>
 					<ul class="originUI-list">
-						<li>Initial: {{product.OriginTemplate.config.dimensions.Initial[platform.name].width}} x {{product.OriginTemplate.config.dimensions.Initial[platform.name].height}}</li>
-						<li>Triggered: {{product.OriginTemplate.config.dimensions.Triggered[platform.name].width}} x {{product.OriginTemplate.config.dimensions.Triggered[platform.name].height}}</li>
+						<li data:ng:show="product.OriginTemplate.config.dimensions.Initial[platform.name].width">Initial: {{product.OriginTemplate.config.dimensions.Initial[platform.name].width}} x {{product.OriginTemplate.config.dimensions.Initial[platform.name].height}}
+						</li>
+						<li data:ng:show="product.OriginTemplate.config.dimensions.Triggered[platform.name].width > 0">
+							Triggered: {{product.OriginTemplate.config.dimensions.Triggered[platform.name].width}} x {{product.OriginTemplate.config.dimensions.Triggered[platform.name].height}}</li>
 					</ul>
 				</div>
 <!--
