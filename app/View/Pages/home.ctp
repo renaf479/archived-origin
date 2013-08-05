@@ -17,10 +17,11 @@
 			<div id="productSummary-right" class="">
 				<div class="productSummary-dimensions inline" data:ng:repeat="platform in platforms" data:ng:class="{inactive: !product.OriginTemplate.config.dimensions.Initial[platform.name].width}">
 					<h3 class="productSummary-platform" data:ng:class="platform.name">{{platform.name}}</h3>
+					<p class="productSummary-na">N/A</p>
 					<ul class="originUI-list">
-						<li data:ng:show="product.OriginTemplate.config.dimensions.Initial[platform.name].width">Initial: {{product.OriginTemplate.config.dimensions.Initial[platform.name].width}} x {{product.OriginTemplate.config.dimensions.Initial[platform.name].height}}
+						<li class="" data:ng:show="product.OriginTemplate.config.dimensions.Initial[platform.name].width">Initial: {{product.OriginTemplate.config.dimensions.Initial[platform.name].width}} x {{product.OriginTemplate.config.dimensions.Initial[platform.name].height}}
 						</li>
-						<li data:ng:show="product.OriginTemplate.config.dimensions.Triggered[platform.name].width > 0">
+						<li class="" data:ng:show="product.OriginTemplate.config.dimensions.Triggered[platform.name].width > 0">
 							Triggered: {{product.OriginTemplate.config.dimensions.Triggered[platform.name].width}} x {{product.OriginTemplate.config.dimensions.Triggered[platform.name].height}}</li>
 					</ul>
 				</div>
@@ -34,8 +35,8 @@
 			</div>
 		</div>
 		<div id="product-preview">
-			<div id="productPreview-live" class="originUI-hover" back-img="{{product.OriginTemplate.content.file_guideline}}"></div>
-			<div id="productPreview-grid" class="" back-img="{{product.OriginTemplate.content.file_guideline}}"></div>
+			<div id="productPreview-initial" class="originUI-hover" back-img="{{product.OriginTemplate.content.file_guideline}}"></div>
+			<div id="productPreview-triggered" class="" back-img="{{product.OriginTemplate.content.file_guideline}}"></div>
 		</div>
 	</div>
 <!--
