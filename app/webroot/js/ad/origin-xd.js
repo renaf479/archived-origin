@@ -19,8 +19,6 @@ var originXd = (function() {
 		}
 		message		= JSON.parse(message.data);
 		if(message.callback) response[message.callback](message);
-		
-		//if(message.template) response(message);
 	}, 'http://'+document.getElementById('origin-xd').getAttribute('data-domain'));
 
 	var response = {
@@ -42,10 +40,10 @@ var originXd = (function() {
 					break;
 				case 'aurora':
 					/*
-var auroraBody				= document.getElementsByClassName(data.selector)[0];
+					var auroraBody				= document.getElementsByClassName(data.selector)[0];
 					auroraBody.style.zIndex		= 2;
 					auroraBody.style.position	= 'relative';
-*/
+					*/
 					
 					var originCss 			= document.createElement('style');
 						originCss.id		= 'originCss';

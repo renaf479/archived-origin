@@ -1,19 +1,47 @@
-var homepageController = function($scope, $rootScope, $filter, Rest) {
+var homepageController = function($scope, $rootScope, $location, Rest) {
 	$scope.products		= {};
 	$scope.product 		= {};
 	$scope.platforms	= [{name: 'Desktop'}, {name: 'Tablet'}, {name: 'Mobile'}];
 	$scope.platformShow	= 'Desktop';
+	$scope.preview 		= 'Initial';
 	
 	Rest.get('homepage', 'public').then(function(response) {
 		$scope.products		= response;
-		//$scope.product		= $scope.products[2];
-		$scope.loadProduct($scope.products[0]);
+		
+		var homepageObj = 0;
+		//If URL hash, try to load that object
+		if($location.hash()) {
+			var id 	= $location.hash().split('--');
+				id	= id[0];
+			
+			for(var i in $scope.products) {
+				if($scope.products[i].OriginTemplate.id === id) {
+					homepageObj	= i;
+				}
+			}
+		}
+		
+		$scope.loadProduct($scope.products[homepageObj]);
+		
 	});
 	
 	
 	$scope.loadProduct = function(model) {
 		$scope.product 		= model;
 		$scope.selected 	= model.OriginTemplate.id;
+		
+		$location.hash(model.OriginTemplate.id+'--'+model.OriginTemplate.name.replace(/[^a-zA-Z0-9]+/g,'-'));
+	}
+	
+	$scope.previewToggle = function() {
+		switch($scope.preview) {
+			case 'Initial':
+				$scope.preview 	= 'Triggered';
+				break;
+			case 'Triggered':
+				$scope.preview 	= 'Initial';
+				break;
+		}
 	}
 	
 /*

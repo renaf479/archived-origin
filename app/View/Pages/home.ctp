@@ -35,8 +35,14 @@
 			</div>
 		</div>
 		<div id="product-preview">
-			<div id="productPreview-initial" class="originUI-hover" back-img="{{product.OriginTemplate.content.file_guideline}}"></div>
-			<div id="productPreview-triggered" class="" back-img="{{product.OriginTemplate.content.file_guideline}}"></div>
+			<div data:ng:show="product.OriginTemplate.config.dimensions.Triggered.Desktop.width > 0">
+				<h2 id="productPreview-title" class="originUI-textColor">{{preview}} State</h2>
+				<a href="javascript:void(0)" id="productPreview-toggle" data:ng:click="previewToggle()" data:ng:class="{triggered: preview === 'Triggered'}">Toggle</a>
+			</div>
+			<div id="productPreview-image">
+				<div id="productPreview-initial" class="" back-img="{{product.OriginTemplate.content.file_guideline}}" data:ng:show="preview === 'Initial'" data:ng:hide="preview !== 'Initial'"></div>
+				<div id="productPreview-triggered" class="" back-img="{{product.OriginTemplate.content.file_guideline}}" data:ng:show="preview === 'Triggered'" data:ng:hide="preview !== 'Triggered'"></div>
+			</div>
 		</div>
 	</div>
 <!--

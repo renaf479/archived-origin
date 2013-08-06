@@ -307,9 +307,10 @@ li {
 
 .originUI-header {
 	margin: 5px 0;
-	text-transform: uppercase;
+	/* text-transform: uppercase; */
 	font-weight: normal;
 	line-height: normal;
+	font-variant: small-caps;
 	font-size: 28px;
 }
 
