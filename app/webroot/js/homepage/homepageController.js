@@ -8,7 +8,6 @@ var homepageController = function($scope, $rootScope, $location, Rest) {
 	Rest.get('homepage', 'public').then(function(response) {
 		$scope.products		= response;
 		
-		var homepageObj = 0;
 		//If URL hash, try to load that object
 		if($location.hash()) {
 			var id 	= $location.hash().split('--');
@@ -16,13 +15,10 @@ var homepageController = function($scope, $rootScope, $location, Rest) {
 			
 			for(var i in $scope.products) {
 				if($scope.products[i].OriginTemplate.id === id) {
-					homepageObj	= i;
+					$scope.loadProduct($scope.products[i]);
 				}
 			}
 		}
-		
-		$scope.loadProduct($scope.products[homepageObj]);
-		
 	});
 	
 	
