@@ -1,16 +1,17 @@
 <?php if($view === 'left') { ?>
 
 <ul class="originUI-list">
-<!--
 	<li>
-		<label>Display Type</label>
+		<label>Display</label>
 		<select class="originUI-select originUI-bgColorSecondary" ng:model="<?php echo $editor;?>.config.type">
 			<option style="display:none" value="">Select Display Type</option>
-			<option value="inpage">In-Page</option>
+			<option value="inline">Inline</option>
 			<option value="outofpage">Out of Page</option>
+			<option value="inline-top">Top (inline)</option>
+			<option value="outofpage-top">Top (out of page)</option>
+			<option value="outofpage-bottom">Bottom (out of page)</option>
 		</select>
 	</li>
--->
 	<li>
 		<label>Template</label>
 		<select class="originUI-select originUI-bgColorSecondary" ng:model="<?php echo $editor;?>.alias">

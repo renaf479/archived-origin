@@ -25,6 +25,7 @@ var originScript, originParams, originXd;
 				ad.name			= encodeURIComponent(JSON.stringify(originParams));
 				ad.src			= originParams.src;
 				
+/*
 			var adOverlay 				= document.createElement('iframe');
 				adOverlay.name			= encodeURIComponent(JSON.stringify(originParams));
 				adOverlay.id			= 'originAd-'+originParams.id+'-overlay';
@@ -38,6 +39,7 @@ var originScript, originParams, originXd;
 				adOverlay.style.zIndex	= 10000000;
 				adOverlay.name			= encodeURIComponent(JSON.stringify(originParams));
 				adOverlay.setAttribute('data-src', originParams.src+'/triggered');
+*/
 				
 				switch(originParams.type) {
 					case 'aurora':
@@ -47,11 +49,13 @@ var originScript, originParams, originXd;
 					case 'horizon':
 						originDOM.body.insertBefore(ad, originDOM.body.firstChild);
 						break;
+/*
 					case 'postmeridian':
 					case 'nova':
 						originScript.parentNode.insertBefore(ad, originScript);
 						originScript.parentNode.insertBefore(adOverlay, originScript);
 						break;
+*/
 					default:
 						originScript.parentNode.insertBefore(ad, originScript);
 						break;

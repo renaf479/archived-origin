@@ -23,10 +23,32 @@ var originXd = (function() {
 
 	var response = {
 		containerInit: function(data) {
-			var originAd				= document.getElementById(data.id);
+			var originAd				= document.getElementById(data.id),
+				originAdParams			= JSON.parse(decodeURIComponent(originAd.name));
 				originAd.width			= data.width;
 				originAd.height			= data.height;
 				originAd.style.backgroundColor	= data.hex;
+				
+			//If ad triggered state is an overlay, add iframe and detect duplicate
+			if(data.trigger === 'Overlay' && document.getElementById('originAd-'+originAdParams.id+'-overlay') === null) {
+				var adOverlay 				= document.createElement('iframe');
+					adOverlay.name			= originAd.name;
+					adOverlay.id			= 'originAd-'+originAdParams.id+'-overlay';
+					adOverlay.frameBorder	= 0;
+					adOverlay.width			= 0;
+					adOverlay.height		= 0;
+					adOverlay.scrolling 	= 'no';
+					adOverlay.style.position= 'fixed';
+					adOverlay.style.top 	= 0;
+					adOverlay.style.left	= 0;
+					adOverlay.style.zIndex	= 10000000;
+					adOverlay.setAttribute('data-src', originAdParams.src+'/triggered');
+					
+					//originScript.parentNode.insertBefore(adOverlay, originScript);
+					document.body.appendChild(adOverlay);
+			}
+			
+			//Template-specific code
 			switch(data.template) {
 				case 'antemeridian':
 					originAd.style.position	= 'fixed';
