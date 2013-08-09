@@ -24,38 +24,19 @@ var originScript, originParams, originXd;
 				//ad.style.backgroundColor = originParams.hex;
 				ad.name			= encodeURIComponent(JSON.stringify(originParams));
 				ad.src			= originParams.src;
-				
-/*
-			var adOverlay 				= document.createElement('iframe');
-				adOverlay.name			= encodeURIComponent(JSON.stringify(originParams));
-				adOverlay.id			= 'originAd-'+originParams.id+'-overlay';
-				adOverlay.frameBorder	= 0;
-				adOverlay.width			= 0;
-				adOverlay.height		= 0;
-				adOverlay.scrolling 	= 'no';
-				adOverlay.style.position= 'fixed';
-				adOverlay.style.top 	= 0;
-				adOverlay.style.left	= 0;
-				adOverlay.style.zIndex	= 10000000;
-				adOverlay.name			= encodeURIComponent(JSON.stringify(originParams));
-				adOverlay.setAttribute('data-src', originParams.src+'/triggered');
-*/
-				
-				switch(originParams.type) {
-					case 'aurora':
-						originDOM.body.appendChild(ad);
-						break;
+			
+				switch(originParams.position) {
+					//Top of the page
 					case 'ascension':
-					case 'horizon':
+						ad.style.width 		= '100%';
 						originDOM.body.insertBefore(ad, originDOM.body.firstChild);
 						break;
-/*
-					case 'postmeridian':
-					case 'nova':
-						originScript.parentNode.insertBefore(ad, originScript);
-						originScript.parentNode.insertBefore(adOverlay, originScript);
+					//Bottom of the page
+					case 'rift':
+						ad.style.bottom		= 0;
+						ad.style.position	= 'fixed';
+						originDOM.body.appendChild(ad);
 						break;
-*/
 					default:
 						originScript.parentNode.insertBefore(ad, originScript);
 						break;
@@ -92,7 +73,7 @@ var originScript, originParams, originXd;
 			originParams = {
 				'auto':		data.auto,
 				'close':	data.close,
-				'type':		data.template,
+				'position':	data.template,
 				'dcopt':	data.dcopt,
 				'dfp':		data.dfp,
 				'id':		data.id,

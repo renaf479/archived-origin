@@ -37,6 +37,26 @@ angular.module('originAd.directives', [])
 			}
 		}
 	})
+	.directive('contentContainer', function($rootScope) {
+		return {
+			restrict: 'A',
+			link: function(scope, element, attrs) {
+				var param	= attrs.contentContainer[0].toUpperCase() + attrs.contentContainer.substring(1);
+				
+				element.css({
+					'width':	$rootScope.originAd_config.dimensions[param][origin_platform].width+(($rootScope.originAd_config.dimensions[param][origin_platform].width.indexOf('%') === -1)? 'px': ''),
+					'height':	$rootScope.originAd_config.dimensions[param][origin_platform].height+(($rootScope.originAd_config.dimensions[param][origin_platform].height.indexOf('%') === -1)? 'px': '')
+				});
+				
+				//Add an initial offset for expanding ads
+				if($rootScope.originAd_config.type === 'expand' && param === 'Triggered') {
+					element.css({
+						'top':	$rootScope.originAd_config.dimensions.Initial[origin_platform].height+(($rootScope.originAd_config.dimensions[param][origin_platform].height.indexOf('%') === -1)? 'px': '')
+					});
+				}
+			}
+		}
+	})
 	.directive('collapse', function($rootScope) {
 		return {
 			restrict: 'A',

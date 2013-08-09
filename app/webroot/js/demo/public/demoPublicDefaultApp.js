@@ -7,6 +7,7 @@ var demoPublicApp = angular.module('demoPublicApp',
 					])
 					.run(function($rootScope, $interpolate, Rest, DemoServices) {
 						var config		= angular.fromJson(_config),
+							position 	= angular.fromJson(config.OriginAd.config).position,
 							dimensions	= angular.fromJson(config.OriginAd.config).dimensions;
 						
 						$rootScope.demo = {
@@ -14,12 +15,12 @@ var demoPublicApp = angular.module('demoPublicApp',
 						}
 						
 						$rootScope.embedOptions = {
-							auto: 	0,
-							close: 	0,
-							tablet: false,
-							mobile: false,
-							id: 	config.OriginAd.id,
-							type:	config.OriginAd.type
+							auto: 		0,
+							close: 		0,
+							tablet: 	false,
+							mobile: 	false,
+							id: 		config.OriginAd.id,
+							position:	position
 						}
 						
 						/**
@@ -28,18 +29,17 @@ var demoPublicApp = angular.module('demoPublicApp',
 						Rest.get('element/origin_embed').then(function(response) {
 							$rootScope.render	= $interpolate(response)($rootScope);
 							
-							
-							
 							/**
 							* Start guessing locations
 							*/
 							var placement;
-							switch(config.OriginAd.type) {
+							switch(position) {
 								case 'ascension':
 								case 'aurora':
 								case 'horizon':
 								case 'antemeridian':
 								case 'postmeridian':
+								case 'rift':
 									placement	= 'embedOutOfPage';
 									break;
 									
@@ -47,8 +47,8 @@ var demoPublicApp = angular.module('demoPublicApp',
 								case 'eclipse':
 									placement	= 'embedLeaderboard';
 									break;
-									
-								case 'nova':
+								
+								case 'default':
 									//Guess based on dimensions
 									if(dimensions.Initial.Desktop.width >= 500 && dimensions.Initial.Desktop.width <= 1000) {
 										placement = 'embedLeaderboard';

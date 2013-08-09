@@ -30,7 +30,7 @@ var originXd = (function() {
 				originAd.style.backgroundColor	= data.hex;
 				
 			//If ad triggered state is an overlay, add iframe and detect duplicate
-			if(data.trigger === 'Overlay' && document.getElementById('originAd-'+originAdParams.id+'-overlay') === null) {
+			if(data.type === 'overlay' && document.getElementById('originAd-'+originAdParams.id+'-overlay') === null) {
 				var adOverlay 				= document.createElement('iframe');
 					adOverlay.name			= originAd.name;
 					adOverlay.id			= 'originAd-'+originAdParams.id+'-overlay';
@@ -52,14 +52,22 @@ var originXd = (function() {
 			switch(data.template) {
 				case 'antemeridian':
 					originAd.style.position	= 'fixed';
+					originAd.style.width	= '100%';
+					originAd.style.height	= '100%';
 					originAd.style.top 		= 0;
 					originAd.style.left		= 0;
 					originAd.style.zIndex	= 10000000;
 					break;
 				case 'ascension':
-					originAd.style.margin 	= '0 auto';
-					originAd.style.display	= 'block';
+					originAd.style.width 	= '100%';
 					break;
+				case 'rift':
+					originAd.style.bottom	= 0;
+					originAd.style.position	= 'fixed';
+					break;
+					
+					
+					
 				case 'aurora':
 					/*
 					var auroraBody				= document.getElementsByClassName(data.selector)[0];
@@ -141,9 +149,9 @@ var originXd = (function() {
 				}
 			*/	
 		},
-		toggleExpand: function(data) {	
+		toggleexpand: function(data) {	
 			switch(data.type) {
-				case 'horizon':
+				case 'ascension':
 					if(document.getElementById('originCss')) { 
 						document.getElementById('originCss').parentNode.removeChild(document.getElementById('originCss'));
 					}
@@ -154,7 +162,7 @@ var originXd = (function() {
 					break;
 			}
 		},
-		toggleOverlay: function(data) {
+		toggleoverlay: function(data) {
 			var originAdOverlay	= document.getElementById(data.idTriggered);
 			/**
 			* Overlay toggle functionality works by setting a pre-made triggered iframe view

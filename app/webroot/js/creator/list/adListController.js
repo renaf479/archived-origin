@@ -68,7 +68,7 @@ var adListController = function($scope, $rootScope, $filter, Notification, Rest,
 	$scope.adEmbedOpen = function(ad) {
 		$scope.adEmbedParams	= {
 			id: 	ad.id,
-			type: 	ad.type
+			type: 	ad.config.template
 		}
 		Modal.open('modalEmbed');
 	}

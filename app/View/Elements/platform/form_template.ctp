@@ -1,22 +1,44 @@
 <?php if($view === 'left') { ?>
 
 <ul class="originUI-list">
+<!--
 	<li>
 		<label>Display</label>
 		<select class="originUI-select originUI-bgColorSecondary" ng:model="<?php echo $editor;?>.config.type">
 			<option style="display:none" value="">Select Display Type</option>
 			<option value="inline">Inline</option>
-			<option value="outofpage">Out of Page</option>
-			<option value="inline-top">Top (inline)</option>
-			<option value="outofpage-top">Top (out of page)</option>
-			<option value="outofpage-bottom">Bottom (out of page)</option>
+			<option value="outOfPage">Out of Page</option>
+			<option value="inlineTop">Top (inline)</option>
+			<option value="outOfPageBottom">Bottom (out of page)</option>
+		</select>
+	</li>
+-->
+	<li>
+		<label>Ad Type</label>
+		<select class="originUI-select originUI-bgColorSecondary" ng:model="<?php echo $editor;?>.config.type">
+			<option style="display:none" value="">Select Type</option>
+			<option value="default">Standard</option>
+			<option value="expand">Expanding</option>
+			<option value="overlay">Overlay</option>
+			<option value="prestitial">Prestitial</option>
+			<option value="interstitial">Interstitial</option>
+			<!-- <option value="interstitial" data-ng-show="<?php echo $editor;?>.alias === 'antemeridian' || <?php echo $editor;?>.alias === 'postmeridian'">Interstitial</option> -->
 		</select>
 	</li>
 	<li>
-		<label>Template</label>
-		<select class="originUI-select originUI-bgColorSecondary" ng:model="<?php echo $editor;?>.alias">
-			<option style="display:none" value="">Select Template</option>
-			<option value="ascension">Ascension</option>
+		<label>Position</label>
+		<select class="originUI-select originUI-bgColorSecondary" ng:model="<?php echo $editor;?>.config.position">
+			<option style="display:none" value="">Select Position</option>
+			<option value="default">Standard (inline)</option>
+			<option value="meridian">Out of Page</option>
+			<option value="ascension">Top of the Page</option>
+			<option value="rift">Bottom of the Page</option>
+<!--
+			<option value="antemeridian">Prestitial</option>
+			<option value="postmeridian">Interstitial</option>
+-->
+			<!--
+<option value="ascension">Ascension</option>
 			<option value="aurora">Aurora</option>
 			<option value="eclipse">Eclipse</option>
 			<option value="horizon">Horizon</option>
@@ -24,6 +46,7 @@
 			<option value="postmeridian">Meridian (Post)</option>
 			<option value="nova">Nova</option>
 			<option value="singularity">Singularity</option>
+-->
 		</select>
 	</li>
 	<li>
@@ -110,12 +133,15 @@
 			</div>
 		</div>
 		<div id="adTemplate-configTrigger" class="inline adTemplate-config">
+<!--
 			<label class="originUI-label">Trigger Effect</label>
 			<select class="originUI-select originUI-bgColorSecondary" ng:model="<?php echo $editor;?>.config.animations.trigger">
 				<option style="display:none" value="">Select Trigger</option>
-				<option value="Expand">Expand</option>
-				<option value="Overlay">Overlay</option>
+				<option value="expand">Expand</option>
+				<option value="overlay">Overlay</option>
+				<option value="interstitial" data-ng-show="<?php echo $editor;?>.alias === 'antemeridian' || <?php echo $editor;?>.alias === 'postmeridian'">Interstitial</option>
 			</select>
+-->
 			<!--
 <div class="originUI-field">
 				<div class="originUI-fieldBracket"></div>

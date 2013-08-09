@@ -35,6 +35,7 @@ angular.module('originAd.services', [])
 	.factory('serviceFrequency', function($rootScope, serviceToggle, serviceTimer, OriginAdService) {
 		/**
 		* Only in use with non-Meridian type units
+		* BROKEN... AGAIN!
 		*/
 		return {
 			init: function() {				
@@ -53,12 +54,12 @@ angular.module('originAd.services', [])
 					//serviceTimer.init();
 				
 					switch($rootScope.xdDataToggle.callback) {
-						case 'toggleExpand':
-							serviceToggle.toggleExpand('auto');
+						case 'toggleexpand':
+							serviceToggle.toggleexpand('auto');
 							break;
-						case 'toggleOverlay':
+						case 'toggleoverlay':
 							if(originAd_action !== 'close') {
-								serviceToggle.toggleOverlay('auto');
+								serviceToggle.toggleoverlay('auto');
 							}
 							break;
 					}
@@ -103,7 +104,7 @@ angular.module('originAd.services', [])
 	})
 	.factory('serviceToggle', function($rootScope, OriginAdService) {	
 		var serviceToggle 	= {
-			toggleExpand: function(auto) {
+			toggleexpand: function(auto) {
 				var animateObj 	= angular.copy($rootScope.originAd_config.animations),
 					element 	= document.getElementById(animateObj.selector),
 					animateTo,
@@ -137,7 +138,7 @@ angular.module('originAd.services', [])
 				OriginAdService.xd($rootScope.xdDataToggle, $rootScope.originParams.xdSource);
 				anim(document.getElementById(animateObj.selector), {top:animateTo}, duration, 'ease-out');
 			},
-			toggleOverlay: function() {
+			toggleoverlay: function() {
 				switch($rootScope.xdDataToggle.action) {
 					case 'close':
 						OriginAdService.analyticsLog('Close');
