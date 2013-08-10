@@ -1,5 +1,5 @@
 	<?php 	
-	if($this->params['pass'][0] !== 'triggered') {
+	if(!isset($this->params['pass'][0]) || $this->params['pass'][0] !== 'triggered') {
 	?>	
 		<div id="initial" content-container="initial">
 			<div id="content-{{content.id}}" data-ng-repeat="content in originAd_content['OriginAd<?php echo $originAd_platform;?>InitialContent']" content="content"></div>

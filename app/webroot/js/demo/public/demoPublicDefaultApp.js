@@ -7,7 +7,7 @@ var demoPublicApp = angular.module('demoPublicApp',
 					])
 					.run(function($rootScope, $interpolate, Rest, DemoServices) {
 						var config		= angular.fromJson(_config),
-							position 	= angular.fromJson(config.OriginAd.config).position,
+							position 	= angular.fromJson(config.OriginAd.config).placement,
 							dimensions	= angular.fromJson(config.OriginAd.config).dimensions;
 						
 						$rootScope.demo = {
@@ -34,20 +34,11 @@ var demoPublicApp = angular.module('demoPublicApp',
 							*/
 							var placement;
 							switch(position) {
-								case 'ascension':
-								case 'aurora':
-								case 'horizon':
-								case 'antemeridian':
-								case 'postmeridian':
-								case 'rift':
+								case 'top':
+								case 'bottom':
 									placement	= 'embedOutOfPage';
 									break;
 									
-								case 'singularity':
-								case 'eclipse':
-									placement	= 'embedLeaderboard';
-									break;
-								
 								case 'default':
 									//Guess based on dimensions
 									if(dimensions.Initial.Desktop.width >= 500 && dimensions.Initial.Desktop.width <= 1000) {

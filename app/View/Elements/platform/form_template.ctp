@@ -30,9 +30,9 @@
 		<select class="originUI-select originUI-bgColorSecondary" ng:model="<?php echo $editor;?>.config.position">
 			<option style="display:none" value="">Select Position</option>
 			<option value="default">Standard (inline)</option>
-			<option value="meridian">Out of Page</option>
-			<option value="ascension">Top of the Page</option>
-			<option value="rift">Bottom of the Page</option>
+			<!-- <option value="meridian">Out of Page</option> -->
+			<option value="top">Top of the Page</option>
+			<option value="bottom">Bottom of the Page</option>
 <!--
 			<option value="antemeridian">Prestitial</option>
 			<option value="postmeridian">Interstitial</option>

@@ -10,6 +10,8 @@ null):e.currentStyle)[f]);a.u=(/\d(\D+)$/.exec(a.to)||/\d(\D+)$/.exec(a.fr)||[0,
 f:e.filter=1<=f?"":"alpha("+g+"="+Math.round(100*f)+")"},color:function(a,e,f,b,g,d,c,j){a.ok||(f=a.to=h.toRGBA(f),b=a.fr=h.toRGBA(b),0==f[3]&&(f=[].concat(b),f[3]=0),0==b[3]&&(b=[].concat(f),b[3]=0),a.ok=1);j=[0,0,0,a.p*(f[3]-b[3])+1*b[3]];for(c=2;0<=c;c--)j[c]=Math.round(a.p*(f[c]-b[c])+1*b[c]);(1<=j[3]||h.rgbaIE)&&j.pop();try{a.s[g]=(3<j.length?"rgba(":"rgb(")+j.join(",")+")"}catch(k){h.rgbaIE=1}}};h.fx.height=h.fx.width;h.RGBA=/#(.)(.)(.)\b|#(..)(..)(..)\b|(\d+)%,(\d+)%,(\d+)%(?:,([\d\.]+))?|(\d+),(\d+),(\d+)(?:,([\d\.]+))?\b/;
 h.toRGBA=function(a,e){e=[0,0,0,0];a.replace(/\s/g,"").replace(h.RGBA,function(a,b,g,d,c,h,k,l,m,n,p,q,r,s,t){k=[b+b||c,g+g||h,d+d||k];b=[l,m,n];for(a=0;3>a;a++)k[a]=parseInt(k[a],16),b[a]=Math.round(2.55*b[a]);e=[k[0]||b[0]||q||0,k[1]||b[1]||r||0,k[2]||b[2]||s||0,p||t||1]});return e};return h}();
 
+var originAd, originAdOverlay;
+
 var originXd = (function() {
 	XD.receiveMessage(function(message) {
 		try {
@@ -23,15 +25,17 @@ var originXd = (function() {
 
 	var response = {
 		containerInit: function(data) {
-			var originAd				= document.getElementById(data.id),
-				originAdParams			= JSON.parse(decodeURIComponent(originAd.name));
-				originAd.width			= data.width;
-				originAd.height			= data.height;
+				originAd			= document.getElementById(data.id),
+				originAdParams		= JSON.parse(decodeURIComponent(originAd.name));
+				originAd.width		= data.width;
+				originAd.height		= data.height;
 				originAd.style.backgroundColor	= data.hex;
 				
 			//If ad triggered state is an overlay, add iframe and detect duplicate
-			if(data.type === 'overlay' && document.getElementById('originAd-'+originAdParams.id+'-overlay') === null) {
-				var adOverlay 				= document.createElement('iframe');
+			if((data.type === 'overlay' || data.type === 'interstitial') && document.getElementById('originAd-'+originAdParams.id+'-overlay') === null) {
+				//overlayInit(originAdParams);
+				/*
+var adOverlay 				= document.createElement('iframe');
 					adOverlay.name			= originAd.name;
 					adOverlay.id			= 'originAd-'+originAdParams.id+'-overlay';
 					adOverlay.frameBorder	= 0;
@@ -46,11 +50,53 @@ var originXd = (function() {
 					
 					//originScript.parentNode.insertBefore(adOverlay, originScript);
 					document.body.appendChild(adOverlay);
+*/
 			}
 			
-			//Template-specific code
-			switch(data.template) {
-				case 'antemeridian':
+			//Add special dimensions for units
+			switch(data.placement) {
+				default:
+				case 'default':
+					break;
+				case 'top':
+					originAd.width 	= '100%';
+					break;
+				case 'bottom':
+					originAd.width 				= '100%';
+					originAd.style.bottom		= 0;
+					originAd.style.position		= 'fixed';
+					break;
+			}
+			
+			switch(data.type) {
+				default:
+				case 'default':
+					break;
+				case 'expand':
+					break;
+				case 'overlay':
+					if(document.getElementById('originAd-'+originAdParams.id+'-overlay') === null) this.overlayInit(originAdParams);
+					break;
+			}
+			
+			
+			
+/*
+			switch(data.type) {
+				case 'interstitial':
+					//Prep listener code
+					document.body.addEventListener('click', function(event) {response.interstitial(event, data)}, false);
+					break;
+			
+			
+			
+			
+			
+			
+			
+				//Out of page position
+				case 'interstitial':
+				case 'prestitial':
 					originAd.style.position	= 'fixed';
 					originAd.style.width	= '100%';
 					originAd.style.height	= '100%';
@@ -69,11 +115,10 @@ var originXd = (function() {
 					
 					
 				case 'aurora':
-					/*
 					var auroraBody				= document.getElementsByClassName(data.selector)[0];
 					auroraBody.style.zIndex		= 2;
 					auroraBody.style.position	= 'relative';
-					*/
+					
 					
 					var originCss 			= document.createElement('style');
 						originCss.id		= 'originCss';
@@ -110,15 +155,29 @@ var originXd = (function() {
 						}
 						document.body.appendChild(originCss);
 					break;
-				case 'postmeridian':
-					//Prep listener code
-					document.body.addEventListener('click', function(event) {response.postMeridian(event, data)}, false);
-					break;
 				default:
 				break;
 			}
+*/
 		},
-		postMeridian: function(e, data) {
+		overlayInit: function(originAdParams) {
+			originAdOverlay 				= document.createElement('iframe');
+			originAdOverlay.name			= originAd.name;
+			originAdOverlay.id				= 'originAd-'+originAdParams.id+'-overlay';
+			originAdOverlay.frameBorder		= 0;
+			originAdOverlay.width			= 0;
+			originAdOverlay.height			= 0;
+			originAdOverlay.scrolling 		= 'no';
+			originAdOverlay.style.position	= 'fixed';
+			originAdOverlay.style.top 		= 0;
+			originAdOverlay.style.left		= 0;
+			originAdOverlay.style.zIndex	= 10000000;
+			originAdOverlay.setAttribute('data-src', originAdParams.src+'/triggered');
+				
+			//originScript.parentNode.insertBefore(adOverlay, originScript);
+			document.body.appendChild(originAdOverlay);
+		},
+		interstitial: function(e, data) {
 			var target		= e.target? e.target: e.srcElement;						
 			
 			if(target) tag 	= target.tagName;
@@ -133,8 +192,15 @@ var originXd = (function() {
 				} else {
 					event.returnValue = false;
 				}
-				var originAdOverlay		= document.getElementById(data.idTriggered);
-					originAdOverlay.src	= originAdOverlay.getAttribute('data-src');
+				
+				
+				
+				
+				
+				var originAdOverlay			= document.getElementById(data.idTriggered);
+					originAdOverlay.width	= '100%';
+					originAdOverlay.height	= '100%';
+					originAdOverlay.src		= originAdOverlay.getAttribute('data-src');
 					originAdOverlay.setAttribute('data-continue', target.href);
 			}
 			/*
@@ -151,7 +217,7 @@ var originXd = (function() {
 		},
 		toggleexpand: function(data) {	
 			switch(data.type) {
-				case 'ascension':
+				case 'top':
 					if(document.getElementById('originCss')) { 
 						document.getElementById('originCss').parentNode.removeChild(document.getElementById('originCss'));
 					}

@@ -20,9 +20,14 @@ var originAdApp = angular.module('originAdApp', ['originAd.directives', 'originA
 							callback:	'containerInit',
 							id:			'originAd-'+$rootScope.origin_ad.OriginAd.id,
 							template:	$rootScope.originAd_config.template,
-							width: 		$rootScope.originAd_config.dimensions.Initial[origin_platform].width+(($rootScope.originAd_config.dimensions.Initial[origin_platform].width.indexOf('%') === -1)? 'px': ''),
+							width: 		$rootScope.originAd_config.dimensions.Initial[origin_platform].width,
+							height:		$rootScope.originAd_config.dimensions.Initial[origin_platform].height,
+							/*
+width: 		$rootScope.originAd_config.dimensions.Initial[origin_platform].width+(($rootScope.originAd_config.dimensions.Initial[origin_platform].width.indexOf('%') === -1)? 'px': ''),
 							height:		$rootScope.originAd_config.dimensions.Initial[origin_platform].height+(($rootScope.originAd_config.dimensions.Initial[origin_platform].height.indexOf('%') === -1)? 'px': ''),
-							type:	$rootScope.originAd_config.type
+*/
+							placement:	$rootScope.originAd_config.placement,
+							type:		$rootScope.originAd_config.type
 						};
 						
 						//$rootScope.timeout	= ($rootScope.originParams.close > 0)? $rootScope.originParams.close: $rootScope.originAd_config.animations.closeDuration;

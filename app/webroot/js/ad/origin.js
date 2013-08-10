@@ -24,12 +24,38 @@ var originScript, originParams, originXd;
 				//ad.style.backgroundColor = originParams.hex;
 				ad.name			= encodeURIComponent(JSON.stringify(originParams));
 				ad.src			= originParams.src;
-			
+				
+				switch(originParams.placement) {
+					default:
+						originScript.parentNode.insertBefore(ad, originScript);
+						break;
+					case 'top':
+						originDOM.body.insertBefore(ad, originDOM.body.firstChild);
+						break;
+						
+				}
+
+/*
 				switch(originParams.position) {
+					//Inline
+					default:
+					case 'default':
+						originScript.parentNode.insertBefore(ad, originScript);
+						break;
 					//Top of the page
 					case 'ascension':
 						ad.style.width 		= '100%';
 						originDOM.body.insertBefore(ad, originDOM.body.firstChild);
+						break;
+					//Out of page
+					case 'meridian':
+						ad.style.position	= 'fixed';
+						ad.width			= '100%';
+						ad.height			= '100%';
+						ad.style.top 		= 0;
+						ad.style.left		= 0;
+						ad.style.zIndex		= 10000000;
+						originDOM.body.appendChild(ad);
 						break;
 					//Bottom of the page
 					case 'rift':
@@ -37,10 +63,8 @@ var originScript, originParams, originXd;
 						ad.style.position	= 'fixed';
 						originDOM.body.appendChild(ad);
 						break;
-					default:
-						originScript.parentNode.insertBefore(ad, originScript);
-						break;
 				}
+*/
 		}
 		
 		/**
@@ -73,7 +97,7 @@ var originScript, originParams, originXd;
 			originParams = {
 				'auto':		data.auto,
 				'close':	data.close,
-				'position':	data.template,
+				'placement':data.placement,
 				'dcopt':	data.dcopt,
 				'dfp':		data.dfp,
 				'id':		data.id,

@@ -5,7 +5,7 @@
 			close: 	'{{embedOptions.close}}',
 			id:		'{{embedOptions.id}}',
 			platforms:{'desktop': true, 'tablet': {{embedOptions.tablet}}, 'mobile': {{embedOptions.mobile}}},
-			template:'{{embedOptions.position}}',
+			placement:'{{embedOptions.position}}',
 			domain:	'<?php echo $_SERVER['HTTP_HOST'];?>'
 		};
 		if(window.origin) {
