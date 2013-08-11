@@ -49,6 +49,7 @@ var overlayController = function($scope, $rootScope, OriginAdService, serviceFre
 	serviceFrequency.init();
 	
 	$scope.close = function() {
+		$rootScope.xdDataToggle.action = 'close';
 		serviceToggle.toggleoverlay();
 	}
 }

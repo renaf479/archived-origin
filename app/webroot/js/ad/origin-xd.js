@@ -239,6 +239,9 @@ var adOverlay 				= document.createElement('iframe');
 					window.location = originAdOverlay.getAttribute('data-continue');
 					break;
 				case 'close':
+					//TEMP - REFINE THIS
+					//originAd.width = 0;
+					//originAd.height = 0;
 					originAdOverlay.width	= '0';
 					originAdOverlay.height	= '0';
 					originAdOverlay.setAttribute('src', 'about:blank');
