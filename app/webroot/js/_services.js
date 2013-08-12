@@ -1,5 +1,7 @@
 'use strict';
 
+
+
 angular.module('originApp.services', [])
 	.factory('Origin', function($http) {
 		var Origin = {

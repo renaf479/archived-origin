@@ -554,9 +554,21 @@ class OriginController extends AppController {
 		$this->layout 	= 'embed';
 		$template 		= 'adEmbed';
 		
+		$origin_ad		= $this->OriginAd->find('first', 
+			array(
+				'recursive'=>-1,
+				'conditions'=>array(
+					'OriginAd.id'=>$this->request->params['originAd_id']
+				)
+			)
+		);
+		
+		$origin_ad['OriginAd']['config']	= json_decode($origin_ad['OriginAd']['config']);
+		
 		$this->set('title_for_layout', 'Origin Ad Embed');
-		$this->set('originAd_id', $this->request->params['originAd_id']);
-		$this->set('originAd_type', $this->request->params['originAd_type']);
+		$this->set('origin_ad', $origin_ad);
+		//$this->set('originAd_id', $this->request->params['originAd_id']);
+		//$this->set('originAd_type', $this->request->params['originAd_type']);
 		$this->set('template', $template);
 		
 		$this->render('/Origin/platform/ad_embed');

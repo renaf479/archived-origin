@@ -31,10 +31,8 @@ var originScript, originParams, originXd;
 						break;
 					case 'top':
 						originDOM.body.insertBefore(ad, originDOM.body.firstChild);
-						break;
-						
+						break;		
 				}
-
 /*
 				switch(originParams.position) {
 					//Inline
@@ -98,6 +96,7 @@ var originScript, originParams, originXd;
 				'auto':		data.auto,
 				'close':	data.close,
 				'placement':data.placement,
+				//'adtype':	data.adtype,
 				'dcopt':	data.dcopt,
 				'dfp':		data.dfp,
 				'id':		data.id,

@@ -7,7 +7,7 @@ var demoPublicApp = angular.module('demoPublicApp',
 					])
 					.run(function($rootScope, $interpolate, Rest, DemoServices) {
 						var config		= angular.fromJson(_config),
-							position 	= angular.fromJson(config.OriginAd.config).placement,
+							placement 	= angular.fromJson(config.OriginAd.config).placement,
 							dimensions	= angular.fromJson(config.OriginAd.config).dimensions;
 						
 						$rootScope.demo = {
@@ -20,7 +20,8 @@ var demoPublicApp = angular.module('demoPublicApp',
 							tablet: 	false,
 							mobile: 	false,
 							id: 		config.OriginAd.id,
-							position:	position
+							placement:	placement
+							//adtype:		angular.fromJson(config.OriginAd.config).type
 						}
 						
 						/**
@@ -32,23 +33,23 @@ var demoPublicApp = angular.module('demoPublicApp',
 							/**
 							* Start guessing locations
 							*/
-							var placement;
-							switch(position) {
+							var embed;
+							switch(placement) {
 								case 'top':
 								case 'bottom':
-									placement	= 'embedOutOfPage';
+									embed	= 'embedOutOfPage';
 									break;
 									
 								case 'default':
 									//Guess based on dimensions
 									if(dimensions.Initial.Desktop.width >= 500 && dimensions.Initial.Desktop.width <= 1000) {
-										placement = 'embedLeaderboard';
+										embed = 'embedLeaderboard';
 									} else {
-										placement = 'embedSidebar';
+										embed = 'embedSidebar';
 									}
 									break;
 							}
 							
-							$rootScope[placement]	= $rootScope.render;
+							$rootScope[embed]	= $rootScope.render;
 						});
 					});

@@ -4,8 +4,9 @@
 			$scope.embedOptions = {
 				auto:		'false',
 				close:		'false',
-				id:			'<?php echo $originAd_id;?>',
-				type:	'<?php echo $originAd_type;?>',
+				id:			'<?php echo $origin_ad['OriginAd']['id'];?>',
+				placement:	'<?php echo $origin_ad['OriginAd']['config']->placement;?>',
+				//adtype:		'<?php echo $origin_ad['OriginAd']['config']->type;?>',
 				mobile:		false,
 				tablet:		false
 			}

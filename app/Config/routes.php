@@ -136,7 +136,7 @@ Router::connect('/administrator/list', array('controller'=>'origin', 'action'=>'
 Router::connect('/administrator/Origin/ad/edit/:originAd_id', array('controller'=>'origin', 'action'=>'creatorAdEdit'));
 
 
-Router::connect('/administrator/Origin/ad/embed/:originAd_id/:originAd_type', array('controller'=>'origin', 'action'=>'platformAdEmbed'));
+Router::connect('/administrator/Origin/ad/embed/:originAd_id', array('controller'=>'origin', 'action'=>'platformAdEmbed'));
 
 //AD
 Router::connect('/ad/:originAd_id/:originAd_platform/*', array('controller'=>'origin', 'action'=>'ad'));
