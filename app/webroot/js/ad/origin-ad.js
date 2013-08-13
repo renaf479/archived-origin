@@ -97,11 +97,11 @@ var originXd = (function() {
 				case 'expand':
 					break;
 				case 'overlay':
-					//console.log('here');
-					//this.overlayInit(originAdParams);
 					this._overlay(originAdParams, 'create');
 					break;
 				case 'prestitial':
+					//Rename iframe
+					originAd.id	= 'originAd-'+data.id+'-overlay';
 					this._overlay(originAd, 'show');
 					break;
 				case 'interstitial':
@@ -124,57 +124,12 @@ var originXd = (function() {
 								event.returnValue = false;
 							}
 							
-							console.log('open interstitial');
 							var interstitial		= document.getElementById(_originAdPrefix+data.id+'-overlay');
+								interstitial.setAttribute('data-continue', target.href);
 								interstitial.src	= interstitial.getAttribute('data-src');
 							that._overlay(interstitial, 'show');
 						}
-					}, false);
-					
-					
-					
-					
-/*
-					
-					
-						interstitial: function(e, data) {
-							var target		= e.target? e.target: e.srcElement;						
-							
-							if(target) tag 	= target.tagName;
-							if(target && !/^(a)$/i.test(tag)) {
-								target = target.parentNode;
-								if(target) tag = target.tagName;
-							}
-							
-							if(target.tagName === 'A' && (/^(http:|https:|mailto:)/i.test(target.href) && (target.href.search('#')<=0)) && (/^(_self|_top)/i.test(target.target) || target.target === '')) {
-							if(e.preventDefault) {
-								e.preventDefault();
-							} else {
-								event.returnValue = false;
-							}
-							
-							
-							console.log('open interstitial');
-														var originAdOverlay			= document.getElementById(data.idTriggered);
-								originAdOverlay.width	= '100%';
-								originAdOverlay.height	= '100%';
-								originAdOverlay.src		= originAdOverlay.getAttribute('data-src');
-								originAdOverlay.setAttribute('data-continue', target.href);
-							
-						}
-					
-*/
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
+					}, false);					
 					break;
 			}
 			
@@ -257,8 +212,23 @@ var originXd = (function() {
 					}
 				}
 			*/	
-		toggleexpand: function(data) {	
-			switch(data.type) {
+		toggleexpand: function(data) {
+			console.log(data);
+			if(data.resizeHeight) {
+			}
+			
+			
+			switch(data.placement) {
+				case 'top':
+					break;
+				case 'bottom':
+					break;
+			}
+			
+/*
+			var ad 			= document.getElementById(data.id);
+		
+			switch() {
 				case 'top':
 					if(document.getElementById('originCss')) { 
 						document.getElementById('originCss').parentNode.removeChild(document.getElementById('originCss'));
@@ -269,16 +239,25 @@ var originXd = (function() {
 					anim(document.getElementById(data.id), {height:data.resizeHeight,width:data.resizeWidth}, data.duration, 'ease-out');
 					break;
 			}
+*/
 		},
 		toggleoverlay: function(data) {
-			var overlay	= document.getElementById(_originAdPrefix+data.id+'-overlay');
+			switch(data.type) {
+				case 'initial':
+					var overlay	= document.getElementById(_originAdPrefix+data.id);
+					break;
+				default:
+				case 'triggered':
+					var overlay	= document.getElementById(_originAdPrefix+data.id+'-overlay');
+					break;
+			}
 			/**
 			* Overlay toggle functionality works by setting a pre-made triggered iframe view
 			* to display and vice-versa to hide.
 			*/
 			switch(data.action) {
 				case 'continue':
-					window.location = originAdOverlay.getAttribute('data-continue');
+					window.location = overlay.getAttribute('data-continue');
 					break;
 				case 'close':
 					overlay.setAttribute('src', 'about:blank');
@@ -288,6 +267,8 @@ var originXd = (function() {
 					overlay.src	= overlay.getAttribute('data-src');
 					this._overlay(overlay, 'show');
 					break;
+				 case 'remove':
+				 	break;
 			}
 		}
 	}
@@ -328,10 +309,10 @@ var originXd = (function() {
 						originScript.parentNode.insertBefore(ad, originScript);
 						break;
 					case 'top':
-						originDom.body.insertBefore(ad, originDOM.body.firstChild);
+						originDOM.body.insertBefore(ad, originDOM.body.firstChild);
 						break;
 					case 'bottom':
-						
+						document.body.appendChild(ad);
 						break;
 				}
 		}

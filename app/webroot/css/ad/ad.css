@@ -14,10 +14,9 @@ a {
 #triggered {
 	position: absolute;
 	left: 50%;
-	top: 50%;
-	transform: translate(-50%, -50%);
-	-ms-transform: translate(-50%, -50%);
-	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, 0);
+	-ms-transform: translate(-50%, 0);
+	-webkit-transform: translate(-50%, 0);
 }
 
 #initial.hidden .toggle,
@@ -40,7 +39,8 @@ a {
 }
 
 #countdown,
-#continue {
+#continue,
+#close {
 	position: absolute;
 	cursor: pointer;
 }
@@ -54,7 +54,8 @@ a {
 	cursor: pointer;
 }
 
-#continue {
+#continue,
+#close {
 	background: transparent url(/img/ad/sprite.png) no-repeat 0 0;
 	width: 26px;
 	height: 26px;
@@ -62,6 +63,10 @@ a {
 	top: -26px;
 	cursor: pointer;
 	font-size: 12px;
+}
+
+#continue {
+	background-position: left bottom;
 }
 
 .link {

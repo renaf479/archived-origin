@@ -1,12 +1,18 @@
-var interstitialController = function($scope, $rootScope, $timeout, OriginAdService, serviceToggle) {
+var interstitialController = function($scope, $rootScope, $timeout, OriginAdService) {
 	
-	console.log(originAd_action);
+	$rootScope.xdDataToggle = {
+		callback: 	'toggleoverlay',
+		action:		'continue',
+		id:			$scope.origin_ad.OriginAd.id
+	};
 	
 	switch(originAd_action) {
 		case 'close':
-			
+			//Interstitial opens
+			OriginAdService.analyticsLog('Load');
 			break;
 		case 'open':
+			//Interstitial initializes listener on parent page
 			$scope.xdAdInit.config.width = $scope.xdAdInit.config.height = 0;
 			OriginAdService.xd($scope.xdAdInit, $scope.originParams.xdSource);
 			break;

@@ -1,5 +1,24 @@
 var prestitialController = function($scope, $rootScope, $timeout, OriginAdService, serviceFrequency, serviceTimer, serviceToggle) {
 	
+	//Configuration object for trigger
+	$rootScope.xdDataToggle = {
+		callback: 	'toggleoverlay',
+		action:		'close',
+		id:			$scope.origin_ad.OriginAd.id
+	};
+	
+	switch(originAd_action) {
+		case 'close':
+			break;
+		case 'open':
+			//Prestitial initializes & opens
+			OriginAdService.analyticsLog('Load');
+			$scope.xdAdInit.config.width = $scope.xdAdInit.config.height = '100%';
+			OriginAdService.xd($scope.xdAdInit, $scope.originParams.xdSource);
+			break;
+	}
+	
+/*
 	$scope.xdData.width		= '100%';
 	$scope.xdData.height	= '100%';
 	$rootScope.countdownShow= true;
@@ -15,6 +34,7 @@ var prestitialController = function($scope, $rootScope, $timeout, OriginAdServic
 			$timeout(serviceToggle.toggleOverlay, $rootScope.timeout * 1000);
 		}
 	});
+*/
 	
 /*
 	$rootScope.countdownCancel = function() {
@@ -22,6 +42,7 @@ var prestitialController = function($scope, $rootScope, $timeout, OriginAdServic
 		$timeout.cancel(timer);
 	}
 */
+/*
 
 	OriginAdService.analyticsLog('Load');
 	//console.log($scope.xdData);
@@ -38,6 +59,7 @@ var prestitialController = function($scope, $rootScope, $timeout, OriginAdServic
 	$scope.close = function() {
 		serviceToggle.toggleoverlay();
 	}
+*/
 	
 	//serviceFrequency.init();
 	//serviceTimer.init();

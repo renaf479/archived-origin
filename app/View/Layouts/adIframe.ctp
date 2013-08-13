@@ -5,7 +5,7 @@
 	<title><?php echo $title_for_layout;?></title>
 	<?php
 		echo $this->Minify->css(array('ad/iframe'));
-		echo $this->Minify->script(array('ad/app/xd', 'ad/app/iframe'));
+		echo $this->Minify->script(array('ad/plugins/xd', 'ad/app/iframe'));
 	?>
 </head>
 <body>

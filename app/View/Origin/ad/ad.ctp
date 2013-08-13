@@ -49,7 +49,7 @@
 		$dimensions->triggered		= "width:{$origin_ad['OriginAd']['config']->dimensions->Triggered->{$originAd_platform}->width}px;height:{$origin_ad['OriginAd']['config']->dimensions->Triggered->{$originAd_platform}->height}px;";
 */
 	?>
-		<div id="overlayBg" data-ng-click="close()" overlay></div>
+		
 		<?php
 			echo $this->element('ad/'.$originAd_platform.'/'.$type, array('originAd_platform'=>$originAd_platform));
 		

@@ -106,27 +106,35 @@ angular.module('originAd.services', [])
 		var serviceToggle 	= {
 			toggleexpand: function(auto) {
 				var animateObj 	= angular.copy($rootScope.originAd_config.animations),
+					dimensionObj= $rootScope.originAd_config.dimensions,
 					element 	= document.getElementById(animateObj.selector),
 					animateTo,
 					duration;
+					
+				$rootScope.xdDataToggle.placement		= $rootScope.originAd_config.placement;
+					
 				switch($rootScope.xdDataToggle.action) {
 					case 'close':
 						animateTo	= animateObj.start+'px';
 						duration	= animateObj.closeDuration/1000;
 						
-						$rootScope.xdDataToggle.resizeHeight= $rootScope.originAd_config.dimensions.Initial[origin_platform].height+'px';
-						$rootScope.xdDataToggle.resizeWidth	= $rootScope.originAd_config.dimensions.Initial[origin_platform].width+'px';
-						$rootScope.xdDataToggle.duration	= animateObj.closeDuration/1000;
-						$rootScope.hiddenView				= 'triggered';	
-						$rootScope.xdDataToggle.action		= 'open';
+						$rootScope.xdDataToggle.resizeHeight 	= (dimensionObj.Initial[origin_platform].height === dimensionObj.Triggered[origin_platform].height)? '': dimensionObj.Initial[origin_platform].height+'px';
+						$rootScope.xdDataToggle.resizeWidth		= (dimensionObj.Initial[origin_platform].width === dimensionObj.Triggered[origin_platform].width)? '': dimensionObj.Initial[origin_platform].width+'px';
+						$rootScope.xdDataToggle.duration		= animateObj.closeDuration/1000;
+						$rootScope.hiddenView					= 'triggered';	
+						$rootScope.xdDataToggle.action			= 'open';
 						OriginAdService.analyticsLog('Close');
 						break;
 					case 'open':
 						animateTo	= animateObj.end+'px',
 						duration	= animateObj.openDuration/1000;
 						
-						$rootScope.xdDataToggle.resizeHeight= $rootScope.originAd_config.dimensions.Triggered[origin_platform].height+'px';
-						$rootScope.xdDataToggle.resizeWidth	= $rootScope.originAd_config.dimensions.Triggered[origin_platform].width+'px';
+						//$rootScope.xdDataToggle.resizeHeight= $rootScope.originAd_config.dimensions.Triggered[origin_platform].height+'px';
+						//$rootScope.xdDataToggle.resizeWidth	= $rootScope.originAd_config.dimensions.Triggered[origin_platform].width+'px';
+						
+						$rootScope.xdDataToggle.resizeHeight 	= (dimensionObj.Initial[origin_platform].height === dimensionObj.Triggered[origin_platform].height)? '': dimensionObj.Triggered[origin_platform].height+'px';
+						$rootScope.xdDataToggle.resizeWidth		= (dimensionObj.Initial[origin_platform].width === dimensionObj.Triggered[origin_platform].width)? '': dimensionObj.Triggered[origin_platform].width+'px';
+						
 						$rootScope.xdDataToggle.duration	= animateObj.openDuration/1000;
 						$rootScope.hiddenView				= 'initial';
 						$rootScope.xdDataToggle.action		= 'close';
