@@ -139,11 +139,12 @@ Router::connect('/administrator/Origin/ad/edit/:originAd_id', array('controller'
 Router::connect('/administrator/Origin/ad/embed/:originAd_id', array('controller'=>'origin', 'action'=>'platformAdEmbed'));
 
 //AD
+//Router::connect('/ad/:originAd_id/config', array('controller'=>'origin', 'action'=>'adInit')); //Testing... NOPE!
 Router::connect('/ad/:originAd_id/:originAd_platform/*', array('controller'=>'origin', 'action'=>'ad'));
 Router::connect('/adIframe/:originAd_model/:originAd_contentId', array('controller'=>'origin', 'action'=>'adIframe'));
 
 //Analytics
-Router::connect('/administrator/analytics', array('controller'=>'monitor', 'action'=>'monitor'));
+Router::connect('/administrator/analytics', array('controller'=>'monitor', 'action'=>'monitor')); 
 Router::connect('/administrator/Monitor/Post', array('controller'=>'monitor', 'action'=>'post'));
 //Router::connect('/administrator/Monitor/export/:data', array('controller'=>'monitor', 'action'=>'monitorExport'));
 

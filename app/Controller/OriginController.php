@@ -44,6 +44,32 @@ class OriginController extends AppController {
 	Ad Rendering
 ========================================================================== */
 	/**
+	* A slim config response of ad unit for setup
+	* EDIT: NO!
+	*/
+/*
+	public function adInit() {
+		$this->layout		= 'ajax';
+		$originAd_config	= $this->OriginAd->find('first', 
+			array(
+				'conditions'=>array(
+					'OriginAd.id'=>$this->request->params['originAd_id']
+				),
+				'fields'=>array(
+					'OriginAd.id',
+					'OriginAd.config'
+				),
+				'recursive'=>-1
+			)
+		);
+		$originAd_config['OriginAd']['config']	= json_decode($originAd_config['OriginAd']['config']);
+		$this->set('originAd_config', $originAd_config);
+		$this->render('/Origin/ad/json/config');
+	}
+	
+*/
+	
+	/**
 	* Displays the ad
 	* Permissions: All
 	*/

@@ -12,7 +12,7 @@ var originScript, originParams, originXd;
 		}
 	}
 	
-	window.origin = function(originParams) {
+	window.origin = function(originParams) {		
 		function template() {
 			var ad 				= document.createElement('iframe');
 				ad.name			= encodeURIComponent(JSON.stringify(originParams));
@@ -25,6 +25,31 @@ var originScript, originParams, originXd;
 				ad.name			= encodeURIComponent(JSON.stringify(originParams));
 				ad.src			= originParams.src;
 				
+				//Ad placement setup
+				switch(originParams.placement) {
+					default:
+						originScript.parentNode.insertBefore(ad, originScript);
+						break;
+					case 'top':
+						originDom.body.insertBefore(ad, originDOM.body.firstChild);
+						break;
+					case 'bottom':
+						
+						break;
+				}
+				
+				//Special cases for ad types
+/*
+				switch(originParams.adtype) {
+					case 'prestitial':
+						
+						break;
+				}
+*/
+				
+				
+				
+/*
 				switch(originParams.placement) {
 					default:
 						originScript.parentNode.insertBefore(ad, originScript);
@@ -33,7 +58,8 @@ var originScript, originParams, originXd;
 						originDOM.body.insertBefore(ad, originDOM.body.firstChild);
 						break;		
 				}
-/*
+				
+				
 				switch(originParams.position) {
 					//Inline
 					default:
@@ -96,7 +122,7 @@ var originScript, originParams, originXd;
 				'auto':		data.auto,
 				'close':	data.close,
 				'placement':data.placement,
-				//'adtype':	data.adtype,
+				'adtype':	data.adtype,
 				'dcopt':	data.dcopt,
 				'dfp':		data.dfp,
 				'id':		data.id,

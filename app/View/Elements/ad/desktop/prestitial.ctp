@@ -9,7 +9,6 @@
 	$dimensions->initial	= "width:{$origin_ad['OriginAd']['config']->dimensions->Initial->{$originAd_platform}->width}px;height:{$origin_ad['OriginAd']['config']->dimensions->Initial->{$originAd_platform}->height}px;{$initialMargin}";
 */
 ?>
-
 <div id="initial" content-container="initial">
 	<countdown id="countdown" ng:click="close()" ng:show="countdownShow">Continuing to site in {{countdown}} seconds</countdown>
 	<div id="continue" ng:click="close()"></div>

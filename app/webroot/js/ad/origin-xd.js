@@ -24,6 +24,20 @@ var originXd = (function() {
 	}, 'http://'+document.getElementById('origin-xd').getAttribute('data-domain'));
 
 	var response = {
+		_overlay: function(element, display) {
+			switch(display) {
+				case 'hide':
+					break;
+				case 'show':
+					element.width			= '100%';
+					element.height			= '100%';
+					element.style.top 		= 0;
+					element.style.left		= 0;
+					element.style.zIndex	= 10000000;
+					element.style.position	= 'fixed';
+					break;
+			}
+		},
 		containerInit: function(data) {
 				originAd			= document.getElementById(data.id),
 				originAdParams		= JSON.parse(decodeURIComponent(originAd.name));
@@ -76,6 +90,12 @@ var adOverlay 				= document.createElement('iframe');
 					break;
 				case 'overlay':
 					if(document.getElementById('originAd-'+originAdParams.id+'-overlay') === null) this.overlayInit(originAdParams);
+					break;
+				case 'prestitial':
+					this._overlay(originAd, 'show');
+					break;
+				case 'interstitial':
+					document.body.addEventListener('click', function(event) {response.interstitial(event, data)}, false);
 					break;
 			}
 			
@@ -194,14 +214,14 @@ var adOverlay 				= document.createElement('iframe');
 				}
 				
 				
-				
-				
-				
+				console.log('open interstitial');
+/*
 				var originAdOverlay			= document.getElementById(data.idTriggered);
 					originAdOverlay.width	= '100%';
 					originAdOverlay.height	= '100%';
 					originAdOverlay.src		= originAdOverlay.getAttribute('data-src');
 					originAdOverlay.setAttribute('data-continue', target.href);
+*/
 			}
 			/*
 	

@@ -24,6 +24,7 @@ var prestitialController = function($scope, $rootScope, $timeout, OriginAdServic
 */
 
 	OriginAdService.analyticsLog('Load');
+	//console.log($scope.xdData);
 	OriginAdService.xd($scope.xdData, $scope.originParams.xdSource);
 	
 	$rootScope.xdDataToggle = {

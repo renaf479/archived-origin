@@ -20,8 +20,8 @@ var demoPublicApp = angular.module('demoPublicApp',
 							tablet: 	false,
 							mobile: 	false,
 							id: 		config.OriginAd.id,
-							placement:	placement
-							//adtype:		angular.fromJson(config.OriginAd.config).type
+							placement:	placement,
+							adtype:		angular.fromJson(config.OriginAd.config).type
 						}
 						
 						/**
