@@ -1,5 +1,19 @@
 var interstitialController = function($scope, $rootScope, $timeout, OriginAdService, serviceToggle) {
 	
+	console.log(originAd_action);
+	
+	switch(originAd_action) {
+		case 'close':
+			
+			break;
+		case 'open':
+			$scope.xdAdInit.config.width = $scope.xdAdInit.config.height = 0;
+			OriginAdService.xd($scope.xdAdInit, $scope.originParams.xdSource);
+			break;
+	}
+	
+	
+/*
 	if(originAd_action === 'open') {
 		$scope.xdData.id 		= 'originAd-'+$scope.origin_ad.OriginAd.id;
 		$scope.xdData.width		= '0';
@@ -44,4 +58,5 @@ var interstitialController = function($scope, $rootScope, $timeout, OriginAdServ
 	$scope.close = function() {
 		serviceToggle.toggleoverlay();
 	}
+*/
 }

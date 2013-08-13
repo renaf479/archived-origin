@@ -30,6 +30,25 @@ width: 		$rootScope.originAd_config.dimensions.Initial[origin_platform].width+((
 							type:		$rootScope.originAd_config.type
 						};
 						
+						
+						$rootScope.xdAdInit = {
+							auto: 		{},//??
+							callback:	'adInit',//Callback function on origin-ad.js
+							id:			$rootScope.origin_ad.OriginAd.id,
+							config:		{
+								height: 	$rootScope.originAd_config.dimensions.Initial[origin_platform].height,
+								width: 		$rootScope.originAd_config.dimensions.Initial[origin_platform].width,
+								placement:	$rootScope.originAd_config.placement,
+								type:		$rootScope.originAd_config.type
+							}
+						}
+						
+						
+						
+						
+						
+						
+						
 						//$rootScope.timeout	= ($rootScope.originParams.close > 0)? $rootScope.originParams.close: $rootScope.originAd_config.animations.closeDuration;
 						
 						//CHANGE THIS TO BE SET BY ORIGIN SYSTEM
