@@ -1,7 +1,7 @@
 'use strict';
 
 var originAdApp = angular.module('originAdApp', ['originAd.directives', 'originAd.services'])
-					.run(function($rootScope, $timeout, OriginAdService, serviceTimer, serviceToggle) {
+					.run(function($rootScope, $timeout, OriginAdService, serviceFrequency, serviceTimer, serviceToggle) {
 						$rootScope.hiddenView				= 'triggered';
 						$rootScope.origin_ad 				= angular.fromJson(origin_ad);
 						$rootScope.originAd_id				= 'originAd-'+$rootScope.origin_ad.OriginAd.id;
@@ -15,6 +15,7 @@ var originAdApp = angular.module('originAdApp', ['originAd.directives', 'originA
 							hex: '#000000'
 						}; //Retrieve embed code params or use defaults
 						
+/*
 						$rootScope.xdData = {
 							auto:		{},
 							callback:	'containerInit',
@@ -22,13 +23,10 @@ var originAdApp = angular.module('originAdApp', ['originAd.directives', 'originA
 							template:	$rootScope.originAd_config.template,
 							width: 		$rootScope.originAd_config.dimensions.Initial[origin_platform].width,
 							height:		$rootScope.originAd_config.dimensions.Initial[origin_platform].height,
-							/*
-width: 		$rootScope.originAd_config.dimensions.Initial[origin_platform].width+(($rootScope.originAd_config.dimensions.Initial[origin_platform].width.indexOf('%') === -1)? 'px': ''),
-							height:		$rootScope.originAd_config.dimensions.Initial[origin_platform].height+(($rootScope.originAd_config.dimensions.Initial[origin_platform].height.indexOf('%') === -1)? 'px': ''),
-*/
 							placement:	$rootScope.originAd_config.placement,
 							type:		$rootScope.originAd_config.type
 						};
+*/
 						
 						
 						$rootScope.xdAdInit = {
@@ -41,13 +39,7 @@ width: 		$rootScope.originAd_config.dimensions.Initial[origin_platform].width+((
 								placement:	$rootScope.originAd_config.placement,
 								type:		$rootScope.originAd_config.type
 							}
-						}
-						
-						
-						
-						
-						
-						
+						}						
 						
 						//$rootScope.timeout	= ($rootScope.originParams.close > 0)? $rootScope.originParams.close: $rootScope.originAd_config.animations.closeDuration;
 						

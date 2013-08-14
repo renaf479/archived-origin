@@ -109,13 +109,21 @@ angular.module('originAd.directives', [])
 				
 				element.css({
 					'width':	$rootScope.originAd_config.dimensions[param][origin_platform].width+(($rootScope.originAd_config.dimensions[param][origin_platform].width.indexOf('%') === -1)? 'px': ''),
-					'height':	$rootScope.originAd_config.dimensions[param][origin_platform].height+(($rootScope.originAd_config.dimensions[param][origin_platform].height.indexOf('%') === -1)? 'px': '')
+					'height':	$rootScope.originAd_config.dimensions[param][origin_platform].height+(($rootScope.originAd_config.dimensions[param][origin_platform].height.indexOf('%') === -1)? 'px': ''),
+					'marginLeft': -$rootScope.originAd_config.dimensions[param][origin_platform].width/2 + 'px'
 				});
 				
 				//Add an initial offset for expanding ads
 				if($rootScope.originAd_config.type === 'expand' && param === 'Triggered') {
 					element.css({
 						'top':	$rootScope.originAd_config.dimensions.Initial[origin_platform].height+(($rootScope.originAd_config.dimensions[param][origin_platform].height.indexOf('%') === -1)? 'px': '')
+					});
+				}
+				
+				//Add a top offset for overlay's triggered view
+				if($rootScope.originAd_config.type === 'overlay' && param === 'Triggered') {
+					element.css({
+						'marginTop': -$rootScope.originAd_config.dimensions.Initial[origin_platform].height + 'px'
 					});
 				}
 			}

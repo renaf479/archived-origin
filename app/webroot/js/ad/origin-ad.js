@@ -213,15 +213,16 @@ var originXd = (function() {
 				}
 			*/	
 		toggleexpand: function(data) {
-			console.log(data);
-			if(data.resizeHeight) {
-			}
-			
-			
 			switch(data.placement) {
+				default:
+				case 'default':
+					anim(document.getElementById(data.id), {height:data.resizeHeight,width:data.resizeWidth}, data.duration, 'ease-out');
+					break;
 				case 'top':
+					anim(document.getElementById(data.id), {height:data.resizeHeight}, data.duration, 'ease-out');
 					break;
 				case 'bottom':
+					anim(document.getElementById(data.id), {height:data.resizeHeight}, data.duration, 'ease-out');
 					break;
 			}
 			
@@ -242,6 +243,7 @@ var originXd = (function() {
 */
 		},
 		toggleoverlay: function(data) {
+			//Select the correct ad iframe
 			switch(data.type) {
 				case 'initial':
 					var overlay	= document.getElementById(_originAdPrefix+data.id);
@@ -251,10 +253,8 @@ var originXd = (function() {
 					var overlay	= document.getElementById(_originAdPrefix+data.id+'-overlay');
 					break;
 			}
-			/**
-			* Overlay toggle functionality works by setting a pre-made triggered iframe view
-			* to display and vice-versa to hide.
-			*/
+			
+			//Overlay toggle functionality works by setting a pre-made triggered iframe view to display and vice-versa to hide.
 			switch(data.action) {
 				case 'continue':
 					window.location = overlay.getAttribute('data-continue');
@@ -392,5 +392,3 @@ var originXd = (function() {
 		}
 	}
 })();
-
-//if(originParams.init === 'true') origin.init();

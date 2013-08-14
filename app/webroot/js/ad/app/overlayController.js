@@ -4,7 +4,8 @@ var overlayController = function($scope, $rootScope, OriginAdService) {
 	$rootScope.xdDataToggle = {
 		callback: 	'toggleoverlay',
 		action:		originAd_action,
-		id:			$scope.origin_ad.OriginAd.id
+		id:			$scope.origin_ad.OriginAd.id,
+		type:		$rootScope.originAd_config.type
 	}	
 	
 	switch(originAd_action) {

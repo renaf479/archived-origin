@@ -17,6 +17,7 @@ var expandController = function($scope, $rootScope, OriginAdService, serviceFreq
 		case 'open':
 			OriginAdService.analyticsLog('Load');
 			OriginAdService.xd($scope.xdAdInit, $scope.originParams.xdSource);
+			serviceFrequency.init();
 			break;
 	}
 	

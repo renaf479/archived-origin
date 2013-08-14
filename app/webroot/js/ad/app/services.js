@@ -32,7 +32,7 @@ angular.module('originAd.services', [])
 		
 		return serviceTimer;
 	})
-	.factory('serviceFrequency', function($rootScope, serviceToggle, serviceTimer, OriginAdService) {
+	.factory('serviceFrequency', function($rootScope, serviceToggle, serviceTimer, OriginAdService, $timeout) {
 		/**
 		* Only in use with non-Meridian type units
 		* BROKEN... AGAIN!
@@ -42,17 +42,13 @@ angular.module('originAd.services', [])
 				/**
 				* Auto-expand logic
 				*/
-				var auto 	= ($rootScope.originParams.auto === 'true')? '1': '0';
+				var auto 	= ($rootScope.originParams.auto === 'true')? '100000': '0';
 				
 				if(this.check($rootScope.originAd_id, auto)) {
 				
 					//Flag to know if the unit has been auto-opened
 					window.originAuto	= true;
-					
-					//Initialize Timer service
-					//Disabled for now... Will control close with video player
-					//serviceTimer.init();
-				
+										
 					switch($rootScope.xdDataToggle.callback) {
 						case 'toggleexpand':
 							serviceToggle.toggleexpand('auto');
@@ -118,8 +114,12 @@ angular.module('originAd.services', [])
 						animateTo	= animateObj.start+'px';
 						duration	= animateObj.closeDuration/1000;
 						
-						$rootScope.xdDataToggle.resizeHeight 	= (dimensionObj.Initial[origin_platform].height === dimensionObj.Triggered[origin_platform].height)? '': dimensionObj.Initial[origin_platform].height+'px';
+						/*
+$rootScope.xdDataToggle.resizeHeight 	= (dimensionObj.Initial[origin_platform].height === dimensionObj.Triggered[origin_platform].height)? '': dimensionObj.Initial[origin_platform].height+'px';
 						$rootScope.xdDataToggle.resizeWidth		= (dimensionObj.Initial[origin_platform].width === dimensionObj.Triggered[origin_platform].width)? '': dimensionObj.Initial[origin_platform].width+'px';
+*/
+						$rootScope.xdDataToggle.resizeHeight	= $rootScope.originAd_config.dimensions.Initial[origin_platform].height+'px';
+						$rootScope.xdDataToggle.resizeWidth		= $rootScope.originAd_config.dimensions.Initial[origin_platform].width+'px';
 						$rootScope.xdDataToggle.duration		= animateObj.closeDuration/1000;
 						$rootScope.hiddenView					= 'triggered';	
 						$rootScope.xdDataToggle.action			= 'open';
@@ -129,11 +129,13 @@ angular.module('originAd.services', [])
 						animateTo	= animateObj.end+'px',
 						duration	= animateObj.openDuration/1000;
 						
-						//$rootScope.xdDataToggle.resizeHeight= $rootScope.originAd_config.dimensions.Triggered[origin_platform].height+'px';
-						//$rootScope.xdDataToggle.resizeWidth	= $rootScope.originAd_config.dimensions.Triggered[origin_platform].width+'px';
+						$rootScope.xdDataToggle.resizeHeight= $rootScope.originAd_config.dimensions.Triggered[origin_platform].height+'px';
+						$rootScope.xdDataToggle.resizeWidth	= $rootScope.originAd_config.dimensions.Triggered[origin_platform].width+'px';
 						
+/*
 						$rootScope.xdDataToggle.resizeHeight 	= (dimensionObj.Initial[origin_platform].height === dimensionObj.Triggered[origin_platform].height)? '': dimensionObj.Triggered[origin_platform].height+'px';
 						$rootScope.xdDataToggle.resizeWidth		= (dimensionObj.Initial[origin_platform].width === dimensionObj.Triggered[origin_platform].width)? '': dimensionObj.Triggered[origin_platform].width+'px';
+*/
 						
 						$rootScope.xdDataToggle.duration	= animateObj.openDuration/1000;
 						$rootScope.hiddenView				= 'initial';

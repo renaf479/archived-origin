@@ -15,8 +15,8 @@ var demoPublicApp = angular.module('demoPublicApp',
 						}
 						
 						$rootScope.embedOptions = {
-							auto: 		0,
-							close: 		0,
+							auto: 		'true',
+							close: 		'true',
 							tablet: 	false,
 							mobile: 	false,
 							id: 		config.OriginAd.id,
