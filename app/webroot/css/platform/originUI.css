@@ -975,9 +975,10 @@ body.originClass-edit #originBar-search {
 	text-align: center;
 }
 
-#adTemplate-configSelector,
-#adTemplate-configTrigger {
-	width: 45%;
+#adTemplate-configSelector {
+	width: 100%;
+	margin-left: 0;
+	margin-right: 0;
 }
 
 #adTemplate-configTrigger .originUI-select {

@@ -15,7 +15,7 @@
 -->
 	<li>
 		<label>Ad Type</label>
-		<select class="originUI-select originUI-bgColorSecondary" ng:model="<?php echo $editor;?>.config.type">
+		<select class="originUI-select originUI-bgColorSecondary" data-ng-model="<?php echo $editor;?>.config.type" data-ng-change="templateType(<?php echo $editor;?>.config.type)">
 			<option style="display:none" value="">Select Type</option>
 			<option value="default">Standard</option>
 			<option value="expand">Expanding</option>
@@ -26,8 +26,8 @@
 		</select>
 	</li>
 	<li>
-		<label>Position</label>
-		<select class="originUI-select originUI-bgColorSecondary" ng:model="<?php echo $editor;?>.config.position">
+		<label>Placement</label>
+		<select class="originUI-select originUI-bgColorSecondary" ng:model="<?php echo $editor;?>.config.placement">
 			<option style="display:none" value="">Select Position</option>
 			<option value="default">Standard (inline)</option>
 			<!-- <option value="meridian">Out of Page</option> -->
@@ -108,14 +108,14 @@
 				<input type="text" class="originUI-input originUI-bgColorSecondary" ng:model="<?php echo $editor;?>.config.dimensions.Initial.<?php echo $platform;?>.height"/>
 			</div>
 		</div>
-		<div class="inline adTemplate-config">
+		<div class="inline adTemplate-config" data-ng-hide="templateHide.hide">
 			<label class="originUI-label inline">Triggered Width</label>
 			<div class="originUI-field">
 				<div class="originUI-fieldBracket"></div>
 				<input type="text" class="originUI-input originUI-bgColorSecondary" ng:model="<?php echo $editor;?>.config.dimensions.Triggered.<?php echo $platform;?>.width"/>
 			</div>
 		</div>
-		<div class="inline adTemplate-config">
+		<div class="inline adTemplate-config" data-ng-hide="templateHide.hide">
 			<label class="originUI-label">Triggered Height</label>
 			<div class="originUI-field">
 				<div class="originUI-fieldBracket"></div>
@@ -125,56 +125,76 @@
 	</accordion-group>
 	<?php }//End-foreach ?>
 	<accordion-group heading="Animation">
-		<div id="adTemplate-configSelector" class="inline adTemplate-config">
-			<label class="originUI-label">Selector</label>
-			<div class="originUI-field">
-				<div class="originUI-fieldBracket"></div>
-				<input type="text" class="originUI-input originUI-bgColorSecondary" ng:model="<?php echo $editor;?>.config.animations.selector"/>
+		<div data-ng-show="templateHide.hide">
+			<div class="inline adTemplate-config" data-ng-show="templateHide.close">
+				<label class="originUI-label">Close Timer</label>
+				<div class="originUI-field">
+					<div class="originUI-fieldBracket"></div>
+					<input type="text" class="originUI-input originUI-bgColorSecondary" ng:model="<?php echo $editor;?>.config.animations.timer"/>
+				</div>
 			</div>
 		</div>
-		<div id="adTemplate-configTrigger" class="inline adTemplate-config">
+		<div data-ng-hide="templateHide.hide || templateHide.overlay">
+			<div id="adTemplate-configSelector" class="inline adTemplate-config">
+				<label class="originUI-label">Selector</label>
 <!--
-			<label class="originUI-label">Trigger Effect</label>
-			<select class="originUI-select originUI-bgColorSecondary" ng:model="<?php echo $editor;?>.config.animations.trigger">
-				<option style="display:none" value="">Select Trigger</option>
-				<option value="expand">Expand</option>
-				<option value="overlay">Overlay</option>
-				<option value="interstitial" data-ng-show="<?php echo $editor;?>.alias === 'antemeridian' || <?php echo $editor;?>.alias === 'postmeridian'">Interstitial</option>
-			</select>
+				<div class="originUI-field">
+					<div class="originUI-fieldBracket"></div>
+					<input type="text" class="originUI-input originUI-bgColorSecondary" ng:model="<?php echo $editor;?>.config.animations.selector"/>
+				</div>
 -->
-			<!--
-<div class="originUI-field">
-				<div class="originUI-fieldBracket"></div>
-				<input type="text" class="originUI-input originUI-bgColorSecondary" ng:model="<?php echo $editor;?>.config.animations.selector"/>
+				
+				<select class="originUI-select originUI-bgColorSecondary" data-ng-model="<?php echo $editor;?>.config.animations.selector">
+					<option style="display:none" value="">Select Selector</option>
+					<option value="initial">Initial</option>
+					<option value="triggered">Triggered</option>
+				</select>
+				
+			</div>
+<!--
+			<div id="adTemplate-configTrigger" class="inline adTemplate-config">
+					<label class="originUI-label">Trigger Effect</label>
+				<select class="originUI-select originUI-bgColorSecondary" ng:model="<?php echo $editor;?>.config.animations.trigger">
+					<option style="display:none" value="">Select Trigger</option>
+					<option value="expand">Expand</option>
+					<option value="overlay">Overlay</option>
+					<option value="interstitial" data-ng-show="<?php echo $editor;?>.alias === 'antemeridian' || <?php echo $editor;?>.alias === 'postmeridian'">Interstitial</option>
+				</select>
+	
+					<div class="originUI-field">
+					<div class="originUI-fieldBracket"></div>
+					<input type="text" class="originUI-input originUI-bgColorSecondary" ng:model="<?php echo $editor;?>.config.animations.selector"/>
+				</div>
+	
 			</div>
 -->
-		</div>
-		<div class="inline adTemplate-config">
-			<label class="originUI-label">Selector Start</label>
-			<div class="originUI-field">
-				<div class="originUI-fieldBracket"></div>
-				<input type="text" class="originUI-input originUI-bgColorSecondary" ng:model="<?php echo $editor;?>.config.animations.start"/>
+			<div class="inline adTemplate-config">
+				<label class="originUI-label">Selector Start</label>
+				<div class="originUI-field">
+					<div class="originUI-fieldBracket"></div>
+					<input type="text" class="originUI-input originUI-bgColorSecondary" ng:model="<?php echo $editor;?>.config.animations.start"/>
+				</div>
 			</div>
-		</div>
-		<div class="inline adTemplate-config">
-			<label class="originUI-label">Selector End</label>
-			<div class="originUI-field">
-				<div class="originUI-fieldBracket"></div>
-				<input type="text" class="originUI-input originUI-bgColorSecondary" ng:model="<?php echo $editor;?>.config.animations.end"/>
+			<div class="inline adTemplate-config">
+				<label class="originUI-label">Selector End</label>
+				<div class="originUI-field">
+					<div class="originUI-fieldBracket"></div>
+					<input type="text" class="originUI-input originUI-bgColorSecondary" ng:model="<?php echo $editor;?>.config.animations.end"/>
+				</div>
 			</div>
-		</div>
-		<div class="inline adTemplate-config">
-			<label class="originUI-label">Opening Duration</label>
-			<div class="originUI-field">
-				<div class="originUI-fieldBracket"></div>
-				<input type="text" class="originUI-input originUI-bgColorSecondary" ng:model="<?php echo $editor;?>.config.animations.openDuration"/>
+			<div class="inline adTemplate-config">
+				<label class="originUI-label">Opening Duration</label>
+				<div class="originUI-field">
+					<div class="originUI-fieldBracket"></div>
+					<input type="text" class="originUI-input originUI-bgColorSecondary" ng:model="<?php echo $editor;?>.config.animations.openDuration"/>
+				</div>
 			</div>
-		</div>
-		<div class="inline adTemplate-config">
-			<label class="originUI-label">Closing Duration</label>
-			<div class="originUI-field">
-				<div class="originUI-fieldBracket"></div>
-				<input type="text" class="originUI-input originUI-bgColorSecondary" ng:model="<?php echo $editor;?>.config.animations.closeDuration"/>
+			<div class="inline adTemplate-config">
+				<label class="originUI-label">Closing Duration</label>
+				<div class="originUI-field">
+					<div class="originUI-fieldBracket"></div>
+					<input type="text" class="originUI-input originUI-bgColorSecondary" ng:model="<?php echo $editor;?>.config.animations.closeDuration"/>
+				</div>
 			</div>
 		</div>
 	</accordion-group>

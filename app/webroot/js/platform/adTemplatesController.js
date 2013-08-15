@@ -3,6 +3,9 @@ var adTemplatesController	= function($scope, Rest, Notification) {
 	$scope.editorModal	= {};
 	$scope.status		= {};
 	$scope.templates 	= {};
+	$scope.templateHide = {
+		hide:	false
+	};
 	
 	Rest.get('templates').then(function(response) {
 		$scope.templates = response;
@@ -51,6 +54,36 @@ var adTemplatesController	= function($scope, Rest, Notification) {
 					break;
 			}
 		});
+	}
+	
+	/**
+	*
+	*/
+	$scope.templateType = function(model) {
+		//Set defaults
+		$scope.templateHide = {
+			hide: 	false,
+			close:	false,
+			overlay: false
+		}
+		
+		//console.log(model);
+		switch(model) {
+			case 'default':
+				$scope.templateHide.hide = true;
+				break;
+			case 'interstitial':
+			case 'prestitial':
+				$scope.templateHide.hide = true;
+				$scope.templateHide.close = true;
+				break;
+			case 'overlay':
+				$scope.templateHide.overlay = true;
+				break;
+			default:
+				$scope.templateHide.hide = false;
+				break;
+		}
 	}
 	
 	/**
