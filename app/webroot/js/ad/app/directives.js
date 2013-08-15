@@ -105,25 +105,25 @@ angular.module('originAd.directives', [])
 		return {
 			restrict: 'A',
 			link: function(scope, element, attrs) {
-				var param	= attrs.contentContainer[0].toUpperCase() + attrs.contentContainer.substring(1);
+				//Standard dimensions
+				//var param 	= attrs.contentContainer.charAt(0).toUpperCase() + attrs.contentContainer.slice(1);
 				
 				element.css({
-					'width':	$rootScope.originAd_config.dimensions[param][origin_platform].width+(($rootScope.originAd_config.dimensions[param][origin_platform].width.indexOf('%') === -1)? 'px': ''),
-					'height':	$rootScope.originAd_config.dimensions[param][origin_platform].height+(($rootScope.originAd_config.dimensions[param][origin_platform].height.indexOf('%') === -1)? 'px': ''),
-					'marginLeft': -$rootScope.originAd_config.dimensions[param][origin_platform].width/2 + 'px'
+					'width':		$rootScope.originAd_config.dimensions[attrs.contentContainer][origin_platform].width + 'px',
+					'height':		$rootScope.originAd_config.dimensions[attrs.contentContainer][origin_platform].height + 'px',
+					'marginLeft': 	-$rootScope.originAd_config.dimensions[attrs.contentContainer][origin_platform].width/2 + 'px'
 				});
-				
-				//Add an initial offset for expanding ads
-				if($rootScope.originAd_config.type === 'expand' && param === 'Triggered') {
+			
+				//Catch animation selector to append initial offset value
+				if($rootScope.originAd_config.animations.selector === attrs.contentContainer.toLowerCase()) {
 					element.css({
-						'top':	$rootScope.originAd_config.dimensions.Initial[origin_platform].height+(($rootScope.originAd_config.dimensions[param][origin_platform].height.indexOf('%') === -1)? 'px': '')
+						'top':	$rootScope.originAd_config.animations.start + 'px'
 					});
 				}
 				
-				//Add a top offset for overlay's triggered view
-				if($rootScope.originAd_config.type === 'overlay' && param === 'Triggered') {
+				if($rootScope.originAd_config.type === 'overlay' && attrs.contentContainer === 'Triggered') {
 					element.css({
-						'marginTop': -$rootScope.originAd_config.dimensions.Initial[origin_platform].height + 'px'
+						'marginTop':	-$rootScope.originAd_config.dimensions[attrs.contentContainer][origin_platform].height/2 + 'px'
 					});
 				}
 			}

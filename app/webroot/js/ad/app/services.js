@@ -42,21 +42,19 @@ angular.module('originAd.services', [])
 				/**
 				* Auto-expand logic
 				*/
-				var auto 	= ($rootScope.originParams.auto === 'true')? '100000': '0';
+				var auto 	= ($rootScope.originParams.auto === 'true')? '100000000': '0';
 				
 				if(this.check($rootScope.originAd_id, auto)) {
 				
 					//Flag to know if the unit has been auto-opened
 					window.originAuto	= true;
-										
+					
 					switch($rootScope.xdDataToggle.callback) {
 						case 'toggleexpand':
 							serviceToggle.toggleexpand('auto');
 							break;
 						case 'toggleoverlay':
-							if(originAd_action !== 'close') {
-								serviceToggle.toggleoverlay('auto');
-							}
+							serviceToggle.toggleoverlay('auto');
 							break;
 					}
 				}
@@ -128,7 +126,6 @@ $rootScope.xdDataToggle.resizeHeight 	= (dimensionObj.Initial[origin_platform].h
 					case 'open':
 						animateTo	= animateObj.end+'px',
 						duration	= animateObj.openDuration/1000;
-						
 						$rootScope.xdDataToggle.resizeHeight= $rootScope.originAd_config.dimensions.Triggered[origin_platform].height+'px';
 						$rootScope.xdDataToggle.resizeWidth	= $rootScope.originAd_config.dimensions.Triggered[origin_platform].width+'px';
 						
@@ -144,7 +141,6 @@ $rootScope.xdDataToggle.resizeHeight 	= (dimensionObj.Initial[origin_platform].h
 						break;
 				}
 				if(auto !== 'auto') $rootScope.$apply();//IS THIS A GOOD IDEA???
-				
 				OriginAdService.xd($rootScope.xdDataToggle, $rootScope.originParams.xdSource);
 				anim(document.getElementById(animateObj.selector), {top:animateTo}, duration, 'ease-out');
 			},

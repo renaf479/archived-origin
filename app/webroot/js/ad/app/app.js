@@ -39,7 +39,7 @@ var originAdApp = angular.module('originAdApp', ['originAd.directives', 'originA
 								placement:	$rootScope.originAd_config.placement,
 								type:		$rootScope.originAd_config.type
 							}
-						}						
+						}	
 						
 						//$rootScope.timeout	= ($rootScope.originParams.close > 0)? $rootScope.originParams.close: $rootScope.originAd_config.animations.closeDuration;
 						

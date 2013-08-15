@@ -1,4 +1,4 @@
-var overlayController = function($scope, $rootScope, OriginAdService) {
+var overlayController = function($scope, $rootScope, OriginAdService, serviceFrequency) {
 
 	//Configuration object for trigger
 	$rootScope.xdDataToggle = {
@@ -14,6 +14,7 @@ var overlayController = function($scope, $rootScope, OriginAdService) {
 		case 'open':
 			OriginAdService.analyticsLog('Load');
 			OriginAdService.xd($scope.xdAdInit, $scope.originParams.xdSource);
+			serviceFrequency.init();
 			break;
 	}
 }

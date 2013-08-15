@@ -108,7 +108,7 @@
 				<input type="text" class="originUI-input originUI-bgColorSecondary" ng:model="<?php echo $editor;?>.config.dimensions.Initial.<?php echo $platform;?>.height"/>
 			</div>
 		</div>
-		<div class="inline adTemplate-config">					
+		<div class="inline adTemplate-config">
 			<label class="originUI-label inline">Triggered Width</label>
 			<div class="originUI-field">
 				<div class="originUI-fieldBracket"></div>

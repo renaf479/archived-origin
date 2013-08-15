@@ -2,7 +2,7 @@ var expandController = function($scope, $rootScope, OriginAdService, serviceFreq
 
 	$rootScope.xdDataToggle = {
 		callback: 	'toggle'+$rootScope.originAd_config.type,
-		id:			'originAd-'+$scope.origin_ad.OriginAd.id,
+		id:			$scope.origin_ad.OriginAd.id,
 		action:		'open',
 		type:		$rootScope.originAd_config.type
 	};
