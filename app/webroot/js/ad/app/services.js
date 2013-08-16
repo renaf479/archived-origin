@@ -16,16 +16,36 @@ angular.module('originAd.services', [])
 		return OriginAdService;
 	})
 	.factory('serviceCountdown', function($rootScope, $timeout, serviceToggle) {
-		var timer;
+		var timer,
+			countdownTimer = function() {
+			$rootScope.countdown -= 1;
+			if($rootScope.countdown > 0) {
+				timer = $timeout(countdownTimer, 1000);
+			} else {
+				serviceToggle[$rootScope.xdDataToggle.callback]();
+			}
+		}
+		
+		
 		var serviceCountdown = {
-			init: function(override) {
-				var countdown	= (override)? override: $rootScope.originAd_config.animations.timer;
-				timer 	= $timeout(serviceToggle[$rootScope.xdDataToggle.callback], countdown * 1000);
-				$rootScope.countdown	= countdown;
-				$rootScope.$apply();
+			init: function() {
+				$rootScope.countdown = $rootScope.originAd_config.animations.timer;
+				countdownTimer();
 			},
 			cancel: function() {
 				$timeout.cancel(timer);
+			},
+			hide: function() {
+				$rootScope.countdownHide = 'true';
+			},
+			show: function() {
+				$rootScope.countdownHide = 'false';
+			},
+			restart: function(timer) {
+				this.cancel();
+				this.show();
+				$rootScope.countdown = timer;
+				countdownTimer();
 			}
 		};
 		

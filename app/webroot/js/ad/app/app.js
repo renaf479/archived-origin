@@ -85,14 +85,14 @@ var originAdApp = angular.module('originAdApp', ['originAd.directives', 'originA
 									OriginAdService.analyticsLog(message.type, message.data);
 									break;
 								case 'timeout':
-									serviceCountdown.cancel();
-									serviceCountdown.init(message.timeout + 2);
+									serviceCountdown.restart(message.timeout);
+									//serviceCountdown.init(message.timeout + 2);
 									//$rootScope.timeout = message.timeout + 2;
 									//$rootScope.originAd_config.animations.timer = message.timeout + 2;
 									//$rootScope.$apply();
 									break;
 								case 'timeouthide':
-									//serviceCountdown.cancel();
+									serviceCountdown.hide();
 									break;
 								case 'toggle':
 									serviceToggle[$rootScope.xdDataToggle.callback]();

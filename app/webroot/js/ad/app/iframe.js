@@ -9,7 +9,7 @@ var iframe = (function() {
 	var springboard = {
 		analytics: function() {
 			$sb(springboardObj.id).onStart(function() {
-				xd({'originAdAction': 'timeout', 'timeout': Math.floor(springboardObj.clip.duration)});
+				xd({'originAdAction': 'timeout', 'timeout': Math.floor(springboardObj.clip.duration) + 5});
 			
 				var quartiles	= new Array(),
 					_25			= springboardObj.clip.duration/4,
@@ -101,7 +101,7 @@ var iframe = (function() {
 					id:		id,
 					clip:	sbClip,
 					title:	decodeURIComponent(sbClip.title),
-					timeout: '1.5'
+					timeout: '2'
 				}
 				
 /*

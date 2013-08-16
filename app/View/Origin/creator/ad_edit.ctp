@@ -7,6 +7,9 @@
 			<div id="share" class="dropdown-toggle creatorbar-icon originUI-hover"<?php /* data-intro="Create demo page or generate embed code" data-position="right" */ ?>></div>
 			<ul id="share-menu" class="dropdown-menu originUI-bgColorSecondary originUI-borderColor">
 				<li class="dropdown-item">
+					<a href="/demo/Origin/<?php echo $origin_ad_hash;?>" target="_blank" id="shareMenu-demo" class="share originUI-hover">View Demo</a>
+				</li>
+				<li class="dropdown-item">
 					<a href="/administrator/demo/create/<?php echo $this->params['originAd_id'];?>" target="_blank" id="shareMenu-demo" class="share originUI-hover">Create Demo</a>
 				</li>
 				<li>

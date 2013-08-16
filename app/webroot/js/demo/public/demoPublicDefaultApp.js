@@ -15,8 +15,8 @@ var demoPublicApp = angular.module('demoPublicApp',
 						}
 						
 						$rootScope.embedOptions = {
-							auto: 		'true',
-							close: 		'true',
+							auto: 		'false',
+							close: 		'false',
 							tablet: 	false,
 							mobile: 	false,
 							id: 		config.OriginAd.id,
@@ -41,11 +41,18 @@ var demoPublicApp = angular.module('demoPublicApp',
 									break;
 									
 								case 'default':
-									//Guess based on dimensions
-									if(dimensions.Initial.Desktop.width >= 500 && dimensions.Initial.Desktop.width <= 1000) {
-										embed = 'embedLeaderboard';
+									//Catch special types
+									if($rootScope.embedOptions.adtype === 'interstitial' || 
+										$rootScope.embedOptions.adtype === 'prestitial') {
+											embed = 'embedOutOfPage';
 									} else {
-										embed = 'embedSidebar';
+								
+										//Guess based on dimensions
+										if(dimensions.Initial.Desktop.width >= 500 && dimensions.Initial.Desktop.width <= 1000) {
+											embed = 'embedLeaderboard';
+										} else {
+											embed = 'embedSidebar';
+										}
 									}
 									break;
 							}

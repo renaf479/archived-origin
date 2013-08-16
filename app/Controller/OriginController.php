@@ -227,6 +227,7 @@ class OriginController extends AppController {
 	* Permissions: Developers and Designers
 	*/
 	public function creatorAdEdit() {
+		App::import('Vendor', 'pseudocrypt');
 		$this->layout	= 'creator';
 		$origin_ad		= $this->OriginAd->find('first', 
 			array(
@@ -236,7 +237,9 @@ class OriginController extends AppController {
 				)
 			)
 		);
+		
 		$this->set('origin_ad', $origin_ad);
+		$this->set('origin_ad_hash', PseudoCrypt::hash($origin_ad['OriginAd']['id']));
 		$this->set('title_for_layout', $origin_ad['OriginAd']['name'].' - Ad Creator');
 		$this->render('creator/ad_edit');
 	}
@@ -1094,7 +1097,8 @@ class OriginController extends AppController {
 						'conditions'=>array(
 							'OriginAds.type_id = OriginTemplate.id'
 						)
-					)/*
+					)
+/*
 ,
 					array(
 						'table'=>'origin_ad_desktop_initial_contents',
@@ -1151,6 +1155,7 @@ class OriginController extends AppController {
 						)
 					)
 */
+
 				),
 				'order'=>array(
 					'OriginTemplate.name ASC'
