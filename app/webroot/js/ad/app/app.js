@@ -1,7 +1,7 @@
 'use strict';
 
 var originAdApp = angular.module('originAdApp', ['originAd.directives', 'originAd.services'])
-					.run(function($rootScope, $timeout, OriginAdService, serviceFrequency, serviceTimer, serviceToggle) {
+					.run(function($rootScope, $timeout, OriginAdService, serviceFrequency, serviceCountdown, serviceToggle) {
 						$rootScope.hiddenView				= 'triggered';
 						$rootScope.origin_ad 				= angular.fromJson(origin_ad);
 						$rootScope.originAd_id				= 'originAd-'+$rootScope.origin_ad.OriginAd.id;
@@ -79,20 +79,24 @@ var originAdApp = angular.module('originAdApp', ['originAd.directives', 'originA
 								return false;
 							}
 							message		= JSON.parse(message.data);
-							
+
 							switch(message.originAdAction) {
 								case 'analytics':
 									OriginAdService.analyticsLog(message.type, message.data);
 									break;
 								case 'timeout':
-									$rootScope.timeout = message.timeout + 2;
+									serviceCountdown.cancel();
+									serviceCountdown.init(message.timeout + 2);
+									//$rootScope.timeout = message.timeout + 2;
+									//$rootScope.originAd_config.animations.timer = message.timeout + 2;
+									//$rootScope.$apply();
 									break;
 								case 'timeouthide':
-									serviceTimer.cancel();
+									//serviceCountdown.cancel();
 									break;
 								case 'toggle':
 									serviceToggle[$rootScope.xdDataToggle.callback]();
 									break;
 							}
-						}, 'http://'+$rootScope.originParams.originDomain);						
+						}, 'http://'+$rootScope.originParams.originDomain);
 					});

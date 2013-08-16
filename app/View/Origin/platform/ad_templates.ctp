@@ -18,7 +18,8 @@
 				<th class="originUI-tableHeadStatus">&nbsp;</th>
 				<th class="originUI-tableHeadName" ng:click="templateFilter='OriginTemplate.name';reverse=!reverse">Name</th>
 				<th class="originUI-tableHeadDescription">Description</th>
-				<th class="originUI-tableHeadGroup" ng:click="templateFilter='OriginTemplate.config.type';reverse=!reverse">Template</th>
+				<th class="originUI-tableHeadGroup" ng:click="templateFilter='OriginTemplate.config.type';reverse=!reverse">Type</th>
+				<th class="originUI-tableHeadGroup" ng:click="templateFilter='OriginTemplate.config.placement';reverse=!reverse">Placement</th>
 			</thead>
 			<tbody class="originUI-tableBody">
 				<tr class="originUI-tableRow originUI-hover" ng:repeat="template in templates|orderBy:templateFilter:reverse|filter:searchOrigin" ng:class="(template.OriginTemplate.status !== '1')? 'inactive': ''">
@@ -30,7 +31,8 @@
 					</td>
 					<td class="originUI-tableName originUI-tableCell" ng:click="templateEdit(template)">{{template.OriginTemplate.name}}</td>
 					<td class="originUI-tableDescription originUI-tableCell" ng:click="templateEdit(template)">{{template.OriginTemplate.content.description}}</td>
-					<td class="originUI-tableGroup originUI-tableCell" ng:click="templateEdit(template)">{{template.OriginTemplate.alias}}</td>
+					<td class="originUI-tableGroup originUI-tableCell" ng:click="templateEdit(template)">{{template.OriginTemplate.config.type}}</td>
+					<td class="originUI-tableGroup originUI-tableCell" ng:click="templateEdit(template)">{{template.OriginTemplate.config.placement}}</td>
 				</tr>
 			</tbody>
 		</table> 

@@ -15,6 +15,22 @@ angular.module('originAd.services', [])
 		}
 		return OriginAdService;
 	})
+	.factory('serviceCountdown', function($rootScope, $timeout, serviceToggle) {
+		var timer;
+		var serviceCountdown = {
+			init: function(override) {
+				var countdown	= (override)? override: $rootScope.originAd_config.animations.timer;
+				timer 	= $timeout(serviceToggle[$rootScope.xdDataToggle.callback], countdown * 1000);
+				$rootScope.countdown	= countdown;
+				$rootScope.$apply();
+			},
+			cancel: function() {
+				$timeout.cancel(timer);
+			}
+		};
+		
+		return serviceCountdown;
+	})
 	.factory('serviceTimer', function($rootScope, $timeout, serviceToggle) {
 		var timer;
 	
@@ -35,14 +51,13 @@ angular.module('originAd.services', [])
 	.factory('serviceFrequency', function($rootScope, serviceToggle, serviceTimer, OriginAdService, $timeout) {
 		/**
 		* Only in use with non-Meridian type units
-		* BROKEN... AGAIN!
 		*/
 		return {
 			init: function() {				
 				/**
 				* Auto-expand logic
 				*/
-				var auto 	= ($rootScope.originParams.auto === 'true')? '100000000': '0';
+				var auto 	= ($rootScope.originParams.auto === 'true')? '1': '0';
 				
 				if(this.check($rootScope.originAd_id, auto)) {
 				

@@ -6,7 +6,7 @@
 	
 	} else { 
 	?>
-		<div id="initial" content-container="initial">
+		<div id="initial" content-container="Initial">
 			<countdown id="countdown">Skip ad in {{countdown}} seconds</countdown>
 			<close id="close"></close>
 			<div id="content-{{content.id}}" data-ng-repeat="content in originAd_content['OriginAd<?php echo $originAd_platform;?>InitialContent']" content="content"></div>

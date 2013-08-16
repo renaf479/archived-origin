@@ -1,4 +1,4 @@
-<div id="initial" content-container="initial">
+<div id="initial" content-container="Initial">
 	<countdown id="countdown">Continue to site in {{countdown}} seconds</countdown>
 	<close id="continue"></close>
 	<overlay id="overlayBg" data-type="triggered"></overlay>

@@ -107,7 +107,6 @@ angular.module('originAd.directives', [])
 			link: function(scope, element, attrs) {
 				//Standard dimensions
 				//var param 	= attrs.contentContainer.charAt(0).toUpperCase() + attrs.contentContainer.slice(1);
-				
 				element.css({
 					'width':		$rootScope.originAd_config.dimensions[attrs.contentContainer][origin_platform].width + 'px',
 					'height':		$rootScope.originAd_config.dimensions[attrs.contentContainer][origin_platform].height + 'px',
@@ -121,18 +120,24 @@ angular.module('originAd.directives', [])
 					});
 				}
 				
-				if($rootScope.originAd_config.type === 'overlay' && attrs.contentContainer === 'Triggered') {
-					element.css({
-						'marginTop':	-$rootScope.originAd_config.dimensions[attrs.contentContainer][origin_platform].height/2 + 'px'
-					});
+				if(($rootScope.originAd_config.type === 'overlay' && attrs.contentContainer === 'Triggered') ||
+					$rootScope.originAd_config.type === 'interstitial' ||
+					$rootScope.originAd_config.type === 'prestitial') {
+						element.css({
+							'marginTop':	-$rootScope.originAd_config.dimensions[attrs.contentContainer][origin_platform].height/2 + 'px'
+						});
 				}
 			}
 		}
 	})
-	.directive('countdown', function($rootScope, $timeout, serviceToggle) {		
+	.directive('countdown', function($rootScope, $timeout, serviceCountdown) {		
 		return {
 			restrict: 'E',
 			link: function(scope, element, attrs) {
+				serviceCountdown.init();
+/*
+				scope.countdown 	= $rootScope.originAd_config.animations.timer;
+					
 				var countdownTimer	= function() {
 					scope.countdown -= 1;
 					if(scope.countdown > 0) {
@@ -142,12 +147,12 @@ angular.module('originAd.directives', [])
 					}
 				};
 						
-				if($rootScope.originAd_config.animations.timer) {
-					scope.countdown 	= $rootScope.originAd_config.animations.timer;
+				if(scope.countdown) {
 					countdownTimer();	
 				} else {
 					angular.element(element).css('visibility', 'hidden');
 				}
+*/
 			}
 		}
 	})

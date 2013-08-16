@@ -143,7 +143,6 @@
 					<input type="text" class="originUI-input originUI-bgColorSecondary" ng:model="<?php echo $editor;?>.config.animations.selector"/>
 				</div>
 -->
-				
 				<select class="originUI-select originUI-bgColorSecondary" data-ng-model="<?php echo $editor;?>.config.animations.selector">
 					<option style="display:none" value="">Select Selector</option>
 					<option value="initial">Initial</option>

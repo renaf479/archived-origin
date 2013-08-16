@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.5.25)
 # Database: evolveorigin
-# Generation Time: 2013-07-21 23:06:47 +0000
+# Generation Time: 2013-08-16 05:58:59 +0000
 # ************************************************************
 
 
@@ -420,7 +420,7 @@ VALUES
 	(425,1,'85034038ec0d51955c2166c6f36aa4af','2 weeks',1,'2013-07-09 14:55:16','2013-07-23 14:55:16'),
 	(426,1,'6462987270f48da0d6456f033a6e8338','2 weeks',1,'2013-07-09 22:10:12','2013-07-23 22:10:12'),
 	(427,1,'fd41e8e11f3928a318cf1e31ed55de28','2 weeks',1,'2013-07-10 10:55:19','2013-07-24 10:55:19'),
-	(428,7,'e64312968872fc9f2bb94ea61499653a','2 weeks',0,'2013-07-10 11:27:15','2013-07-24 11:27:15'),
+	(428,7,'e64312968872fc9f2bb94ea61499653a','2 weeks',1,'2013-07-10 11:27:15','2013-07-24 11:27:15'),
 	(429,1,'39f93dafd1f25edcdfefe57c001935df','2 weeks',1,'2013-07-10 14:57:24','2013-07-24 14:57:24'),
 	(430,1,'1ecff24aab997fcc4646ac5fa399a386','2 weeks',1,'2013-07-10 21:54:35','2013-07-24 21:54:35'),
 	(431,1,'4e6a23e39c1606eeef5ca916d8b7d6bb','2 weeks',1,'2013-07-11 16:06:48','2013-07-25 16:06:48'),
@@ -447,7 +447,64 @@ VALUES
 	(452,1,'27b7cefb8d730a915056af842ac49ea0','2 weeks',0,'2013-07-18 14:23:10','2013-08-01 14:23:10'),
 	(453,1,'41eb6075ff0d5b94201b65d2252e6403','2 weeks',1,'2013-07-18 14:25:12','2013-08-01 14:25:12'),
 	(454,1,'05844b51ec711aaf902fd5c10e14b64e','2 weeks',1,'2013-07-18 19:21:52','2013-08-01 19:21:52'),
-	(455,1,'19900c9aa6c8946c4fe1171c5dd18519','2 weeks',0,'2013-07-21 14:21:59','2013-08-04 14:21:59');
+	(455,1,'19900c9aa6c8946c4fe1171c5dd18519','2 weeks',0,'2013-07-21 14:21:59','2013-08-04 14:21:59'),
+	(456,1,'fe26c41a762ca859841494537b152dd0','2 weeks',1,'2013-07-22 15:30:07','2013-08-05 15:30:07'),
+	(457,1,'86237f18d27e53ed80ea34602245b5ee','2 weeks',0,'2013-07-22 15:33:41','2013-08-05 15:33:41'),
+	(458,1,'10f48e7f79fa8ab6822603bc27c53878','2 weeks',0,'2013-07-22 15:35:28','2013-08-05 15:35:28'),
+	(459,1,'6073b380d9a567ac720c3881004d38eb','2 weeks',0,'2013-07-22 15:35:47','2013-08-05 15:35:47'),
+	(460,1,'c5315c55c94b499eafc59ce570a49ac0','2 weeks',0,'2013-07-22 15:37:10','2013-08-05 15:37:10'),
+	(461,1,'dfd96d8ee91ade01db6d27bc956d5294','2 weeks',1,'2013-07-23 11:00:05','2013-08-06 11:00:05'),
+	(462,1,'fd41581436654841f95aa04794406d25','2 weeks',1,'2013-07-23 15:00:41','2013-08-06 15:00:41'),
+	(463,1,'314d11c994bfedb2ba83b1b4f22acbfd','2 weeks',0,'2013-07-23 16:34:27','2013-08-06 16:34:27'),
+	(464,1,'89e7ad48ead58a40defd8d6d9b30a3f6','2 weeks',1,'2013-07-23 16:37:10','2013-08-06 16:37:10'),
+	(465,7,'5d3f6b14a824d57b0bcb6c47719c5270','2 weeks',0,'2013-07-24 11:12:15','2013-08-07 11:12:15'),
+	(466,1,'b61f51798aaf0fc6049c604f8db3bd62','2 weeks',0,'2013-07-24 11:12:29','2013-08-07 11:12:29'),
+	(467,1,'b8ab6e1b45c3744c22ed5e0bf785c2b0','2 weeks',1,'2013-07-24 11:29:31','2013-08-07 11:29:31'),
+	(468,1,'81f211b4804f76c620f9c84cd8730791','2 weeks',0,'2013-07-24 11:37:50','2013-08-07 11:37:50'),
+	(469,7,'9c4c0b1145bdc669853087565448e6f7','2 weeks',0,'2013-07-24 14:09:15','2013-08-07 14:09:15'),
+	(470,1,'2dfd9aff552a654d37fb98afdace8dd1','2 weeks',1,'2013-07-24 15:31:17','2013-08-07 15:31:17'),
+	(471,1,'ca21de1d0ac3708bed2069364cd3d6ca','2 weeks',1,'2013-07-24 21:24:56','2013-08-07 21:24:56'),
+	(472,1,'8d951ee405d9c6b4770c2b0449afadfb','2 weeks',1,'2013-07-25 10:54:22','2013-08-08 10:54:22'),
+	(473,7,'115291dc739a3a04b6511f5d5d1b3b58','2 weeks',0,'2013-07-25 11:26:16','2013-08-08 11:26:16'),
+	(474,1,'4e458fc6fa1dcc5c4553d50ff8110a37','2 weeks',0,'2013-07-25 14:55:20','2013-08-08 14:55:20'),
+	(475,1,'44fd8e92eb81558c4885e907313cb0d9','2 weeks',1,'2013-07-25 15:00:00','2013-08-08 15:00:00'),
+	(476,1,'aeec3a8d69a2c008f76e78a1f6aee724','2 weeks',1,'2013-07-29 10:38:23','2013-08-12 10:38:23'),
+	(477,1,'81325a0a28ec810dacce2c6371c82a05','2 weeks',1,'2013-07-29 14:39:36','2013-08-12 14:39:36'),
+	(478,1,'59f48cd695bbbf80b43adc51cd372eb3','2 weeks',1,'2013-07-30 10:40:17','2013-08-13 10:40:17'),
+	(479,1,'0af88c030bea7eb79c0184678e8b4edd','2 weeks',1,'2013-07-30 15:28:43','2013-08-13 15:28:43'),
+	(480,1,'1f2cbbf080757fbcb81136215161ad73','2 weeks',1,'2013-07-31 11:05:37','2013-08-14 11:05:37'),
+	(481,1,'df29ac538b8091f480fbc4f2cbac8e6e','2 weeks',1,'2013-07-31 15:08:41','2013-08-14 15:08:41'),
+	(482,1,'ec150ef0b13ec2dc39f60445202edf39','2 weeks',1,'2013-08-01 10:49:56','2013-08-15 10:49:56'),
+	(483,1,'334670a72dc6ad120d4a2782b200377c','2 weeks',1,'2013-08-01 14:51:02','2013-08-15 14:51:02'),
+	(484,1,'86c24ae3f302e1587cc8f0d1d1a84167','2 weeks',1,'2013-08-02 12:07:11','2013-08-16 12:07:11'),
+	(485,1,'293e6950fd70d230e4377562d6e3c65d','2 weeks',1,'2013-08-02 16:08:57','2013-08-16 16:08:57'),
+	(486,1,'8f86b4e3bb651167ba0f695b7106cd88','2 weeks',1,'2013-08-05 09:42:36','2013-08-19 09:42:36'),
+	(487,1,'4c58f2842cef57a1d45fe5958c6537f7','2 weeks',0,'2013-08-05 14:02:38','2013-08-19 14:02:38'),
+	(488,1,'23c728a7be481fe32557765b2a8698aa','2 weeks',1,'2013-08-05 15:50:48','2013-08-19 15:50:48'),
+	(489,7,'94c7d074fd90b0e02fa0280c34fdf03a','2 weeks',0,'2013-08-05 15:50:55','2013-08-19 15:50:55'),
+	(490,1,'7ea96d8533f4456055df0144c952589e','2 weeks',1,'2013-08-06 10:38:22','2013-08-20 10:38:22'),
+	(491,1,'4aa166024a418ebdba589fbb3b39cb12','2 weeks',1,'2013-08-06 10:58:28','2013-08-20 10:58:28'),
+	(492,1,'b3c4007f190e2251f0e3d2d4dc818726','2 weeks',0,'2013-08-06 14:47:26','2013-08-20 14:47:26'),
+	(493,1,'00072c8fa5814904410e12d56126f798','2 weeks',1,'2013-08-07 11:02:15','2013-08-21 11:02:15'),
+	(494,1,'b4b4773710064faf04f88499899c5486','2 weeks',1,'2013-08-07 15:02:34','2013-08-21 15:02:34'),
+	(495,1,'ba1bb93935e9ca8cbc3f8e693a095e7f','2 weeks',1,'2013-08-08 10:39:29','2013-08-22 10:39:29'),
+	(496,1,'303653ca735c7f343e833372fcbc7e44','2 weeks',1,'2013-08-08 14:39:46','2013-08-22 14:39:46'),
+	(497,0,'2f12cd48c77b2c9e44708259baec8062','2 weeks',0,'2013-08-08 17:40:00','2013-08-22 17:40:00'),
+	(498,1,'9669a97dabbe79dc9f66a48944602b9e','2 weeks',1,'2013-08-08 17:43:15','2013-08-22 17:43:15'),
+	(499,1,'40a15662bfdd23aa58df0a22eac4a674','2 weeks',1,'2013-08-08 21:43:59','2013-08-22 21:43:59'),
+	(500,1,'a32d5dfd2edee0d322a7ca7b2f1966bd','2 weeks',1,'2013-08-09 10:37:22','2013-08-23 10:37:22'),
+	(501,1,'d9a698254d7aa4e2f09767fd9935c6ec','2 weeks',1,'2013-08-09 14:38:51','2013-08-23 14:38:51'),
+	(502,1,'c605f1dc45b78e730ce13ad8f904cf38','2 weeks',1,'2013-08-12 10:36:37','2013-08-26 10:36:37'),
+	(503,1,'3f5bdfe87fa833d97e2175ae56c87202','2 weeks',1,'2013-08-12 15:04:14','2013-08-26 15:04:14'),
+	(504,1,'3fb38a692bbd37b3fe6ecfa46c053569','2 weeks',1,'2013-08-13 10:56:25','2013-08-27 10:56:25'),
+	(505,1,'c4ae5e3aa913a18d69f3293e7931a684','2 weeks',1,'2013-08-13 14:56:27','2013-08-27 14:56:27'),
+	(506,1,'e4034fd75186df5a5fa99f429c193b99','2 weeks',0,'2013-08-14 11:13:19','2013-08-28 11:13:19'),
+	(507,1,'495ffef3056a142a95c6c2e358b6a9ea','2 weeks',1,'2013-08-14 12:51:46','2013-08-28 12:51:46'),
+	(508,1,'4d158ff5b7c8594209ef92e3fa4ff541','2 weeks',0,'2013-08-14 12:58:51','2013-08-28 12:58:51'),
+	(509,1,'1e7a6e1fe68dafc10151d6495c6b72cb','2 weeks',1,'2013-08-14 13:16:33','2013-08-28 13:16:33'),
+	(510,1,'30f71ee0d0d04e2aae7fcb05c551d0de','2 weeks',0,'2013-08-14 15:00:52','2013-08-28 15:00:52'),
+	(511,1,'0e05997b619f79a14a4a900a3e8915b7','2 weeks',1,'2013-08-15 10:54:06','2013-08-29 10:54:06'),
+	(512,1,'ee7ec7d467a6f19d48652f34d39050f0','2 weeks',0,'2013-08-15 15:34:47','2013-08-29 15:34:47');
 
 /*!40000 ALTER TABLE `login_tokens` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -484,10 +541,10 @@ VALUES
 	(65,20,17,'{\"title\":\"Background\",\"type\":\"background\",\"bgUpload\":\"\\/assets\\/creator\\/20\\/_initial.jpg\",\"image\":\"\\/assets\\/creator\\/20\\/_initial.jpg\"}','{\"height\":\"100%\",\"left\":\"0px\",\"top\":\"0px\",\"width\":\"100%\"}','<img src=\"/assets/creator/20/_initial.jpg\" class=\"background\"/>','background',1),
 	(66,20,17,'{\"title\":\"Toggle\",\"type\":\"toggle\",\"event\":true}','{\"top\":\"0px\",\"left\":\"0px\",\"width\":\"725px\",\"height\":\"88px\"}','<a href=\"javascript:void(0)\" class=\"cta toggle\" toggle=\"click\"></a>','toggle',2),
 	(67,30,27,'{\"title\":\"Background\",\"type\":\"background\",\"bgUpload\":\"\\/assets\\/creator\\/30\\/_initial.jpg\",\"image\":\"\\/assets\\/creator\\/30\\/_initial.jpg\"}','{\"height\":\"100%\",\"left\":\"0px\",\"top\":\"0px\",\"width\":\"100%\"}','<img src=\"/assets/creator/30/_initial.jpg\" class=\"background\"/>','background',1),
-	(68,30,27,'{\"title\":\"Toggle\",\"type\":\"toggle\",\"event\":true}','{\"top\":\"4px\",\"left\":\"10px\",\"width\":\"950px\",\"height\":\"57px\"}','<a href=\"javascript:void(0)\" class=\"cta toggle\" toggle=\"click\"></a>','toggle',3),
+	(68,30,27,'{\"title\":\"Toggle\",\"type\":\"toggle\",\"event\":true}','{\"top\":\"4px\",\"left\":\"10px\",\"width\":\"278px\",\"height\":\"49px\"}','<a href=\"javascript:void(0)\" class=\"cta toggle\" toggle=\"click\"></a>','toggle',3),
 	(73,32,28,'{\"title\":\"Background\",\"type\":\"background\",\"iframe\":true,\"autoplay\":true,\"automute\":true,\"autoclose\":true,\"image\":\"\\/assets\\/creator\\/32\\/_initial.jpg\"}','{\"height\":\"100%\",\"left\":\"0px\",\"top\":\"0px\",\"width\":\"100%\"}','<img src=\"/assets/creator/32/_initial.jpg\" class=\"background\"/>','background',1),
 	(75,40,33,'{\"title\":\"Background\",\"type\":\"background\",\"image\":\"\\/assets\\/creator\\/40\\/_initial.jpg\"}','{\"height\":\"100%\",\"left\":\"0px\",\"top\":\"0px\",\"width\":\"100%\"}','<img src=\"/assets/creator/40/_initial.jpg\" class=\"background\"/>','background',0),
-	(76,40,33,'{\"title\":\"Toggle\",\"type\":\"toggle\",\"iframe\":true,\"autoplay\":true,\"automute\":true,\"autoclose\":true,\"event\":false,\"hoverIntent\":true}','{\"top\":\"3px\",\"left\":\"333px\",\"width\":\"827px\",\"height\":\"63px\"}','<a href=\"javascript:void(0)\" class=\"cta toggle\" toggle=\"hoverIntent\"></a>','toggle',1),
+	(76,40,33,'{\"title\":\"Toggle\",\"type\":\"toggle\",\"iframe\":true,\"autoplay\":true,\"automute\":true,\"autoclose\":true,\"event\":false,\"hoverIntent\":true}','{\"top\":\"3px\",\"left\":\"333px\",\"width\":\"827px\",\"height\":\"63px\"}','<a href=\"javascript:void(0)\" class=\"cta toggle\" toggle=\"click\"></a>','toggle',1),
 	(78,14,13,'{\"title\":\"DoubleClick Link\",\"type\":\"dfp-link\",\"placeholder\":\"dfp-1\"}','{\"height\":\"50px\",\"left\":\"0px\",\"top\":\"0px\",\"width\":\"50px\"}','<a dfp=\"dfp-1\" target=\"_blank\" class=\"link\">DFP Placeholder dfp-1</a>','dfp-link',3),
 	(79,14,13,'{\"title\":\"Springboard\",\"type\":\"springboard\",\"iframe\":true,\"autoplay\":true,\"automute\":true,\"autoclose\":true,\"videoId\":\"732705\",\"preview\":\"<iframe id=\\\"evor006_732705\\\" src=\\\"http:\\/\\/cms.springboardplatform.com\\/embed_iframe\\/1307\\/video\\/732705\\/evor006\\/evolve-origin\\/10\\\" width=\\\"274\\\" height=\\\"154\\\" frameborder=\\\"0\\\" scrolling=\\\"no\\\"><\\/iframe>\",\"embed\":\"<script language=\\\"javascript\\\" type=\\\"text\\/javascript\\\" src=\\\"http:\\/\\/www.springboardplatform.com\\/jsapi\\/embed\\\"><\\/script><div class=\\\"videoPlayer\\\" id=\\\"evor001_732705\\\"><\\/div><script type=\\\"text\\/javascript\\\">$sb(\\\"evor001_732705\\\",{\\\"sbFeed\\\":{\\\"partnerId\\\":1307,\\\"type\\\":\\\"video\\\",\\\"contentId\\\":732705,\\\"cname\\\":\\\"evolve-origin\\\"},\\\"style\\\":{\\\"width\\\":\\\"300px\\\",\\\"height\\\":\\\"169px\\\"}});<\\/script><script type=\\\"text\\/javascript\\\">iframe.springboard(\\\"evor001_732705\\\", {\\\"autoplay\\\":true,\\\"automute\\\":true,\\\"autoclose\\\":true,\\\"muteplayer\\\":undefined,\\\"unmutehover\\\":undefined,\\\"unmuterestart\\\":undefined})<\\/script><script type=\\\"text\\/javascript\\\" src=\\\"http:\\/\\/s0.2mdn.net\\/instream\\/html5\\/ima3.js\\\"><\\/script>\"}','{\"height\":\"169px\",\"left\":\"0px\",\"top\":\"0px\",\"width\":\"300px\"}','<iframe class=\"embed\" src=\"http://local.evolveorigin/adIframe/OriginAdDesktopInitialContent/79\" frameborder=\"0\" scrolling=\"no\" collapse=\"iframe\"></iframe>','springboard',4),
 	(80,14,13,'{\"title\":\"DoubleClick Link\",\"type\":\"dfp-link\",\"iframe\":true,\"autoplay\":true,\"automute\":true,\"autoclose\":true,\"placeholder\":\"dfp-2\"}','{\"height\":\"169px\",\"left\":\"0px\",\"top\":\"0px\",\"width\":\"300px\"}','<a dfp=\"dfp-2\" target=\"_blank\" class=\"link\">DFP Placeholder dfp-2</a>','dfp-link',5),
@@ -495,7 +552,13 @@ VALUES
 	(84,42,35,'{\"title\":\"Toggle\",\"type\":\"toggle\",\"event\":true,\"hoverIntent\":false}','{\"top\":\"12px\",\"left\":\"889px\",\"width\":\"71px\",\"height\":\"10px\"}','<a href=\"javascript:void(0)\" class=\"cta toggle\" toggle=\"click\"></a>','toggle',2),
 	(87,78,67,'{\"title\":\"Background\",\"type\":\"background\",\"bgUpload\":\"\\/assets\\/creator\\/78\\/reskin.jpg\",\"image\":\"\\/assets\\/creator\\/78\\/reskin.jpg\"}','{\"height\":\"100%\",\"left\":\"0px\",\"top\":\"0px\",\"width\":\"100%\"}','<img src=\"/assets/creator/78/reskin.jpg\" class=\"background\"/>','background',1),
 	(94,78,67,'{\"title\":\"Springboard\",\"type\":\"springboard\",\"iframe\":true,\"autoplay\":true,\"automute\":true,\"autoclose\":true,\"videoId\":\"695141\",\"preview\":\"<iframe id=\\\"evor006_695141\\\" src=\\\"http:\\/\\/cms.springboardplatform.com\\/embed_iframe\\/1307\\/video\\/695141\\/evor006\\/evolve-origin\\/10\\\" width=\\\"274\\\" height=\\\"154\\\" frameborder=\\\"0\\\" scrolling=\\\"no\\\"><\\/iframe>\",\"embed\":\"<script language=\\\"javascript\\\" type=\\\"text\\/javascript\\\" src=\\\"http:\\/\\/www.springboardplatform.com\\/jsapi\\/embed\\\"><\\/script><div class=\\\"videoPlayer\\\" id=\\\"evor001_695141\\\"><\\/div><script type=\\\"text\\/javascript\\\">$sb(\\\"evor001_695141\\\",{\\\"sbFeed\\\":{\\\"partnerId\\\":1307,\\\"type\\\":\\\"video\\\",\\\"contentId\\\":695141,\\\"cname\\\":\\\"evolve-origin\\\"},\\\"style\\\":{\\\"width\\\":\\\"1044px\\\",\\\"height\\\":\\\"437px\\\"}});<\\/script><script type=\\\"text\\/javascript\\\">iframe.springboard(\\\"evor001_695141\\\", {\\\"autoplay\\\":true,\\\"automute\\\":true,\\\"autoclose\\\":true,\\\"muteplayer\\\":undefined,\\\"unmutehover\\\":undefined,\\\"unmuterestart\\\":undefined})<\\/script><script type=\\\"text\\/javascript\\\" src=\\\"http:\\/\\/s0.2mdn.net\\/instream\\/html5\\/ima3.js\\\"><\\/script>\"}','{\"top\":\"120px\",\"left\":\"314px\",\"width\":\"1044px\",\"height\":\"437px\"}','<iframe class=\"embed\" src=\"http://local.evolveorigin/adIframe/OriginAdDesktopInitialContent/94\" frameborder=\"0\" scrolling=\"no\" collapse=\"iframe\"></iframe>','springboard',2),
-	(95,15,14,'{\"title\":\"Springboard\",\"type\":\"springboard\",\"iframe\":true,\"autoplay\":true,\"automute\":true,\"autoclose\":true,\"videoId\":\"732705\",\"preview\":\"<iframe id=\\\"evor006_732705\\\" src=\\\"http:\\/\\/cms.springboardplatform.com\\/embed_iframe\\/1307\\/video\\/732705\\/evor006\\/evolve-origin\\/10\\\" width=\\\"274\\\" height=\\\"154\\\" frameborder=\\\"0\\\" scrolling=\\\"no\\\"><\\/iframe>\",\"embed\":\"<script language=\\\"javascript\\\" type=\\\"text\\/javascript\\\" src=\\\"http:\\/\\/www.springboardplatform.com\\/jsapi\\/embed\\\"><\\/script><div class=\\\"videoPlayer\\\" id=\\\"evor001_732705\\\"><\\/div><script type=\\\"text\\/javascript\\\">$sb(\\\"evor001_732705\\\",{\\\"sbFeed\\\":{\\\"partnerId\\\":1307,\\\"type\\\":\\\"video\\\",\\\"contentId\\\":732705,\\\"cname\\\":\\\"evolve-origin\\\"},\\\"style\\\":{\\\"width\\\":\\\"570px\\\",\\\"height\\\":\\\"441px\\\"}});<\\/script><script type=\\\"text\\/javascript\\\">iframe.springboard(\\\"evor001_732705\\\", {\\\"autoplay\\\":true,\\\"automute\\\":true,\\\"autoclose\\\":true,\\\"muteplayer\\\":undefined,\\\"unmutehover\\\":undefined,\\\"unmuterestart\\\":undefined})<\\/script><script type=\\\"text\\/javascript\\\" src=\\\"http:\\/\\/s0.2mdn.net\\/instream\\/html5\\/ima3.js\\\"><\\/script>\"}','{\"top\":\"38px\",\"left\":\"185px\",\"width\":\"572px\",\"height\":\"442px\"}','<iframe class=\"embed\" src=\"http://local.evolveorigin/adIframe/OriginAdDesktopInitialContent/95\" frameborder=\"0\" scrolling=\"no\" collapse=\"iframe\"></iframe>','springboard',2);
+	(96,81,70,'{\"title\":\"Background\",\"type\":\"background\",\"bgUpload\":\"\\/assets\\/creator\\/81\\/initial.jpg\",\"image\":\"\\/assets\\/creator\\/81\\/initial.jpg\"}','{\"height\":\"100%\",\"left\":\"0px\",\"top\":\"0px\",\"width\":\"100%\"}','<img src=\"/assets/creator/81/initial.jpg\" class=\"background\"/>','background',1),
+	(97,81,70,'{\"title\":\"Toggle\",\"type\":\"toggle\",\"event\":true,\"hoverIntent\":false}','{\"top\":\"0px\",\"left\":\"920px\",\"width\":\"50px\",\"height\":\"50px\"}','<a href=\"javascript:void(0)\" class=\"cta toggle\" toggle=\"click\"></a>','toggle',2),
+	(98,82,71,'{\"title\":\"Background\",\"type\":\"background\",\"bgUpload\":\"\\/assets\\/creator\\/82\\/_initial.jpg\",\"image\":\"\\/assets\\/creator\\/82\\/_initial.jpg\"}','{\"height\":\"100%\",\"left\":\"0px\",\"top\":\"0px\",\"width\":\"100%\"}','<img src=\"/assets/creator/82/_initial.jpg\" class=\"background\"/>','background',0),
+	(99,82,71,'{\"title\":\"Toggle\",\"type\":\"toggle\",\"event\":true,\"hoverIntent\":false}','{\"top\":\"6px\",\"left\":\"0px\",\"width\":\"959px\",\"height\":\"294px\"}','<a href=\"javascript:void(0)\" class=\"cta toggle\" toggle=\"click\"></a>','toggle',1),
+	(102,84,73,'{\"title\":\"Toggle\",\"type\":\"toggle\",\"event\":true,\"hoverIntent\":false}','{\"top\":\"0px\",\"left\":\"0px\",\"width\":\"728px\",\"height\":\"84px\"}','<a href=\"javascript:void(0)\" class=\"cta toggle\" toggle=\"click\"></a>','toggle',1),
+	(105,30,0,'{\"title\":\"Springboard\",\"type\":\"springboard\",\"iframe\":true,\"autoplay\":true,\"automute\":true,\"autoclose\":true,\"videoId\":\"740189\",\"preview\":\"<iframe id=\\\"evor006_740189\\\" src=\\\"http:\\/\\/cms.springboardplatform.com\\/embed_iframe\\/1307\\/video\\/740189\\/evor006\\/evolve-origin\\/10\\\" width=\\\"274\\\" height=\\\"154\\\" frameborder=\\\"0\\\" scrolling=\\\"no\\\"><\\/iframe>\",\"embed\":\"<script language=\\\"javascript\\\" type=\\\"text\\/javascript\\\" src=\\\"http:\\/\\/www.springboardplatform.com\\/jsapi\\/embed\\\"><\\/script><div class=\\\"videoPlayer\\\" id=\\\"evor001_740189\\\"><\\/div><script type=\\\"text\\/javascript\\\">$sb(\\\"evor001_740189\\\",{\\\"sbFeed\\\":{\\\"partnerId\\\":1307,\\\"type\\\":\\\"video\\\",\\\"contentId\\\":740189,\\\"cname\\\":\\\"evolve-origin\\\"},\\\"style\\\":{\\\"width\\\":\\\"251px\\\",\\\"height\\\":\\\"61px\\\"}});<\\/script><script type=\\\"text\\/javascript\\\">iframe.springboard(\\\"evor001_740189\\\", {\\\"autoplay\\\":true,\\\"automute\\\":true,\\\"autoclose\\\":true,\\\"muteplayer\\\":undefined,\\\"unmutehover\\\":undefined,\\\"unmuterestart\\\":undefined})<\\/script><script type=\\\"text\\/javascript\\\" src=\\\"http:\\/\\/s0.2mdn.net\\/instream\\/html5\\/ima3.js\\\"><\\/script>\"}','{\"top\":\"0px\",\"left\":\"465px\",\"width\":\"251px\",\"height\":\"61px\"}',NULL,'springboard',4),
+	(106,15,14,'{\"title\":\"Springboard\",\"type\":\"springboard\",\"iframe\":true,\"autoplay\":true,\"automute\":true,\"autoclose\":true,\"videoId\":\"732705\",\"preview\":\"<iframe id=\\\"evor006_732705\\\" src=\\\"http:\\/\\/cms.springboardplatform.com\\/embed_iframe\\/1307\\/video\\/732705\\/evor006\\/evolve-origin\\/10\\\" width=\\\"274\\\" height=\\\"154\\\" frameborder=\\\"0\\\" scrolling=\\\"no\\\"><\\/iframe>\",\"embed\":\"<script language=\\\"javascript\\\" type=\\\"text\\/javascript\\\" src=\\\"http:\\/\\/www.springboardplatform.com\\/jsapi\\/embed\\\"><\\/script><div class=\\\"videoPlayer\\\" id=\\\"evor001_732705\\\"><\\/div><script type=\\\"text\\/javascript\\\">$sb(\\\"evor001_732705\\\",{\\\"sbFeed\\\":{\\\"partnerId\\\":1307,\\\"type\\\":\\\"video\\\",\\\"contentId\\\":732705,\\\"cname\\\":\\\"evolve-origin\\\"},\\\"style\\\":{\\\"width\\\":\\\"498px\\\",\\\"height\\\":\\\"269px\\\"}});<\\/script><script type=\\\"text\\/javascript\\\">iframe.springboard(\\\"evor001_732705\\\", {\\\"autoplay\\\":true,\\\"automute\\\":true,\\\"autoclose\\\":true,\\\"muteplayer\\\":undefined,\\\"unmutehover\\\":undefined,\\\"unmuterestart\\\":undefined})<\\/script><script type=\\\"text\\/javascript\\\" src=\\\"http:\\/\\/s0.2mdn.net\\/instream\\/html5\\/ima3.js\\\"><\\/script>\"}','{\"top\":\"136px\",\"left\":\"182px\",\"width\":\"498px\",\"height\":\"269px\"}','<iframe class=\"embed\" src=\"http://local.evolveorigin/adIframe/OriginAdDesktopInitialContent/106\" frameborder=\"0\" scrolling=\"no\" collapse=\"iframe\"></iframe>','springboard',2);
 
 /*!40000 ALTER TABLE `origin_ad_desktop_initial_contents` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -538,7 +601,11 @@ VALUES
 	(52,40,33,'{\"title\":\"Background\",\"type\":\"background\",\"image\":\"\\/assets\\/creator\\/40\\/_triggered.jpg\"}','{\"height\":\"100%\",\"left\":\"0px\",\"top\":\"0px\",\"width\":\"100%\"}','<img src=\"/assets/creator/40/_triggered.jpg\" class=\"background\"/>','background',1),
 	(53,40,33,'{\"title\":\"Toggle\",\"type\":\"toggle\",\"event\":true}','{\"top\":\"15px\",\"left\":\"282px\",\"width\":\"33px\",\"height\":\"34px\"}','<a href=\"javascript:void(0)\" class=\"cta toggle\" toggle=\"click\"></a>','toggle',2),
 	(66,42,35,'{\"title\":\"Background\",\"type\":\"background\",\"image\":\"\\/assets\\/creator\\/42\\/chanel-triggered.jpg\"}','{\"height\":\"100%\",\"left\":\"0px\",\"top\":\"0px\",\"width\":\"100%\"}','<img src=\"/assets/creator/42/chanel-triggered.jpg\" class=\"background\"/>','background',1),
-	(67,42,35,'{\"title\":\"Toggle\",\"type\":\"toggle\",\"event\":false,\"hoverIntent\":true}','{\"top\":\"11px\",\"left\":\"396px\",\"width\":\"228px\",\"height\":\"46px\"}','<a href=\"javascript:void(0)\" class=\"cta toggle\" toggle=\"hoverIntent\"></a>','toggle',2);
+	(67,42,35,'{\"title\":\"Toggle\",\"type\":\"toggle\",\"event\":false,\"hoverIntent\":true}','{\"top\":\"11px\",\"left\":\"396px\",\"width\":\"228px\",\"height\":\"46px\"}','<a href=\"javascript:void(0)\" class=\"cta toggle\" toggle=\"hoverIntent\"></a>','toggle',2),
+	(68,81,70,'{\"title\":\"Toggle\",\"type\":\"toggle\",\"event\":true,\"hoverIntent\":false}','{\"top\":\"0px\",\"left\":\"0px\",\"width\":\"89px\",\"height\":\"33px\"}','<a href=\"javascript:void(0)\" class=\"cta toggle\" toggle=\"click\"></a>','toggle',1),
+	(69,82,71,'{\"title\":\"Background\",\"type\":\"background\",\"bgUpload\":\"\\/assets\\/creator\\/82\\/_triggered.jpg\",\"image\":\"\\/assets\\/creator\\/82\\/_triggered.jpg\"}','{\"height\":\"100%\",\"left\":\"0px\",\"top\":\"0px\",\"width\":\"100%\"}','<img src=\"/assets/creator/82/_triggered.jpg\" class=\"background\"/>','background',1),
+	(70,82,71,'{\"title\":\"Toggle\",\"type\":\"toggle\",\"event\":true,\"hoverIntent\":false}','{\"top\":\"0px\",\"left\":\"11px\",\"width\":\"959px\",\"height\":\"90px\"}','<a href=\"javascript:void(0)\" class=\"cta toggle\" toggle=\"click\"></a>','toggle',2),
+	(72,84,73,'{\"title\":\"Toggle\",\"type\":\"toggle\",\"event\":true,\"hoverIntent\":false}','{\"top\":\"0px\",\"left\":\"0px\",\"width\":\"945px\",\"height\":\"323px\"}','<a href=\"javascript:void(0)\" class=\"cta toggle\" toggle=\"click\"></a>','toggle',1);
 
 /*!40000 ALTER TABLE `origin_ad_desktop_triggered_contents` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -591,7 +658,7 @@ CREATE TABLE `origin_ad_schedules` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `origin_ad_id` int(11) NOT NULL,
   `config` text,
-  `type` varchar(100) NOT NULL,
+  `type` varchar(100) NOT NULL DEFAULT 'default',
   `start_date` date DEFAULT NULL,
   `end_date` date DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -602,18 +669,22 @@ LOCK TABLES `origin_ad_schedules` WRITE;
 
 INSERT INTO `origin_ad_schedules` (`id`, `origin_ad_id`, `config`, `type`, `start_date`, `end_date`)
 VALUES
-	(1,1,NULL,'',NULL,NULL),
-	(3,1,'','','2013-01-01','2013-01-31'),
-	(13,14,NULL,'',NULL,NULL),
-	(14,15,NULL,'',NULL,NULL),
-	(15,16,NULL,'',NULL,NULL),
-	(17,20,NULL,'',NULL,NULL),
-	(27,30,NULL,'',NULL,NULL),
-	(28,32,NULL,'',NULL,NULL),
-	(33,40,NULL,'',NULL,NULL),
-	(35,42,NULL,'',NULL,NULL),
-	(43,50,NULL,'',NULL,NULL),
-	(67,78,NULL,'',NULL,NULL);
+	(1,1,NULL,'default',NULL,NULL),
+	(3,1,'','auto','2013-01-01','2013-01-31'),
+	(13,14,NULL,'default',NULL,NULL),
+	(14,15,NULL,'default',NULL,NULL),
+	(15,16,NULL,'default',NULL,NULL),
+	(17,20,NULL,'default',NULL,NULL),
+	(27,30,NULL,'default',NULL,NULL),
+	(28,32,NULL,'default',NULL,NULL),
+	(33,40,NULL,'default',NULL,NULL),
+	(35,42,NULL,'default',NULL,NULL),
+	(43,50,NULL,'default',NULL,NULL),
+	(67,78,NULL,'default',NULL,NULL),
+	(70,81,NULL,'default',NULL,NULL),
+	(71,82,NULL,'default',NULL,NULL),
+	(73,84,NULL,'default',NULL,NULL),
+	(74,82,NULL,'auto',NULL,NULL);
 
 /*!40000 ALTER TABLE `origin_ad_schedules` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -684,16 +755,19 @@ LOCK TABLES `origin_ads` WRITE;
 
 INSERT INTO `origin_ads` (`id`, `name`, `config`, `content`, `content_css`, `type`, `type_id`, `create_by`, `modify_by`, `create_date`, `modify_date`, `status`, `showcase`)
 VALUES
-	(1,'Star Trek Into Darkness','{\"type\":\"inpage\",\"dimensions\":{\"Initial\":{\"Desktop\":{\"width\":\"1500\",\"height\":\"66\"}},\"Triggered\":{\"Desktop\":{\"width\":\"1500\",\"height\":\"415\"}}},\"animations\":{\"start\":\"0\",\"end\":\"415\",\"selector\":\"initial\",\"openDuration\":\"400\",\"closeDuration\":\"500\",\"trigger\":\"Expand\"},\"template\":\"horizon\"}','{\"img_thumbnail\":\"\\/assets\\/creator\\/1\\/ad-thumbnail.jpg\"}',NULL,'horizon',1,1,1,'2013-03-06 22:24:15','2013-06-12 12:09:17',1,0),
-	(14,'Last of Us','{\"type\":\"inpage\",\"dimensions\":{\"Initial\":{\"Desktop\":{\"width\":\"970\",\"height\":\"250\"},\"Tablet\":{\"width\":\"\",\"height\":\"\"}},\"Triggered\":{\"Desktop\":{\"width\":\"88\",\"height\":\"31\"},\"Tablet\":{\"width\":\"\",\"height\":\"\"}}},\"animations\":{\"selector\":\"initial\",\"start\":\"0\",\"end\":\"0\",\"openDuration\":\"0\",\"closeDuration\":\"0\",\"trigger\":\"Expand\"},\"template\":\"singularity\"}','{\"img_thumbnail\":\"\\/assets\\/creator\\/14\\/_preview.jpg\",\"ga_id\":\"UA-12310597-73\"}',NULL,'singularity',28,1,1,'2013-04-26 15:45:53','2013-06-21 18:15:04',1,1),
-	(15,'Remember Me','{\"type\":\"outofpage\",\"dimensions\":{\"Initial\":{\"Desktop\":{\"width\":\"850\",\"height\":\"500\"}},\"Triggered\":{\"Desktop\":{\"width\":\"0\",\"height\":\"0\"}}},\"template\":\"antemeridian\",\"animations\":{\"closeDuration\":\"15\",\"trigger\":\"Overlay\"}}','{\"img_thumbnail\":\"\\/assets\\/creator\\/15\\/_preview.jpg\",\"ga_id\":\"UA-12310597-73\"}',NULL,'antemeridian',24,1,1,'2013-04-28 00:58:36','2013-07-18 14:20:49',1,1),
-	(16,'Transistor','{\"type\":\"inpage\",\"dimensions\":{\"Initial\":{\"Desktop\":{\"width\":\"300\",\"height\":\"250\"}},\"Triggered\":{\"Desktop\":{\"width\":\"950\",\"height\":\"500\"}}},\"template\":\"nova\",\"animations\":{\"start\":\"0\",\"end\":\"0\",\"openDuration\":\"0\",\"closeDuration\":\"0\",\"trigger\":\"Overlay\"}}','{\"img_thumbnail\":\"\\/assets\\/creator\\/16\\/_preview.jpg\",\"ga_id\":\"UA-12310597-73\"}',NULL,'nova',27,1,1,'2013-04-28 00:59:14','2013-06-12 12:07:27',1,1),
+	(1,'Star Trek Into Darkness','{\"type\":\"expand\",\"dimensions\":{\"Initial\":{\"Desktop\":{\"width\":\"1500\",\"height\":\"66\"},\"Tablet\":{\"width\":\"1500\",\"height\":\"66\"}},\"Triggered\":{\"Desktop\":{\"width\":\"1500\",\"height\":\"415\"},\"Tablet\":{\"width\":\"1500\",\"height\":\"415\"}}},\"animations\":{\"start\":\"66\",\"end\":\"0\",\"selector\":\"triggered\",\"openDuration\":\"500\",\"closeDuration\":\"400\",\"trigger\":\"Expand\"},\"position\":\"ascension\",\"template\":\"horizon\"}','{\"img_thumbnail\":\"\\/assets\\/creator\\/1\\/ad-thumbnail.jpg\"}',NULL,'horizon',1,1,1,'2013-03-06 22:24:15','2013-08-08 21:46:16',1,0),
+	(14,'Last of Us','{\"dimensions\":{\"Initial\":{\"Desktop\":{\"width\":\"970\",\"height\":\"250\"},\"Tablet\":{\"width\":\"\",\"height\":\"\"}},\"Triggered\":{\"Desktop\":{\"width\":\"88\",\"height\":\"31\"},\"Tablet\":{\"width\":\"\",\"height\":\"\"}}},\"animations\":{\"selector\":\"initial\",\"start\":\"0\",\"end\":\"0\",\"openDuration\":\"0\",\"closeDuration\":\"0\",\"trigger\":\"Expand\"},\"type\":\"expand\",\"placement\":\"default\"}','{\"img_thumbnail\":\"\\/assets\\/creator\\/14\\/_preview.jpg\",\"ga_id\":\"UA-12310597-73\"}',NULL,'singularity',28,1,1,'2013-04-26 15:45:53','2013-06-21 18:15:04',1,0),
+	(15,'Remember Me','{\"type\":\"prestitial\",\"placement\":\"default\",\"dimensions\":{\"Initial\":{\"Desktop\":{\"width\":\"850\",\"height\":\"500\"}}},\"animations\":{\"timer\":\"15\"},\"template\":null}','{\"img_thumbnail\":\"\\/assets\\/creator\\/15\\/_preview.jpg\",\"ga_id\":\"UA-12310597-73\"}',NULL,NULL,37,1,1,'2013-04-28 00:58:36','2013-08-15 15:34:47',1,1),
+	(16,'Transistor','{\"dimensions\":{\"Initial\":{\"Desktop\":{\"width\":\"300\",\"height\":\"250\"}},\"Triggered\":{\"Desktop\":{\"width\":\"950\",\"height\":\"500\"}}},\"type\":\"overlay\",\"placement\":\"default\",\"animations\":{\"start\":\"0\",\"end\":\"0\",\"openDuration\":\"0\",\"closeDuration\":\"0\"}}','{\"img_thumbnail\":\"\\/assets\\/creator\\/16\\/_preview.jpg\",\"ga_id\":\"UA-12310597-73\"}',NULL,'default',27,1,1,'2013-04-28 00:59:14','2013-08-09 16:15:07',1,1),
 	(20,'Man of Steel 728x90','{\"type\":\"inpage\",\"dimensions\":{\"Initial\":{\"Desktop\":{\"height\":\"90\",\"width\":\"728\"}},\"Triggered\":{\"Desktop\":{\"height\":\"500\",\"width\":\"950\"}}},\"animations\":{\"start\":\"0\",\"end\":\"0\",\"duration\":\"0\",\"trigger\":\"Overlay\"},\"template\":\"nova\"}','{\"img_thumbnail\":\"\\/assets\\/creator\\/20\\/_preview.jpg\",\"ga_id\":\"UA-12310597-73\"}',NULL,'nova',10,1,1,'2013-05-29 15:14:44','2013-06-12 12:07:16',1,1),
-	(30,'Beyond: Two Souls','{\"type\":\"inpage\",\"dimensions\":{\"Initial\":{\"Desktop\":{\"height\":\"66\",\"width\":\"970\"},\"Tablet\":{\"height\":\"970\",\"width\":\"66\"}},\"Triggered\":{\"Desktop\":{\"height\":\"415\",\"width\":\"970\"},\"Tablet\":{\"height\":\"970\",\"width\":\"415\"}}},\"animations\":{\"start\":\"66\",\"end\":\"0\",\"duration\":\"300\",\"selector\":\"triggered\",\"openDuration\":\"400\",\"closeDuration\":\"400\",\"trigger\":\"Expand\"},\"template\":\"eclipse\"}','{\"img_thumbnail\":\"\\/assets\\/creator\\/30\\/_preview.jpg\",\"ga_id\":\"UA-12310597-73\"}',NULL,'eclipse',22,1,1,'2013-05-30 12:08:33','2013-06-14 17:33:59',1,1),
-	(32,'Destiny','{\"type\":\"outofpage\",\"dimensions\":{\"Initial\":{\"Desktop\":{\"width\":\"850\",\"height\":\"500\"}},\"Triggered\":{\"Desktop\":{\"width\":\"0\",\"height\":\"0\"}}},\"animations\":{\"closeDuration\":\"15\",\"trigger\":\"Overlay\"},\"template\":\"postmeridian\"}','{\"img_thumbnail\":\"\\/assets\\/creator\\/32\\/_preview.jpg\",\"ga_id\":\"UA-12310597-73\"}',NULL,'postmeridian',23,1,1,'2013-06-04 15:15:06','2013-06-12 12:06:50',1,1),
-	(40,'Mirror\'s Edge','{\"type\":\"inpage\",\"dimensions\":{\"Initial\":{\"Desktop\":{\"width\":\"1500\",\"height\":\"66\"},\"Tablet\":{\"width\":\"1500\",\"height\":\"66\"}},\"Triggered\":{\"Desktop\":{\"width\":\"1500\",\"height\":\"415\"},\"Tablet\":{\"width\":\"1500\",\"height\":\"415\"}}},\"animations\":{\"start\":\"0\",\"end\":\"415\",\"selector\":\"initial\",\"openDuration\":\"500\",\"closeDuration\":\"400\",\"trigger\":\"Expand\"},\"template\":\"horizon\"}','{\"img_thumbnail\":\"\\/assets\\/creator\\/40\\/_preview.jpg\",\"ga_id\":\"UA-12310597-73\",\"hex\":\"#ffffff\"}',NULL,'horizon',1,1,1,'2013-06-11 23:48:35','2013-07-18 14:36:32',1,1),
+	(30,'Beyond: Two Souls','{\"type\":\"overlay\",\"placement\":\"default\",\"dimensions\":{\"Initial\":{\"Desktop\":{\"width\":\"728\",\"height\":\"90\"}},\"Triggered\":{\"Desktop\":{\"width\":\"950\",\"height\":\"500\"}}},\"template\":null}','{\"img_thumbnail\":\"\\/assets\\/creator\\/30\\/_preview.jpg\",\"ga_id\":\"UA-12310597-73\"}',NULL,NULL,41,1,1,'2013-05-30 12:08:33','2013-08-15 15:36:57',1,1),
+	(32,'Destiny','{\"dimensions\":{\"Initial\":{\"Desktop\":{\"width\":\"850\",\"height\":\"500\"}},\"Triggered\":{\"Desktop\":{\"width\":\"0\",\"height\":\"0\"}}},\"animations\":{\"timer\":\"15\"},\"type\":\"interstitial\",\"placement\":\"default\"}','{\"img_thumbnail\":\"\\/assets\\/creator\\/32\\/_preview.jpg\",\"ga_id\":\"UA-12310597-73\"}',NULL,'postmeridian',23,1,1,'2013-06-04 15:15:06','2013-06-12 12:06:50',1,1),
+	(40,'Mirror\'s Edge','{\"dimensions\":{\"Initial\":{\"Desktop\":{\"width\":\"1500\",\"height\":\"66\"},\"Tablet\":{\"width\":\"1500\",\"height\":\"66\"}},\"Triggered\":{\"Desktop\":{\"width\":\"1500\",\"height\":\"415\"},\"Tablet\":{\"width\":\"1500\",\"height\":\"415\"}}},\"animations\":{\"start\":\"66\",\"end\":\"0\",\"selector\":\"triggered\",\"openDuration\":\"500\",\"closeDuration\":\"400\"},\"type\":\"expand\",\"placement\":\"top\"}','{\"img_thumbnail\":\"\\/assets\\/creator\\/40\\/_preview.jpg\",\"ga_id\":\"UA-12310597-73\",\"hex\":\"#000000\"}',NULL,'ascension',1,1,1,'2013-06-11 23:48:35','2013-07-18 14:36:32',1,1),
 	(42,'Chanel','{\"dimensions\":{\"Initial\":{\"Desktop\":{\"width\":\"970\",\"height\":\"300\"}},\"Triggered\":{\"Desktop\":{\"width\":\"970\",\"height\":\"66\"}}},\"animations\":{\"selector\":\"initial\",\"trigger\":\"Expand\",\"start\":\"0\",\"end\":\"0\",\"openDuration\":\"0\",\"closeDuration\":\"0\"},\"template\":\"ascension\"}','{\"img_thumbnail\":\"\",\"ga_id\":\"UA-12310597-73\",\"hex\":\"#ffffff\"}','<style type=\"text/css\">\n#test{}\n</style>','ascension',30,1,1,'2013-06-23 19:07:11','2013-07-17 11:28:49',1,0),
-	(78,'Aurora Test','{\"dimensions\":{\"Initial\":{\"Desktop\":{\"width\":\"1680\",\"height\":\"760\"}},\"Triggered\":{\"Desktop\":{\"width\":\"0\",\"height\":\"0\"}}},\"animations\":{\"trigger\":\"Expand\",\"selector\":\"originAurora\",\"start\":\"0\",\"end\":\"0\",\"openDuration\":\"0\",\"closeDuration\":\"0\"},\"template\":\"aurora\"}','{\"ga_id\":\"UA-12310597-73\",\"img_thumbnail\":\"\",\"hex\":\"#000000\"}',NULL,'aurora',31,1,1,'2013-06-29 19:42:29','2013-07-01 10:26:57',1,0);
+	(78,'Aurora Test','{\"dimensions\":{\"Initial\":{\"Desktop\":{\"width\":\"1680\",\"height\":\"760\"}},\"Triggered\":{\"Desktop\":{\"width\":\"0\",\"height\":\"0\"}}},\"animations\":{\"trigger\":\"Expand\",\"selector\":\"originAurora\",\"start\":\"0\",\"end\":\"0\",\"openDuration\":\"0\",\"closeDuration\":\"0\"},\"template\":\"aurora\"}','{\"ga_id\":\"UA-12310597-73\",\"img_thumbnail\":\"\",\"hex\":\"#000000\"}',NULL,'aurora',31,1,1,'2013-06-29 19:42:29','2013-07-01 10:26:57',1,0),
+	(81,'Splinter Cell','{\"dimensions\":{\"Initial\":{\"Desktop\":{\"width\":\"970\",\"height\":\"250\"}},\"Triggered\":{\"Desktop\":{\"width\":\"88\",\"height\":\"31\"}}},\"animations\":{\"selector\":\"triggered\",\"start\":\"250\",\"end\":\"0\",\"openDuration\":\"0\",\"closeDuration\":\"0\",\"trigger\":\"Expand\"},\"type\":\"expand\",\"placement\":\"default\"}','{\"img_thumbnail\":\"\\/assets\\/creator\\/81\\/_preview.jpg\",\"ga_id\":\"UA-12310597-73\"}',NULL,'singularity',28,1,1,'2013-07-22 17:19:23','2013-07-22 17:20:30',1,1),
+	(82,'Disney Infinity','{\"dimensions\":{\"Initial\":{\"Desktop\":{\"width\":\"970\",\"height\":\"300\"}},\"Triggered\":{\"Desktop\":{\"width\":\"970\",\"height\":\"90\"}}},\"animations\":{\"selector\":\"triggered\",\"trigger\":\"Expand\",\"start\":\"300\",\"end\":\"0\",\"openDuration\":\"0\",\"closeDuration\":\"0\"},\"type\":\"expand\",\"placement\":\"default\"}','{\"img_thumbnail\":\"\\/assets\\/creator\\/82\\/_preview.jpg\",\"ga_id\":\"UA-12310597-73\"}',NULL,'singularity',32,1,1,'2013-07-22 17:44:12','2013-08-06 14:47:26',1,1),
+	(84,'testing','{\"type\":\"inpage\",\"dimensions\":{\"Initial\":{\"Desktop\":{\"height\":\"90\",\"width\":\"728\"}},\"Triggered\":{\"Desktop\":{\"height\":\"500\",\"width\":\"950\"}}},\"animations\":{\"start\":\"0\",\"end\":\"0\",\"duration\":\"0\",\"openDuration\":\"0\",\"closeDuration\":\"0\",\"trigger\":\"Overlay\"},\"template\":\"nova\"}','{\"ga_id\":\"UA-12310597-73\",\"img_thumbnail\":\"\",\"hex\":\"#000000\"}',NULL,'nova',10,7,1,'2013-07-25 11:28:20','2013-07-30 13:45:04',1,0);
 
 /*!40000 ALTER TABLE `origin_ads` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -726,11 +800,11 @@ INSERT INTO `origin_components` (`id`, `name`, `alias`, `group`, `content`, `con
 VALUES
 	(1,'Embed','embed','embed','{\"alias\":\"embed\",\"description\":\"Embed code\"}','{\"img_icon\":\"\\/img\\/components\\/embed.png\",\"group\":\"embed\"}','2013-03-28 23:10:31','2013-04-21 16:28:26',1,1,1),
 	(3,'Link','link','cta','{\"alias\":\"link\",\"description\":\"Click-out link\"}','{\"img_icon\":\"\\/img\\/components\\/link.png\",\"group\":\"link\"}','2013-04-07 21:45:18','2013-04-10 17:40:11',1,1,1),
-	(4,'Toggle','toggle','cta','{\"description\":\"Switch between initial and triggered state\"}','{\"img_icon\":\"\\/img\\/components\\/toggle.png\",\"group\":\"cta\"}','2013-04-07 21:45:51','2013-04-21 16:43:03',1,1,1),
+	(4,'Toggle','toggle','cta','{\"description\":\"Switch between initial and triggered state\"}','{\"img_icon\":\"\\/img\\/components\\/toggle.png\",\"group\":\"cta\"}','2013-04-07 21:45:51','2013-07-23 14:26:04',1,1,1),
 	(5,'Image','image','media','{\"description\":\"Image\"}','{\"img_icon\":\"\\/img\\/components\\/image.png\",\"group\":\"media\"}','2013-04-08 15:45:06','2013-04-08 15:45:06',1,1,1),
 	(7,'DoubleClick Link','dfp-link','cta','{\"description\":\"DoubleClick pass-thru link\"}','{\"group\":\"link\",\"img_icon\":\"\\/img\\/components\\/dc.png\"}','2013-04-10 11:25:22','2013-04-21 16:43:27',1,1,1),
 	(10,'Background','background','media','{\"description\":\"Sets the current ad unit state\'s background image\"}','{\"img_icon\":\"\\/img\\/components\\/background.png\"}','2013-04-18 17:07:54','2013-06-21 23:22:31',1,1,1),
-	(11,'Springboard','springboard','video','{\"description\":\"Springboard Video plugin\"}','{\"img_icon\":\"\\/img\\/components\\/springboard.png\"}','2013-05-21 14:58:50','2013-05-21 15:00:48',1,1,1);
+	(11,'Springboard','springboard','media','{\"description\":\"Springboard Video plugin\"}','{\"img_icon\":\"\\/img\\/components\\/springboard.png\"}','2013-05-21 14:58:50','2013-07-29 14:08:37',1,1,1);
 
 /*!40000 ALTER TABLE `origin_components` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -796,7 +870,7 @@ VALUES
 	(3,'GameRevolution','gamerevolution','{\"description\":\"Game Revolution demo site.\"}','[]','2013-04-15 22:07:38','2013-05-24 14:25:19',1,1,1),
 	(4,'Cinemablend','cinemablend','{\"description\":\"Cinemablend\"}',NULL,'2013-05-24 12:14:25','2013-05-24 12:14:25',1,1,1),
 	(5,'TheFashionSpot','thefashionspot','{\"description\":\"TFS\"}',NULL,'2013-05-24 12:14:34','2013-05-24 12:14:34',1,1,1),
-	(6,'anemul','anemul','{\"description\":\"anemul\"}',NULL,'2013-05-24 13:46:52','2013-06-17 17:52:22',1,1,0);
+	(6,'anemul','anemul','{\"description\":\"anemul\"}',NULL,'2013-05-24 13:46:52','2013-07-25 15:02:48',1,1,1);
 
 /*!40000 ALTER TABLE `origin_sites` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -826,17 +900,20 @@ LOCK TABLES `origin_templates` WRITE;
 
 INSERT INTO `origin_templates` (`id`, `name`, `alias`, `content`, `config`, `create_date`, `modify_date`, `create_by`, `modify_by`, `status`)
 VALUES
-	(1,'Sliver','horizon','{\"alias\":\"horizon\",\"description\":\"This out-of-page unit appears above the site. Triggering the expansion will pushdown the site to reveal the contents.\",\"file_storyboard\":\"\\/img\\/templates\\/horizon.gif\",\"file_specs\":\"\",\"file_logo\":\"\"}','{\"type\":\"inpage\",\"dimensions\":{\"Initial\":{\"Desktop\":{\"width\":\"1500\",\"height\":\"66\"},\"Tablet\":{\"width\":\"1500\",\"height\":\"66\"}},\"Triggered\":{\"Desktop\":{\"width\":\"1500\",\"height\":\"415\"},\"Tablet\":{\"width\":\"1500\",\"height\":\"415\"}}},\"animations\":{\"start\":\"0\",\"end\":\"415\",\"selector\":\"initial\",\"openDuration\":\"500\",\"closeDuration\":\"400\",\"trigger\":\"Expand\"}}','2013-04-20 23:35:45','2013-07-18 22:29:34',1,1,1),
-	(10,'Overlay - 728x90','nova','{\"alias\":\"nova\",\"description\":\"In page unit with an out-of-page triggered state.\",\"file_storyboard\":\"\\/img\\/templates\\/nova.gif\",\"file_specs\":\"\",\"file_logo\":\"\"}','{\"type\":\"inpage\",\"dimensions\":{\"Initial\":{\"Desktop\":{\"height\":\"90\",\"width\":\"728\"}},\"Triggered\":{\"Desktop\":{\"height\":\"500\",\"width\":\"950\"}}},\"animations\":{\"start\":\"0\",\"end\":\"0\",\"duration\":\"0\",\"openDuration\":\"0\",\"closeDuration\":\"0\"}}','2013-03-20 17:09:06','2013-07-18 22:27:20',1,1,1),
-	(22,'Pushdown','eclipse','{\"alias\":\"eclipse\",\"description\":\"Inspired by the IAB Pushdown, unit lives inline with the site content. The triggered state will pushdown the site, revealing it\'s contents.\",\"file_storyboard\":\"\\/img\\/templates\\/eclipse.gif\",\"file_logo\":\"\"}','{\"type\":\"inpage\",\"dimensions\":{\"Initial\":{\"Desktop\":{\"height\":\"66\",\"width\":\"970\"},\"Tablet\":{\"height\":\"\",\"width\":\"\"}},\"Triggered\":{\"Desktop\":{\"height\":\"415\",\"width\":\"970\"},\"Tablet\":{\"height\":\"\",\"width\":\"\"}}},\"animations\":{\"start\":\"66\",\"end\":\"0\",\"duration\":\"300\",\"selector\":\"triggered\",\"openDuration\":\"400\",\"closeDuration\":\"200\",\"trigger\":\"Expand\"}}','2013-03-20 17:09:06','2013-07-18 22:28:41',1,1,1),
-	(23,'Interstitial','postmeridian','{\"description\":\"Interstitial type unit. Triggers upon an user clicking on an internal site link.\",\"file_storyboard\":\"\\/img\\/templates\\/meridian.gif\"}','{\"type\":\"outofpage\",\"dimensions\":{\"Initial\":{\"Desktop\":{\"width\":\"850\",\"height\":\"500\"}},\"Triggered\":{\"Desktop\":{\"width\":\"0\",\"height\":\"0\"}}},\"animations\":{\"closeDuration\":\"15\",\"trigger\":\"Overlay\"}}','2013-05-01 18:01:02','2013-07-18 22:30:50',1,1,1),
-	(24,'Prestitial','antemeridian','{\"description\":\"Interstital type unit. This unit appears upon page load.\",\"file_storyboard\":\"\\/img\\/templates\\/meridian.gif\"}','{\"type\":\"outofpage\",\"dimensions\":{\"Initial\":{\"Desktop\":{\"width\":\"850\",\"height\":\"500\"}},\"Triggered\":{\"Desktop\":{\"width\":\"0\",\"height\":\"0\"}}},\"animations\":{\"closeDuration\":\"15\",\"trigger\":\"Overlay\"}}','2013-05-01 18:01:55','2013-07-18 22:30:55',1,1,1),
 	(25,'INgage','gemini','{\"description\":\"In page unit that can contain a variety of content pieces\"}','{\"type\":\"inpage\",\"dimensions\":{\"Initial\":{\"Desktop\":{\"width\":\"300\",\"height\":\"600\"}},\"Triggered\":{\"Desktop\":{\"width\":\"0\",\"height\":\"0\"}}}}','2013-05-01 18:02:35','2013-05-24 16:12:49',1,1,0),
-	(26,'Discovery','discovery','{\"description\":\"Editorial content piece. Allows ease of sharing.\"}','{\"type\":\"inpage\"}','2013-05-02 16:24:35','2013-07-16 18:53:38',1,1,0),
-	(27,'Overlay','nova','{\"description\":\"In page 300x250 unit with an out-of-page triggered state\",\"file_storyboard\":\"\\/img\\/templates\\/nova.gif\"}','{\"type\":\"inpage\",\"dimensions\":{\"Initial\":{\"Desktop\":{\"width\":\"300\",\"height\":\"250\"}},\"Triggered\":{\"Desktop\":{\"width\":\"950\",\"height\":\"500\"}}},\"animations\":{\"start\":\"0\",\"end\":\"0\",\"openDuration\":\"0\",\"closeDuration\":\"0\",\"trigger\":\"Overlay\"}}','2013-05-14 22:59:40','2013-07-18 22:26:35',1,1,1),
-	(28,'Billboard','singularity','{\"description\":\"Large billboard running the full width of page with full close ability.\"}','{\"type\":\"inpage\",\"dimensions\":{\"Initial\":{\"Desktop\":{\"width\":\"970\",\"height\":\"250\"}},\"Triggered\":{\"Desktop\":{\"width\":\"88\",\"height\":\"31\"}}},\"animations\":{\"selector\":\"initial\",\"start\":\"0\",\"end\":\"0\",\"openDuration\":\"0\",\"closeDuration\":\"0\",\"trigger\":\"Expand\"}}','2013-05-30 23:00:14','2013-06-12 12:06:08',1,1,1),
-	(30,'Ascension','ascension','{\"description\":\"Ascension Test\"}','{\"dimensions\":{\"Initial\":{\"Desktop\":{\"width\":\"970\",\"height\":\"300\"}},\"Triggered\":{\"Desktop\":{\"width\":\"970\",\"height\":\"66\"}}},\"animations\":{\"selector\":\"initial\",\"trigger\":\"Expand\",\"start\":\"0\",\"end\":\"0\",\"openDuration\":\"0\",\"closeDuration\":\"0\"}}','2013-06-23 19:05:42','2013-06-23 19:05:42',1,1,1),
-	(31,'Aurora','aurora','{\"description\":\"Live reskin template\"}','{\"dimensions\":{\"Initial\":{\"Desktop\":{\"width\":\"1680\",\"height\":\"760\"}},\"Triggered\":{\"Desktop\":{\"width\":\"0\",\"height\":\"0\"}}},\"animations\":{\"trigger\":\"Expand\",\"selector\":\"originAurora\",\"start\":\"0\",\"end\":\"0\",\"openDuration\":\"0\",\"closeDuration\":\"0\"}}','2013-06-29 19:40:45','2013-07-18 14:24:06',1,1,1);
+	(26,'Discovery','discovery','{\"description\":\"Editorial content piece. Allows ease of sharing.\"}','{\"type\":\"inpage\"}','2013-05-02 16:24:35','2013-07-24 14:25:02',1,1,0),
+	(31,'Aurora','aurora','{\"description\":\"Live reskin template\"}','{\"dimensions\":{\"Initial\":{\"Desktop\":{\"width\":\"1680\",\"height\":\"760\"}},\"Triggered\":{\"Desktop\":{\"width\":\"0\",\"height\":\"0\"}}},\"animations\":{\"trigger\":\"Expand\",\"selector\":\"originAurora\",\"start\":\"0\",\"end\":\"0\",\"openDuration\":\"0\",\"closeDuration\":\"0\"}}','2013-06-29 19:40:45','2013-08-15 10:59:02',1,1,0),
+	(33,'Sliver',NULL,'{\"description\":\"This out-of-page unit appears inline at the top of the site. Triggering the ad will pushdown the site to reveal the ad\'s creative\",\"file_storyboard\":\"\\/assets\\/templates\\/horizon.gif\",\"file_guideline\":\"\\/assets\\/templates\\/preview-horizon.jpg\"}','{\"placement\":\"top\",\"type\":\"expand\",\"dimensions\":{\"Initial\":{\"Desktop\":{\"width\":\"970\",\"height\":\"66\"}},\"Triggered\":{\"Desktop\":{\"width\":\"970\",\"height\":\"415\"}}},\"animations\":{\"selector\":\"triggered\",\"start\":\"66\",\"end\":\"0\",\"openDuration\":\"400\",\"closeDuration\":\"300\"}}','2013-08-15 11:01:03','2013-08-15 11:01:03',1,1,1),
+	(34,'Pushdown',NULL,'{\"description\":\"Based on the IAB Pushdown, unit lives inline with the site content. The triggered state will pushdown the site, revealing it\'s contents.\",\"file_storyboard\":\"\\/assets\\/templates\\/eclipse-2.gif\",\"file_guideline\":\"\\/assets\\/templates\\/preview-eclipse.jpg\"}','{\"type\":\"expand\",\"placement\":\"default\",\"dimensions\":{\"Initial\":{\"Desktop\":{\"width\":\"970\",\"height\":\"66\"}},\"Triggered\":{\"Desktop\":{\"width\":\"970\",\"height\":\"415\"}}},\"animations\":{\"selector\":\"triggered\",\"start\":\"66\",\"end\":\"0\",\"openDuration\":\"400\",\"closeDuration\":\"300\"}}','2013-08-15 11:05:25','2013-08-15 11:05:25',1,1,1),
+	(35,'Billboard',NULL,'{\"description\":\"Large billboard running the full width of the page with full close ability.\",\"file_guideline\":\"\\/assets\\/templates\\/preview-singularity.jpg\"}','{\"type\":\"expand\",\"placement\":\"default\",\"dimensions\":{\"Initial\":{\"Desktop\":{\"width\":\"970\",\"height\":\"250\"}},\"Triggered\":{\"Desktop\":{\"width\":\"100\",\"height\":\"88\"}}},\"animations\":{\"selector\":\"triggered\",\"start\":\"250\",\"end\":\"0\",\"openDuration\":\"0\",\"closeDuration\":\"0\"}}','2013-08-15 11:09:10','2013-08-15 11:09:10',1,1,1),
+	(36,'Billboard Plus',NULL,'{\"description\":\"Billboard Plus\",\"file_guideline\":\"\\/assets\\/templates\\/preview-singularity-a.jpg\"}','{\"type\":\"expand\",\"placement\":\"default\",\"dimensions\":{\"Initial\":{\"Desktop\":{\"width\":\"970\",\"height\":\"300\"}},\"Triggered\":{\"Desktop\":{\"width\":\"970\",\"height\":\"66\"}}},\"animations\":{\"selector\":\"triggered\",\"start\":\"300\",\"end\":\"0\",\"openDuration\":\"0\",\"closeDuration\":\"0\"}}','2013-08-15 11:09:46','2013-08-15 11:09:46',1,1,1),
+	(37,'Prestitial',NULL,'{\"description\":\"Unit appears upon page load\"}','{\"type\":\"prestitial\",\"placement\":\"default\",\"dimensions\":{\"Initial\":{\"Desktop\":{\"width\":\"850\",\"height\":\"500\"}}},\"animations\":{\"timer\":\"15\"}}','2013-08-15 11:10:54','2013-08-15 11:10:54',1,1,1),
+	(38,'Interstitial',NULL,'{\"description\":\"Unit appears upon clicking an internal site link.\"}','{\"type\":\"interstitial\",\"placement\":\"default\",\"dimensions\":{\"Initial\":{\"Desktop\":{\"width\":\"850\",\"height\":\"500\"}}},\"animations\":{\"timer\":\"15\"}}','2013-08-15 11:11:23','2013-08-15 11:11:23',1,1,1),
+	(39,'Adhesion',NULL,'{\"description\":\"Adhesion unit.\"}','{\"type\":\"overlay\",\"placement\":\"bottom\",\"dimensions\":{\"Initial\":{\"Desktop\":{\"width\":\"970\",\"height\":\"66\"}},\"Triggered\":{\"Desktop\":{\"width\":\"970\",\"height\":\"600\"}}}}','2013-08-15 11:12:09','2013-08-15 11:12:09',1,1,1),
+	(40,'Branded Canvas',NULL,'{\"description\":\"Branded canvas\",\"file_guideline\":\"\\/assets\\/templates\\/preview-nova-300.jpg\"}','{\"type\":\"overlay\",\"placement\":\"default\",\"dimensions\":{\"Initial\":{\"Desktop\":{\"width\":\"300\",\"height\":\"250\"}},\"Triggered\":{\"Desktop\":{\"width\":\"950\",\"height\":\"500\"}}}}','2013-08-15 11:15:22','2013-08-15 11:15:22',1,1,1),
+	(41,'Overlay - Leaderboard',NULL,'{\"description\":\"728x90 Overlay\"}','{\"type\":\"overlay\",\"placement\":\"default\",\"dimensions\":{\"Initial\":{\"Desktop\":{\"width\":\"728\",\"height\":\"90\"}},\"Triggered\":{\"Desktop\":{\"width\":\"950\",\"height\":\"500\"}}}}','2013-08-15 11:15:55','2013-08-15 11:15:55',1,1,1),
+	(42,'Syndi',NULL,'{\"description\":\"300x250\"}','{\"type\":\"default\",\"placement\":\"default\",\"dimensions\":{\"Initial\":{\"Desktop\":{\"width\":\"300\",\"height\":\"250\"}}}}','2013-08-15 11:17:02','2013-08-15 11:17:02',1,1,1),
+	(43,'Super Syndi',NULL,'{\"description\":\"300x600\"}','{\"type\":\"default\",\"placement\":\"default\",\"dimensions\":{\"Initial\":{\"Desktop\":{\"width\":\"300\",\"height\":\"600\"}}}}','2013-08-15 11:17:15','2013-08-15 11:17:15',1,1,1);
 
 /*!40000 ALTER TABLE `origin_templates` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -955,9 +1032,9 @@ VALUES
 	(92,2,'Creator','adList',0),
 	(93,3,'Creator','adList',0),
 	(94,1,'Origin','templateList',1),
-	(95,2,'Origin','templateList',1),
+	(95,2,'Origin','templateList',0),
 	(96,3,'Origin','templateList',0),
-	(97,4,'Origin','templateList',1),
+	(97,4,'Origin','templateList',0),
 	(98,4,'Users','index',0),
 	(99,1,'Origin','ad',1),
 	(100,2,'Origin','ad',1),
@@ -1001,7 +1078,8 @@ VALUES
 	(138,3,'Origin','loadComponent',0),
 	(139,4,'Origin','loadComponent',1),
 	(140,5,'Origin','loadComponent',1),
-	(141,5,'Origin','templateList',1),
+	(272,1,'Origin','adminTemplateList',1),
+	(141,5,'Origin','templateList',0),
 	(142,1,'Origin','demo',1),
 	(143,2,'Origin','demo',1),
 	(144,3,'Origin','demo',1),
@@ -1064,7 +1142,7 @@ VALUES
 	(201,5,'Origin','ad_list',1),
 	(202,1,'Origin','jsonTemplate',1),
 	(203,2,'Origin','jsonTemplate',1),
-	(204,3,'Origin','jsonTemplate',1),
+	(204,3,'Origin','jsonTemplate',0),
 	(205,4,'Origin','jsonTemplate',1),
 	(206,5,'Origin','jsonTemplate',1),
 	(207,1,'Origin','jsonSite',1),
@@ -1079,7 +1157,7 @@ VALUES
 	(216,5,'Origin','jsonComponent',1),
 	(217,1,'Origin','jsonList',1),
 	(218,2,'Origin','jsonList',1),
-	(219,3,'Origin','jsonList',1),
+	(219,3,'Origin','jsonList',0),
 	(220,4,'Origin','jsonList',1),
 	(221,5,'Origin','jsonList',1),
 	(222,1,'Origin','jsonLibrary',1),
@@ -1124,14 +1202,78 @@ VALUES
 	(261,5,'Origin','demoDelete',0),
 	(262,1,'Origin','jsonAdUnitExpand',1),
 	(263,2,'Origin','jsonAdUnitExpand',1),
-	(264,3,'Origin','jsonAdUnitExpand',1),
+	(264,3,'Origin','jsonAdUnitExpand',0),
 	(265,4,'Origin','jsonAdUnitExpand',1),
 	(266,5,'Origin','jsonAdUnitExpand',1),
 	(267,1,'Origin','adEmbed',1),
 	(268,2,'Origin','adEmbed',1),
 	(269,3,'Origin','adEmbed',0),
 	(270,4,'Origin','adEmbed',1),
-	(271,5,'Origin','adEmbed',1);
+	(271,5,'Origin','adEmbed',1),
+	(273,2,'Origin','adminTemplateList',0),
+	(274,3,'Origin','adminTemplateList',0),
+	(275,4,'Origin','adminTemplateList',0),
+	(276,5,'Origin','adminTemplateList',0),
+	(277,1,'Origin','adminComponentList',1),
+	(278,2,'Origin','adminComponentList',0),
+	(279,3,'Origin','adminComponentList',0),
+	(280,4,'Origin','adminComponentList',0),
+	(281,5,'Origin','adminComponentList',0),
+	(282,1,'Origin','adminSiteList',1),
+	(283,2,'Origin','adminSiteList',0),
+	(284,3,'Origin','adminSiteList',0),
+	(285,4,'Origin','adminSiteList',0),
+	(286,5,'Origin','adminSiteList',0),
+	(287,1,'Origin','platformPost',1),
+	(288,2,'Origin','platformPost',1),
+	(289,3,'Origin','platformPost',0),
+	(290,4,'Origin','platformPost',1),
+	(291,5,'Origin','platformPost',1),
+	(292,1,'Origin','platformUpload',1),
+	(293,2,'Origin','platformUpload',1),
+	(294,3,'Origin','platformUpload',0),
+	(295,4,'Origin','platformUpload',1),
+	(296,5,'Origin','platformUpload',1),
+	(297,1,'Origin','platformLoadElement',1),
+	(298,2,'Origin','platformLoadElement',1),
+	(299,3,'Origin','platformLoadElement',1),
+	(300,4,'Origin','platformLoadElement',1),
+	(301,5,'Origin','platformLoadElement',1),
+	(302,1,'Origin','jsonHomepage',1),
+	(303,2,'Origin','jsonHomepage',1),
+	(304,3,'Origin','jsonHomepage',1),
+	(305,4,'Origin','jsonHomepage',1),
+	(306,5,'Origin','jsonHomepage',1),
+	(307,1,'Origin','adminSettings',1),
+	(308,2,'Origin','adminSettings',0),
+	(309,3,'Origin','adminSettings',0),
+	(310,4,'Origin','adminSettings',0),
+	(311,5,'Origin','adminSettings',0),
+	(312,1,'Origin','creatorAdList',1),
+	(313,2,'Origin','creatorAdList',1),
+	(314,3,'Origin','creatorAdList',0),
+	(315,4,'Origin','creatorAdList',1),
+	(316,5,'Origin','creatorAdList',1),
+	(317,1,'Origin','creatorAdEdit',1),
+	(318,2,'Origin','creatorAdEdit',1),
+	(319,3,'Origin','creatorAdEdit',0),
+	(320,4,'Origin','creatorAdEdit',0),
+	(321,5,'Origin','creatorAdEdit',1),
+	(322,1,'Origin','platformAdEmbed',1),
+	(323,2,'Origin','platformAdEmbed',1),
+	(324,3,'Origin','platformAdEmbed',0),
+	(325,4,'Origin','platformAdEmbed',1),
+	(326,5,'Origin','platformAdEmbed',1),
+	(327,1,'Origin','platformRssFeed',1),
+	(328,2,'Origin','platformRssFeed',1),
+	(329,3,'Origin','platformRssFeed',1),
+	(330,4,'Origin','platformRssFeed',1),
+	(331,5,'Origin','platformRssFeed',1),
+	(332,1,'Origin','platformLoadComponent',1),
+	(333,2,'Origin','platformLoadComponent',1),
+	(334,3,'Origin','platformLoadComponent',1),
+	(335,4,'Origin','platformLoadComponent',1),
+	(336,5,'Origin','platformLoadComponent',1);
 
 /*!40000 ALTER TABLE `user_group_permissions` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -1198,7 +1340,7 @@ LOCK TABLES `users` WRITE;
 INSERT INTO `users` (`id`, `user_group_id`, `username`, `password`, `salt`, `email`, `first_name`, `last_name`, `email_verified`, `active`, `ip_address`, `created`, `modified`)
 VALUES
 	(1,1,'admin','b2fb79d2c626c626fe20a6f0935f8610','1ec19cc78624d8d4e7ec2e53c889666c','willie.fu@evolvemediallc.com','Admin','',1,1,'','2013-01-18 16:07:52','2013-04-07 20:07:24'),
-	(7,2,'willie.fu','6b6e7dc3c8b1e5d8c2cb136ca97570d3','7e44879c0d3555975350f16ebc621f7b','willie.fu@gorillanation.com','Will','Fu',1,1,NULL,'2013-04-05 18:05:01','2013-07-10 15:43:19');
+	(7,2,'willie.fu','6b6e7dc3c8b1e5d8c2cb136ca97570d3','7e44879c0d3555975350f16ebc621f7b','willie.fu@gorillanation.com','Will','Fu',1,1,NULL,'2013-04-05 18:05:01','2013-07-23 15:09:55');
 
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
