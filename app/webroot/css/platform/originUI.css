@@ -155,6 +155,15 @@ li {
 	background-color: rgba(51, 181, 229, .25);
 }
 
+.nav {
+	margin: 0;
+}
+
+.nav-tabs > li > a {
+	padding: 2px 5px;
+	cursor: pointer;
+}
+
 /* =======================================================================
 	Transitions
 ========================================================================== */
@@ -1011,7 +1020,15 @@ body.originUI-superAdmin #adCreate-modal {
 */
 
 .adSettings-label {
-	width: 115px;
+	width: 135px;
+}
+
+.adSettings-input {
+	width: 75px;
+}
+
+#adSettings-platform {
+	margin: 10px 0;
 }
 
 #formCreate-status .originUI-switch {

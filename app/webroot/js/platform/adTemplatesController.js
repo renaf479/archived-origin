@@ -1,6 +1,37 @@
 var adTemplatesController	= function($scope, Rest, Notification) {
-	$scope.editor		= {};
+	$scope.editor = {
+		config: {
+			Desktop: {
+				Initial: {},
+				Triggered: {},
+				Animations: {},
+				status: true
+			},
+			Tablet: {
+				Initial: {},
+				Triggered: {},
+				Animations: {},
+				status: true
+			},
+			Mobile: {
+				Initial: {},
+				Triggered: {},
+				Animations: {},
+				status: true
+			}
+		}
+	};
 	$scope.editorModal	= {};
+	$scope.platforms	= [
+		{
+			title: 'Desktop'
+		},
+		{ 
+			title: 'Tablet'
+		}, 
+		{
+			title: 'Mobile'
+		}];
 	$scope.status		= {};
 	$scope.templates 	= {};
 	$scope.templateHide = {
@@ -54,6 +85,13 @@ var adTemplatesController	= function($scope, Rest, Notification) {
 					break;
 			}
 		});
+	}
+	
+	/**
+	* Toggles status of platform's config
+	*/
+	$scope.templatePlatform = function(data) {
+		$scope.editor.config[data.title].Initial = $scope.editor.config[data.title].Triggered = $scope.editor.config[data.title].Animations = {};
 	}
 	
 	/**
