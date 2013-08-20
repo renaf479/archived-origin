@@ -108,15 +108,16 @@ angular.module('originAd.directives', [])
 				//Standard dimensions
 				//var param 	= attrs.contentContainer.charAt(0).toUpperCase() + attrs.contentContainer.slice(1);
 				element.css({
-					'width':		$rootScope.originAd_config.dimensions[attrs.contentContainer][origin_platform].width + 'px',
-					'height':		$rootScope.originAd_config.dimensions[attrs.contentContainer][origin_platform].height + 'px',
-					'marginLeft': 	-$rootScope.originAd_config.dimensions[attrs.contentContainer][origin_platform].width/2 + 'px'
+					'width':		$rootScope.originAd_config[origin_platform][attrs.contentContainer].width + 'px',
+					'height':		$rootScope.originAd_config[origin_platform][attrs.contentContainer].height + 'px',
+					'marginLeft': 	-$rootScope.originAd_config[origin_platform][attrs.contentContainer].width/2 + 'px'
 				});
 			
 				//Catch animation selector to append initial offset value
-				if($rootScope.originAd_config.animations.selector === attrs.contentContainer.toLowerCase()) {
+				
+				if($rootScope.originAd_config[origin_platform].Animations.selector === attrs.contentContainer.toLowerCase()) {
 					element.css({
-						'top':	$rootScope.originAd_config.animations.start + 'px'
+						'top':	$rootScope.originAd_config[origin_platform].Animations.start + 'px'
 					});
 				}
 				
@@ -124,7 +125,7 @@ angular.module('originAd.directives', [])
 					$rootScope.originAd_config.type === 'interstitial' ||
 					$rootScope.originAd_config.type === 'prestitial') {
 						element.css({
-							'marginTop':	-$rootScope.originAd_config.dimensions[attrs.contentContainer][origin_platform].height/2 + 'px'
+							'marginTop':	-$rootScope.originAd_config[origin_platform][attrs.contentContainer].height/2 + 'px'
 						});
 				}
 			}

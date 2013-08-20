@@ -59,8 +59,8 @@
 				<label class="inline adSettings-label">Enabled</label>
 				<div id="" class="inline adSettings-input">
 					<div class="originUI-switch">
-					    <input type="checkbox" name="editorToggleSwitch" class="originUI-switchInput" id="editorToggleSwitch" data-ng-model="<?php echo $editor;?>.config[platform.title].status" data-ng-change="templatePlatform(platform)">
-					    <label class="originUI-switchLabel" for="editorToggleSwitch">
+					    <input type="checkbox" name="<?php echo $editor;?>{{platform.title}}ToggleSwitch" class="originUI-switchInput" id="<?php echo $editor;?>{{platform.title}}ToggleSwitch" data-ng-model="<?php echo $editor;?>.config[platform.title].status" data-ng-change="templatePlatform('<?php echo $editor;?>', platform)">
+					    <label class="originUI-switchLabel" for="<?php echo $editor;?>{{platform.title}}ToggleSwitch">
 					    	<div class="originUI-switchInner">
 					    		<div class="originUI-switchActive">
 					    			<div class="originUI-switchText">Yes</div>

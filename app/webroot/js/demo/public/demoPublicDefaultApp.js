@@ -6,9 +6,10 @@ var demoPublicApp = angular.module('demoPublicApp',
 						'demoApp.services'
 					])
 					.run(function($rootScope, $interpolate, Rest, DemoServices) {
+					
 						var config		= angular.fromJson(_config),
 							placement 	= angular.fromJson(config.OriginAd.config).placement,
-							dimensions	= angular.fromJson(config.OriginAd.config).dimensions;
+							dimensions	= angular.fromJson(config.OriginAd.config).Desktop;
 						
 						$rootScope.demo = {
 							template:	'/get/templates/origin'	
@@ -48,7 +49,7 @@ var demoPublicApp = angular.module('demoPublicApp',
 									} else {
 								
 										//Guess based on dimensions
-										if(dimensions.Initial.Desktop.width >= 500 && dimensions.Initial.Desktop.width <= 1000) {
+										if(dimensions.Initial.width >= 500 && dimensions.Initial.width <= 1000) {
 											embed = 'embedLeaderboard';
 										} else {
 											embed = 'embedSidebar';

@@ -90,8 +90,10 @@ var adTemplatesController	= function($scope, Rest, Notification) {
 	/**
 	* Toggles status of platform's config
 	*/
-	$scope.templatePlatform = function(data) {
-		$scope.editor.config[data.title].Initial = $scope.editor.config[data.title].Triggered = $scope.editor.config[data.title].Animations = {};
+	$scope.templatePlatform = function(editor, data) {
+		$scope[editor].config[data.title].Initial = {};
+		$scope[editor].config[data.title].Triggered = {};
+		$scope[editor].config[data.title].Animations = {};
 	}
 	
 	/**

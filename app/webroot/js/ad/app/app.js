@@ -34,8 +34,8 @@ var originAdApp = angular.module('originAdApp', ['originAd.directives', 'originA
 							callback:	'adInit',//Callback function on origin-ad.js
 							id:			$rootScope.origin_ad.OriginAd.id,
 							config:		{
-								height: 	$rootScope.originAd_config.dimensions.Initial[origin_platform].height,
-								width: 		$rootScope.originAd_config.dimensions.Initial[origin_platform].width,
+								height: 	$rootScope.originAd_config[origin_platform].Initial.height,
+								width: 		$rootScope.originAd_config[origin_platform].Initial.width,
 								placement:	$rootScope.originAd_config.placement,
 								type:		$rootScope.originAd_config.type
 							}
