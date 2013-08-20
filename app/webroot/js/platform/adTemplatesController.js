@@ -34,7 +34,7 @@ var adTemplatesController	= function($scope, Rest, Notification) {
 		}];
 	$scope.status		= {};
 	$scope.templates 	= {};
-	$scope.templateType = {
+	$scope.editor.templateType = {
 		initialWidth:	'Initial Width',
 		initialHeight:	'Initial Height'	
 	};
@@ -100,25 +100,25 @@ var adTemplatesController	= function($scope, Rest, Notification) {
 	/**
 	*
 	*/
-	$scope.templateSelect = function(model) {
+	$scope.templateSelect = function(editor, model) {
 		//Set defaults
 		switch(model) {
 			case 'expand':
-				$scope.templateType = {
+				$scope[editor].templateType = {
 					initialWidth:	'Initial Width',
 					initialHeight:	'Initial Height',
 					hide: 			['timer']
 				}
 				break;
 			case 'overlay':
-				$scope.templateType = {
+				$scope[editor].templateType = {
 					initialWidth:	'Initial Width',
 					initialHeight:	'Initial Height',
 					hide: 			['animation', 'timer']
 				}
 				break;
 			case 'default':
-				$scope.templateType = {
+				$scope[editor].templateType = {
 					initialWidth:	'Unit Width',
 					initialHeight:	'Unit Height',
 					hide:			['triggered', 'animation', 'timer']
@@ -126,7 +126,7 @@ var adTemplatesController	= function($scope, Rest, Notification) {
 				break;
 			case 'interstitial':
 			case 'prestitial':
-				$scope.templateType = {
+				$scope[editor].templateType = {
 					initialWidth:	'Unit Width',
 					initialHeight:	'Unit Height',
 					hide:			['triggered', 'animation']
@@ -141,6 +141,11 @@ var adTemplatesController	= function($scope, Rest, Notification) {
 	$scope.templateEdit = function(model) {
 		$scope.originModal = true;
 		$scope.editorModal = angular.copy(model.OriginTemplate);
+		$scope.editorModal.templateType = {
+			initialWidth:	'Initial Width',
+			initialHeight:	'Initial Height'	
+		};
+		$scope.templateSelect('editorModal', $scope.editorModal.config.type);
 	}
 	
 	/**

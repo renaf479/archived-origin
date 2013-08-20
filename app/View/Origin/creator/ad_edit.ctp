@@ -26,9 +26,9 @@
 	<form id="creator-panel-left" class="originUI-bgColor" data-intro="Manage workspace views and component layers" data-position="right">
 		<input type="hidden" name="uploadDir" value="/assets/creator/<?php echo $this->params['originAd_id'];?>/"/>
 		<div id="platforms-wrapper" class="">
-			<a href="javascript:void(0)" id="platform-desktop" class="platform originUI-hover inline" ng:click="platformSwitch('Desktop')" ng:class="{'inactive': !workspace.ad.OriginAd.config.dimensions.Initial.Desktop.width, 'active': ui.platform === 'Desktop'}">Desktop</a>
-			<a href="javascript:void(0)" id="platform-tablet" class="platform originUI-hover inline" ng:click="platformSwitch('Tablet')" ng:class="{'inactive': !workspace.ad.OriginAd.config.dimensions.Initial.Tablet.width, 'active': ui.platform === 'Tablet'}">Tablet</a>
-			<a href="javascript:void(0)" id="platform-mobile" class="platform originUI-hover inline" ng:click="platformSwitch('Mobile')" ng:class="{'inactive': !workspace.ad.OriginAd.config.dimensions.Initial.Mobile.width, 'active': ui.platform === 'Mobile'}">Mobile</a>
+			<a href="javascript:void(0)" id="platform-desktop" class="platform originUI-hover inline" ng:click="platformSwitch('Desktop')" ng:class="{'inactive': !workspace.ad.OriginAd.config.Desktop.Initial.width, 'active': ui.platform === 'Desktop'}">Desktop</a>
+			<a href="javascript:void(0)" id="platform-tablet" class="platform originUI-hover inline" ng:click="platformSwitch('Tablet')" ng:class="{'inactive': !workspace.ad.OriginAd.config.Tablet.Initial.width, 'active': ui.platform === 'Tablet'}">Tablet</a>
+			<a href="javascript:void(0)" id="platform-mobile" class="platform originUI-hover inline" ng:click="platformSwitch('Mobile')" ng:class="{'inactive': !workspace.ad.OriginAd.config.Mobile.Initial.width, 'active': ui.platform === 'Mobile'}">Mobile</a>
 		</div>
 		<div id="display-wrapper" ng:click="creatorToggle('view')" ng:show="workspace.ad.OriginAd.config.dimensions.Triggered[ui.platform].height > 0">
 			<div id="display-icon" class="inline" ng:class="{true: 'display-initial', false: 'display-triggered'}[ui.view=='Initial']"></div>
