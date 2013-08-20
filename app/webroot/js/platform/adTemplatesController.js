@@ -34,8 +34,9 @@ var adTemplatesController	= function($scope, Rest, Notification) {
 		}];
 	$scope.status		= {};
 	$scope.templates 	= {};
-	$scope.templateHide = {
-		hide:	false
+	$scope.templateType = {
+		initialWidth:	'Initial Width',
+		initialHeight:	'Initial Height'	
 	};
 	
 	Rest.get('templates').then(function(response) {
@@ -99,29 +100,37 @@ var adTemplatesController	= function($scope, Rest, Notification) {
 	/**
 	*
 	*/
-	$scope.templateType = function(model) {
+	$scope.templateSelect = function(model) {
 		//Set defaults
-		$scope.templateHide = {
-			hide: 	false,
-			close:	false,
-			overlay: false
-		}
-		
-		//console.log(model);
 		switch(model) {
+			case 'expand':
+				$scope.templateType = {
+					initialWidth:	'Initial Width',
+					initialHeight:	'Initial Height',
+					hide: 			['timer']
+				}
+				break;
+			case 'overlay':
+				$scope.templateType = {
+					initialWidth:	'Initial Width',
+					initialHeight:	'Initial Height',
+					hide: 			['animation', 'timer']
+				}
+				break;
 			case 'default':
-				$scope.templateHide.hide = true;
+				$scope.templateType = {
+					initialWidth:	'Unit Width',
+					initialHeight:	'Unit Height',
+					hide:			['triggered', 'animation', 'timer']
+				};
 				break;
 			case 'interstitial':
 			case 'prestitial':
-				$scope.templateHide.hide = true;
-				$scope.templateHide.close = true;
-				break;
-			case 'overlay':
-				$scope.templateHide.overlay = true;
-				break;
-			default:
-				$scope.templateHide.hide = false;
+				$scope.templateType = {
+					initialWidth:	'Unit Width',
+					initialHeight:	'Unit Height',
+					hide:			['triggered', 'animation']
+				};
 				break;
 		}
 	}
