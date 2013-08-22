@@ -1,5 +1,5 @@
 var adComponentsController	= function($scope, $filter, Rest, Notification) {
-	$scope.editor		= {};
+	
 	$scope.editorModal	= {};
 	$scope.status		= {};
 	$scope.components 	= {};
@@ -28,6 +28,8 @@ var adComponentsController	= function($scope, $filter, Rest, Notification) {
 	
 	Rest.get('components').then(function(response) {
 		$scope.components = response['raw'];
+		$scope.add();
+		
 	});
 	
 	/**
@@ -39,6 +41,16 @@ var adComponentsController	= function($scope, $filter, Rest, Notification) {
 	
 	/**
 	* Add new
+	*/
+	$scope.add = function() {
+		$scope.editor		= {
+			header: 'Add New Component',
+			status: true
+		};
+	}
+
+	/**
+	* Save new entry
 	*/
 	$scope.componentCreate = function() {
 		$scope.editor.route	= 'systemSave';
@@ -53,42 +65,27 @@ var adComponentsController	= function($scope, $filter, Rest, Notification) {
 	/**
 	* Status toggle
 	*/
-	$scope.toggleStatus = function(model, id, status) {
-		var post = {
-			route: 'toggleStatus',
-			id:		id,
-			model:	model	
-		};
-	
-		switch(status) {
-			case 'disable':
-				post.status	= 0;
-				break;
-			case 'enable':
-				post.status	= 1;
-				break;
-		}
-	
-		Rest.post(post).then(function(response) {
-			$scope.components = response['raw'];
-			switch(status) {
-				case 'disable':
-					Notification.alert('Ad component disabled');
-					break;
-				case 'enable':
-					Notification.display('Ad component enabled');
-					break;
-			}
-		});
+	$scope.statusToggle = function() {
+		
 	}
 	
 	/**
-	* Modal - Open editor
+	* Edit
 	*/
+	$scope.edit = function(model) {
+		$scope.editor	= angular.copy(model.OriginComponent);
+		//Transform the data
+		$scope.editor.header 	= $scope.editor.name;
+		$scope.editor.status 	= ($scope.editor.status === '1')? true: false;
+		
+		//console.log(model.OriginComponent);
+	}
+/*
 	$scope.componentEdit = function(model) {
 		$scope.originModal = true;
 		$scope.editorModal = angular.copy(model.OriginComponent);
 	}
+*/
 	
 	/**
 	* Modal - Close editor

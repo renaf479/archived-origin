@@ -54,13 +54,17 @@
 		</li>
 	</ul>
 	<tabset id="adSettings-dimensions">
-		<tab data-ng-repeat="platform in platforms" heading="{{platform.title}}">
+		<?php 
+			$platforms	= array('Desktop', 'Tablet', 'Mobile');
+			foreach($platforms as $key=>$platform) {
+		?>
+		<tab heading="<?php echo $platform;?>">
 			<div id="adSettings-platform">
 				<label class="inline adSettings-label">Enabled</label>
 				<div id="" class="inline adSettings-input">
 					<div class="originUI-switch">
-					    <input type="checkbox" name="<?php echo $editor;?>{{platform.title}}ToggleSwitch" class="originUI-switchInput" id="<?php echo $editor;?>{{platform.title}}ToggleSwitch" data-ng-model="<?php echo $editor;?>.config[platform.title].status" data-ng-change="templatePlatform('<?php echo $editor;?>', platform)">
-					    <label class="originUI-switchLabel" for="<?php echo $editor;?>{{platform.title}}ToggleSwitch">
+					    <input type="checkbox" name="<?php echo $editor.$platform;?>ToggleSwitch" class="originUI-switchInput" id="<?php echo $editor.$platform;?>ToggleSwitch" data-ng-model="<?php echo $editor;?>.config.<?php echo $platform;?>.status" data-ng-change="templatePlatform('<?php echo $editor;?>', '<?php echo $platform;?>')">
+					    <label class="originUI-switchLabel" for="<?php echo $editor.$platform;?>ToggleSwitch">
 					    	<div class="originUI-switchInner">
 					    		<div class="originUI-switchActive">
 					    			<div class="originUI-switchText">Yes</div>
@@ -73,38 +77,38 @@
 				    </div>
 				</div>
 			</div>
-			<ul class="originUI-list" data-ng-show="<?php echo $editor;?>.config[platform.title].status" data-ng-hide="!<?php echo $editor;?>.config[platform.title].status" data-ng-animate="'originUI-fade'">
+			<ul class="originUI-list" data-ng-show="<?php echo $editor;?>.config.<?php echo $platform;?>.status" data-ng-hide="!<?php echo $editor;?>.config.<?php echo $platform;?>.status" data-ng-animate="'originUI-fade'">
 				<li>
 					<label class="inline adSettings-label">{{<?php echo $editor;?>.templateType.initialWidth}}</label>
 					<div class="originUI-field inline adSettings-input">
 						<div class="originUI-fieldBracket"></div>
-						<input type="text" class="originUI-input originUI-bgColorSecondary" data-ng-model="<?php echo $editor;?>.config[platform.title].Initial.width"/>
+						<input type="text" class="originUI-input originUI-bgColorSecondary" data-ng-model="<?php echo $editor;?>.config.<?php echo $platform;?>.Initial.width"/>
 					</div>
 				</li>
 				<li>
 					<label class="inline adSettings-label">{{<?php echo $editor;?>.templateType.initialHeight}}</label>
 					<div class="originUI-field inline adSettings-input">
 						<div class="originUI-fieldBracket"></div>
-						<input type="text" class="originUI-input originUI-bgColorSecondary" data-ng-model="<?php echo $editor;?>.config[platform.title].Initial.height"/>
+						<input type="text" class="originUI-input originUI-bgColorSecondary" data-ng-model="<?php echo $editor;?>.config.<?php echo $platform;?>.Initial.height"/>
 					</div>
 				</li>
 				<li data-ng-hide="<?php echo $editor;?>.templateType.hide.indexOf('triggered') >= 0">
 					<label class="inline adSettings-label">Triggered Width</label>
 					<div class="originUI-field inline adSettings-input">
 						<div class="originUI-fieldBracket"></div>
-						<input type="text" class="originUI-input originUI-bgColorSecondary" data-ng-model="<?php echo $editor;?>.config[platform.title].Triggered.width"/>
+						<input type="text" class="originUI-input originUI-bgColorSecondary" data-ng-model="<?php echo $editor;?>.config.<?php echo $platform;?>.Triggered.width"/>
 					</div>
 				</li>
 				<li data-ng-hide="<?php echo $editor;?>.templateType.hide.indexOf('triggered') >= 0">
 					<label class="inline adSettings-label">Triggered Height</label>
 					<div class="originUI-field inline adSettings-input">
 						<div class="originUI-fieldBracket"></div>
-						<input type="text" class="originUI-input originUI-bgColorSecondary" data-ng-model="<?php echo $editor;?>.config[platform.title].Triggered.height"/>
+						<input type="text" class="originUI-input originUI-bgColorSecondary" data-ng-model="<?php echo $editor;?>.config.<?php echo $platform;?>.Triggered.height"/>
 					</div>
 				</li>
 				<li id="adTemplate-configSelector" data-ng-hide="<?php echo $editor;?>.templateType.hide.indexOf('animation') >= 0">
 					<label class="originUI-label inline adSettings-label">Selector</label>
-					<select class="originUI-select originUI-bgColorSecondary inline adSettings-input" data-ng-model="<?php echo $editor;?>.config[platform.title].Animations.selector">
+					<select class="originUI-select originUI-bgColorSecondary inline adSettings-input" data-ng-model="<?php echo $editor;?>.config.<?php echo $platform;?>.Animations.selector">
 						<option style="display:none" value="">Select</option>
 						<option value="initial">Initial</option>
 						<option value="triggered">Triggered</option>
@@ -114,39 +118,40 @@
 					<label class="originUI-label inline adSettings-label">Animation Start</label>
 					<div class="originUI-field inline adSettings-input">
 						<div class="originUI-fieldBracket"></div>
-						<input type="text" class="originUI-input originUI-bgColorSecondary" ng:model="<?php echo $editor;?>.config[platform.title].Animations.start"/>
+						<input type="text" class="originUI-input originUI-bgColorSecondary" ng:model="<?php echo $editor;?>.config.<?php echo $platform;?>.Animations.start"/>
 					</div>
 				</li>
 				<li data-ng-hide="<?php echo $editor;?>.templateType.hide.indexOf('animation') >= 0">
 					<label class="originUI-label inline adSettings-label">Animation End</label>
 					<div class="originUI-field inline adSettings-input">
 						<div class="originUI-fieldBracket"></div>
-						<input type="text" class="originUI-input originUI-bgColorSecondary" ng:model="<?php echo $editor;?>.config[platform.title].Animations.end"/>
+						<input type="text" class="originUI-input originUI-bgColorSecondary" ng:model="<?php echo $editor;?>.config.<?php echo $platform;?>.Animations.end"/>
 					</div>
 				</li>
 				<li data-ng-hide="<?php echo $editor;?>.templateType.hide.indexOf('animation') >= 0">
 					<label class="originUI-label inline adSettings-label">Opening Duration</label>
 					<div class="originUI-field inline adSettings-input">
 						<div class="originUI-fieldBracket"></div>
-						<input type="text" class="originUI-input originUI-bgColorSecondary" ng:model="<?php echo $editor;?>.config[platform.title].Animations.openDuration"/>
+						<input type="text" class="originUI-input originUI-bgColorSecondary" ng:model="<?php echo $editor;?>.config.<?php echo $platform;?>.Animations.openDuration"/>
 					</div>
 				</li>
 				<li data-ng-hide="<?php echo $editor;?>.templateType.hide.indexOf('animation') >= 0">
 					<label class="originUI-label inline adSettings-label">Closing Duration</label>
 					<div class="originUI-field inline adSettings-input">
 						<div class="originUI-fieldBracket"></div>
-						<input type="text" class="originUI-input originUI-bgColorSecondary" ng:model="<?php echo $editor;?>.config[platform.title].Animations.closeDuration"/>
+						<input type="text" class="originUI-input originUI-bgColorSecondary" ng:model="<?php echo $editor;?>.config.<?php echo $platform;?>.Animations.closeDuration"/>
 					</div>
 				</li>
 				<li data-ng-hide="<?php echo $editor;?>.templateType.hide.indexOf('timer') >= 0">
 					<label class="originUI-label inline adSettings-label">Close Timer</label>
 					<div class="originUI-field inline adSettings-input">
 						<div class="originUI-fieldBracket"></div>
-						<input type="text" class="originUI-input originUI-bgColorSecondary" ng:model="<?php echo $editor;?>.config[platform.title].Animations.timer"/>
+						<input type="text" class="originUI-input originUI-bgColorSecondary" ng:model="<?php echo $editor;?>.config.<?php echo $platform;?>.Animations.timer"/>
 					</div>
 				</li>
 			</ul>
 		</tab>
+		<?php } ?>
 	</tabset>
 
 <!--

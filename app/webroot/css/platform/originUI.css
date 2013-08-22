@@ -532,8 +532,13 @@ height: 26px;
 }
 
 .originUI-switchActive .originUI-switchText,
-.originUI-switchInactive .originUI-switchText {
+.originUI-switchDual .originUI-switchInactive .originUI-switchText {
 	background: #0099cc; 
+}
+
+.originUI-switchInactive .originUI-switchText {
+	background: #000;
+	color: #333;
 }
 
 .originUI-switchActive .originUI-switchText {
@@ -1109,7 +1114,6 @@ body.originUI-superAdmin #adCreate-modal {
 
 .originUI-tileLeft {
 	width: 250px;
-	margin-top: 20px;
 }
 
 .originUI-tileRight {
