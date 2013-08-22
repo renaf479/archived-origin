@@ -115,7 +115,8 @@ angular.module('originAd.directives', [])
 			
 				//Catch animation selector to append initial offset value
 				
-				if($rootScope.originAd_config[origin_platform].Animations.selector === attrs.contentContainer.toLowerCase()) {
+				if(($rootScope.originAd_config[origin_platform].type === 'expand') && 
+					($rootScope.originAd_config[origin_platform].Animations.selector === attrs.contentContainer.toLowerCase())) {
 					element.css({
 						'top':	$rootScope.originAd_config[origin_platform].Animations.start + 'px'
 					});

@@ -82,5 +82,5 @@
 </div>
 
 <?php
-	echo $this->Minify->css(array('ad/ad', 'ad/'.$type));
+	echo $this->Minify->css(array('ad/ad'));
 	echo $this->Minify->script(array('ad/plugins/angularjs', 'ad/plugins/anim', 'ad/plugins/cm', 'ad/plugins/xd', 'ad/app/app', 'ad/app/directives', 'ad/app/services', 'ad/app/'.$type.'Controller'));
