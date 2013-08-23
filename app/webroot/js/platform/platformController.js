@@ -1,13 +1,14 @@
 var platformController = function($scope, $filter, Rest, Notification) {
 	var that = this,
 		header,
+		editor			= {},
 		post			= {},
 		notification	= {};
 	$scope.model		= {};
 	$scope.editor		= {};
 
 	$scope.init = function(model) {
-		//Setup page presets
+		//Setup presets
 		switch(model) {
 			case 'componentsraw':
 				$scope.model	= {name: 'OriginComponent'};
@@ -41,17 +42,54 @@ var platformController = function($scope, $filter, Rest, Notification) {
 						alias:	'video'
 					},
 				];
+				editor 			= {};
 				break;
 			case 'templates':
-				$scope.model	= {name: 'OriginTemplate'};
+				$scope.model		= {name: 'OriginTemplate'};
+				$scope.fields		= {
+					animations: [
+						{
+						label:	'Start Position',
+						name:	'start'
+						},
+						{
+						label:	'End Position',
+						name:	'end'
+						},
+						{
+						label:	'Opening Duration',
+						name:	'openDuration'
+						},
+						{
+						label:	'Closing Duration',
+						name:	'closeDuration'
+						}
+					],
+					dimensions: [
+						{
+						label:	'Initial (w x h)',
+						name:	'Initial', 
+						inputs:	['width', 'height']
+						},
+						{
+						label:	'Triggered (w x h)',
+						name: 'Triggered', 
+						inputs: ['width', 'height']
+						}
+					],
+					platforms: [
+						{name: 'Desktop'},
+						{name: 'Tablet'},
+						{name: 'Mobile'}
+					]
+				};
 				header 			= 'Create New Ad Template';
 				notification	= {
 					remove:		'Ad template removed',
 					save:		'Ad template created',
 					update:		'Ad template updated'
 				};
-				
-				$scope.editor = {
+				editor 	= {
 					config: {
 						Desktop: {
 							Initial: {},
@@ -63,21 +101,16 @@ var platformController = function($scope, $filter, Rest, Notification) {
 							Initial: {},
 							Triggered: {},
 							Animations: {},
-							status: true
+							status: false
 						},
 						Mobile: {
 							Initial: {},
 							Triggered: {},
 							Animations: {},
-							status: true
+							status: false
 						}
 					}
-				};
-				
-				$scope.editor.templateType = {
-					initialWidth:	'Initial Width',
-					initialHeight:	'Initial Height'	
-				};
+				}
 				break;
 		}
 	
@@ -94,8 +127,9 @@ var platformController = function($scope, $filter, Rest, Notification) {
 	* Add new
 	*/
 	$scope.add = function() {
-		$scope.editor.header =  header;
-		$scope.editor.status = 	true;
+		$scope.editor 			= editor;
+		$scope.editor.header 	=  header;
+		$scope.editor.status 	= 	true;
 	}
 	
 	/**

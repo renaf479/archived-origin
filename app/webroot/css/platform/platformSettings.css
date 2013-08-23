@@ -79,18 +79,15 @@
 	width: 130px;
 }
 
-#platformForm-status .originUI-switch {
-	font-size: 12px;
-}
-
 #platformForm-content {
 	padding: 15px 95px;
 	position: relative;
 }
 
 #platformForm-content .originUI-listItem {
-	padding-top: 10px;
-	padding-bottom: 10px;
+	padding: 10px 15px;
+	margin: 0;
+	
 }
 
 #platformForm-content .platformForm-label {
@@ -176,6 +173,41 @@
 #ad-template #platformList-headerImage {
 	background-image: url(/img/ad-template-150x150.png);
 }
+
+#ad-template #platform-list .originUI-listItemLink {
+	text-indent: 0;
+}
+
+.platformForm-templatePlatform {
+	position: relative;
+}
+
+.platformForm-templatePlatform + .platformForm-templatePlatform {
+	border-color: #303030;
+	border-width: 1px 0 0 0;
+	border-style: solid;
+}
+
+.platformForm-templatePlatform .templatePlatform-status {
+	width: 130px;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+
+.platformForm-templatePlatform .platformForm-label {
+	width: 350px !important;
+}
+
+.platformForm-templatePlatform .platformForm-input {
+	width: 60px !important;
+}
+
+.platformForm-templatePlatform .platformForm-input .originUI-input {
+	text-align: center;
+}
+
 
 /*
 #adTemplate-create {
