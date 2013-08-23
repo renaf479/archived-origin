@@ -95,6 +95,7 @@ Router::connect('/administrator/get/ad/:originAd_id', array('controller'=>'origi
 Router::connect('/administrator/get/adExpand/:originAd_id', array('controller'=>'origin', 'action'=>'jsonAdUnitExpand'));
 Router::connect('/administrator/get/components', array('controller'=>'origin', 'action'=>'jsonComponent'));
 Router::connect('/administrator/get/components/:component', array('controller'=>'origin', 'action'=>'platformLoadComponent'));
+Router::connect('/administrator/get/componentsraw', array('controller'=>'origin', 'action'=>'jsonComponentRaw'));
 //Router::connect('/administrator/get/demos', array('controller'=>'origin', 'action'=>'jsonDemoList')); 7.25
 Router::connect('/administrator/get/demo/:originAd_id', array('controller'=>'origin', 'action'=>'jsonDemo'));
 Router::connect('/administrator/get/library/:originAd_id', array('controller'=>'origin', 'action'=>'jsonLibrary'));

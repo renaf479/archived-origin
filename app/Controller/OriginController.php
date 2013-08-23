@@ -1026,10 +1026,23 @@ class OriginController extends AppController {
 */
 	
 	/**
-	* JSON feed of all Origin ad components
+	* JSON feed of all Origin ad components - Grouped by type
 	* Permissions: Logged in
 	*/
 	public function jsonComponent() {
+		$origin_components	= $this->OriginComponent->find('all',
+			array(
+				'order'=>array('OriginComponent.name ASC')
+			)
+		);
+		$this->set('origin_components', $origin_components);
+	}
+	
+	/**
+	* JSON feed of all Origin ad components - direct feed
+	* Permissions: Logged in
+	*/
+	public function jsonComponentRaw() {
 		$origin_components	= $this->OriginComponent->find('all',
 			array(
 				'order'=>array('OriginComponent.name ASC')

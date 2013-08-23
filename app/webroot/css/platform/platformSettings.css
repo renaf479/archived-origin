@@ -22,9 +22,8 @@
 	width: 200px;
 }
 
-
 #platformList-header {
-	width: 198px;
+	width: 199px;
 	height: 100px;
 	border-width: 0 1px 1px 0;
 	border-style: solid;
@@ -61,6 +60,9 @@
 	margin: 15px 0;
 }
 
+#platform-list .originUI-listItem.inactive {
+	opacity: .2;
+}
 
 #platform-form {
 	width: 770px;
@@ -72,7 +74,7 @@
 
 #platformForm-status {
 	position: absolute;
-	top: -45px;
+	top: -35px;
 	right: 15px;
 	width: 130px;
 }
@@ -82,16 +84,35 @@
 }
 
 #platformForm-content {
-	padding: 0 30px;
+	padding: 15px 95px;
 	position: relative;
 }
 
+#platformForm-content .originUI-listItem {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
 #platformForm-content .platformForm-label {
-	width: 200px;
+	width: 175px;
+	font-size: 17px;
 }
 
 #platformForm-content .platformForm-input {
-	width: 400px;
+	width: 350px;
+}
+
+#platformForm-buttons {
+	padding: 15px 0;
+}
+
+#platformForm-remove {
+	float: left;
+	border-color: #cc0000;
+}
+
+#platformForm-submit {
+	float: right;
 }
 
 /* =======================================================================

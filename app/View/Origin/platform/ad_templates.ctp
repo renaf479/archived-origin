@@ -1,3 +1,34 @@
+<div id="ad-template" data-ng-controller="platformController" data-ng-cloak data-ng-init="init('templates')">
+	<h2 class="originUI-header"><a href="/administrator/settings" class="originUI-back originUI-hover">Ad Templates</a></h2>
+	<div id="platform-list" class="originUI-tileLeft originUI-bgColorSecondary originUI-shadow">
+		<div id="platformList-header" class="originUI-bgTexture originUI-borderColor originUI-hover" data-ng-click="add()">
+			<div id="platformList-headerImage"></div>
+			<div id="platformList-headerTitle">Add Ad Template</div>
+		</div>
+		<ul class="originUI-list">
+			<li class="originUI-listItem" data-ng-repeat="item in list|filter:searchOrigin" data-ng-class="(item[model.name].status !== '1')? 'inactive': ''">
+				<a href="javascript:void(0)" class="originUI-hover originUI-listItemLink" data-ng-click="edit(item[model.name])">{{item[model.name].name}}</a>
+			</li>
+		</ul>
+	</div><!--
+	--><div id="platform-form" class="originUI-tileRight originUI-bgColor originUI-shadow">
+		<h3 id="platformForm-header" class="originUI-tileHeader originUI-borderColor originUI-textColor">{{editor.header}}&nbsp;</h3>
+		<form id="platformForm-content" name="platformForm" class="" novalidate>
+			<?php echo $this->element('platform/templates');?>
+			<div id="platformForm-buttons">
+				<button id="platformForm-remove" class="originUI-hover originUI-button originUI-bgColorSecondary" data-ng-click="remove()" data-ng-show="editor.id">Remove</button>
+				<button id="platformForm-submit" class="originUI-hover originUI-button originUI-bgColorSecondary" data-ng-click="save()" data-ng-disabled="platformForm.$invalid">Save</button>
+				<div class="clear"></div>
+			</div>
+		</form>
+	</div>
+</div>
+<?php
+	echo $this->Minify->css(array('platform/platformSettings'));
+	echo $this->Minify->script(array('platform/platformController'));
+
+
+/*
 <div id="ad-template" ng:controller="adTemplatesController" ng:cloak>
 	<h2 class="originUI-header"><a href="/administrator/settings" class="originUI-back originUI-hover">Ad Templates</a></h2>
 	<form id="adTemplate-create" name="adTemplateCreateForm" class="originUI-tileLeft originUI-bgColorSecondary originUI-shadow" novalidate>
@@ -10,8 +41,8 @@
 		<div class="originUI-tileFooter">
 			<button class="originUI-tileFooterCenter originUI-hover" ng:click="templateCreate()" ng-disabled="adTemplateCreateForm.$invalid">Create</button>
 		</div>
-	</form><!--
-	--><div id="adTemplate-list" class="originUI-tileRight originUI-bgColor originUI-shadow">
+	</form>
+	<div id="adTemplate-list" class="originUI-tileRight originUI-bgColor originUI-shadow">
 		<h3 id="adTemplate-listHeader" class="originUI-tileHeader originUI-borderColor originUI-textColor">Ad Templates</h3>
 		<table id="adTemplate-table" class="originUI-table" cellspacing="0" cellpadding="0" width="100%" border="0">
 			<thead class="originUI-tableHead originUI-noSelect">
@@ -65,4 +96,6 @@
 <?php
 	echo $this->Minify->css(array('platform/platformSettings'));
 	echo $this->Minify->script(array('platform/adTemplatesController'));
+
+*/
 ?>
