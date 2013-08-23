@@ -173,6 +173,11 @@
 /* =======================================================================
 	Ad Templates
 ========================================================================== */
+#ad-template #platformList-headerImage {
+	background-image: url(/img/ad-template-150x150.png);
+}
+
+/*
 #adTemplate-create {
 	min-height: 469px;
 }
@@ -184,6 +189,7 @@
 #adTemplate-createHeader {
 	background-image: url(/img/ad-template-add-26x26.png);
 }
+*/
 
 
 /* =======================================================================
