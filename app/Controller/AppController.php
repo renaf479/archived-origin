@@ -49,7 +49,7 @@ class AppController extends Controller {
 		        $flash = $this->Session->read('Message.flash');
 		
 		        if ($flash['element'] == 'default') {
-		            $flash['element'] = 'flash_notification';
+		            $flash['element'] = 'platform/flash_notification';
 		            $this->Session->write('Message.flash', $flash);
 		        }
 		    }

@@ -53,7 +53,7 @@
 			</div>
 		
 		</div>
-		<?php echo $this->element('footer');?>
+		<?php echo $this->element('platform/footer');?>
 		
 		<adTag data-name="Out of Page" id="embedOutOfPage" ng:bind-html-unsafe="embedOutOfPage"></adTag>
 	</div>

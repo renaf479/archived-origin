@@ -23,11 +23,11 @@
 					<div id="productSummary-description" class="">{{product.OriginTemplate.content.description}}</div>
 				</div>
 				<div id="productSummary-right" class="">
-					<div class="productSummary-dimensions inline" data:ng:repeat="platform in platforms" data:ng:class="{inactive: !product.OriginTemplate.config[platform.name].Initial.width}">
+					<div class="productSummary-dimensions inline" data:ng:repeat="platform in platforms" data:ng:class="{inactive: !product.OriginTemplate.config.dimensions.Initial[platform.name].width}">
 						<h3 class="productSummary-platform" data:ng:class="platform.name">{{platform.name}}</h3>
 						<p class="productSummary-na">N/A</p>
 						<ul class="originUI-list">
-							<li class="" data:ng:show="product.OriginTemplate.config[platform.name].Initial.width">Initial: {{product.OriginTemplate.config[platform.name].Initial.width}} x {{product.OriginTemplate.config[platform.name].Initial.height}}
+							<li class="" data:ng:show="product.OriginTemplate.config.dimensions.Initial[platform.name].width">Initial: {{product.OriginTemplate.config.dimensions.Initial[platform.name].width}} x {{product.OriginTemplate.config[platform.name].Initial.height}}
 							</li>
 							<li class="" data:ng:show="product.OriginTemplate.config[platform.name].Triggered.width > 0">
 								Triggered: {{product.OriginTemplate.config[platform.name].Triggered.width}} x {{product.OriginTemplate.config[platform.name].Triggered.height}}</li>
