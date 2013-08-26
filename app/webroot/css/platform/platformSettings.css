@@ -180,6 +180,8 @@
 
 .platformForm-templatePlatform {
 	position: relative;
+	margin: 3px 0;
+	padding: 3px 0;
 }
 
 .platformForm-templatePlatform + .platformForm-templatePlatform {
@@ -191,13 +193,15 @@
 .platformForm-templatePlatform .templatePlatform-status {
 	width: 130px;
 	position: absolute;
-	top: 0;
+	top: 13px;
 	right: 0;
 }
 
 
-.platformForm-templatePlatform .platformForm-label {
-	width: 350px !important;
+#ad-template .platformForm-templateDimensions .platformForm-label {
+	line-height: 20px;
+	font-size: 14px;
+	width: 330px;
 }
 
 .platformForm-templatePlatform .platformForm-input {
@@ -206,6 +210,12 @@
 
 .platformForm-templatePlatform .platformForm-input .originUI-input {
 	text-align: center;
+}
+
+.platformForm-templateDimensions {
+	width: 450px;
+	margin: 10px auto;
+	padding: 5px 15px;
 }
 
 

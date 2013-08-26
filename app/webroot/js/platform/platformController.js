@@ -67,14 +67,24 @@ var platformController = function($scope, $filter, Rest, Notification) {
 					],
 					dimensions: [
 						{
-						label:	'Initial (w x h)',
+						label:	'Initial Width',
 						name:	'Initial', 
-						inputs:	['width', 'height']
+						inputs:	'width'
 						},
 						{
-						label:	'Triggered (w x h)',
+						label:	'Initial Height',
+						name:	'Height', 
+						inputs:	'height'
+						},
+						{
+						label:	'Triggered Width',
 						name: 'Triggered', 
-						inputs: ['width', 'height']
+						inputs: 'width'
+						},
+						{
+						label:	'Triggered Height',
+						name: 'Triggered', 
+						inputs: 'height'
 						}
 					],
 					platforms: [

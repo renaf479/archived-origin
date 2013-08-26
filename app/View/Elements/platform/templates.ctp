@@ -78,13 +78,13 @@
 			    </label>
 		    </div>
 		</div>
-		<div class="originUI-bgColorSecondary" data-ng-show="editor.config[platform.name].status" data-ng-hide="!editor.config[platform.name].status" data-ng-animate="'originUI-fade'">
+		<div class="originUI-bgColorSecondary platformForm-templateDimensions" data-ng-show="editor.config[platform.name].status" data-ng-hide="!editor.config[platform.name].status" data-ng-animate="'originUI-fade'">
 			<!-- Dimensions -->
 			<h4>Dimensions</h4>
 			<ul class="originUI-list">
 				<li class="originUI-listItem" data-ng-repeat="dimension in fields.dimensions">
 					<label class="platformForm-label inline">{{dimension.label}}</label>
-					<div class="platformForm-input originUI-field inline" data-ng-repeat="input in dimension.inputs">
+					<div class="platformForm-input originUI-field inline">
 						<div class="originUI-fieldBracket"></div>
 						<input type="text" class="originUI-input originUI-bgColorSecondary" data-ng-model="editor.config[platform.name][input].width" placeholder="{{input}}"/>
 					</div>
