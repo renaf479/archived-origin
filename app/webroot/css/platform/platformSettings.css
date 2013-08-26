@@ -282,6 +282,11 @@
 /* =======================================================================
 	Ad Demo Sites
 ========================================================================== */
+#ad-sites #platformList-headerImage {
+	background-image: url(/img/settings-demo.png);
+}
+
+/*
 #siteManager-create {
 	min-height: 270px;
 }
@@ -299,6 +304,7 @@
 #siteManager-editHeader {
 	background-image: url(/img/demo-26x26.png);
 }
+*/
 
 /* =======================================================================
 	Demo Manager

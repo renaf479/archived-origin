@@ -2,6 +2,7 @@ var platformController = function($scope, $filter, Rest, Notification) {
 	var that = this,
 		header,
 		editor			= {},
+		fields			= {},
 		post			= {},
 		notification	= {};
 	$scope.model		= {};
@@ -44,45 +45,59 @@ var platformController = function($scope, $filter, Rest, Notification) {
 				];
 				editor 			= {};
 				break;
+			case 'sites':
+				$scope.model	= {name: 'OriginSite'};
+				header 			= 'Add Site Template';
+				notification	= {
+					remove:		'Site template removed',
+					save:		'Site template created',
+					update:		'Site template updated'
+				};
+				editor 			= {};
+				break;
 			case 'templates':
 				$scope.model		= {name: 'OriginTemplate'};
-				$scope.fields		= {
+				fields		= {
 					animations: [
 						{
-						label:	'Start Position',
+						label:	'Selector',
+						name:	'selector'
+						},
+						{
+						label:	'Start Position (px)',
 						name:	'start'
 						},
 						{
-						label:	'End Position',
+						label:	'End Position (px)',
 						name:	'end'
 						},
 						{
-						label:	'Opening Duration',
+						label:	'Opening Duration (ms)',
 						name:	'openDuration'
 						},
 						{
-						label:	'Closing Duration',
+						label:	'Closing Duration (ms)',
 						name:	'closeDuration'
 						}
 					],
 					dimensions: [
 						{
-						label:	'Initial Width',
+						label:	'Initial Width (px)',
 						name:	'Initial', 
 						inputs:	'width'
 						},
 						{
-						label:	'Initial Height',
+						label:	'Initial Height (px)',
 						name:	'Height', 
 						inputs:	'height'
 						},
 						{
-						label:	'Triggered Width',
+						label:	'Triggered Width (px)',
 						name: 'Triggered', 
 						inputs: 'width'
 						},
 						{
-						label:	'Triggered Height',
+						label:	'Triggered Height (px)',
 						name: 'Triggered', 
 						inputs: 'height'
 						}
@@ -121,6 +136,8 @@ var platformController = function($scope, $filter, Rest, Notification) {
 						}
 					}
 				}
+				
+				$scope.fields = angular.copy(fields);
 				break;
 		}
 	
@@ -191,5 +208,53 @@ var platformController = function($scope, $filter, Rest, Notification) {
 			$scope.list = response;
 			Notification.display(notificationMsg);
 		});
+	}
+	
+	
+	/**
+	* Ad Templates - Selecting type
+	*/
+	$scope.templateSelect = function(editor, model) {
+		//Load up default editor
+		$scope.fields = angular.copy(fields);
+		
+		switch(model) {
+			case 'default':
+				$scope.fields.dimensions	= [
+					{
+					label:	'Unit Width (px)',
+					name:	'Initial', 
+					inputs:	'width'
+					},
+					{
+					label:	'Unit Height (px)',
+					name:	'Height', 
+					inputs:	'height'
+					}
+				];
+				$scope.fields.animations 	= [];
+				break;
+			case 'interstitial':
+			case 'prestitial':
+				$scope.fields.dimensions	= [
+					{
+					label:	'Unit Width (px)',
+					name:	'Initial', 
+					inputs:	'width'
+					},
+					{
+					label:	'Unit Height (px)',
+					name:	'Height', 
+					inputs:	'height'
+					}
+				];
+				$scope.fields.animations 	= [
+					{
+					label:	'Close Timer (sec)',
+					name:	'timer'
+					}
+				];
+				break;
+		}
 	}
 }

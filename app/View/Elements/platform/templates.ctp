@@ -91,23 +91,22 @@
 				</li>
 			</ul>
 			<!-- Animations -->
-			<h4>Animations</h4>
-			<ul class="originUI-list" data-ng-show="editor.config[platform.name].status" data-ng-hide="!editor.config[platform.name].status" data-ng-animate="'originUI-fade'">
-				<li id="" class="originUI-listItem">
-					<label class="platformForm-label inline">Selector</label>
-					<select class="originUI-select originUI-bgColorSecondary inline adSettings-input" data-ng-model="editor.config[platform.name].Animations.selector">
-						<option style="display:none" value="">Select</option>
-						<option value="initial">Initial</option>
-						<option value="triggered">Triggered</option>
-					</select>
-				</li>
-				<li class="originUI-listItem" data-ng-repeat="animation in fields.animations">
-					<label class="platformForm-label inline">{{animation.label}}</label>
-					<div class="platformForm-input originUI-field inline">
-						<div class="originUI-fieldBracket"></div>
-						<input type="text" class="originUI-input originUI-bgColorSecondary" ng:model="editor.config[platform.name].Animations[animation.name]"/>
-					</div>
-				</li>
-			</ul>		
+			<div data-ng-show="fields.animations.length">
+				<h4>Animations</h4>
+				<ul class="originUI-list">
+					<li class="originUI-listItem" data-ng-repeat="animation in fields.animations">
+						<label class="platformForm-label inline">{{animation.label}}</label>
+						<div class="platformForm-input originUI-field inline" data-ng-if="animation.name !== 'selector'">
+							<div class="originUI-fieldBracket"></div>
+							<input type="text" class="originUI-input originUI-bgColorSecondary" ng:model="editor.config[platform.name].Animations[animation.name]"/>
+						</div>
+						<select class="originUI-select originUI-bgColorSecondary inline adSettings-input" data-ng-model="editor.config[platform.name].Animations.selector" data-ng-if="animation.name === 'selector'">
+							<option style="display:none" value="">Select</option>
+							<option value="initial">Initial</option>
+							<option value="triggered">Triggered</option>
+						</select>
+					</li>
+				</ul>
+			</div>
 		</div>
 	</div>

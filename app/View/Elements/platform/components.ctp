@@ -1,5 +1,20 @@
 	<input type="hidden" data-ng-model="editor.id"/>
 	<input type="hidden" name="uploadDir" value="/img/components/"/>
+	<div id="platformForm-status" class="">
+		<div class="originUI-switch">
+		    <input type="checkbox" name="editorStatusSwitch" class="originUI-switchInput" id="editorStatusSwitch" data-ng-model="editor.status">
+		    <label class="originUI-switchLabel" for="editorStatusSwitch">
+		    	<div class="originUI-switchInner">
+		    		<div class="originUI-switchActive">
+		    			<div class="originUI-switchText">Active</div>
+				    </div>
+				    <div class="originUI-switchInactive">
+				    	<div class="originUI-switchText">Inactive</div>
+					</div>
+			    </div>
+		    </label>
+	    </div>
+	</div>
 	<ul class="originUI-list">
 		<li class="originUI-listItem">
 			<label class="platformForm-label inline">Name</label>
