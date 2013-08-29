@@ -64,6 +64,7 @@ body.originClass-edit #originBar-settings.open #originBar-settingsIcon {
 	right: 0;
 	left: 200px;
 	top: 73px;
+	bottom: 32px;
 	z-index: 0;
 	border-width: 3px 0 0 3px;
 	border-style: solid;
@@ -76,6 +77,8 @@ body.originClass-edit #originBar-settings.open #originBar-settingsIcon {
 	/* overflow: hidden; */
 }
 
+
+
 #display .originUI-switchInner > .originUI-switchActive,
 #display .originUI-switchInner > .originUI-switchInactive,
 #layer-switch .originUI-switchInner > .originUI-switchActive,
@@ -86,7 +89,7 @@ body.originClass-edit #originBar-settings.open #originBar-settingsIcon {
 
 
 /* =======================================================================
-	Creator bar
+	Top Panel
 ========================================================================== */
 .creatorbar-icon {
 	opacity: .4;
@@ -155,6 +158,104 @@ body.originClass-edit #originBar-settings.open #originBar-settingsIcon {
 #creatorbar-help {
 	background-image: url(/img/help-18x18.png);
 }
+
+/* =======================================================================
+	Bottom Panel
+========================================================================== */
+#creator-panel-bottom {
+	position: absolute;
+	left: 200px;
+	right: 0;
+	bottom: 0;
+	height: 32px;
+	border-width: 2px 0 0 2px;
+	border-style: solid;
+	overflow: hidden;
+}
+
+#platforms-wrapper {
+	width: 165px;
+	height: 100%;
+}
+
+#platforms-wrapper .platform {
+	background-repeat: no-repeat;
+	background-position: center center;
+	width: 52px;
+	height: 100%;
+	text-indent: -5000em;
+	opacity: .1
+}
+
+#platforms-wrapper .platform.active,
+#platforms-wrapper .platform:hover {
+	opacity: 1;
+}
+
+#platforms-wrapper .platform.inactive {
+	pointer-events: none;
+	cursor: default;
+}
+
+#platform-desktop {
+	background-image: url(/img/desktop-26x26.png);
+}
+
+#platform-tablet {
+	background-image: url(/img/tablet-26x26.png);
+}
+
+#platform-mobile {
+	background-image: url(/img/mobile-26x26.png);
+}
+
+
+/*
+
+#display-wrapper {
+	margin: 10px auto;
+	width: 165px;
+	cursor: pointer;
+}
+*/
+
+
+#display-wrapper {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+/*
+#display-icon {
+	width: 26px;
+	height: 26px;
+	background: transparent url(/img/creator-view.png) no-repeat center bottom;
+}
+
+#display-icon.display-triggered {
+	background-position: center top;
+}
+*/
+
+#display {
+	width: 200px;
+}
+/*
+
+#display .originUI-switchText {
+	font-size: 14px;
+}
+*/
+
+
+
+
+
+
+
+
 
 
 /* =======================================================================
@@ -291,26 +392,7 @@ body.originClass-edit #originBar-settings.open #originBar-settingsIcon {
 
 
 /* WHERE DOES THIS GO??? */
-#display-icon {
-	width: 26px;
-	height: 26px;
-	background: transparent url(/img/creator-view.png) no-repeat center bottom;
-	margin: 8px 10px 0 0;
-}
 
-#display-icon.display-triggered {
-	background-position: center top;
-}
-
-#display {
-	margin: 8px 0 0 -5px;
-	width: 125px;
-}
-
-#display .originUI-switchText {
-	font-size: 11px;
-	line-height: 12px;
-}
 
 #display-icon:active,
 #layer-icon:active,
@@ -488,54 +570,10 @@ body.originClass-edit #originBar-settings.open #originBar-settingsIcon {
 	z-index: 100;
 }
 
-#display-wrapper,
 #layer-wrapper {
 	margin: 10px auto;
 	width: 165px;
 	cursor: pointer;
-}
-
-#platforms-wrapper {
-	width: 165px;
-	margin: 5px auto;
-}
-
-#platforms-wrapper .platform {
-	background-repeat: no-repeat;
-	background-position: center center;
-	width: 52px;
-	height: 26px;
-	text-indent: -5000em;
-	opacity: .1
-}
-
-#platforms-wrapper .platform.active,
-#platforms-wrapper .platform:hover {
-	opacity: 1;
-}
-
-
-#platforms-wrapper .platform.inactive {
-	pointer-events: none;
-	cursor: default;
-}
-
-#platform-desktop {
-	background-image: url(/img/desktop-26x26.png);
-}
-
-#platform-tablet {
-	background-image: url(/img/tablet-26x26.png);
-}
-
-#platform-mobile {
-	background-image: url(/img/mobile-26x26.png);
-}
-
-#display-wrapper {
-	margin: 0 auto;
-	padding-bottom: 10px;
-	border-bottom: 1px solid #303030;
 }
 
 #layer-icon {
@@ -702,8 +740,6 @@ body.originClass-edit #originBar-settings.open #originBar-settingsIcon {
 
 #layers,
 #library {
-	position: absolute;
-	top: 125px;
 	width: 100%;	
 	overflow-x: hidden;
 	overflow-y: auto;

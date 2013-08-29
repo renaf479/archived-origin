@@ -86,7 +86,7 @@
 					<label class="platformForm-label inline">{{dimension.label}}</label>
 					<div class="platformForm-input originUI-field inline">
 						<div class="originUI-fieldBracket"></div>
-						<input type="text" class="originUI-input originUI-bgColorSecondary" data-ng-model="editor.config[platform.name][input].width" placeholder="{{input}}"/>
+						<input type="text" class="originUI-input originUI-bgColorSecondary" data-ng-model="editor.config[platform.name][dimension.name][dimension.inputs]"/>
 					</div>
 				</li>
 			</ul>

@@ -140,8 +140,8 @@ var creatorController = function($scope, $filter, Rest, Notification) {
 		$scope.ui.origin_ad_schedule_id = $scope.workspace.ad.OriginAdSchedule[$scope.ui.schedule].id;
 		$scope.workspaceTemplateConfig = function() {
 			return {
-				height:	$scope.workspace.ad.OriginAd.config[$scope.ui.platform][$scope.ui.view].height+'px',
-				width: 	$scope.workspace.ad.OriginAd.config[$scope.ui.platform][$scope.ui.view].width+'px'
+				height:	$scope.workspace.ad.OriginAd.config.dimensions[$scope.ui.view][$scope.ui.platform].height+'px',
+				width: 	$scope.workspace.ad.OriginAd.config.dimensions[$scope.ui.view][$scope.ui.platform].width+'px'
 				/*
 height:	$scope.workspace.template.config.dimensions[$scope.ui.view][$scope.ui.platform].height+'px',
 				width: 	$scope.workspace.template.config.dimensions[$scope.ui.view][$scope.ui.platform].width+'px'

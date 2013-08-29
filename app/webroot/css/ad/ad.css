@@ -69,6 +69,16 @@ a {
 #continue {
 	background-position: left bottom;
 }
+/*
+
+#initial {
+	z-index: 1;
+}
+
+#triggered {
+	z-index: 0;
+}
+*/
 
 
 #initial,

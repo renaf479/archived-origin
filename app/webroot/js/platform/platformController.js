@@ -88,7 +88,7 @@ var platformController = function($scope, $filter, Rest, Notification) {
 						},
 						{
 						label:	'Initial Height (px)',
-						name:	'Height', 
+						name:	'Initial', 
 						inputs:	'height'
 						},
 						{

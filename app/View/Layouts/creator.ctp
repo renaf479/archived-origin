@@ -14,7 +14,7 @@ $userAdmin			= ($this->UserAuth->isAdmin())? 'originUI-superAdmin': '';
 	?>
 </head>
 <body class="originUI-bgTexture <?php echo $userAdmin;?> <?php echo 'originClass-'.$this->params['action'];?>" ng:app="platformApp" ng:controller="originGeneral">
-	<?php echo $this->element('notification');?>
+	<?php echo $this->element('platform/notification');?>
 	<div id="container" class="wrapper">
 		<?php echo $this->fetch('content'); ?>
 	</div>

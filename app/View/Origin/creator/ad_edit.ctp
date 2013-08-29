@@ -25,29 +25,6 @@
 	</div>
 	<form id="creator-panel-left" class="originUI-bgColor" data-intro="Manage workspace views and component layers" data-position="right">
 		<input type="hidden" name="uploadDir" value="/assets/creator/<?php echo $this->params['originAd_id'];?>/"/>
-		<div id="platforms-wrapper" class="">
-			<a href="javascript:void(0)" id="platform-desktop" class="platform originUI-hover inline" ng:click="platformSwitch('Desktop')" ng:class="{'inactive': !workspace.ad.OriginAd.config.Desktop.Initial.width, 'active': ui.platform === 'Desktop'}">Desktop</a>
-			<a href="javascript:void(0)" id="platform-tablet" class="platform originUI-hover inline" ng:click="platformSwitch('Tablet')" ng:class="{'inactive': !workspace.ad.OriginAd.config.Tablet.Initial.width, 'active': ui.platform === 'Tablet'}">Tablet</a>
-			<a href="javascript:void(0)" id="platform-mobile" class="platform originUI-hover inline" ng:click="platformSwitch('Mobile')" ng:class="{'inactive': !workspace.ad.OriginAd.config.Mobile.Initial.width, 'active': ui.platform === 'Mobile'}">Mobile</a>
-		</div>
-		<div id="display-wrapper" ng:click="creatorToggle('view')" ng:show="workspace.ad.OriginAd.config.dimensions.Triggered[ui.platform].height > 0">
-			<div id="display-icon" class="inline" ng:class="{true: 'display-initial', false: 'display-triggered'}[ui.view=='Initial']"></div>
-			<div id="display" class="inline">
-				<div class="originUI-switch">
-				    <input type="checkbox" name="displaySwitch" class="originUI-switchInput" id="displaySwitch" checked="checked">
-				    <label class="originUI-switchLabel" for="displaySwitch">
-				    	<div class="originUI-switchInner">
-				    		<div class="originUI-switchActive">
-				    			<div class="originUI-switchText">Initial<br/>State</div>
-						    </div>
-						    <div class="originUI-switchInactive">
-						    	<div class="originUI-switchText">Triggered<br/>State</div>
-							</div>
-					    </div>
-				    </label>
-			    </div> 
-			</div>
-		</div>
 		<div id="layer-wrapper" ng:click="creatorToggle('layer')">
 			<div id="layer-switch" class="inline" ng:class="{true: 'layer-layers', false: 'layer-library'}[ui.layer=='Layers']">
 				<div class="originUI-switch">
@@ -175,6 +152,57 @@
 			</div>
 		</div>
 	</div>
+	
+	<?php 
+	/**
+	* Bottom portion of ad creator
+	* Contains selectors for PLATFORM, STATE/VIEW and AUTO/DEFAULT
+	*/
+	?>
+	<div id="creator-panel-bottom" class="originUI-bgColor originUI-borderColor">
+		<?php 
+		/** 
+		* Platform selector (DESKTOP, TABLET, MOBILE)	
+		*/
+		?>
+		<div id="platforms-wrapper" class="">
+			<a href="javascript:void(0)" id="platform-desktop" class="platform originUI-hover inline" data-ng-click="platformSwitch('Desktop')" ng:class="{'inactive': !workspace.ad.OriginAd.config.Desktop.Initial.width, 'active': ui.platform === 'Desktop'}">Desktop</a>
+			<a href="javascript:void(0)" id="platform-tablet" class="platform originUI-hover inline" data-ng-click="platformSwitch('Tablet')" ng:class="{'inactive': !workspace.ad.OriginAd.config.Tablet.Initial.width, 'active': ui.platform === 'Tablet'}">Tablet</a>
+			<a href="javascript:void(0)" id="platform-mobile" class="platform originUI-hover inline" data-ng-click="platformSwitch('Mobile')" ng:class="{'inactive': !workspace.ad.OriginAd.config.Mobile.Initial.width, 'active': ui.platform === 'Mobile'}">Mobile</a>
+		</div>
+		
+		<?php
+		/**
+		* State/View selector (INITIAL, TRIGGERED)
+		*/
+		?>
+		<div id="display-wrapper" data-ng-click="creatorToggle('view')" data-ng-show="workspace.ad.OriginAd.config.dimensions.Triggered[ui.platform].height > 0">
+			<div id="display" class="inline">
+				<div class="originUI-switchDual">
+				    <input type="checkbox" name="displaySwitch" class="originUI-switchInput" id="displaySwitch" checked="checked">
+				    <label class="originUI-switchLabel" for="displaySwitch">
+				    	<div class="originUI-switchInner">
+				    		<div class="originUI-switchActive">
+				    			<div class="originUI-switchText">Initial</div>
+						    </div>
+						    <div class="originUI-switchInactive">
+						    	<div class="originUI-switchText">Triggered</div>
+							</div>
+					    </div>
+				    </label>
+			    </div> 
+			</div>
+		</div>
+		<?php
+		/**
+		* Auto selector - Determins what content is shown when unit is AUTO triggered and DEFAULT
+		*/
+		?>
+		<div id="auto-wrapper" data-ng-click="">
+		</div>
+	</div>
+	
+	
 	
 	<div modal="creatorModal" close="creatorModalClose()" options="creatorModalOptions">
 		<form id="creator-modal" class="originUI-bgColorSecondary originUI-modal" ng:class="workspace.modal.alias" novalidate>

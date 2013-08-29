@@ -5,6 +5,10 @@
 	$origin_ad['OriginAd']['content'] 		= json_decode($origin_ad['OriginAd']['content']);
 
 	foreach($origin_ad['OriginAdSchedule'] as $skey=>$schedules) {
+	
+		//$origin_ad['OriginAdSchedule'][$schedules['type']]	= $origin_ad['OriginAdSchedule'][$skey];
+		//unset($origin_ad['OriginAdSchedule'][$skey]);
+		
 		foreach($contentArray as $contentName) {
 			foreach($schedules[$contentName] as $ckey=>$content) {
 				$origin_ad['OriginAdSchedule'][$skey][$contentName][$ckey]['content']	= json_decode($content['content']);
