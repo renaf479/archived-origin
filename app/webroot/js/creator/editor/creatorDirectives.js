@@ -143,7 +143,21 @@ platformApp.directive('workspace', function(){
 	return {
 		restrict: 'A',
 		link: function(scope, element, attrs) {
+		
+			scope.$watchCollection(['ui.platform', 'ui.state'], function() {
+				var config	= angular.fromJson(scope.originAd.config);
+				//sets width/height
+				element.css({
+					'width':		config[scope.ui.platform][scope.ui.state].width+'px',
+					'height':		config[scope.ui.platform][scope.ui.state].height+'px',
+					'margin-top':	-(config[scope.ui.platform][scope.ui.state].height/2)+'px',
+					'margin-left':	-(config[scope.ui.platform][scope.ui.state].width/2)+'px'
+				});
+				
+			});
+		
 			//Accepts drag and drop items from library
+/*
 			element.droppable({
 				accept: '.asset',
 				drop: function(event, ui) {
@@ -175,6 +189,7 @@ platformApp.directive('workspace', function(){
 					scope.creatorLibrarySave(data);
 				}
 			});
+*/
 							
 		}	
 	}

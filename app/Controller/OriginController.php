@@ -231,14 +231,29 @@ class OriginController extends AppController {
 		$this->layout	= 'creator';
 		$origin_ad		= $this->OriginAd->find('first', 
 			array(
-				'recursive'=>-1,
+				'recursive'=>2,
 				'conditions'=>array(
 					'OriginAd.id'=>$this->request->params['originAd_id']
 				)
 			)
 		);
 		
-		$this->set('origin_ad', $origin_ad);
+		//Transform data
+		$contentArray		= ['OriginAdDesktopInitialContent', 'OriginAdDesktopTriggeredContent', 'OriginAdMobileInitialContent', 'OriginAdMobileTriggeredContent', 'OriginAdTabletInitialContent', 'OriginAdTabletTriggeredContent'];
+
+		$origin_ad['OriginAd']['config'] 		= json_decode($origin_ad['OriginAd']['config']);
+		$origin_ad['OriginAd']['content'] 		= json_decode($origin_ad['OriginAd']['content']);
+	
+		foreach($origin_ad['OriginAdSchedule'] as $skey=>$schedules) {
+			foreach($contentArray as $contentName) {
+				foreach($schedules[$contentName] as $ckey=>$content) {
+					$origin_ad['OriginAdSchedule'][$skey][$contentName][$ckey]['content']	= json_decode($content['content']);
+					$origin_ad['OriginAdSchedule'][$skey][$contentName][$ckey]['config']	= json_decode($content['config']);
+				}
+			}
+		}
+		
+		$this->set('origin_ad', addslashes(json_encode($origin_ad)));
 		$this->set('origin_ad_hash', PseudoCrypt::hash($origin_ad['OriginAd']['id']));
 		$this->set('title_for_layout', $origin_ad['OriginAd']['name'].' - Ad Creator');
 		$this->render('creator/ad_edit');

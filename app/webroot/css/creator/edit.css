@@ -1,0 +1,170 @@
+/* =======================================================================
+	Override
+========================================================================== */
+body {
+	position: static;
+}
+
+#container {
+	width: auto;
+	position: static;
+}
+
+
+
+
+/* =======================================================================
+	Title bar
+========================================================================== */
+#title-bar {
+	width: 100%;
+	height: 42px;
+	border-width: 0 0 1px 0;
+	border-style: solid;
+	position: relative;
+}
+
+#titlebar-title {
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+/* =======================================================================
+	Panel
+========================================================================== */
+#panel {
+	position: absolute;
+	width: 250px;
+	bottom: 0;
+	left: 0;
+	top: 43px;
+	border-width: 0 2px 0 0;
+	border-style: solid;
+}
+
+.panel-accordion .accordion-heading .accordion-toggle {
+	height: 32px;
+	line-height: 32px;
+}
+
+/* =======================================================================
+	Workspace bar
+========================================================================== */
+#workspace-bar {
+	position: absolute;
+	height: 42px;
+	top: 43px;
+	left: 252px;
+	right: 0;
+	border-width: 0 0 1px 0;
+	border-style: solid;
+}
+
+
+/* =======================================================================
+	Workspace
+========================================================================== */
+#adEdit-workspace {
+	position: absolute;
+	top: 86px;
+	left: 252px;
+	bottom: 0;
+	right: 0;
+	overflow: auto;
+}
+
+#workspace {
+	margin: 0 auto;
+	display: block;
+	position: relative;
+	background-color: rgba(255, 255, 255, .2);
+	background-repeat: no-repeat;
+	background-position: center top;
+	top: 50%;
+	left: 50%;
+}
+
+.workspace-content {
+	display: block;
+	position: absolute !important;
+	cursor: pointer;
+}
+
+
+.workspace-content > *:not(.ui-resizable-handle) {
+	width: inherit;
+	height: inherit;
+	position: absolute;
+	overflow: hidden;
+	
+	/* Disable clicks */
+	pointer-events: none;
+	cursor: default;
+}
+
+.workspace-content.ui-resizable:not(.content-image):not(.content-background) {
+	background-color: rgba(0, 153, 204, 0);
+	outline: 2px dashed rgba(0, 153, 204, .7);
+	outline-offset: -5px;
+	
+	-webkit-transition: all .15s ease-out;
+	-moz-transition: all .15s ease-out;
+	-ms-transition: all .15s ease-out;
+	-o-transition: all .15s ease-out;
+	transition: all .15s ease-out;
+}
+
+.workspace-content.content-background .ui-resizable-handle {
+	display: none !important;
+}
+
+.workspace-content .ui-resizable-e,
+.workspace-content .ui-resizable-w {
+	width: 12px;	
+}
+
+.workspace-content .ui-resizable-n,
+.workspace-content .ui-resizable-s {
+	height: 12px;
+}
+
+.workspace-content .ui-resizable-ne,
+.workspace-content .ui-resizable-se,
+.workspace-content .ui-resizable-sw,
+.workspace-content .ui-resizable-nw {
+	width: 26px;
+	height: 26px;
+}
+
+.workspace-content:hover:not(.content-background),
+.workspace-content:focus:not(.content-background) {
+	outline: 2px dashed rgba(0, 153, 204, 1) !important;
+	background-color: rgba(0, 153, 204, .3) !important;
+}
+
+.workspace-content.content-background {
+	outline: none;
+}
+
+.workspace-content.content-image .ui-resizable-handle,
+.workspace-content.content-image .workspace-content-label,
+.workspace-content.content-background .workspace-content-label {
+	display: none !important;
+}
+
+.workspace-content-label {
+	text-align: center;
+	overflow: hidden;
+	top: 50%;
+	height: 30px !important;
+	margin-top: -15px !important;
+	font-weight: bold;
+	font-size: 20px;
+	opacity: .7;
+	text-transform: uppercase;
+	position: absolute;
+}
