@@ -1,0 +1,7 @@
+	<li id="contentItem-{{content.id}}" class="content-item" ng:repeat="content in layers|orderBy:'-order'" data-layer-id="{{content.id}}">
+		<span class="content-item-wrapper">
+			<span class="content-handle inline originUI-hover">handle</span>
+			<span class="content-label inline">{{content.content.title}}-{{content.id}}</span>
+			<span class="content-edit inline originUI-hover" ng:click="creatorModalOpen('content', '', content)">edit</span>
+		</span>
+	</li>

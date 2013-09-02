@@ -2,7 +2,7 @@
 
 var platformApp = angular.module('platformApp', 
 					[
-					'ui', 
+					/* 'ui', */ 
 					'ui.bootstrap', 
 					//'originApp.services', 
 					//'originApp.directives',

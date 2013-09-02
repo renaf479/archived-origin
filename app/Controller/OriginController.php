@@ -253,7 +253,20 @@ class OriginController extends AppController {
 			}
 		}
 		
+		//Load in components
+		$components	= $this->OriginComponent->find('all',
+			array(
+				'order'=>array('OriginComponent.name ASC')
+			)
+		);
+		$components = Set::extract('/OriginComponent/.', $components);
+		foreach($components as $key=>&$component) {
+			$component['config']	= json_decode($component['config']);
+			$component['content']	= json_decode($component['content']);
+		}
+		
 		$this->set('origin_ad', addslashes(json_encode($origin_ad)));
+		$this->set('components', addslashes(json_encode($components)));
 		$this->set('origin_ad_hash', PseudoCrypt::hash($origin_ad['OriginAd']['id']));
 		$this->set('title_for_layout', $origin_ad['OriginAd']['name'].' - Ad Creator');
 		$this->render('creator/ad_edit');
@@ -332,9 +345,7 @@ class OriginController extends AppController {
 		if($this->{'OriginAd'.$data['model'].'Content'}->save($data)) {
 			
 			if($embedIframe) {
-				/**
-				* Special case for iframe-able embed content
-				*/
+				//Special case for iframe-able embed content
 				$updateData['id']		= $this->{'OriginAd'.$data['model'].'Content'}->id;
 				$updateData['render'] 	= str_replace(array('%model%', '%id%'), array('OriginAd'.$data['model'].'Content', $updateData['id']), $data['render']);
 				$this->{'OriginAd'.$data['model'].'Content'}->save($updateData);

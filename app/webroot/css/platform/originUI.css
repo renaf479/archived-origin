@@ -86,10 +86,20 @@ li {
 }
 
 .accordion-heading .accordion-toggle {
-	background: transparent url(/img/icon-accordion-close.png) no-repeat left center;
-	text-indent: 12px;
+	background-image: url(/img/icon-accordion-close.png);
+	background-repeat: no-repeat;
+	background-position: 5px center;
+	text-indent: 20px;
 	padding: 0;
-	border-bottom: 1px solid #bdbdbd;
+	border-bottom: 1px solid #303030;
+}
+
+.accordion-group.active .accordion-heading .accordion-toggle {
+	background-image: url(/img/icon-accordion-open.png);
+}
+
+.accordion-body {
+	border-bottom: 1px solid #303030;
 }
 
 .accordion-inner {
@@ -323,8 +333,13 @@ li {
 	font-size: 28px;
 }
 
+.originUI-hoverColor {
+	background-color: rgba(51, 181, 229, .25);
+}
+
 .originUI-iconHover {
 	opacity: .2;
+	cursor: pointer;
 }
 
 .originUI-iconHover:hover {
@@ -618,6 +633,8 @@ height: 26px;
 	line-height: 32px;
 	white-space: nowrap;
 	display: block;
+	background-repeat: no-repeat;
+	background-position: left center;
 }
 
 .originUI-listItem + .originUI-listItem {

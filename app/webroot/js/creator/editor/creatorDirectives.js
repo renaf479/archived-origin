@@ -27,7 +27,7 @@ platformApp.directive('asset', function() {
 });
 
 /**
-* Keystroke functionality for component configuration fields
+* Keystroke functionality for component configuration fields - ISOLATED USE
 */
 platformApp.directive('config', function() {
 	return {
@@ -73,11 +73,18 @@ platformApp.directive('config', function() {
 * Layer sorting for components list
 */
 platformApp.directive('layerSortable', function() {
+	var template = '<li id="contentItem-{{content.id}}" class="content-item" ng:repeat="content in layers|orderBy:\'-order\'" data-layer-id="{{content.id}}">'+
+						'<span class="content-item-wrapper">'+
+							'<span class="content-handle inline originUI-hover">handle</span>'+
+							'<span class="content-label inline">{{content.content.title}}-{{content.id}}</span>'+
+							'<span class="content-edit inline originUI-hover" ng:click="creatorModalOpen(\'content\', \'\', content)">edit</span>'+
+						'</span>'+
+					'</li>';
 	return {
 		restrict: 'A',
 		replace: false,
 		scope: true,
-		template: '<li id="contentItem-{{content.id}}" class="content-item" ng:repeat="content in layers|orderBy:\'-order\'" data-layer-id="{{content.id}}"><span class="content-item-wrapper"><span class="content-handle inline originUI-hover">handle</span> <span class="content-label inline">{{content.content.title}}-{{content.id}}</span> <span class="content-edit inline originUI-hover" ng:click="creatorModalOpen(\'content\', \'\', content)">edit</span></span></li>',
+		template: template,
 		link: function(scope, element, attr) {
 			element.sortable({
 				'axis':		'y',
@@ -143,8 +150,7 @@ platformApp.directive('workspace', function(){
 	return {
 		restrict: 'A',
 		link: function(scope, element, attrs) {
-		
-			scope.$watchCollection(['ui.platform', 'ui.state'], function() {
+			scope.$watchCollection('[ui.platform, ui.state]', function() {
 				var config	= angular.fromJson(scope.originAd.config);
 				//sets width/height
 				element.css({

@@ -1,63 +1,174 @@
-var creatorEditController = function($scope, $filter, Rest, Notification) {
-	$scope.originAd				= {};
-	$scope.originAdSchedule		= {};
+var creatorEditController = function($scope, $rootScope, $filter, Rest, Notification) {
+	/**
+	* Private Methods
+	*/
+	//Finds the component object form the alias
+	function _findComponent(model) {
+		for(var i in $scope.components) {
+			if($scope.components[i].alias === model.type) {
+				return $scope.components[i];
+			}
+		}
+		return false;
+	}
 	
-	$scope.components			= {};
+	//Refreshes the assets library
+	function _updateAssets() {
+		Rest.get('library/'+$scope.originAd.id).then(function(response) {
+			$scope.assets	= response.files;
+		});
+	}
 	
-	$scope.ui = {
-		auto:		false,
-		platform:	'Desktop',
-		schedule:	0,
-		state:		'Initial'
+	//Refreshes layers
+	function _updateLayers() {
+		$scope.layers 			= angular.copy($filter('orderBy')($scope.originAdSchedule[$scope.ui.schedule]['OriginAd'+$scope.ui.platform+$scope.ui.state+'Content'], '-order'));
+		//Appends image data to layers
+		angular.forEach($scope.layers, function(value, key) {
+			value.img_icon	= _findComponent(value).config.img_icon;
+		});
+	}
+	
+	
+	//Refresh workspace data
+	function _updateWorkspace(data) {
+		$scope.originAd			= data.OriginAd;
+		$scope.originAdSchedule	= data.OriginAdSchedule;
+		_updateLayers();
 	}
 
 	/**
 	* Initialization
 	*/
 	$scope.init = function() {
-		$scope.originAd			= angular.fromJson(origin_ad).OriginAd;
-		$scope.originAdSchedule	= angular.fromJson(origin_ad).OriginAdSchedule;
+		$rootScope.editor = {
+			config: {}	
+		};
+		
+		$scope.ui = {
+			auto:		false,
+			platform:	'Desktop',
+			schedule:	0,
+			state:		'Initial',
+			stateSwitch:true
+		};
+		
+		$scope.components		= angular.fromJson(components);
+		
+		_updateWorkspace(angular.fromJson(origin_ad));
+		_updateAssets();	
+	}
 	
-/*
-		Rest.get('ad/'+originAd_id).then(function(response) {
-			$scope.originAd			= response.OriginAd;
-			$scope.originAdSchedule	= response.OriginAdSchedule;
-		});
-*/
+	/**
+	* Modal methods
+	*/
+	//Close modal
+	$scope.modalClose = function(modal) {
+		$scope[modal]	= false;
+	}
 	
-		Rest.get('componentsraw').then(function(response) {
-			$scope.components		= response;
+	//Open modal & initialize
+	$scope.modalOpen = function(modal, model) {
+		switch(modal) {
+			case 'component-add':
+				$rootScope.editor.type 	= model.alias;
+				$rootScope.editor.config = {
+					left:	'0px',
+					top:	'0px',
+					width:	'50px',
+					height:	'50px'
+				};
+				$scope.modal = {
+					id:			'componentModal',
+					callback: {
+						close:	'modalComponent',
+						submit:	'component-add'
+					},
+					class:		'modal-'+model.alias,
+					config:		true,
+					content:	'/administrator/get/components/'+model.alias,
+					modal:		'modalComponent',
+					remove:		false,
+					submit:		'Create',
+					title:		'Add New '+model.name,
+					thumbnail:	model.config.img_icon
+				};
+				break;
+			case 'component-load':
+				$rootScope.editor = model;
+				//Match model against list of components and override
+				var model = _findComponent(model);
+				$scope.modal = {
+					id:			'componentModal',
+					callback: {
+						close:	'modalComponent',
+						remove:	'component-remove',
+						submit:	'component-update'	
+					},
+					class:		'modal-'+model.alias,
+					config:		true,
+					content:	'/administrator/get/components/'+model.alias,
+					modal:		'modalComponent',
+					remove:		true,
+					submit:		'Update',
+					title:		model.name+' Editor',
+					thumbnail:	model.config.img_icon
+				};
+				break;
+		}
+		
+		$scope[$scope.modal.modal] = true;
+	}
+	
+	//Modal config options
+	$scope.modalOption = {
+		backdropClick: 	false,
+		backdropFade:	true
+	}
+	
+	//Submit modal data
+	$scope.modalSubmit = function(modal) {
+		var post  = angular.copy($scope.editor),
+			message;
+			
+			post.data 			= $scope.originAdSchedule;
+			post.model			= $scope.ui.platform + $scope.ui.state;
+			post.originAd_id	= $scope.originAd.id;
+		switch(modal) {
+			case 'component-add':
+				message 					= 'Content added';
+				post.origin_ad_schedule_id 	= $scope.originAdSchedule[$scope.ui.schedule].id;
+				post.route					= 'creatorContentSave';
+				break;
+			case 'component-remove':
+				var ask = confirm('Do you want to remove this component?');
+				if(ask) {					
+					message 	= 'Content removed';
+					post.route	= 'creatorContentRemove';
+				}
+				break;
+			case 'component-update':
+				break;
+		}
+		
+		Rest.post(post).then(function(response) {
+			Notification.alert(message);
+			$scope.modalClose('modalComponent');
+			_updateWorkspace(response);
 		});
-		/*
+	}	
 		
-		Rest.get('components').then(function(response) {
-		$scope.workspace.components		= response;
-		$scope.workspace.componentsRaw	= $scope.workspace.components['raw'];
-		delete $scope.workspace.components['raw'];
-		
-		$scope.updateLibrary();
-		
-		Rest.get('ad/'+originAd_id).then(function(response) {
-			template_id					= response.OriginAd.config.type_id;//IS THIS USED?
-			$scope.workspace.ad			= response;
-			$scope.scripts.content 		= (response.OriginAd.content_css)? response.OriginAd.content_css: '<style type="text/css">\n</style>';
-			
-			
-			$scope.$watch('ui.view', function() {
-				$scope.updateUI();
-			});	
-			
-			$scope.$watch('ui.platform', function() {
-				$scope.updateUI();
-			});
-			
-			Rest.get('templates').then(function(response) {
-				$scope.templates		= response;
-			});
-		});
-	});
-		*/
-		
-		
+	/**
+	* UI methods
+	*/
+	//Switches platform view
+	$scope.uiPlatform = function(model) {
+		$scope.ui.platform = model;
+		_updateLayers();
+	}
+	
+	//Switches state view
+	$scope.uiState = function() {
+		$scope.ui.state	= ($scope.ui.stateSwitch)? 'Triggered': 'Initial';
+		_updateLayers();
 	}
 };

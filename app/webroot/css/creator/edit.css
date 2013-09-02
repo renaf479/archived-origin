@@ -14,23 +14,50 @@ body {
 
 
 /* =======================================================================
-	Title bar
+	Modal - Components
 ========================================================================== */
-#title-bar {
-	width: 100%;
-	height: 42px;
-	border-width: 0 0 1px 0;
-	border-style: solid;
-	position: relative;
+#componentModal-remove {
+	position: absolute;
+	top: 8px;
+	right: 10px;
+	background: transparent url(/img/delete-26x26.png) no-repeat 0 0;
+	width: 26px;
+	height: 26px;
+	text-indent: -5000em;
+	opacity: .2;
 }
 
-#titlebar-title {
-	margin: 0;
-	padding: 0;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
+#componentModal-remove:hover {
+	opacity: 1;
+}
+
+
+#componentModal-config {
+	border-top: 1px solid #444444;
+	margin: 0 15px;
+	padding: 10px 0;
+	font-size: 12px;
+}
+
+#componentModal-content {
+	margin: 15px 0;
+}
+
+#componentModal-config .originUI-list,
+#componentModal-config .originUI-input {
+	text-align: center;
+	text-indent: 0;
+}
+
+#componentModal-config .originUI-list > li {
+	display: inline-block;
+	width: 100px;
+	margin: 0 5px
+}
+
+#componentModal-config .originUI-field {
+	width: 60%;
+	margin: 0 auto;
 }
 
 /* =======================================================================
@@ -51,6 +78,46 @@ body {
 	line-height: 32px;
 }
 
+.panel-accordion .originUI-list {
+	margin: 5px 10px;
+	overflow: hidden;
+}
+
+.panel-accordion .originUI-listItem {
+}
+
+#panel-components .originUI-listItemLink,
+#panel-layers .originUI-listItemLink {
+	background-size: 18px 18px;
+	background-position: 10px center;
+	text-indent: 10px;
+} 
+
+/* =======================================================================
+	Title bar
+========================================================================== */
+#title-bar {
+	width: 100%;
+	height: 42px;
+	border-width: 0 0 1px 0;
+	border-style: solid;
+	position: relative;
+}
+
+#titlebar-exit {
+	background: transparent url(/img/exit-26x26.png) no-repeat left center;
+	margin: 0 5px;
+	width: 26px;
+	height: 100%;
+	text-indent: -500em;
+}
+
+#titlebar-title {
+	margin: 0;
+	padding: 0;
+	line-height: 42px;
+}
+
 /* =======================================================================
 	Workspace bar
 ========================================================================== */
@@ -64,6 +131,36 @@ body {
 	border-style: solid;
 }
 
+#state {
+	width: 200px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+#platform {
+	position: absolute;
+	right: 15px;
+	top: 50%;
+	transform: translate(0, -50%);
+}
+
+.platform-icon {
+	cursor: pointer;
+	margin: 0 15px;
+	opacity: .1	
+}
+
+.platform-icon.active,
+.platform-icon:hover {
+	opacity: 1;
+}
+
+.platform-icon.inactive {
+	pointer-events: none;
+	cursor: default;
+}
 
 /* =======================================================================
 	Workspace

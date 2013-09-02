@@ -2,10 +2,7 @@
 	<ul class="originUI-list">
 		<li>
 			<label id="editorLink-label" class="inline">URL</label>
-			<div id="editorLink-field" class="originUI-field inline">
-				<div class="originUI-fieldBracket"></div>
-				<input type="text" class="originUI-input originUI-bgColorSecondary" ng:model="editor.content.link" placeholder="http://" required/>
-			</div>
+			<input type="text" data-ng-model="editor.content.link" placeholder="http://" required input-text/>
 		</li>
 	</ul>
 	

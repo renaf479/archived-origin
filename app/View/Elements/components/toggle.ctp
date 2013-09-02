@@ -3,6 +3,9 @@
 		<ul class="originUI-list">
 			<li>
 				<label class="inline">Toggle on</label>
+				<input-switch class="originUI-switchDual" name="editorToggleTypeSwitch" active="Click" inactive="Hover" data-ng-model="editor.content.event"></input-switch>
+				
+<!--
 				<div id="editorToggle-type" class="inline">
 					<div class="originUI-switch">
 					    <input type="checkbox" name="editorToggleTypeSwitch" class="originUI-switchInput" id="editorToggleTypeSwitch" ng:model="editor.content.event" ng:checked="editor.content.event">
@@ -18,9 +21,12 @@
 					    </label>
 				    </div>
 				</div>
+-->
 			</li>
 			<li>
 				<label class="inline">Hover Intent</label>
+				<input-switch class="originUI-switch" name="editorToggleHoverIntentSwitch" active="Yes" inactive="No" data-ng-model="editor.content.hoverIntent"></input-switch>
+<!--
 				<div id="editorToggle-hoverIntent" class="inline">
 					<div class="originUI-switch">
 					    <input type="checkbox" name="editorToggleHoverIntentSwitch" class="originUI-switchInput" id="editorToggleHoverIntentSwitch" ng:model="editor.content.hoverIntent" ng:checked="editor.content.hoverIntent">
@@ -36,25 +42,11 @@
 					    </label>
 				    </div>
 				</div>
-			</li>
-<!--
-			<li>
-				<label id="editorToggle-imageLabel" class="inline">Image (optional)</label>
-				<div id="editorToggle-imageField" class="originUI-field inline">
-					<div class="originUI-fieldBracket"></div>
-					<input type="text" class="originUI-input originUI-bgColorSecondary" ng:model="editor.content.image"/>
-				</div>
-			</li>
-			<li>
-				<label id="editorToggle-hoverLabel" class="inline">Hover (optional)</label>
-				<div id="editorToggle-hoverField" class="originUI-field inline">
-					<div class="originUI-fieldBracket"></div>
-					<input type="text" class="originUI-input originUI-bgColorSecondary" ng:model="editor.content.hover"/>
-				</div>
-			</li>
 -->
+			</li>
 		</ul>
 	</div>
+<!--
 	<div class="originUI-modalRight" ng:show="test == 'false'">
 		<div id="background-upload" class="originUI-upload">
 			<span class="originUI-uploadLabel">Upload Background</span>
@@ -67,10 +59,12 @@
 			</li>
 		</ul>
 	</div>
+-->
 	<div class="clear"></div>
 	
 	<script type="text/javascript">
 		var componentCtrl = function($scope, $rootScope) {
+/*
 			var _scope 	= $scope.$parent,
 				toggleEvent,
 				hoverIntent;
@@ -103,30 +97,9 @@
 				$scope.editor.render 	= '<a href="javascript:void(0)" class="cta toggle" toggle="'+toggleEvent+'"></a>';
 				_scope.creatorModalSaveContent($scope.editor);
 			};
-		}
-	
-	
-/*
-		var componentCtrl = function($scope) {
-			var toggleEvent;
-			var _scope = angular.element($j('#ad-edit')).scope();
-
-			if(_scope.editor.content.event === undefined) {
-				_scope.editor.content.event = true;
-			}
-			
-				_scope.$watch('editor.content', function() {
-					switch($scope.editor.content.event) {
-						case false:
-							toggleEvent 	= 'hover';
-							break;
-						case true:
-							toggleEvent 	= 'click';
-							break;
-					}
-					_scope.editor.render	= '<a href="javascript:void(0)" class="cta toggle" toggle="'+toggleEvent+'"></a>';
-				}, true);
-		}
 */
+		}
+	
+
 	</script>
 </div>
