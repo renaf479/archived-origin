@@ -36,6 +36,7 @@
 			<accordion-group heading="Properties" class="panel-accordion" data-ng-class="{true:'active', false:''}[isOpen]">
 			</accordion-group>
 			<accordion-group heading="Scripts" class="panel-accordion" data-ng-class="{true:'active', false:''}[isOpen]">
+				<div data-ng-dblclick="test()">Test</div>
 			</accordion-group>
 		</accordion>
 	</div>
@@ -51,7 +52,8 @@
 	<!-- Workspace -->
 	<div id="adEdit-workspace" class="originUI-bgColor originUI-bgTexture">
 		<div id="workspace" workspace>
-			<workspace-content data-ng-repeat="content in originAdSchedule[ui.schedule]['OriginAd'+ui.platform+ui.state+'Content']" data-ng-model="content" double-click="creatorModalOpen('content', '', content)"></workspace-content>
+			<!-- <workspace-content data-ng-repeat="content in originAdSchedule[ui.schedule]['OriginAd'+ui.platform+ui.state+'Content']" data-ng-model="content" double-click="creatorModalOpen('content', '', content)"></workspace-content> -->
+			<workspace-content class="workspace-content" data-ng-repeat="content in originAdSchedule[ui.schedule]['OriginAd'+ui.platform+ui.state+'Content']" data-ng-model="content" data-ng-click="$parent.modalOpen('component-load', ngModel)"></workspace-content>
 		</div>
 	</div>
 	

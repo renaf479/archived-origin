@@ -150,7 +150,7 @@ angular.module('platformApp.directives', [])
 		}
 	})
 	.directive('inputSwitch', function() {
-		var template = '<div class="{{class}}">' + 
+		var template = '<div>' + 
 							'<input type="checkbox" name="{{name}}" class="originUI-switchInput" id="{{name}}" data-ng-model="ngModel" data-ng-change="ngChange()"/>'+
 							'<label class="originUI-switchLabel" for="{{name}}">'+
 								'<div class="originUI-switchInner">'+ 
@@ -167,7 +167,6 @@ angular.module('platformApp.directives', [])
 			replace: true,
 			restrict: 'E',
 			scope: {
-				class:	'@',
 				name: 	'@',
 				active:	'@',
 				inactive:'@',

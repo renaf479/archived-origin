@@ -1,4 +1,5 @@
 var creatorEditController = function($scope, $rootScope, $filter, Rest, Notification) {
+
 	/**
 	* Private Methods
 	*/
@@ -41,6 +42,7 @@ var creatorEditController = function($scope, $rootScope, $filter, Rest, Notifica
 	*/
 	$scope.init = function() {
 		$rootScope.editor = {
+			content: {},
 			config: {}	
 		};
 		
