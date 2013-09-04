@@ -33,11 +33,13 @@
 				</ul>
 				<!-- <ul id="panel-layers" class="originUI-list originUI-bgColor" data-ng-model="layers" layer-sortable></ul> -->
 			</accordion-group>
-			<accordion-group heading="Properties" class="panel-accordion" data-ng-class="{true:'active', false:''}[isOpen]">
+			<div class="panel-accordion" data-ng-click="avgrundOpen('#properties')">Properties</div>
+<!--
+			<accordion-group heading="Properties" class="panel-accordion" data-ng-click="test()">
 			</accordion-group>
 			<accordion-group heading="Scripts" class="panel-accordion" data-ng-class="{true:'active', false:''}[isOpen]">
-				<div data-ng-dblclick="test()">Test</div>
 			</accordion-group>
+-->
 		</accordion>
 	</div>
 	<!-- Bar above workspace -->
@@ -52,8 +54,15 @@
 	<!-- Workspace -->
 	<div id="adEdit-workspace" class="originUI-bgColor originUI-bgTexture">
 		<div id="workspace" workspace>
-			<!-- <workspace-content data-ng-repeat="content in originAdSchedule[ui.schedule]['OriginAd'+ui.platform+ui.state+'Content']" data-ng-model="content" double-click="creatorModalOpen('content', '', content)"></workspace-content> -->
-			<workspace-content class="workspace-content" data-ng-repeat="content in originAdSchedule[ui.schedule]['OriginAd'+ui.platform+ui.state+'Content']" data-ng-model="content" data-ng-click="$parent.modalOpen('component-load', ngModel)"></workspace-content>
+			<workspace-content class="workspace-content" data-ng-repeat="content in originAdSchedule[ui.schedule]['OriginAd'+ui.platform+ui.state+'Content']" data-ng-model="content" data-ng-dblclick="$parent.modalOpen('component-load', ngModel)"></workspace-content>
+		</div>
+	</div>
+	<div id="adEdit-workspaceAvgrund">
+		<div id="properties" class="avgrund-popup originUI-bgColor originUI-shadow">
+			<h3 class="originUI-tileHeader originUI-borderColor originUI-textColor">Properties</h3>
+			<form id="properties-form" name="properties" novalidate>
+				<?php echo $this->element('creator/properties');?>
+			</form>
 		</div>
 	</div>
 	
@@ -95,6 +104,6 @@
 
 <?php
 	echo $this->Minify->css(array('creator/edit', 'plugins/codemirror/night', 'plugins/jquery-ui.min'));
-	echo $this->Minify->script(array('plugins/angular/bootstrap', 'plugins/codemirror/codemirror', 'plugins/codemirror/xml', 'plugins/codemirror/javascript', 'plugins/codemirror/css', 'plugins/codemirror/htmlmixed', 'plugins/jquery-ui.min', 'plugins/jquery-touch', 'plugins/jquery.kinetic.min', 'creator/edit/creatorEditController', 'creator/edit/creatorEditDirectives', 'creator/editor/creatorDirectives'));
+	echo $this->Minify->script(array('plugins/avgrund', 'plugins/angular/bootstrap', 'plugins/codemirror/codemirror', 'plugins/codemirror/xml', 'plugins/codemirror/javascript', 'plugins/codemirror/css', 'plugins/codemirror/htmlmixed', 'plugins/jquery-ui.min', 'plugins/jquery-touch', 'plugins/jquery.kinetic.min', 'creator/edit/creatorEditController', 'creator/edit/creatorEditDirectives', 'creator/editor/creatorDirectives'));
 	
 ?>

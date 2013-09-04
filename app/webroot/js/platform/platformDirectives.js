@@ -151,7 +151,7 @@ angular.module('platformApp.directives', [])
 	})
 	.directive('inputSwitch', function() {
 		var template = '<div>' + 
-							'<input type="checkbox" name="{{name}}" class="originUI-switchInput" id="{{name}}" data-ng-model="ngModel" data-ng-change="ngChange()"/>'+
+							'<input type="checkbox" name="{{name}}" class="originUI-switchInput" id="{{name}}" data-ng-model="ngModel" data-ng-change="ngChange()" data-ng-checked="ngChecked"/>'+
 							'<label class="originUI-switchLabel" for="{{name}}">'+
 								'<div class="originUI-switchInner">'+ 
 									'<div class="originUI-switchActive">'+
@@ -171,7 +171,8 @@ angular.module('platformApp.directives', [])
 				active:	'@',
 				inactive:'@',
 				ngModel:'=',
-				ngChange:'&'
+				ngChange:'&',
+				ngChecked:'='
 			},
 			template: template,
 			link: function(scope, element, attrs) {
@@ -183,7 +184,7 @@ angular.module('platformApp.directives', [])
 			restrict: 'A',
 			link: function(scope, element, attrs) {
 				element.addClass('originUI-input originUI-bgColorSecondary');
-				element.wrap('<div class="originUI-field"/>');
+				element.wrap('<div class="originUI-field '+attrs.class+'"/>');
 				element.parent().prepend('<div class="originUI-fieldBracket"/>');
 			}
 		}		

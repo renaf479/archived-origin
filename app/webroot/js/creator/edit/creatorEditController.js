@@ -32,8 +32,12 @@ var creatorEditController = function($scope, $rootScope, $filter, Rest, Notifica
 	
 	//Refresh workspace data
 	function _updateWorkspace(data) {
-		$scope.originAd			= data.OriginAd;
-		$scope.originAdSchedule	= data.OriginAdSchedule;
+		$scope.originAd				= data.OriginAd;
+		$scope.originAdSchedule		= data.OriginAdSchedule;
+		
+		
+		$scope.originAdProperties	= angular.copy($scope.originAd);
+		
 		_updateLayers();
 	}
 
@@ -58,6 +62,17 @@ var creatorEditController = function($scope, $rootScope, $filter, Rest, Notifica
 		
 		_updateWorkspace(angular.fromJson(origin_ad));
 		_updateAssets();	
+	}
+	
+	/**
+	* Avgrund methods
+	*/
+	$scope.avgrundOpen = function(selector) {
+		Avgrund.show(selector);
+	}
+	
+	$scope.avgrundClose = function(selector) {
+		Avgrund.hide(selector);
 	}
 	
 	/**

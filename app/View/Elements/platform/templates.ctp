@@ -47,7 +47,6 @@
 				<option value="overlay">Overlay</option>
 				<option value="prestitial">Prestitial</option>
 				<option value="interstitial">Interstitial</option>
-				<!-- <option value="interstitial" data-ng-show="editor.alias === 'antemeridian' || editor.alias === 'postmeridian'">Interstitial</option> -->
 			</select>
 		</li>
 		<li class="originUI-listItem">

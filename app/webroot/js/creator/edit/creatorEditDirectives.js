@@ -26,6 +26,65 @@ platformApp.directive('layer', function() {
 	}
 });
 
+/**
+* Allows drag and drop add-to-workspace functionality from assets library
+*/
+platformApp.directive('workspace', function($rootScope){
+	return {
+		restrict: 'A',
+		link: function(scope, element, attrs) {
+			scope.$watchCollection('[ui.platform, ui.state]', function() {
+				var config	= angular.fromJson(scope.originAd.config);
+				//sets width/height
+				element.css({
+					'width':		config[scope.ui.platform][scope.ui.state].width+'px',
+					'height':		config[scope.ui.platform][scope.ui.state].height+'px',
+					'margin-top':	-(config[scope.ui.platform][scope.ui.state].height/2)+'px',
+					'margin-left':	-(config[scope.ui.platform][scope.ui.state].width/2)+'px'
+				});
+				
+			});
+		
+			//Accepts drag and drop items from library
+/*
+			element.droppable({
+				accept: '.asset',
+				drop: function(event, ui) {
+					var id 		= ui.draggable.data('asset'),
+						data = {
+							content: {
+								type: 	scope.library[id].type,
+								title:	scope.library[id].name
+							},
+							config: {
+								top: 	Math.floor(event.pageY - $j(this).offset().top - 16)+'px',
+								left:	Math.floor(event.pageX - $j(this).offset().left - 16)+'px',
+								width: 	scope.library[id].width,
+								height: scope.library[id].height
+							},
+							type: scope.library[id].type
+						};
+					
+					switch(scope.library[id].type) {
+						case 'flash':
+							//FINISH THIS....
+							break;
+						default:
+							data.render = '<img src="http://'+document.domain+'/assets/creator/'+originAd_id+'/'+scope.library[id].name+'" <%=style%>/>';
+							break;
+					}
+					
+					//Send data over to controller to save
+					scope.creatorLibrarySave(data);
+				}
+			});
+*/
+							
+		}	
+	}
+});
+
+
 //Displays workspace content. Permits dragging, resizing and selection functions
 platformApp.directive('workspaceContent', function() {
 	return {
@@ -58,18 +117,15 @@ platformApp.directive('workspaceContent', function() {
 			//Compile config into inline styles
 			element.css(css).html(render).append('<span class="workspace-content-label">'+scope.ngModel.content.title+'</span>').addClass('content-'+scope.ngModel.content.type);
 			
-			
-			//Make it draggable
-/*
+			//Draggable method
 			element.draggable({
 				cancel: '.content-background',
-				containment: $j('#creator-panel-workspace'),
+				containment: $j('#adEdit-workspace'),
 				iframeFix: true,
-				//snap: true,
-				//snapTolerance: 7,
+				snap: element.parent(),
+				snapMode: 'inner',
+				snapTolerance: 8,
 				stop: function(event, ui) {
-					//$j('#actions-wrapper').fadeIn(300);
-					
 					//construct config dataset
 					scope.ngModel.config = {
 						top: 	Math.round(ui.position.top)+'px',
@@ -79,17 +135,12 @@ platformApp.directive('workspaceContent', function() {
 					}
 				}
 			});
-*/
 			
 			//Make it resizable
-/*
 			element.resizable({
 				cancel: '.content-image, .content-background',
-				containment: $j('#creator-panel-workspace'),
 				handles: 'all',
 				stop: function(event, ui) {
-					//$j('#actions-wrapper').fadeIn(300);
-					
 					//construct config dataset
 					scope.ngModel.config = {
 						top: 	Math.round(ui.position.top)+'px',
@@ -109,7 +160,6 @@ platformApp.directive('workspaceContent', function() {
 					}
 				}
 			});	
-*/
 			
 			//Selecting a content item will highlight the companion content throughout the UI
 /*
