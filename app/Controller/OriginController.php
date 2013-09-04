@@ -376,6 +376,7 @@ class OriginController extends AppController {
 		$data['modify_date']	= date('Y-m-d H:i:s');
 		$data['modify_by']		= $this->UserAuth->getUserId();
 		$data['status']			= empty($data['status'])? 0: 1;
+		$data['showcase']		= empty($data['showcase'])? 0: 1;
 		$data['originAd_id']	= $data['id'];		
 		if($this->OriginAd->save($data)) {
 			return $this->_creatorAdLoad($data);

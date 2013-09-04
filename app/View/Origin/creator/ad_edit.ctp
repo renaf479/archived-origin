@@ -33,7 +33,7 @@
 				</ul>
 				<!-- <ul id="panel-layers" class="originUI-list originUI-bgColor" data-ng-model="layers" layer-sortable></ul> -->
 			</accordion-group>
-			<div class="panel-accordion" data-ng-click="avgrundOpen('#properties')">Properties</div>
+			<div class="panel-accordion" data-ng-click="propertiesOpen()">Properties</div>
 <!--
 			<accordion-group heading="Properties" class="panel-accordion" data-ng-click="test()">
 			</accordion-group>
@@ -62,6 +62,11 @@
 			<h3 class="originUI-tileHeader originUI-borderColor originUI-textColor">Properties</h3>
 			<form id="properties-form" name="properties" novalidate>
 				<?php echo $this->element('creator/properties');?>
+				<div id="propertiesForm-buttons">
+					<button id="propertiesForm-cancel" class="originUI-hover originUI-button originUI-bgColorSecondary" data-ng-click="propertiesCancel()">Cancel</button>
+					<button id="propertiesForm-submit" class="originUI-hover originUI-button originUI-bgColorSecondary" data-ng-click="propertiesSubmit()" data-ng-disabled="properties.$invalid">Save</button>
+					<div class="clear"></div>
+				</div>
 			</form>
 		</div>
 	</div>

@@ -3,6 +3,15 @@ var creatorEditController = function($scope, $rootScope, $filter, Rest, Notifica
 	/**
 	* Private Methods
 	*/
+	//Avgrund methods
+	function _avgrundOpen(selector) {
+		Avgrund.show(selector);
+	}
+	
+	function _avgrundClose(selector) {
+		Avgrund.hide(selector);
+	}
+	
 	//Finds the component object form the alias
 	function _findComponent(model) {
 		for(var i in $scope.components) {
@@ -34,10 +43,6 @@ var creatorEditController = function($scope, $rootScope, $filter, Rest, Notifica
 	function _updateWorkspace(data) {
 		$scope.originAd				= data.OriginAd;
 		$scope.originAdSchedule		= data.OriginAdSchedule;
-		
-		
-		$scope.originAdProperties	= angular.copy($scope.originAd);
-		
 		_updateLayers();
 	}
 
@@ -62,17 +67,6 @@ var creatorEditController = function($scope, $rootScope, $filter, Rest, Notifica
 		
 		_updateWorkspace(angular.fromJson(origin_ad));
 		_updateAssets();	
-	}
-	
-	/**
-	* Avgrund methods
-	*/
-	$scope.avgrundOpen = function(selector) {
-		Avgrund.show(selector);
-	}
-	
-	$scope.avgrundClose = function(selector) {
-		Avgrund.hide(selector);
 	}
 	
 	/**
@@ -172,7 +166,31 @@ var creatorEditController = function($scope, $rootScope, $filter, Rest, Notifica
 			$scope.modalClose('modalComponent');
 			_updateWorkspace(response);
 		});
-	}	
+	}
+	
+	/**
+	* Properties
+	*/
+	$scope.propertiesOpen = function() {
+		$scope.originAdProperties	= angular.copy($scope.originAd);
+		_avgrundOpen('#properties');
+	}
+	
+	$scope.propertiesCancel = function() {
+		_avgrundClose('#properties');
+	}
+	
+	$scope.propertiesSubmit = function() {
+		var post 	= angular.copy($scope.originAdProperties),
+			message = 'Properties updated';
+			
+			post.route 	= 'creatorSettingsUpdate';
+			Rest.post(post).then(function(response) {
+				Notification.alert(message);
+				_avgrundClose('#properties');
+				_updateWorkspace(response);
+			});
+	}
 		
 	/**
 	* UI methods
