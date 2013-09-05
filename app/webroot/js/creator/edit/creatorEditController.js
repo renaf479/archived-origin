@@ -34,10 +34,6 @@ var creatorEditController = function($scope, $rootScope, $filter, Rest, Notifica
 	function _updateWorkspace(data) {
 		$scope.originAd				= data.OriginAd;
 		$scope.originAdSchedule		= data.OriginAdSchedule;
-		
-		
-		$scope.originAdProperties	= angular.copy($scope.originAd);
-		
 		_updateLayers();
 	}
 
