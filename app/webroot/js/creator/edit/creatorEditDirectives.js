@@ -1,7 +1,7 @@
 'use strict';
 
 //Layers
-platformApp.directive('layer', function() {
+platformApp.directive('layers', function() {
 	return {
 		restrict: 'A',
 		link: function(scope, element, attr) {

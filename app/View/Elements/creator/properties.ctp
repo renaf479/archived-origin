@@ -15,7 +15,7 @@
 			</li>
 			<li>
 				<label class="properties-label inline">Ad Type</label>
-				<select class="properties-input inline originUI-select originUI-bgColorSecondary" data-ng-model="originAdProperties.config.type" data-ng-change="templateSelect('editor', editor.config.type)">
+				<select class="properties-input inline originUI-select originUI-bgColorSecondary" data-ng-model="originAdProperties.config.type" data-ng-change="templateSelect(originAdProperties.config.type)">
 					<option style="display:none" value="">Select Type</option>
 					<option value="default">Standard</option>
 					<option value="expand">Expanding</option>
@@ -35,13 +35,16 @@
 			</li>
 			<li>
 				<label class="properties-label inline">GA ID</label>
-				<input type="text" class="properties-input inline" data-ng-model="originAdProperties.content.ga_id" required input-text/>
+				<input type="text" class="properties-input inline" data-ng-model="originAdProperties.content.ga_id" input-text/>
 			</li>
 		</ul>
 	</div>
 	<div id="properties-right" class="inline">
 		<div id="properties-platform">
 			<img class="platform-icon" data-ng-repeat="platform in fields.platforms" data-ng-click="propertiesPlatform(platform)" data-ng-src="/img/{{platform.name}}-26x26.png" data-ng-class="{'active': propertiesUI === platform.name}"/>
+			<select id="properties-template" class="originUI-select originUI-bgColorSecondary" data-ng-model="originAdProperties.template_id" data-ng-options="template.OriginTemplate.id as template.OriginTemplate.name for template in originAdTemplates|filter:{OriginTemplate.status:'1'}" data-ng-change="propertiesTemplate(originAdProperties.template_id)">
+				<option style="display:none" value="">Load Template</option>
+			</select>
 		</div>
 		<div class="properties-platform" data-ng-repeat="platform in fields.platforms" data-ng-show="propertiesUI === platform.name">
 			<div class="properties-dimensions inline">
@@ -81,90 +84,155 @@
 	</div>
 </div>
 <script type="text/javascript">
-	var propertiesController = function($scope, $rootScope) {
-		$scope.propertiesInit = function() {			
-			//console.log($scope);
-			var fields	= {
-					animations: [
+	var propertiesController = function($scope, $rootScope, Rest) {
+		var fields;
+		$scope.propertiesInit = function() {
+			
+			//Load template listing
+			Rest.get('templates').then(function(response) {
+				$scope.originAdTemplates = response;
+			});
+			
+			fields	= {
+				animations: [
+					{
+					label:	'Selector',
+					name:	'selector'
+					},
+					{
+					label:	'Start Position (px)',
+					name:	'start'
+					},
+					{
+					label:	'End Position (px)',
+					name:	'end'
+					},
+					{
+					label:	'Opening Duration (ms)',
+					name:	'openDuration'
+					},
+					{
+					label:	'Closing Duration (ms)',
+					name:	'closeDuration'
+					}
+				],
+				dimensions: [
+					{
+					label:	'Initial Width (px)',
+					name:	'Initial', 
+					inputs:	'width'
+					},
+					{
+					label:	'Initial Height (px)',
+					name:	'Initial', 
+					inputs:	'height'
+					},
+					{
+					label:	'Triggered Width (px)',
+					name: 'Triggered', 
+					inputs: 'width'
+					},
+					{
+					label:	'Triggered Height (px)',
+					name: 'Triggered', 
+					inputs: 'height'
+					}
+				],
+				platforms: [
+					{name: 'Desktop'},
+					{name: 'Tablet'},
+					{name: 'Mobile'}
+				]
+			};
+			editor 	= {
+				config: {
+					Desktop: {
+						Initial: {},
+						Triggered: {},
+						Animations: {},
+						status: true
+					},
+					Tablet: {
+						Initial: {},
+						Triggered: {},
+						Animations: {},
+						status: false
+					},
+					Mobile: {
+						Initial: {},
+						Triggered: {},
+						Animations: {},
+						status: false
+					}
+				}
+			}
+			
+			$scope.fields = angular.copy(fields);
+			$scope.propertiesPlatform({name: 'Desktop'});
+		}
+		
+		/**
+		* Selecting type
+		*/
+		$scope.templateSelect = function(model) {
+			//Load up default editor
+			$scope.fields = angular.copy(fields);
+			
+			switch(model) {
+				case 'default':
+					$scope.fields.dimensions	= [
 						{
-						label:	'Selector',
-						name:	'selector'
-						},
-						{
-						label:	'Start Position (px)',
-						name:	'start'
-						},
-						{
-						label:	'End Position (px)',
-						name:	'end'
-						},
-						{
-						label:	'Opening Duration (ms)',
-						name:	'openDuration'
-						},
-						{
-						label:	'Closing Duration (ms)',
-						name:	'closeDuration'
-						}
-					],
-					dimensions: [
-						{
-						label:	'Initial Width (px)',
+						label:	'Unit Width (px)',
 						name:	'Initial', 
 						inputs:	'width'
 						},
 						{
-						label:	'Initial Height (px)',
-						name:	'Initial', 
+						label:	'Unit Height (px)',
+						name:	'Height', 
 						inputs:	'height'
+						}
+					];
+					$scope.fields.animations 	= [];
+					break;
+				case 'interstitial':
+				case 'prestitial':
+					$scope.fields.dimensions	= [
+						{
+						label:	'Unit Width (px)',
+						name:	'Initial', 
+						inputs:	'width'
 						},
 						{
-						label:	'Triggered Width (px)',
-						name: 'Triggered', 
-						inputs: 'width'
-						},
+						label:	'Unit Height (px)',
+						name:	'Height', 
+						inputs:	'height'
+						}
+					];
+					$scope.fields.animations 	= [
 						{
-						label:	'Triggered Height (px)',
-						name: 'Triggered', 
-						inputs: 'height'
+						label:	'Close Timer (sec)',
+						name:	'timer'
 						}
-					],
-					platforms: [
-						{name: 'Desktop'},
-						{name: 'Tablet'},
-						{name: 'Mobile'}
-					]
-				};
-				editor 	= {
-					config: {
-						Desktop: {
-							Initial: {},
-							Triggered: {},
-							Animations: {},
-							status: true
-						},
-						Tablet: {
-							Initial: {},
-							Triggered: {},
-							Animations: {},
-							status: false
-						},
-						Mobile: {
-							Initial: {},
-							Triggered: {},
-							Animations: {},
-							status: false
-						}
-					}
-				}
-				
-				$scope.fields = angular.copy(fields);
-				$scope.propertiesPlatform({name: 'Desktop'});
+					];
+					break;
+			}
 		}
 		
 		//Switch properties view
 		$scope.propertiesPlatform = function(model) {
 			$scope.propertiesUI	= model.name;
 		}
+		
+		//Load template data
+		$scope.propertiesTemplate = function(model) {
+			//Find associated key value pair
+			angular.forEach($scope.originAdTemplates, function(value, key) {
+				if(value.OriginTemplate.id === model) {
+					//console.log(value);
+					//Load it into properties
+					$scope.originAdProperties.config = value.OriginTemplate.config;
+				}
+			});
+		}	
 	}
 </script>

@@ -164,7 +164,7 @@ var adListController = function($scope, $rootScope, $filter, Notification, Rest,
 		$scope.editor.status			= ($scope.editor.statusSwitch)? 1: 0;
 		//$scope.editor.content.ga_id		= $scope.editor.ga_id;
 		$scope.editor.type 				= $scope.editor.template.OriginTemplate.alias;
-		$scope.editor.type_id			= parseInt($scope.editor.template.OriginTemplate.id);
+		$scope.editor.template_id		= parseInt($scope.editor.template.OriginTemplate.id);
 		$scope.editor.config			= $scope.editor.template.OriginTemplate.config;
 		$scope.editor.config.template	= $scope.editor.template.OriginTemplate.alias;
 		

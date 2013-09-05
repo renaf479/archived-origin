@@ -83,6 +83,8 @@ li {
 
 .accordion-group {
 	border: 0 none;
+	margin: 0;
+	border-radius: none;
 }
 
 .accordion-heading .accordion-toggle {
@@ -945,6 +947,10 @@ body.originClass-edit #originBar-search {
 	
 }
 
+#properties .originUI-tileHeader {
+	background-image: url(/img/settings-26x26.png);
+}
+
 #properties-form {
 	padding: 10px 15px;
 }
@@ -969,9 +975,12 @@ body.originClass-edit #originBar-search {
 	width: 125px;
 }
 
-
 #properties-platform {
 	width: 100%;
+}
+
+#properties-template {
+	width: 200px;
 }
 
 .properties-dimensions,
@@ -995,20 +1004,6 @@ body.originClass-edit #originBar-search {
 #properties-right .properties-input.originUI-select {
 	height: 20px;
 	width: 100px;
-}
-
-#propertiesForm-buttons {
-	width: 870px;
-	position: absolute;
-	bottom: 15px;
-}
-
-#propertiesForm-cancel {
-	float: left;
-}
-
-#propertiesForm-submit {
-	float: right;
 }
 
 /* =======================================================================

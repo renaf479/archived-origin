@@ -1119,7 +1119,7 @@ class OriginController extends AppController {
 				'fields'=>array(
 					'OriginTemplate.*',
 					'OriginAds.id',
-					'OriginAds.type_id'/*
+					'OriginAds.template_id'/*
 ,
 					'DesktopInitial.*',
 					'DesktopTriggered.*',
@@ -1135,7 +1135,7 @@ class OriginController extends AppController {
 						'alias'=>'OriginAds',
 						'type'=>'LEFT',
 						'conditions'=>array(
-							'OriginAds.type_id = OriginTemplate.id'
+							'OriginAds.template_id = OriginTemplate.id'
 						)
 					)
 /*

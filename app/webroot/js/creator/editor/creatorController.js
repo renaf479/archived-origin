@@ -91,7 +91,7 @@ var creatorController = function($scope, $filter, Rest, Notification) {
 		$scope.updateLibrary();
 		
 		Rest.get('ad/'+originAd_id).then(function(response) {
-			template_id					= response.OriginAd.config.type_id;//IS THIS USED?
+			template_id					= response.OriginAd.config.template_id;//IS THIS USED?
 			$scope.workspace.ad			= response;
 			$scope.scripts.content 		= (response.OriginAd.content_css)? response.OriginAd.content_css: '<style type="text/css">\n</style>';
 			

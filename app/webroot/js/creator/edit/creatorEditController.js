@@ -38,7 +38,6 @@ var creatorEditController = function($scope, $rootScope, $filter, Rest, Notifica
 		});
 	}
 	
-	
 	//Refresh workspace data
 	function _updateWorkspace(data) {
 		$scope.originAd				= data.OriginAd;
@@ -171,26 +170,72 @@ var creatorEditController = function($scope, $rootScope, $filter, Rest, Notifica
 	/**
 	* Properties
 	*/
-	$scope.propertiesOpen = function() {
-		$scope.originAdProperties	= angular.copy($scope.originAd);
-		_avgrundOpen('#properties');
+	$scope.avgrundOpen = function(type) {
+		var selector;
+		$scope.originAdProperties = $scope.avgrund = '';
+		switch(type) {
+			case 'properties':
+				$scope.originAdProperties = angular.copy($scope.originAd);
+				$scope.avgrund = {
+					header: 'Properties',
+					name:	'properties'
+				}
+				break;
+			case 'scripts':
+				$scope.originAdScripts = '';
+				$scope.avgrund = {
+					header:	'Scripts',
+					name:	'scripts'	
+				}
+				break;
+		}
+		
+		if(angular.element('html').hasClass('avgrund-active')) _avgrundClose('.avgrund-popup');
+		
+		_avgrundOpen('.avgrund-popup');
 	}
 	
-	$scope.propertiesCancel = function() {
-		_avgrundClose('#properties');
+	//Button event
+	$scope.avgrundCancel = function() {
+		_avgrundClose('.avgrund-popup');
 	}
 	
-	$scope.propertiesSubmit = function() {
-		var post 	= angular.copy($scope.originAdProperties),
-			message = 'Properties updated';
-			
-			post.route 	= 'creatorSettingsUpdate';
-			Rest.post(post).then(function(response) {
-				Notification.alert(message);
-				_avgrundClose('#properties');
-				_updateWorkspace(response);
-			});
+	//Save data
+	$scope.avgrundSubmit = function(type) {
+		var post, message;
+		
+		switch(type) {
+			case 'properties':
+				post 		= angular.copy($scope.originAdProperties);
+				post.route	= 'creatorSettingsUpdate';
+				message		= 'Properties updated';
+				break;
+			case 'scripts':
+				post 		= angular.copy($scope.originAdScripts);
+				post.route	= 'cssUpdate';
+				message		= 'Scripts updated';
+				break;
+		}
+		Rest.post(post).then(function(response) {
+			Notification.alert(message);
+			_avgrundClose('.avgrund-popup');
+			_updateWorkspace(response);
+		})
 	}
+	
+	/**
+	* Workspace methods
+	*/
+	//Clears focus
+	$scope.workspaceClear = function(id) {
+		angular.element('#content-'+id).removeAttr('tabindex').blur();
+	}
+	
+	//Triggers hover effect over workspace item
+	$scope.workspaceFocus = function(id) {
+		angular.element('#content-'+id).attr('tabindex', -1).focus();
+	}
+	
 		
 	/**
 	* UI methods
