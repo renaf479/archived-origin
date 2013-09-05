@@ -376,6 +376,7 @@ class OriginController extends AppController {
 		$data['modify_date']	= date('Y-m-d H:i:s');
 		$data['modify_by']		= $this->UserAuth->getUserId();
 		$data['status']			= empty($data['status'])? 0: 1;
+		$data['showcase']		= empty($data['showcase'])? 0: 1;
 		$data['originAd_id']	= $data['id'];		
 		if($this->OriginAd->save($data)) {
 			return $this->_creatorAdLoad($data);
@@ -1118,7 +1119,7 @@ class OriginController extends AppController {
 				'fields'=>array(
 					'OriginTemplate.*',
 					'OriginAds.id',
-					'OriginAds.type_id'/*
+					'OriginAds.template_id'/*
 ,
 					'DesktopInitial.*',
 					'DesktopTriggered.*',
@@ -1134,7 +1135,7 @@ class OriginController extends AppController {
 						'alias'=>'OriginAds',
 						'type'=>'LEFT',
 						'conditions'=>array(
-							'OriginAds.type_id = OriginTemplate.id'
+							'OriginAds.template_id = OriginTemplate.id'
 						)
 					)
 /*

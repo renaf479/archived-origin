@@ -3,6 +3,15 @@ var creatorEditController = function($scope, $rootScope, $filter, Rest, Notifica
 	/**
 	* Private Methods
 	*/
+	//Avgrund methods
+	function _avgrundOpen(selector) {
+		Avgrund.show(selector);
+	}
+	
+	function _avgrundClose(selector) {
+		Avgrund.hide(selector);
+	}
+	
 	//Finds the component object form the alias
 	function _findComponent(model) {
 		for(var i in $scope.components) {
@@ -28,7 +37,6 @@ var creatorEditController = function($scope, $rootScope, $filter, Rest, Notifica
 			value.img_icon	= _findComponent(value).config.img_icon;
 		});
 	}
-	
 	
 	//Refresh workspace data
 	function _updateWorkspace(data) {
@@ -58,17 +66,6 @@ var creatorEditController = function($scope, $rootScope, $filter, Rest, Notifica
 		
 		_updateWorkspace(angular.fromJson(origin_ad));
 		_updateAssets();	
-	}
-	
-	/**
-	* Avgrund methods
-	*/
-	$scope.avgrundOpen = function(selector) {
-		Avgrund.show(selector);
-	}
-	
-	$scope.avgrundClose = function(selector) {
-		Avgrund.hide(selector);
 	}
 	
 	/**
@@ -168,7 +165,77 @@ var creatorEditController = function($scope, $rootScope, $filter, Rest, Notifica
 			$scope.modalClose('modalComponent');
 			_updateWorkspace(response);
 		});
-	}	
+	}
+	
+	/**
+	* Properties
+	*/
+	$scope.avgrundOpen = function(type) {
+		var selector;
+		$scope.originAdProperties = $scope.avgrund = '';
+		switch(type) {
+			case 'properties':
+				$scope.originAdProperties = angular.copy($scope.originAd);
+				$scope.avgrund = {
+					header: 'Properties',
+					name:	'properties'
+				}
+				break;
+			case 'scripts':
+				$scope.originAdScripts = '';
+				$scope.avgrund = {
+					header:	'Scripts',
+					name:	'scripts'	
+				}
+				break;
+		}
+		
+		if(angular.element('html').hasClass('avgrund-active')) _avgrundClose('.avgrund-popup');
+		
+		_avgrundOpen('.avgrund-popup');
+	}
+	
+	//Button event
+	$scope.avgrundCancel = function() {
+		_avgrundClose('.avgrund-popup');
+	}
+	
+	//Save data
+	$scope.avgrundSubmit = function(type) {
+		var post, message;
+		
+		switch(type) {
+			case 'properties':
+				post 		= angular.copy($scope.originAdProperties);
+				post.route	= 'creatorSettingsUpdate';
+				message		= 'Properties updated';
+				break;
+			case 'scripts':
+				post 		= angular.copy($scope.originAdScripts);
+				post.route	= 'cssUpdate';
+				message		= 'Scripts updated';
+				break;
+		}
+		Rest.post(post).then(function(response) {
+			Notification.alert(message);
+			_avgrundClose('.avgrund-popup');
+			_updateWorkspace(response);
+		})
+	}
+	
+	/**
+	* Workspace methods
+	*/
+	//Clears focus
+	$scope.workspaceClear = function(id) {
+		angular.element('#content-'+id).removeAttr('tabindex').blur();
+	}
+	
+	//Triggers hover effect over workspace item
+	$scope.workspaceFocus = function(id) {
+		angular.element('#content-'+id).attr('tabindex', -1).focus();
+	}
+	
 		
 	/**
 	* UI methods

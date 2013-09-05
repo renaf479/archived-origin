@@ -66,7 +66,7 @@ body {
 ========================================================================== */
 #panel {
 	position: absolute;
-	width: 250px;
+	width: 200px;
 	bottom: 0;
 	left: 0;
 	top: 43px;
@@ -74,18 +74,41 @@ body {
 	border-style: solid;
 }
 
-.panel-accordion .accordion-toggle {
+.panel-accordion .accordion-toggle,
+.panel-button {
 	cursor: pointer;
-	height: 32px;
-	line-height: 32px;
+	height: 42px;
+	line-height: 42px;
+	font-size: 18px;
+	font-variant: small-caps;
+}
+
+.panel-accordion .accordion-toggle:hover,
+.panel-button:hover {
+	background-color: rgba(255, 255, 255, .1);
+}
+
+.panel-accordion .accordion-heading {
+	background-repeat: no-repeat;
+	background-position: right 15px center;
+	background-size: 18px 18px;
+}
+
+#panel-assets .accordion-heading {
+	background-image: url(/img/assets-26x26.png);
+}
+
+#panel-components .accordion-heading {
+	background-image: url(/img/component-add-26x26.png);
+}
+
+#panel-layers .accordion-heading {
+	background-image: url(/img/layers-26x26.png);
 }
 
 .panel-accordion .originUI-list {
 	margin: 5px 10px;
 	overflow: hidden;
-}
-
-.panel-accordion .originUI-listItem {
 }
 
 #panel-components .originUI-listItemLink,
@@ -94,6 +117,23 @@ body {
 	background-position: 10px center;
 	text-indent: 10px;
 } 
+
+.panel-button {
+	background-repeat: no-repeat;
+	background-position: right 15px center;
+	border-bottom: 1px solid #303030;
+	text-indent: 10px;
+}
+
+#panel-properties {
+	background-image: url(/img/settings-18x18.png);
+}
+
+#panel-scripts {
+	background-image: url(/img/scripts-26x26.png);
+	background-size: 18px 18px;
+}
+
 
 /* =======================================================================
 	Title bar
@@ -127,7 +167,7 @@ body {
 	position: absolute;
 	height: 42px;
 	top: 43px;
-	left: 252px;
+	left: 202px;
 	right: 0;
 	border-width: 0 0 1px 0;
 	border-style: solid;
@@ -171,7 +211,7 @@ body {
 #adEdit-workspace {
 	position: absolute;
 	top: 86px;
-	left: 252px;
+	left: 202px;
 	bottom: 0;
 	right: 0;
 	overflow: auto;
@@ -272,14 +312,35 @@ body {
 
 
 /* =======================================================================
-	Avgrund Properties
+	Avgrund Modal
 ========================================================================== */
 #properties {
-	width: 800px;
-	height: 350px;
-	margin: -175px 0 0 -400px;
+	width: 900px;
+	height: 370px;
+	margin: -185px 0 0 -450px;
 }
 
+#scripts {
+	width: 500px;
+	height: 400px;
+	margin: -200px 0 0 -250px;
+}
+
+#workspaceAvgrund-buttons {
+	width: 95%;
+	position: absolute;
+	left: 50%;
+	bottom: 15px;
+	transform: translate(-50%, 0);
+}
+
+#workspaceAvgrund-cancel {
+	float: left;
+}
+
+#workspaceAvgrund-submit {
+	float: right;
+}
 
 /* =======================================================================
 	Avgrund Default *Created by Hakim El Hattab, http://hakim.se

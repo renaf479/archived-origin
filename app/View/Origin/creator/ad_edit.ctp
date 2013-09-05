@@ -11,35 +11,30 @@
 	<!-- Left panel -->
 	<div id="panel" class="originUI-bgColorSecondary originUI-borderColor">
 		<accordion id="">
-			<accordion-group heading="Assets" class="panel-accordion" data-ng-class="{true:'active', false:''}[isOpen]">
-				<ul id="panel-assets" class="originUI-list originUI-bgColor">
+			<accordion-group id="panel-assets" heading="Assets" class="panel-accordion" data-ng-class="{true:'active', false:''}[isOpen]">
+				<ul class="originUI-list originUI-bgColor">
 					<li class="originUI-listItem" data-asset="{{$index}}" data-ng-repeat="asset in assets" asset>
 						<a href="javascript:void(0);" class="originUI-hover originUI-listItemLink">{{asset.name}}</a>
 					</li>
 				</ul>
 			</accordion-group>
-			<accordion-group heading="Components" class="panel-accordion" data-ng-class="{true:'active', false:''}[isOpen]">
-				<ul id="panel-components" class="originUI-list originUI-bgColor">
+			<accordion-group id="panel-components"  heading="Components" class="panel-accordion" data-ng-class="{true:'active', false:''}[isOpen]">
+				<ul class="originUI-list originUI-bgColor">
 					<li class="originUI-listItem" data-ng-repeat="component in components">
 						<a href="javascript:void(0)" class="originUI-hover originUI-listItemLink" data-ng-click="modalOpen('component-add', component)" back-img="{{component.config.img_icon}}">{{component.name}}</a>
 					</li>
 				</ul>
 			</accordion-group>
-			<accordion-group heading="Layers" class="panel-accordion" data-ng-class="{true:'active', false:''}[isOpen]">
-				<ul id="panel-layers" class="originUI-list originUI-bgColor" layer>
+			<accordion-group id="panel-layers" heading="Layers" class="panel-accordion" data-ng-class="{true:'active', false:''}[isOpen]">
+				<ul class="originUI-list originUI-bgColor" layers>
 					<li class="originUI-listItem" data-ng-repeat="layer in layers|orderBy:'-order'">
-						<a href="javascript:void(0)" class="originUI-hover originUI-listItemLink" data-ng-dblclick="modalOpen('component-load', layer)" back-img="{{layer.img_icon}}">{{layer.type}}-{{layer.id}}</a>
+						<a href="javascript:void(0)" class="originUI-hover originUI-listItemLink" data-ng-mouseover="workspaceFocus(layer.id)" data-ng-mouseleave="workspaceClear(layer.id)" data-ng-dblclick="modalOpen('component-load', layer)" back-img="{{layer.img_icon}}" layer>{{layer.type}}-{{layer.id}}</a>
 					</li>
 				</ul>
 				<!-- <ul id="panel-layers" class="originUI-list originUI-bgColor" data-ng-model="layers" layer-sortable></ul> -->
 			</accordion-group>
-			<div class="panel-accordion" data-ng-click="avgrundOpen('#properties')">Properties</div>
-<!--
-			<accordion-group heading="Properties" class="panel-accordion" data-ng-click="test()">
-			</accordion-group>
-			<accordion-group heading="Scripts" class="panel-accordion" data-ng-class="{true:'active', false:''}[isOpen]">
-			</accordion-group>
--->
+			<div id="panel-properties" class="panel-button originUI-hover" data-ng-click="avgrundOpen('properties')">Properties</div>
+			<div id="panel-scripts" class="panel-button originUI-hover" data-ng-click="avgrundOpen('scripts')">Scripts</div>
 		</accordion>
 	</div>
 	<!-- Bar above workspace -->
@@ -58,10 +53,20 @@
 		</div>
 	</div>
 	<div id="adEdit-workspaceAvgrund">
-		<div id="properties" class="avgrund-popup originUI-bgColor originUI-shadow">
-			<h3 class="originUI-tileHeader originUI-borderColor originUI-textColor">Properties</h3>
-			<form id="properties-form" name="properties" novalidate>
-				<?php echo $this->element('creator/properties');?>
+		<div id="{{avgrund.name}}" class="avgrund-popup originUI-bgColor originUI-shadow">
+			<h3 class="originUI-tileHeader originUI-borderColor originUI-textColor">{{avgrund.header}}</h3>
+			<form id="{{avgrund.name}}-form" name="avgrundForm" novalidate>
+				<div data-ng-if="avgrund.name === 'properties'">
+					<?php echo $this->element('creator/properties');?>
+				</div>
+				<div data-ng-if="avgrund.name === 'scripts'">
+					script edit...
+				</div>
+				<div id="workspaceAvgrund-buttons">
+					<button id="workspaceAvgrund-cancel" class="originUI-hover originUI-button originUI-bgColorSecondary" data-ng-click="avgrundCancel()">Cancel</button>
+					<button id="workspaceAvgrund-submit" class="originUI-hover originUI-button originUI-bgColorSecondary" data-ng-click="avgrundSubmit(avgrund.name)" data-ng-disabled="avgrundForm.$invalid">Save</button>
+					<div class="clear"></div>
+				</div>
 			</form>
 		</div>
 	</div>
