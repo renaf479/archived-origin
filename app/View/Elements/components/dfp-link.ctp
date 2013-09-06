@@ -13,6 +13,7 @@
 			}
 		
 		
+/*
 			var _scope 	= $scope.$parent;
 			
 			$rootScope.creatorModalSave = function() {				
@@ -21,6 +22,7 @@
 				
 				_scope.creatorModalSaveContent($scope.editor);
 			}
+*/
 		}
 	</script>
 </div>

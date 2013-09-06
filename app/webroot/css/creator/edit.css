@@ -11,9 +11,6 @@ body {
 	position: static;
 }
 
-
-
-
 /* =======================================================================
 	Modal - Components
 ========================================================================== */
@@ -31,7 +28,6 @@ body {
 #componentModal-remove:hover {
 	opacity: 1;
 }
-
 
 #componentModal-config {
 	border-top: 1px solid #444444;
@@ -69,9 +65,10 @@ body {
 	width: 200px;
 	bottom: 0;
 	left: 0;
-	top: 43px;
+	top: 33px;
 	border-width: 0 2px 0 0;
 	border-style: solid;
+	overflow: auto;
 }
 
 .panel-accordion .accordion-toggle,
@@ -140,10 +137,11 @@ body {
 ========================================================================== */
 #title-bar {
 	width: 100%;
-	height: 42px;
+	height: 32px;
 	border-width: 0 0 1px 0;
 	border-style: solid;
 	position: relative;
+	background-color: #000;
 }
 
 #titlebar-exit {
@@ -157,7 +155,8 @@ body {
 #titlebar-title {
 	margin: 0;
 	padding: 0;
-	line-height: 42px;
+	line-height: 32px;
+	font-size: 18px;
 }
 
 /* =======================================================================
@@ -165,8 +164,8 @@ body {
 ========================================================================== */
 #workspace-bar {
 	position: absolute;
-	height: 42px;
-	top: 43px;
+	height: 32px;
+	top: 33px;
 	left: 202px;
 	right: 0;
 	border-width: 0 0 1px 0;
@@ -210,9 +209,9 @@ body {
 #adEdit-workspaceAvgrund,
 #adEdit-workspace {
 	position: absolute;
-	top: 86px;
+	top: 66px;
 	left: 202px;
-	bottom: 0;
+	bottom: 27px;
 	right: 0;
 	overflow: auto;
 }
@@ -309,6 +308,74 @@ body {
 	text-transform: uppercase;
 	position: absolute;
 }
+
+/* =======================================================================
+	Workspace options
+========================================================================== */
+#workspace-options {
+	position: absolute;
+	height: 26px;
+	bottom: 0;
+	left: 202px;
+	right: 0;
+	border-width: 1px 0 0 0;
+	border-style: solid;
+}
+
+#workspace-options .workspaceOptions-button {
+	margin: 0 0 0 15px;
+	height: 100%;
+	line-height: 26px;
+	text-indent: 25px;
+	background-repeat: no-repeat;
+	background-position: left center;
+	
+}
+
+.workspaceOptions-button + .workspaceOptions-button {
+	border-width: 0 0 0 1px;
+	border-style: solid;
+}
+
+#workspace-options .workspaceOptions-button:hover {
+	background-color: rgba(255, 255, 255, .1);
+}
+
+#workspaceOptions-demo {
+	background-image: url(/img/demo-18x18.png);
+}
+
+#workspaceOptions-preview {
+	background-image: url(/img/preview-18x18.png);
+}
+
+#workspaceOptions-publish {
+	background-image: url(/img/publish-18x18.png);
+}
+
+/*
+#titlebar-options {
+	position: absolute;
+	right: 15px;
+	top: 50%;
+	transform: translate(0, -50%);
+}
+
+#titlebar-options .originUI-button {
+	text-indent: 25px;
+	background-repeat: no-repeat;
+	background-position: 10px center;
+	margin-left: 15px;
+}
+
+#titlebar-publish {
+	background-image: url(/img/publish-18x18.png);
+}
+
+#titlebar-demo {
+	background-image: url(/img/demo-18x18.png);
+}
+*/
 
 
 /* =======================================================================

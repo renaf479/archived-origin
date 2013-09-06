@@ -549,8 +549,7 @@ class OriginController extends AppController {
 				'fields'=>array(
 					'OriginAd.id',
 					'OriginAd.name',
-					'OriginAd.config',
-					'OriginAd.type'
+					'OriginAd.config'
 				)
 			)
 		);

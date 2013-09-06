@@ -4,7 +4,7 @@
 		var components	= '<?php echo $components;?>';
 	</script>
 	<!-- Bar across top of page -->
-	<div id="title-bar" class="originUI-bgColor originUI-borderColor">
+	<div id="title-bar" class="originUI-borderColor">
 		<div id="titlebar-exit" class="originUI-hover originUI-iconHover inline" data-ng-click="creatorSaveExit()">exit</div>
 		<h1 id="titlebar-title" class="originUI-textColor inline">{{originAd.name}}</h1>
 	</div>
@@ -69,6 +69,12 @@
 				</div>
 			</form>
 		</div>
+	</div>
+	<!-- Bar below workspace -->
+	<div id="workspace-options" class="originUI-bgColorSecondary originUI-borderColor">
+		<a href="javascript:void(0)" id="workspaceOptions-publish" class="workspaceOptions-button originUI-borderColorSecondary originUI-hover inline" data-ng-click="">Publish</a>
+		<a href="/demo/Origin/<?php echo $origin_ad_hash;?>" id="workspaceOptions-preview" class="workspaceOptions-button originUI-borderColorSecondary originUI-hover inline" target="_blank">Preview</a>
+		<a href="/administrator/demo/create/{{originAd.id}}" id="workspaceOptions-demo" class="workspaceOptions-button originUI-borderColorSecondary originUI-hover inline" target="_blank">Demo</a>
 	</div>
 	
 	<!-- Modals -->

@@ -1,63 +1,14 @@
-<div id="editor-toggle" ng:controller="componentCtrl">
+<div id="editor-toggle" data-ng-controller="componentCtrl">
 	<ul class="originUI-list">
 		<li>
 			<label class="editor-label inline">Toggle on</label>
-			<input-switch class="editor-switch originUI-switchDual inline" name="editorToggleTypeSwitch" active="Click" inactive="Hover" data-ng-model="editor.content.event"></input-switch>
-			
-<!--
-			<div id="editorToggle-type" class="inline">
-				<div class="originUI-switch">
-				    <input type="checkbox" name="editorToggleTypeSwitch" class="originUI-switchInput" id="editorToggleTypeSwitch" ng:model="editor.content.event" ng:checked="editor.content.event">
-				    <label class="originUI-switchLabel" for="editorToggleTypeSwitch">
-				    	<div class="originUI-switchInner">
-				    		<div class="originUI-switchActive">
-				    			<div class="originUI-switchText">Click</div>
-						    </div>
-						    <div class="originUI-switchInactive">
-						    	<div class="originUI-switchText">Hover</div>
-							</div>
-					    </div>
-				    </label>
-			    </div>
-			</div>
--->
+			<input-switch class="editor-switch originUI-switchDual inline" name="editorToggleTypeSwitch" active="Click" inactive="Hover" data-ng-model="editor.content.event" data-ng-checked="editor.content.event === true"></input-switch>
 		</li>
 		<li data-ng-show="!editor.content.event">
 			<label class="editor-label inline">Hover Intent</label>
-			<input-switch class="editor-switch originUI-switch inline" name="editorToggleHoverIntentSwitch" active="Yes" inactive="No" data-ng-model="editor.content.hoverIntent"></input-switch>
-<!--
-			<div id="editorToggle-hoverIntent" class="inline">
-				<div class="originUI-switch">
-				    <input type="checkbox" name="editorToggleHoverIntentSwitch" class="originUI-switchInput" id="editorToggleHoverIntentSwitch" ng:model="editor.content.hoverIntent" ng:checked="editor.content.hoverIntent">
-				    <label class="originUI-switchLabel" for="editorToggleHoverIntentSwitch">
-				    	<div class="originUI-switchInner">
-				    		<div class="originUI-switchActive">
-				    			<div class="originUI-switchText">Yes</div>
-						    </div>
-						    <div class="originUI-switchInactive">
-						    	<div class="originUI-switchText">No</div>
-							</div>
-					    </div>
-				    </label>
-			    </div>
-			</div>
--->
+			<input-switch class="editor-switch originUI-switch inline" name="editorToggleHoverIntentSwitch" active="Yes" inactive="No" data-ng-model="editor.content.hoverIntent" data-ng-checked="editor.content.hoverIntent === true"></input-switch>
 		</li>
 	</ul>
-<!--
-	<div class="originUI-modalRight" ng:show="test == 'false'">
-		<div id="background-upload" class="originUI-upload">
-			<span class="originUI-uploadLabel">Upload Background</span>
-			<input type="file" name="files[]" id="editorBackground-upload" class="originUI-uploadInput" ng:model="editor.content.bgUpload" fileupload>
-		</div>
-		<strong>Select Image</strong>
-		<ul id="" class="originUI-bgColor">
-			<li class="originUIList-item" data-asset="{{$index}}" ng:repeat="asset in library" ng:click="backgroundSelect(asset)">
-				<a href="javascript:void(0);" class="originUI-hover">{{asset.name}}</a>
-			</li>
-		</ul>
-	</div>
--->
 	<style type="text/css">
 		.editor-label {
 			width: 100px;	
@@ -66,7 +17,6 @@
 		.editor-switch {
 			width: 150px;
 		}
-		
 	</style>
 	<script type="text/javascript">
 		var componentCtrl = function($scope, $rootScope) {

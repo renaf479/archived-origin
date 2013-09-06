@@ -1,4 +1,8 @@
 var creatorEditController = function($scope, $rootScope, $filter, Rest, Notification) {
+	var editor = {
+			config: {},
+			content:{}
+		};
 
 	/**
 	* Private Methods
@@ -49,11 +53,6 @@ var creatorEditController = function($scope, $rootScope, $filter, Rest, Notifica
 	* Initialization
 	*/
 	$scope.init = function() {
-		$rootScope.editor = {
-			content: {},
-			config: {}	
-		};
-		
 		$scope.ui = {
 			auto:		false,
 			platform:	'Desktop',
@@ -78,6 +77,9 @@ var creatorEditController = function($scope, $rootScope, $filter, Rest, Notifica
 	
 	//Open modal & initialize
 	$scope.modalOpen = function(modal, model) {
+		//Resets editor model
+		$rootScope.editor = angular.copy(editor);
+		
 		switch(modal) {
 			case 'component-add':
 				$rootScope.editor.type 	= model.alias;
@@ -125,7 +127,6 @@ var creatorEditController = function($scope, $rootScope, $filter, Rest, Notifica
 				};
 				break;
 		}
-		
 		$scope[$scope.modal.modal] = true;
 	}
 	
@@ -159,7 +160,6 @@ var creatorEditController = function($scope, $rootScope, $filter, Rest, Notifica
 			case 'component-update':
 				break;
 		}
-		
 		Rest.post(post).then(function(response) {
 			Notification.alert(message);
 			$scope.modalClose('modalComponent');
@@ -236,7 +236,6 @@ var creatorEditController = function($scope, $rootScope, $filter, Rest, Notifica
 		angular.element('#content-'+id).attr('tabindex', -1).focus();
 	}
 	
-		
 	/**
 	* UI methods
 	*/

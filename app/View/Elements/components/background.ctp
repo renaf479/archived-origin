@@ -1,6 +1,17 @@
-<div id="editor-background" ng:controller="componentCtrl">
+<div id="editor-background" data-ng-controller="componentCtrl">
 	<form id="editorBackground-form" name="editorBackground-form" class="">
 		<input type="hidden" name="uploadDir" value="/assets/creator/{{workspace.ad.OriginAd.id}}/"/>
+		<div class="originUI-bgColorSecondary inline">
+			<ul id="editorBackground-list" class="originUI-list">
+				<li class="originUI-listItem" data-ng-repeat="asset in assets" data-ng-click="select(asset)">
+					<a href="javascript:void(0)" class="originUI-hover">{{asset.name}}</a>
+				</li>
+			</ul>
+		</div><!--
+		--><div class="inline">
+			<div id="editorBackground-preview" back-img="{{editor.content.image}}"></div>
+		</div>
+<!--
 		<div class="originUI-modalLeft">
 			<strong>Select Image</strong>
 			<ul id="editorBackground-list" class="originUI-bgColor">
@@ -17,10 +28,45 @@
 			<div id="editorBackground-preview" class="originUI-borderColorSecondary originUI-bgColor" ng:class="{'originUI-placeholder': editor.content.image == undefined}" back-img='{{editor.content.image}}'></div>
 		</div>
 		<div class="clear"></div>
+-->
 	</form>
-	
+	<style type="text/css">
+		#editor-background {
+			height: 200px;
+		}
+		
+		#editorBackground-list {
+			width: 150px;
+			overflow: hidden;
+		}
+		
+		#editorBackground-preview {
+			background-repeat: no-repeat;
+			background-position: center center;
+			background-size: 400px auto;
+			width: 420px;
+			height: 200px;
+		}
+		
+		#componentModal-config {
+			display: none;
+		}
+	</style>
 	<script type="text/javascript">
-		var componentCtrl = function($scope, $rootScope) {
+		var componentCtrl = function($scope) {
+			$scope.select = function(model) {
+				$scope.editor.content.image  = '/assets/creator/'+$scope.originAd.id+'/'+model.name;
+			}
+			
+			$scope.$watch('editor.content.image', function(newVal) {
+				if(newVal){
+					$scope.editor.config.height	= $scope.editor.config.width = '100%';
+					$scope.editor.render		= '<img src="'+$scope.editor.content.image+'" class="background"/>';
+					$scope.editor.order 		= '-1';
+				}
+			});
+		
+/*
 			var _scope 	= $scope.$parent;
 			
 			$scope.$watch('editor.content.bgUpload', function(newValue, oldValue) {
@@ -41,31 +87,7 @@
 				
 				_scope.creatorModalSaveContent($scope.editor);
 			}
-		}
-/*
-		var componentCtrl = function($scope) {
-			//var _scope = angular.element($j('#ad-edit')).scope();
-			var _scope = $scope.$parent;
-			
-			$scope.$watch('editor.content.upload', function(newValue, oldValue) {
-				if(newValue) {
-					_scope.editor.content.image = newValue;
-					generateRender();
-				}
-			}, true);
-			
-			$scope.backgroundSelect = function(model) {
-				_scope.editor.content.image = '/assets/creator/'+_scope.workspace.ad.OriginAd.id+'/'+model.name;
-				generateRender();
-			}
-			
-			function generateRender() {
-				_scope.editor.config.height	= _scope.editor.config.width = '100%';
-				_scope.editor.render		= '<img src="'+$scope.$parent.editor.content.image+'" class="background"/>';
-				_scope.editor.order 		= '-1';
-				$scope.editor.content.upload= '';
-			}
-		}
 */
+		}
 	</script>
 </div>
