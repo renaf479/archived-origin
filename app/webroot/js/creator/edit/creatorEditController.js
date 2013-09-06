@@ -73,6 +73,8 @@ var creatorEditController = function($scope, $rootScope, $filter, Rest, Notifica
 	//Close modal
 	$scope.modalClose = function(modal) {
 		$scope[modal]	= false;
+		//Clear component's controller
+		componentCtrl = function(){return false};
 	}
 	
 	//Open modal & initialize

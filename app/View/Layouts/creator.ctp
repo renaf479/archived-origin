@@ -10,7 +10,7 @@ $userAdmin			= ($this->UserAuth->isAdmin())? 'originUI-superAdmin': '';
 	<link rel="shortcut icon" href="/favicon.ico"/>
 	<?php
 		echo $this->Minify->css(array('plugins/normalize', 'plugins/bootstrap', 'plugins/codemirror', 'plugins/chardinjs', 'plugins/antiscroll', 'platform/originUI'));
-		echo $this->Minify->script(array('plugins/jquery', 'plugins/jquery.ui.widget', 'plugins/jquery.fileupload', 'plugins/chardinjs.min', 'plugins/jquery.mousewheel', 'plugins/nanoscroller', 'plugins/meny.min', 'plugins/angular/angularjs', /* 'plugins/angular/angular-ui', */ 'plugins/angular/angularui-bootstrap', 'platform/platformApp', 'platform/modalServices', 'platform/notificationServices', 'platform/restServices', 'controller', 'platform/platformDirectives', 'platform/filters'));
+		echo $this->Minify->script(array('plugins/jquery', 'plugins/jquery.ui.widget', 'plugins/jquery.fileupload', 'plugins/chardinjs.min', 'plugins/jquery.mousewheel', 'plugins/nanoscroller', 'plugins/meny.min', 'plugins/angular/angularjs', 'plugins/angular/ui/ui-codemirror', /* 'plugins/angular/angular-ui', */ 'plugins/angular/angularui-bootstrap', 'platform/platformApp', 'platform/modalServices', 'platform/notificationServices', 'platform/restServices', 'controller', 'platform/platformDirectives', 'platform/filters'));
 	?>
 </head>
 <body class="<?php echo $userAdmin;?> <?php echo 'originClass-'.$this->params['action'];?>" ng:app="platformApp" ng:controller="originGeneral">

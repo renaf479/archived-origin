@@ -3,7 +3,8 @@
 var platformApp = angular.module('platformApp', 
 					[
 					/* 'ui', */ 
-					'ui.bootstrap', 
+					'ui.bootstrap',
+					'ui.codemirror',
 					//'originApp.services', 
 					//'originApp.directives',
 					'restServices',

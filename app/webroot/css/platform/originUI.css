@@ -109,6 +109,11 @@ li {
 	border: 0 none;
 }
 
+.CodeMirror {
+	width: inherit;
+	height: inherit;
+}
+
 .modal {
 	width: 600px;
 	margin-left: -300px;

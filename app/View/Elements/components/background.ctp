@@ -1,8 +1,7 @@
-<div id="editor-background" data-ng-controller="componentCtrl">
-	<form id="editorBackground-form" name="editorBackground-form" class="">
+	<form id="editor-background" name="editorBackground-form" data-ng-controller="componentCtrl">
 		<input type="hidden" name="uploadDir" value="/assets/creator/{{workspace.ad.OriginAd.id}}/"/>
-		<div class="originUI-bgColorSecondary inline">
-			<ul id="editorBackground-list" class="originUI-list">
+		<div id="editorBackground-list" class="originUI-bgColorSecondary inline">
+			<ul class="originUI-list">
 				<li class="originUI-listItem" data-ng-repeat="asset in assets" data-ng-click="select(asset)">
 					<a href="javascript:void(0)" class="originUI-hover">{{asset.name}}</a>
 				</li>
@@ -37,6 +36,7 @@
 		
 		#editorBackground-list {
 			width: 150px;
+			height: 100%;
 			overflow: hidden;
 		}
 		
@@ -90,4 +90,3 @@
 */
 		}
 	</script>
-</div>

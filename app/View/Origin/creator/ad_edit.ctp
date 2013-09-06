@@ -56,11 +56,11 @@
 		<div id="{{avgrund.name}}" class="avgrund-popup originUI-bgColor originUI-shadow">
 			<h3 class="originUI-tileHeader originUI-borderColor originUI-textColor">{{avgrund.header}}</h3>
 			<form id="{{avgrund.name}}-form" name="avgrundForm" novalidate>
-				<div data-ng-if="avgrund.name === 'properties'">
+				<div class="avgrund-content" data-ng-if="avgrund.name === 'properties'">
 					<?php echo $this->element('creator/properties');?>
 				</div>
-				<div data-ng-if="avgrund.name === 'scripts'">
-					script edit...
+				<div class="avgrund-content" data-ng-if="avgrund.name === 'scripts'">
+					<textarea data-ng-model="originAdScripts" ui-codemirror="{mode:'htmlmixed',lineNumbers:true,lineWrapping:true,theme:'night'}"></textarea>
 				</div>
 				<div id="workspaceAvgrund-buttons">
 					<button id="workspaceAvgrund-cancel" class="originUI-hover originUI-button originUI-bgColorSecondary" data-ng-click="avgrundCancel()">Cancel</button>

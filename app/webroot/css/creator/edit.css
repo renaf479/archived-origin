@@ -393,6 +393,20 @@ body {
 	margin: -200px 0 0 -250px;
 }
 
+#scripts .originUI-tileHeader {
+	background-image: url(/img/scripts-26x26.png);
+}
+
+#scripts-form {
+	padding: 10px 15px;
+	height: 290px;
+}
+
+#scripts-form .avgrund-content {
+	width: inherit;
+	height: inherit;
+}
+
 #workspaceAvgrund-buttons {
 	width: 95%;
 	position: absolute;
