@@ -300,11 +300,10 @@ class OriginController extends AppController {
 	*/
 	private function cssUpdate($data) {
 		$css['id'] = $css['originAd_id'] = $data['id'];
-		$css['content_css']	= $data['content'];
-	
+		$css['content_css'] = $data['content_css'];
+		
 		if($this->OriginAd->save($css)) {
 			$this->_adModifyUpdate($css['originAd_id']);
-			
 			return $this->_creatorAdLoad($css);
 		}
 	}

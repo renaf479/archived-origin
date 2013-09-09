@@ -205,7 +205,6 @@ body {
 	background-color: rgba(0, 153, 204, 0);
 	outline: 2px dashed rgba(0, 153, 204, .7);
 	outline-offset: -5px;
-	
 /*
 	-webkit-transition: all .15s ease-out;
 	-moz-transition: all .15s ease-out;
@@ -382,6 +381,12 @@ body {
 /* =======================================================================
 	Avgrund Modal
 ========================================================================== */
+#embed {
+	width: 500px;
+	height: 400px;
+	margin: -200px 0 0 -250px;
+}
+
 #properties {
 	width: 900px;
 	height: 370px;
@@ -392,6 +397,28 @@ body {
 	width: 500px;
 	height: 400px;
 	margin: -200px 0 0 -250px;
+}
+
+#embed .originUI-tileHeader {
+	background-image: url(/img/publish-26x26.png);
+}
+
+#scripts .originUI-tileHeader {
+	background-image: url(/img/scripts-26x26.png);
+}
+
+#embed-form {
+	height: 200px;
+}
+
+#scripts-form {
+	height: 290px;
+}
+
+.avgrund-content {
+	padding: 10px 15px;
+	width: inherit;
+	height: inherit;
 }
 
 #workspaceAvgrund-buttons {

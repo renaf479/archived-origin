@@ -109,6 +109,11 @@ li {
 	border: 0 none;
 }
 
+.CodeMirror {
+	width: inherit;
+	height: inherit;
+}
+
 .modal {
 	width: 600px;
 	margin-left: -300px;
@@ -223,6 +228,14 @@ li {
 	-moz-transition: all .25s ease;
 	-o-transition: all .25s ease;
 	transition: all .25s ease;
+}
+
+.originUI-bgHover {
+	-webkit-transition: background-color .3s ease;
+    -moz-transition: background-color .3s ease;
+    -o-transition: background-color .3s ease;
+    -ms-transition: background-color .3s ease;
+    transition: background-color .3s ease;
 }
 
 .originUI-tileHover:hover {
@@ -502,7 +515,8 @@ li {
 
 .originUI-switch {
 	position: relative;
-	width: 100%;
+	/* width: 100%; */
+	width: 100px;
 	-webkit-user-select:none; 
 	-moz-user-select:none; 
 	-ms-user-select: none;
@@ -952,7 +966,7 @@ body.originClass-edit #originBar-search {
 }
 
 #properties-form {
-	padding: 10px 15px;
+	
 }
 
 #properties .originUI-list > li {

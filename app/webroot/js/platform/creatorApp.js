@@ -1,8 +1,9 @@
 'use strict';
 var $j = jQuery.noConflict();
 
-var platformApp = angular.module('platformApp', 
+var platformApp = angular.module('creatorApp', 
 					[
+					/* 'ngAnimate', */
 					/* 'ui', */ 
 					'ui.bootstrap',
 					'ui.codemirror',
