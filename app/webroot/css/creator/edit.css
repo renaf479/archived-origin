@@ -160,50 +160,6 @@ body {
 }
 
 /* =======================================================================
-	Workspace bar
-========================================================================== */
-#workspace-bar {
-	position: absolute;
-	height: 32px;
-	top: 33px;
-	left: 202px;
-	right: 0;
-	border-width: 0 0 1px 0;
-	border-style: solid;
-}
-
-#state {
-	width: 200px;
-	position: absolute;
-	left: 50%;
-	top: 50%;
-	transform: translate(-50%, -50%);
-}
-
-#platform {
-	position: absolute;
-	right: 15px;
-	top: 50%;
-	transform: translate(0, -50%);
-}
-
-.platform-icon {
-	cursor: pointer;
-	margin: 0 15px;
-	opacity: .1	
-}
-
-.platform-icon.active,
-.platform-icon:hover {
-	opacity: 1;
-}
-
-.platform-icon.inactive {
-	pointer-events: none;
-	cursor: default;
-}
-
-/* =======================================================================
 	Workspace
 ========================================================================== */
 #adEdit-workspaceAvgrund,
@@ -225,6 +181,7 @@ body {
 	background-position: center top;
 	top: 50%;
 	left: 50%;
+	z-index: 0;
 }
 
 .workspace-content {
@@ -307,6 +264,50 @@ body {
 	opacity: .7;
 	text-transform: uppercase;
 	position: absolute;
+}
+
+/* =======================================================================
+	Workspace bar
+========================================================================== */
+#workspace-bar {
+	position: absolute;
+	height: 32px;
+	top: 33px;
+	left: 202px;
+	right: 0;
+	border-width: 0 0 1px 0;
+	border-style: solid;
+}
+
+#state {
+	width: 200px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+#platform {
+	position: absolute;
+	right: 15px;
+	top: 50%;
+	transform: translate(0, -50%);
+}
+
+.platform-icon {
+	cursor: pointer;
+	margin: 0 15px;
+	opacity: .1	
+}
+
+.platform-icon.active,
+.platform-icon:hover {
+	opacity: 1;
+}
+
+.platform-icon.inactive {
+	pointer-events: none;
+	cursor: default;
 }
 
 /* =======================================================================

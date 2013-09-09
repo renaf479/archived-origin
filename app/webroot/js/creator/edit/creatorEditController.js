@@ -158,6 +158,9 @@ var creatorEditController = function($scope, $rootScope, $filter, Rest, Notifica
 				}
 				break;
 			case 'component-update':
+				message 					= 'Content updated';
+				post.origin_ad_schedule_id 	= $scope.originAdSchedule[$scope.ui.schedule].id;
+				post.route					= 'creatorContentSave';
 				break;
 		}
 		Rest.post(post).then(function(response) {
