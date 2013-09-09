@@ -3,7 +3,7 @@ var creatorEditController = function($scope, $rootScope, $filter, Rest, Notifica
 			config: {},
 			content:{}
 		};
-
+		
 	/**
 	* Private Methods
 	*/
@@ -174,8 +174,17 @@ var creatorEditController = function($scope, $rootScope, $filter, Rest, Notifica
 	*/
 	$scope.avgrundOpen = function(type) {
 		var selector;
-		$scope.originAdProperties = $scope.avgrund = '';
+		$scope.originAdProperties 	= ''; 
+		$scope.originAdScripts 		= '';
+		$scope.avgrund 				= '';
+		
 		switch(type) {
+			case 'embed':
+				$scope.avgrund = {
+					header: 'Embed Code',
+					name:	'embed'
+				}
+				break;
 			case 'properties':
 				$scope.originAdProperties = angular.copy($scope.originAd);
 				$scope.avgrund = {
@@ -184,10 +193,11 @@ var creatorEditController = function($scope, $rootScope, $filter, Rest, Notifica
 				}
 				break;
 			case 'scripts':
-				$scope.originAdScripts = '';
+				$scope.originAdScripts = angular.copy($scope.originAd);
 				$scope.avgrund = {
 					header:	'Scripts',
-					name:	'scripts'	
+					name:	'scripts',
+					codeMirror:	true
 				}
 				break;
 		}
@@ -199,13 +209,13 @@ var creatorEditController = function($scope, $rootScope, $filter, Rest, Notifica
 	
 	//Button event
 	$scope.avgrundCancel = function() {
+		$scope.avgrund = '';
 		_avgrundClose('.avgrund-popup');
 	}
 	
 	//Save data
 	$scope.avgrundSubmit = function(type) {
 		var post, message;
-		
 		switch(type) {
 			case 'properties':
 				post 		= angular.copy($scope.originAdProperties);
@@ -213,16 +223,17 @@ var creatorEditController = function($scope, $rootScope, $filter, Rest, Notifica
 				message		= 'Properties updated';
 				break;
 			case 'scripts':
-				post 		= angular.copy($scope.originAdScripts);
+				post		= angular.copy($scope.originAdScripts);
 				post.route	= 'cssUpdate';
 				message		= 'Scripts updated';
 				break;
 		}
+		
 		Rest.post(post).then(function(response) {
 			Notification.alert(message);
 			_avgrundClose('.avgrund-popup');
 			_updateWorkspace(response);
-		})
+		});
 	}
 	
 	/**

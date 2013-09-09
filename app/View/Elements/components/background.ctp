@@ -10,24 +10,6 @@
 		--><div class="inline">
 			<div id="editorBackground-preview" back-img="{{editor.content.image}}"></div>
 		</div>
-<!--
-		<div class="originUI-modalLeft">
-			<strong>Select Image</strong>
-			<ul id="editorBackground-list" class="originUI-bgColor">
-				<li class="originUIList-item" data-asset="{{$index}}" ng:repeat="asset in library" ng:click="backgroundSelect(asset)">
-					<a href="javascript:void(0);" class="originUI-hover">{{asset.name}}</a>
-				</li>
-			</ul>
-		</div>
-		<div class="originUI-modalRight">
-			<div id="background-upload" class="originUI-upload">
-				<span class="originUI-uploadLabel">Upload Background</span>
-				<input type="file" name="files[]" id="editorBackground-upload" class="originUI-uploadInput" ng:model="editor.content.bgUpload" fileupload>
-			</div>
-			<div id="editorBackground-preview" class="originUI-borderColorSecondary originUI-bgColor" ng:class="{'originUI-placeholder': editor.content.image == undefined}" back-img='{{editor.content.image}}'></div>
-		</div>
-		<div class="clear"></div>
--->
 	</form>
 	<style type="text/css">
 		#editor-background {

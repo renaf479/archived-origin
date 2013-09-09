@@ -14,33 +14,33 @@
 			<accordion-group id="panel-assets" heading="Assets" class="panel-accordion" data-ng-class="{true:'active', false:''}[isOpen]">
 				<ul class="originUI-list originUI-bgColor">
 					<li class="originUI-listItem" data-asset="{{$index}}" data-ng-repeat="asset in assets" asset>
-						<a href="javascript:void(0);" class="originUI-hover originUI-listItemLink">{{asset.name}}</a>
+						<a href="javascript:void(0);" class="originUI-bgHover originUI-listItemLink">{{asset.name}}</a>
 					</li>
 				</ul>
 			</accordion-group>
 			<accordion-group id="panel-components"  heading="Components" class="panel-accordion" data-ng-class="{true:'active', false:''}[isOpen]">
 				<ul class="originUI-list originUI-bgColor">
 					<li class="originUI-listItem" data-ng-repeat="component in components">
-						<a href="javascript:void(0)" class="originUI-hover originUI-listItemLink" data-ng-click="modalOpen('component-add', component)" back-img="{{component.config.img_icon}}">{{component.name}}</a>
+						<a href="javascript:void(0)" class="originUI-bgHover originUI-listItemLink" data-ng-click="modalOpen('component-add', component)" back-img="{{component.config.img_icon}}">{{component.name}}</a>
 					</li>
 				</ul>
 			</accordion-group>
 			<accordion-group id="panel-layers" heading="Layers" class="panel-accordion" data-ng-class="{true:'active', false:''}[isOpen]">
 				<ul class="originUI-list originUI-bgColor" layers>
 					<li class="originUI-listItem" data-ng-repeat="layer in layers|orderBy:'-order'">
-						<a href="javascript:void(0)" class="originUI-hover originUI-listItemLink" data-ng-mouseover="workspaceFocus(layer.id)" data-ng-mouseleave="workspaceClear(layer.id)" data-ng-dblclick="modalOpen('component-load', layer)" back-img="{{layer.img_icon}}" layer>{{layer.type}}-{{layer.id}}</a>
+						<a href="javascript:void(0)" class="originUI-bgHover originUI-listItemLink" data-ng-mouseover="workspaceFocus(layer.id)" data-ng-mouseleave="workspaceClear(layer.id)" data-ng-dblclick="modalOpen('component-load', layer)" back-img="{{layer.img_icon}}" layer>{{layer.type}}-{{layer.id}}</a>
 					</li>
 				</ul>
 				<!-- <ul id="panel-layers" class="originUI-list originUI-bgColor" data-ng-model="layers" layer-sortable></ul> -->
 			</accordion-group>
-			<div id="panel-properties" class="panel-button originUI-hover" data-ng-click="avgrundOpen('properties')">Properties</div>
-			<div id="panel-scripts" class="panel-button originUI-hover" data-ng-click="avgrundOpen('scripts')">Scripts</div>
+			<div id="panel-properties" class="panel-button originUI-bgHover" data-ng-click="avgrundOpen('properties')">Properties</div>
+			<div id="panel-scripts" class="panel-button originUI-bgHover" data-ng-click="avgrundOpen('scripts')">Scripts</div>
 		</accordion>
 	</div>
 	<!-- Bar above workspace -->
 	<div id="workspace-bar" class="originUI-bgColorSecondary originUI-borderColor">
 		<div id="state">
-			<input-switch class="originUI-switchDual" name="stateSwitch" active="Initial" inactive="Triggered" data-ng-model="ui.stateSwitch" data-ng-change="uiState()"></input-switch>
+			<input-switch class="originUI-switchDual" name="stateSwitch" active="Initial" inactive="Triggered" data-ng-model="ui.stateSwitch" data-ng-change="uiState()" data-ng-checked="ui.stateSwitch === true"></input-switch>
 		</div>
 		<div id="platform">
 			<img class="platform-icon" data-ng-repeat="platform in ['Desktop', 'Tablet', 'Mobile']" data-ng-click="uiPlatform(platform)" data-ng-src="/img/{{platform}}-26x26.png" data-ng-class="{'inactive': !originAd.config[platform].Initial.width, 'active': ui.platform === platform}"/>
@@ -49,22 +49,25 @@
 	<!-- Workspace -->
 	<div id="adEdit-workspace" class="originUI-bgColor originUI-bgTexture">
 		<div id="workspace" workspace>
-			<workspace-content class="workspace-content" data-ng-repeat="content in originAdSchedule[ui.schedule]['OriginAd'+ui.platform+ui.state+'Content']" data-ng-model="content" data-ng-dblclick="$parent.modalOpen('component-load', ngModel)"></workspace-content>
+			<workspace-content class="workspace-content originUI-bgHover" data-ng-repeat="content in originAdSchedule[ui.schedule]['OriginAd'+ui.platform+ui.state+'Content']" data-ng-model="content" data-ng-dblclick="$parent.modalOpen('component-load', ngModel)"></workspace-content>
 		</div>
 	</div>
 	<div id="adEdit-workspaceAvgrund">
 		<div id="{{avgrund.name}}" class="avgrund-popup originUI-bgColor originUI-shadow">
 			<h3 class="originUI-tileHeader originUI-borderColor originUI-textColor">{{avgrund.header}}</h3>
 			<form id="{{avgrund.name}}-form" name="avgrundForm" novalidate>
+				<div class="avgrund-content" data-ng-if="avgrund.name === 'embed'">
+					<?php echo $this->element('creator/embed');?>
+				</div>
 				<div class="avgrund-content" data-ng-if="avgrund.name === 'properties'">
 					<?php echo $this->element('creator/properties');?>
 				</div>
 				<div class="avgrund-content" data-ng-if="avgrund.name === 'scripts'">
-					<textarea data-ng-model="originAdScripts" ui-codemirror="{mode:'htmlmixed',lineNumbers:true,lineWrapping:true,theme:'night'}"></textarea>
+					<textarea data-ng-model="originAdScripts.content_css" data-ui-codemirror="{mode:'htmlmixed',lineNumbers:true,lineWrapping:true,theme:'night'}" data-ui-refresh='avgrund.codeMirror'></textarea>
 				</div>
 				<div id="workspaceAvgrund-buttons">
-					<button id="workspaceAvgrund-cancel" class="originUI-hover originUI-button originUI-bgColorSecondary" data-ng-click="avgrundCancel()">Cancel</button>
-					<button id="workspaceAvgrund-submit" class="originUI-hover originUI-button originUI-bgColorSecondary" data-ng-click="avgrundSubmit(avgrund.name)" data-ng-disabled="avgrundForm.$invalid">Save</button>
+					<button id="workspaceAvgrund-cancel" class="originUI-bgHover originUI-button originUI-bgColorSecondary" data-ng-click="avgrundCancel()">Cancel</button>
+					<button id="workspaceAvgrund-submit" class="originUI-bgHover originUI-button originUI-bgColorSecondary" data-ng-click="avgrundSubmit(avgrund.name)" data-ng-disabled="avgrundForm.$invalid">Save</button>
 					<div class="clear"></div>
 				</div>
 			</form>
@@ -72,9 +75,9 @@
 	</div>
 	<!-- Bar below workspace -->
 	<div id="workspace-options" class="originUI-bgColorSecondary originUI-borderColor">
-		<a href="javascript:void(0)" id="workspaceOptions-publish" class="workspaceOptions-button originUI-borderColorSecondary originUI-hover inline" data-ng-click="">Publish</a>
-		<a href="/demo/Origin/<?php echo $origin_ad_hash;?>" id="workspaceOptions-preview" class="workspaceOptions-button originUI-borderColorSecondary originUI-hover inline" target="_blank">Preview</a>
-		<a href="/administrator/demo/create/{{originAd.id}}" id="workspaceOptions-demo" class="workspaceOptions-button originUI-borderColorSecondary originUI-hover inline" target="_blank">Demo</a>
+		<a href="javascript:void(0)" id="workspaceOptions-publish" class="workspaceOptions-button originUI-borderColorSecondary originUI-bgHover inline" data-ng-click="avgrundOpen('embed')">Publish</a>
+		<a href="/demo/Origin/<?php echo $origin_ad_hash;?>" id="workspaceOptions-preview" class="workspaceOptions-button originUI-borderColorSecondary originUI-bgHover inline" target="_blank">Preview</a>
+		<a href="/administrator/demo/create/{{originAd.id}}" id="workspaceOptions-demo" class="workspaceOptions-button originUI-borderColorSecondary originUI-bgHover inline" target="_blank">Demo</a>
 	</div>
 	
 	<!-- Modals -->
@@ -106,15 +109,9 @@
 				</ul>
 			</div>
 			<div class="originUI-tileFooter">
-				<button class="originUI-tileFooterLeft originUI-hover" data-ng-click="modalClose('{{modal.callback.close}}')">Cancel</button>
-				<button class="originUI-tileFooterRight originUI-hover" data-ng-click="modalSubmit('{{modal.callback.submit}}')" data-ng-disabled="form.$invalid">{{modal.submit}}</button>
+				<button class="originUI-tileFooterLeft originUI-bgHover" data-ng-click="modalClose('{{modal.callback.close}}')">Cancel</button>
+				<button class="originUI-tileFooterRight originUI-bgHover" data-ng-click="modalSubmit('{{modal.callback.submit}}')" data-ng-disabled="form.$invalid">{{modal.submit}}</button>
 			</div>
 		</form>
 	</div>
 </div>
-
-<?php
-	echo $this->Minify->css(array('creator/edit', 'plugins/codemirror/night', 'plugins/jquery-ui.min'));
-	echo $this->Minify->script(array('plugins/avgrund', 'plugins/angular/bootstrap', 'plugins/codemirror/codemirror', 'plugins/codemirror/xml', 'plugins/codemirror/javascript', 'plugins/codemirror/css', 'plugins/codemirror/htmlmixed', 'plugins/jquery-ui.min', 'plugins/jquery-touch', 'plugins/jquery.kinetic.min', 'creator/edit/creatorEditController', 'creator/edit/creatorEditDirectives', 'creator/editor/creatorDirectives'));
-	
-?>

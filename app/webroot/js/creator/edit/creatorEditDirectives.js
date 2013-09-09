@@ -111,7 +111,6 @@ platformApp.directive('workspaceContent', function() {
 			
 			//Prep render
 			var render = scope.ngModel.render;
-			
 			element.attr('id', 'content-'+scope.ngModel.id);
 			
 			//Compile config into inline styles
@@ -161,7 +160,42 @@ platformApp.directive('workspaceContent', function() {
 				}
 			});	
 			
+			
 			//Selecting a content item will highlight the companion content throughout the UI
+			element.click(function() {
+				element.attr('tabindex', -1).focus().keydown(function(event) {
+					if(event.keyCode >= 37 && event.keyCode <= 40) {
+						event.preventDefault();
+						var position = element.position();
+						switch(event.keyCode) {
+							case 37:
+								var value 	= position.left - 1;
+                    				element.css({left: value+'px'});
+								break;
+							case 38:
+								var value 	= position.top - 1;
+                    				element.css({top: value+'px'});
+								break;
+							case 39:
+								var value 	= position.left + 1;
+                    				element.css({left: value+'px'});
+								break;
+							case 40:
+								var value 	= position.top + 1;
+                    				element.css({top: value+'px'});
+								break;
+						}
+						
+						var newPosition = element.position();
+						scope.ngModel.config = {
+							top: 	newPosition.top+'px',
+							left:	newPosition.left+'px',
+							width:	element.width()+'px',
+							height:	element.height()+'px'
+						}
+					}
+				});
+			});
 /*
 			element.click(function() {
 				element.attr('tabindex', -1).focus().keydown(function(event) {
