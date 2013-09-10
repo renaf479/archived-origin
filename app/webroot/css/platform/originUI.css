@@ -37,6 +37,11 @@ a:hover {
 	vertical-align: top;
 }
 
+.inactive,
+.disabled {
+	opacity: .1;
+}
+
 .none {
 	display: none;
 }
@@ -526,6 +531,10 @@ li {
 
 .originUI-switchInput {
 	display: none;
+}
+
+.originUI-switchInput:disabled {
+	
 }
 
 .originUI-switchInput:checked + .originUI-switchLabel .originUI-switchInner {

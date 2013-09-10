@@ -1,31 +1,26 @@
-	<div id="embed-widget" data-ng-controller="embedController">
-		<textarea data-ng-model="embedOptions.embed" data-ui-codemirror="{mode:'htmlmixed',lineNumbers:true,lineWrapping:true,theme:'night',readOnly:true,onLoad:embedInit}" data-ui-refresh='avgrund.codeMirror'><?php //echo $this->element('origin_embed');?></textarea>
-		<div id="embedModal-config">
-			<div class="originUI-modalLeft">
-				<ul class="originUI-list">
-					<li>
-						<label class="inline">Auto Open</label>
-						<input-switch class="originUI-switch inline" name="toggleAutoSwitch" active="Yes" inactive="No" data-ng-model="embedOptions.auto" data-ng-checked="embedOptions.auto === true"></input-switch>
-					</li>
-					<li>
-						<label class="inline">Auto Close</label>
-						<input-switch class="originUI-switch inline" name="toggleCloseSwitch" active="Yes" inactive="No" data-ng-model="embedOptions.close" data-ng-checked="embedOptions.close === true"></input-switch>
-					</li>
-				</ul>
-			</div>
-			<div class="originUI-modalRight">
-				<ul class="originUI-list">
-					<li>
-						<label class="inline">Tablet Unit</label>
-						<input-switch class="originUI-switch inline" name="toggleTabletSwitch" active="Yes" inactive="No" data-ng-model="embedOptions.tablet" data-ng-checked="embedOptions.tablet === true"></input-switch>
-					</li>
-					<li>
-						<label class="inline">Mobile Unit</label>
-						<input-switch class="originUI-switch inline" name="toggleMobileSwitch" active="Yes" inactive="No" data-ng-model="embedOptions.mobile" data-ng-checked="embedOptions.mobile === true"></input-switch>
-					</li>
-				</ul>
-			</div>
-			<div class="clear"></div>
+	<div id="embed-widget" data-ng-controller="embedController" data-ng-init="embedInit()">
+		<div id="embedWidget-config" class="inline">
+			<ul class="originUI-list">
+				<li>
+					<label class="">Auto Open</label>
+					<input-switch class="originUI-switch" name="toggleAutoSwitch" active="Yes" inactive="No" data-ng-model="embedOptions.auto" data-ng-checked="embedOptions.auto === true"></input-switch>
+				</li>
+				<li data-ng-class="{disabled: !embedOptions.auto}">
+					<label class="">Auto Close</label>
+					<input-switch class="originUI-switch" name="toggleCloseSwitch" active="Yes" inactive="No" data-ng-model="embedOptions.close" data-ng-checked="embedOptions.close === true" data-ng-disabled="!embedOptions.auto"></input-switch>
+				</li>
+				<li>
+					<label class="">Tablet Unit</label>
+					<input-switch class="originUI-switch" name="toggleTabletSwitch" active="Yes" inactive="No" data-ng-model="embedOptions.tablet" data-ng-checked="embedOptions.tablet === true"></input-switch>
+				</li>
+				<li>
+					<label class="">Mobile Unit</label>
+					<input-switch class="originUI-switch" name="toggleMobileSwitch" active="Yes" inactive="No" data-ng-model="embedOptions.mobile" data-ng-checked="embedOptions.mobile === true"></input-switch>
+				</li>
+			</ul>
+		</div>
+		<div id="embedWidget-codemirror" class="inline">
+			<textarea data-ng-model="embed" data-ui-codemirror="{mode:'htmlmixed',lineWrapping:true,theme:'night',readOnly:true}" data-ui-refresh=true><?php //echo $this->element('origin_embed');?></textarea>
 		</div>
 	</div>
 	<style type="text/css">
@@ -33,9 +28,24 @@
 			width: inherit;
 			height: inherit;
 		}
+		
+		#embedWidget-config {
+			width: 150px;
+		}
+		
+		#embedWidget-codemirror {
+			width: 300px;
+			height: 200px;
+			font-size: 11px;
+		}
 	</style>
 	<script type="text/javascript">
 		var embedController = function($scope, $compile, $interpolate, Rest) {
+			var embed;
+			
+			function _refresh() {
+				$scope.embed = $interpolate(embed)($scope);
+			}
 			
 			$scope.embedInit = function() {
 				$scope.embedOptions = {
@@ -47,41 +57,21 @@
 					mobile: false
 				};
 			
-				//console.log($scope.embedOptions.embed);
-				//console.log($interpolate($scope.embedOptions.embed)($scope));
-			
 				Rest.get('element/origin_embed').then(function(response) {
-					//$rootScope.render	= $interpolate(response)($rootScope);
-					$scope.embedOptions.embed = $interpolate(response)($scope);
+					embed = response;
+					_refresh();
 				});
-				
-				
 			}
 			
-			$scope.$watch('embedOptions.auto', function(newVal) {
-				if(newVal) {
-					$scope.embedOptions.placement = 'test';
-					$interpolate($scope.embedOptions.embed)($scope);
-				}
-			})
-			
-			
-/*
 			$scope.$watchCollection('[embedOptions.auto, embedOptions.close, embedOptions.tablet, embedOptions.mobile]', function(newVal) {
-
-				if(newVal) {
-					//console.log($scope.embedOptions);
-					$interpolate($scope.embedOptions.embed)($scope);
-					
-					//var test = $compile($scope.embedOptions.embed)($scope);
-					console.log($scope.embedOptions.embed);
-					
-					
+				if(newVal && embed) {
+					//Special condition for auto/close
+					if(!$scope.embedOptions.auto) {
+						$scope.embedOptions.close = false;
+					}
+					_refresh();
 				}
-			})
-*/
+			});
 			
-			//$scope.embedOptions.embed = 'test';
-			//console.log($scope.embedOptions);
 		}
 	</script>

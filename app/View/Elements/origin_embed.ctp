@@ -21,6 +21,7 @@
 			s.type='text/javascript';
 			s.async=true;
 			s.src='http://<?php echo $_SERVER['HTTP_HOST'];?>/js/ad/origin-ad.js';
+			//s.src='http://<?php echo $_SERVER['HTTP_HOST'];?>/min-js?f=/js/ad/origin-ad.js';
 			//s.src='http://<?php echo $_SERVER['HTTP_HOST'];?>/min-js?f=/js/ad/origin.js';
 			s1 = document.getElementsByTagName('script')[0];
 			s1.parentNode.insertBefore(s, s1);
