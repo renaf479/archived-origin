@@ -162,8 +162,8 @@ body {
 /* =======================================================================
 	Workspace
 ========================================================================== */
-#adEdit-workspaceAvgrund,
-#adEdit-workspace {
+#adEdit-workspace,
+#adEdit-workspaceAvgrund {
 	position: absolute;
 	top: 66px;
 	left: 202px;
@@ -381,16 +381,22 @@ body {
 /* =======================================================================
 	Avgrund Modal
 ========================================================================== */
+#component {
+	width: 600px;
+	max-height: 400px;
+	margin: -200px 0 0 -300px;
+}
+
 #embed {
 	width: 500px;
-	height: 400px;
-	margin: -200px 0 0 -250px;
+	height: 350px;
+	margin: -175px 0 0 -250px;
 }
 
 #properties {
 	width: 900px;
-	height: 370px;
-	margin: -185px 0 0 -450px;
+	height: 350px;
+	margin: -175px 0 0 -450px;
 }
 
 #scripts {
@@ -407,8 +413,10 @@ body {
 	background-image: url(/img/scripts-26x26.png);
 }
 
+#component-form {
+}
+
 #embed-form {
-	height: 200px;
 }
 
 #scripts-form {
@@ -423,10 +431,7 @@ body {
 
 #workspaceAvgrund-buttons {
 	width: 95%;
-	position: absolute;
-	left: 50%;
-	bottom: 15px;
-	transform: translate(-50%, 0);
+	margin: 0 auto 15px;
 }
 
 #workspaceAvgrund-cancel {
@@ -439,7 +444,11 @@ body {
 
 /* =======================================================================
 	Avgrund Default *Created by Hakim El Hattab, http://hakim.se
-========================================================================== */ 
+========================================================================== */
+#adEdit-workspaceAvgrund {
+	z-index: -1;
+}
+
 .avgrund-active #adEdit-workspace {
 	-webkit-transform: scale(0.9);
 	   -moz-transform: scale(0.9);
@@ -451,8 +460,8 @@ body {
 
 .avgrund-active #adEdit-workspaceAvgrund {
 	/* background-color: rgba(0, 0, 0, .15); */
-	background-color: rgba(255, 255, 255, .2);
 	transition-duration: .3s;
+	z-index: 1000;
 }
 
 /*

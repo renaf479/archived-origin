@@ -107,6 +107,7 @@ var creatorEditController = function($scope, $rootScope, $filter, Rest, Notifica
 					thumbnail:	model.config.img_icon
 				};
 				break;
+/*
 			case 'component-load':
 				$rootScope.editor = model;
 				//Match model against list of components and override
@@ -128,6 +129,7 @@ var creatorEditController = function($scope, $rootScope, $filter, Rest, Notifica
 					thumbnail:	model.config.img_icon
 				};
 				break;
+*/
 		}
 		$scope[$scope.modal.modal] = true;
 	}
@@ -159,11 +161,13 @@ var creatorEditController = function($scope, $rootScope, $filter, Rest, Notifica
 					post.route	= 'creatorContentRemove';
 				}
 				break;
+/*
 			case 'component-update':
 				message 					= 'Content updated';
 				post.origin_ad_schedule_id 	= $scope.originAdSchedule[$scope.ui.schedule].id;
 				post.route					= 'creatorContentSave';
 				break;
+*/
 		}
 		Rest.post(post).then(function(response) {
 			Notification.alert(message);
@@ -175,24 +179,83 @@ var creatorEditController = function($scope, $rootScope, $filter, Rest, Notifica
 	/**
 	* Properties
 	*/
-	$scope.avgrundOpen = function(type) {
+	$scope.avgrundOpen = function(type, model) {
 		var selector;
 		$scope.originAdProperties 	= ''; 
 		$scope.originAdScripts 		= '';
 		$scope.avgrund 				= '';
 		
 		switch(type) {
+			case 'component':
+				/*
+				$rootScope.editor = model;
+				//Match model against list of components and override
+				var model = _findComponent(model);
+				$scope.modal = {
+					id:			'componentModal',
+					callback: {
+						close:	'modalComponent',
+						remove:	'component-remove',
+						submit:	'component-update'	
+					},
+					class:		'modal-'+model.alias,
+					config:		true,
+					content:	'/administrator/get/components/'+model.alias,
+					modal:		'modalComponent',
+					remove:		true,
+					submit:		'Update',
+					title:		model.name+' Editor',
+					thumbnail:	model.config.img_icon
+				};
+				
+				*/
+				$rootScope.editor = model;
+				//Match model against list of components and override
+				var model = _findComponent(model);
+				$scope.avgrund = {
+					header: model.name+' Editor',
+					name:	'component',
+					ui: {
+						cancel: 'Close',
+						submit: 'Update'
+					}
+				};
+				
+				$scope.modal = {
+					callback: {
+						close:	'modalComponent',
+						remove:	'component-remove',
+						submit:	'component-update'	
+					},
+					class:		'modal-'+model.alias,
+					config:		true,
+					content:	'/administrator/get/components/'+model.alias,
+					modal:		'modalComponent',
+					remove:		true,
+					submit:		'Update',
+					title:		model.name+' Editor',
+					thumbnail:	model.config.img_icon
+				}
+				break;
 			case 'embed':
 				$scope.avgrund = {
 					header: 'Embed Code',
-					name:	'embed'
+					name:	'embed',
+					ui: {
+						cancel: 'Close',
+						submit: 'E-mail'
+					}
 				}
 				break;
 			case 'properties':
 				$scope.originAdProperties = angular.copy($scope.originAd);
 				$scope.avgrund = {
 					header: 'Properties',
-					name:	'properties'
+					name:	'properties',
+					ui: {
+						cancel: 'Cancel',
+						submit: 'Save'
+					}
 				}
 				break;
 			case 'scripts':
@@ -200,7 +263,11 @@ var creatorEditController = function($scope, $rootScope, $filter, Rest, Notifica
 				$scope.avgrund = {
 					header:	'Scripts',
 					name:	'scripts',
-					codeMirror:	true
+					codeMirror:	true,
+					ui: {
+						cancel: 'Cancel',
+						submit: 'Save'
+					}
 				}
 				break;
 		}
@@ -220,6 +287,15 @@ var creatorEditController = function($scope, $rootScope, $filter, Rest, Notifica
 	$scope.avgrundSubmit = function(type) {
 		var post, message;
 		switch(type) {
+			case 'component':
+				post  				= angular.copy($scope.editor),
+				post.data 			= $scope.originAdSchedule;
+				post.model			= $scope.ui.platform + $scope.ui.state;
+				post.originAd_id	= $scope.originAd.id;
+				message 					= 'Content updated';
+				post.origin_ad_schedule_id 	= $scope.originAdSchedule[$scope.ui.schedule].id;
+				post.route					= 'creatorContentSave';
+				break;
 			case 'properties':
 				post 		= angular.copy($scope.originAdProperties);
 				post.route	= 'creatorSettingsUpdate';

@@ -1,4 +1,4 @@
-	<form id="editor-background" name="editorBackground-form" data-ng-controller="componentCtrl">
+	<div id="editor-background" name="editorBackground-form" data-ng-controller="componentCtrl">
 		<input type="hidden" name="uploadDir" value="/assets/creator/{{workspace.ad.OriginAd.id}}/"/>
 		<div id="editorBackground-list" class="originUI-bgColorSecondary inline">
 			<ul class="originUI-list">
@@ -10,7 +10,7 @@
 		--><div class="inline">
 			<div id="editorBackground-preview" back-img="{{editor.content.image}}"></div>
 		</div>
-	</form>
+	</div>
 	<style type="text/css">
 		#editor-background {
 			height: 200px;

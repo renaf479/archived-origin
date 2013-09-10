@@ -30,12 +30,17 @@
 		}
 		
 		#embedWidget-config {
-			width: 150px;
+			width: 100px;
+			margin-right: 15px;
+		}
+		
+		#embedWidget-config .originUI-list > li {
+			margin: 0 0 10px 0;
 		}
 		
 		#embedWidget-codemirror {
-			width: 300px;
-			height: 200px;
+			width: 350px;
+			height: 235px;
 			font-size: 11px;
 		}
 	</style>

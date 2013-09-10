@@ -28,7 +28,7 @@
 			<accordion-group id="panel-layers" heading="Layers" class="panel-accordion" data-ng-class="{true:'active', false:''}[isOpen]">
 				<ul class="originUI-list originUI-bgColor" layers>
 					<li class="originUI-listItem" data-ng-repeat="layer in layers|orderBy:'-order'">
-						<a href="javascript:void(0)" class="originUI-bgHover originUI-listItemLink" data-ng-mouseover="workspaceFocus(layer.id)" data-ng-mouseleave="workspaceClear(layer.id)" data-ng-dblclick="modalOpen('component-load', layer)" back-img="{{layer.img_icon}}" layer>{{layer.type}}-{{layer.id}}</a>
+						<a href="javascript:void(0)" class="originUI-bgHover originUI-listItemLink" data-ng-mouseover="workspaceFocus(layer.id)" data-ng-mouseleave="workspaceClear(layer.id)" data-ng-dblclick="avgrundOpen('component', layer)" back-img="{{layer.img_icon}}" layer>{{layer.type}}-{{layer.id}}</a>
 					</li>
 				</ul>
 				<!-- <ul id="panel-layers" class="originUI-list originUI-bgColor" data-ng-model="layers" layer-sortable></ul> -->
@@ -49,13 +49,16 @@
 	<!-- Workspace -->
 	<div id="adEdit-workspace" class="originUI-bgColor originUI-bgTexture">
 		<div id="workspace" workspace>
-			<workspace-content class="workspace-content originUI-bgHover" data-ng-repeat="content in originAdSchedule[ui.schedule]['OriginAd'+ui.platform+ui.state+'Content']" data-ng-model="content" data-ng-dblclick="$parent.modalOpen('component-load', ngModel)"></workspace-content>
+			<workspace-content class="workspace-content originUI-bgHover" data-ng-repeat="content in originAdSchedule[ui.schedule]['OriginAd'+ui.platform+ui.state+'Content']" data-ng-model="content" data-ng-dblclick="$parent.avgrundOpen('component', ngModel)"></workspace-content>
 		</div>
 	</div>
 	<div id="adEdit-workspaceAvgrund">
 		<div id="{{avgrund.name}}" class="avgrund-popup originUI-bgColor originUI-shadow">
 			<h3 class="originUI-tileHeader originUI-borderColor originUI-textColor">{{avgrund.header}}</h3>
 			<form id="{{avgrund.name}}-form" name="avgrundForm" novalidate>
+				<div class="avgrund-content" data-ng-if="avgrund.name === 'component'">
+					<?php echo $this->element('creator/componentModal');?>
+				</div>
 				<div class="avgrund-content" data-ng-if="avgrund.name === 'embed'">
 					<?php echo $this->element('creator/embed');?>
 				</div>
@@ -63,11 +66,11 @@
 					<?php echo $this->element('creator/properties');?>
 				</div>
 				<div class="avgrund-content" data-ng-if="avgrund.name === 'scripts'">
-					<textarea data-ng-model="originAdScripts.content_css" data-ui-codemirror="{mode:'htmlmixed',lineNumbers:true,lineWrapping:true,theme:'night'}" data-ui-refresh='avgrund.codeMirror'></textarea>
+					<textarea data-ng-model="originAdScripts.content_css" data-ui-codemirror="{mode:'htmlmixed',lineWrapping:true,theme:'night'}" data-ui-refresh='avgrund.codeMirror'></textarea>
 				</div>
 				<div id="workspaceAvgrund-buttons">
-					<button id="workspaceAvgrund-cancel" class="originUI-bgHover originUI-button originUI-bgColorSecondary" data-ng-click="avgrundCancel()">Cancel</button>
-					<button id="workspaceAvgrund-submit" class="originUI-bgHover originUI-button originUI-bgColorSecondary" data-ng-click="avgrundSubmit(avgrund.name)" data-ng-disabled="avgrundForm.$invalid">Save</button>
+					<button id="workspaceAvgrund-cancel" class="originUI-bgHover originUI-button originUI-bgColorSecondary" data-ng-click="avgrundCancel()">{{avgrund.ui.cancel}}</button>
+					<button id="workspaceAvgrund-submit" class="originUI-bgHover originUI-button originUI-bgColorSecondary" data-ng-click="avgrundSubmit(avgrund.name)" data-ng-disabled="avgrundForm.$invalid">{{avgrund.ui.submit}}</button>
 					<div class="clear"></div>
 				</div>
 			</form>
