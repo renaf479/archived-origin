@@ -39,6 +39,8 @@
 	</div>
 	<!-- Bar above workspace -->
 	<div id="workspace-bar" class="originUI-bgColorSecondary originUI-borderColor">
+		<div id="schedule">
+		</div>
 		<div id="state">
 			<input-switch class="originUI-switchDual" name="stateSwitch" active="Initial" inactive="Triggered" data-ng-model="ui.stateSwitch" data-ng-change="uiState()" data-ng-checked="ui.stateSwitch === true"></input-switch>
 		</div>

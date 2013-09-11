@@ -10,6 +10,12 @@
 		</li>
 	</ul>
 	<style type="text/css">
+		#component.avgrund-popup {
+			visibility: visible;
+			height: 210px;
+			margin-top: -105px;	
+		}
+		
 		.editor-label {
 			width: 100px;	
 		}

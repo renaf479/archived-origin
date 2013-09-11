@@ -314,10 +314,16 @@ li {
 
 .originUI-bgColor {
 	background-color: #212123;
+	/* background-color: #272625; */
 }
 
 .originUI-bgColorSecondary {
 	background-color: #282828;
+	/* background-color: #333333; */
+}
+
+.originUI-bgColorTertiary {
+	background-color: #222222;
 }
 
 .originUI-bgTexture {

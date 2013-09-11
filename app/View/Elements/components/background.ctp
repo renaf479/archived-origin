@@ -12,6 +12,11 @@
 		</div>
 	</div>
 	<style type="text/css">
+		#component.avgrund-popup {
+			height: 310px;
+			margin-top: -155px;	
+		}
+	
 		#editor-background {
 			height: 200px;
 		}
