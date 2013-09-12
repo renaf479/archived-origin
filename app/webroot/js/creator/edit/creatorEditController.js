@@ -26,6 +26,22 @@ var creatorEditController = function($scope, $rootScope, $filter, Rest, Notifica
 		return false;
 	}
 	
+	//Finds the proper schedule ID based on parameters
+	function _uiSchedule() {
+		angular.forEach($scope.originAdSchedule, function(value, key) {
+			//Condition for first run
+			if((!$scope.ui.scheduleId && !$scope.ui.schedule) 
+				&& ($scope.ui.auto === value.type && value.start_date === null)) {
+				
+				$scope.ui.scheduleId 	= value.id;
+				$scope.ui.schedule 		= key;
+			} else if($scope.ui.auto === value.type && $scope.ui.scheduleId === value.id) {
+				$scope.ui.scheduleId	= value.id;
+				$scope.ui.schedule		= key;
+			}
+		});
+	}	
+	
 	//Refreshes the assets library
 	function _updateAssets() {
 		Rest.get('library/'+$scope.originAd.id).then(function(response) {
@@ -46,6 +62,7 @@ var creatorEditController = function($scope, $rootScope, $filter, Rest, Notifica
 	function _updateWorkspace(data) {
 		$scope.originAd				= data.OriginAd;
 		$scope.originAdSchedule		= data.OriginAdSchedule;
+		_uiSchedule();
 		_updateLayers();
 	}
 
@@ -54,9 +71,10 @@ var creatorEditController = function($scope, $rootScope, $filter, Rest, Notifica
 	*/
 	$scope.init = function() {
 		$scope.ui = {
-			auto:		false,
+			auto:		'default',
 			platform:	'Desktop',
-			schedule:	0,
+			schedule:	'',
+			scheduleId:	'',
 			state:		'Initial',
 			stateSwitch:true
 		};
@@ -331,6 +349,16 @@ var creatorEditController = function($scope, $rootScope, $filter, Rest, Notifica
 	/**
 	* UI methods
 	*/
+	$scope.$watchCollection('[ui.auto, ui.scheduleId]', function(newVal, oldVal) {
+		//if(!angular.equals(newVal, oldVal)) {
+			_uiSchedule();
+		//}	
+	})
+	
+	$scope.uiAuto = function() {
+		
+	}
+	
 	//Switches platform view
 	$scope.uiPlatform = function(model) {
 		$scope.ui.platform = model;

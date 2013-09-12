@@ -12,17 +12,12 @@
 		</div>
 	</div>
 	<style type="text/css">
-		#component.avgrund-popup {
-			height: 310px;
-			margin-top: -155px;	
-		}
-	
-		#editor-background {
-			height: 200px;
+		#componentModal-editor {
+			width: 100%;	
 		}
 		
 		#editorBackground-list {
-			width: 150px;
+			width: 100px;
 			height: 100%;
 			overflow: hidden;
 		}

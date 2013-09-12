@@ -313,13 +313,13 @@ li {
 }
 
 .originUI-bgColor {
-	background-color: #212123;
-	/* background-color: #272625; */
+	/* background-color: #212123; */
+	background-color: #272625;
 }
 
 .originUI-bgColorSecondary {
-	background-color: #282828;
-	/* background-color: #333333; */
+	/* background-color: #282828; */
+	background-color: #333333;
 }
 
 .originUI-bgColorTertiary {
@@ -1253,16 +1253,19 @@ body.originUI-superAdmin #adCreate-modal {
 
 .originUI-tileHeader {
 	border-style: solid;
-	border-width: 0 0 2px;
+	border-width: 0 0 1px;
 	text-indent: 45px;
-	font-size: 22px;
-	line-height: 22px;
+	height: 32px;
+	font-size: 18px;
+	line-height: 32px;
 	margin: 0;
 	padding: 10px 0;
 	font-weight: normal;
 	background-color: transparent;
 	background-repeat: no-repeat;
 	background-position: 10px center;
+	margin: 0;
+	padding: 0;
 }
 
 .originUI-tileContent {

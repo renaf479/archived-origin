@@ -9,24 +9,24 @@
 		<h1 id="titlebar-title" class="originUI-textColor inline">{{originAd.name}}</h1>
 	</div>
 	<!-- Left panel -->
-	<div id="panel" class="originUI-bgColorSecondary originUI-borderColor">
+	<div id="panel" class="originUI-bgColor originUI-borderColor">
 		<accordion id="">
 			<accordion-group id="panel-assets" heading="Assets" class="panel-accordion" data-ng-class="{true:'active', false:''}[isOpen]">
-				<ul class="originUI-list originUI-bgColor">
+				<ul class="originUI-list originUI-bgColorSecondary">
 					<li class="originUI-listItem" data-asset="{{$index}}" data-ng-repeat="asset in assets" asset>
 						<a href="javascript:void(0);" class="originUI-bgHover originUI-listItemLink">{{asset.name}}</a>
 					</li>
 				</ul>
 			</accordion-group>
 			<accordion-group id="panel-components"  heading="Components" class="panel-accordion" data-ng-class="{true:'active', false:''}[isOpen]">
-				<ul class="originUI-list originUI-bgColor">
+				<ul class="originUI-list originUI-bgColorSecondary">
 					<li class="originUI-listItem" data-ng-repeat="component in components">
 						<a href="javascript:void(0)" class="originUI-bgHover originUI-listItemLink" data-ng-click="modalOpen('component-add', component)" back-img="{{component.config.img_icon}}">{{component.name}}</a>
 					</li>
 				</ul>
 			</accordion-group>
 			<accordion-group id="panel-layers" heading="Layers" class="panel-accordion" data-ng-class="{true:'active', false:''}[isOpen]">
-				<ul class="originUI-list originUI-bgColor" layers>
+				<ul class="originUI-list originUI-bgColorSecondary" layers>
 					<li class="originUI-listItem" data-ng-repeat="layer in layers|orderBy:'-order'">
 						<a href="javascript:void(0)" class="originUI-bgHover originUI-listItemLink" data-ng-mouseover="workspaceFocus(layer.id)" data-ng-mouseleave="workspaceClear(layer.id)" data-ng-dblclick="avgrundOpen('component', layer)" back-img="{{layer.img_icon}}" layer>{{layer.type}}-{{layer.id}}</a>
 					</li>
@@ -38,9 +38,20 @@
 		</accordion>
 	</div>
 	<!-- Bar above workspace -->
-	<div id="workspace-bar" class="originUI-bgColorSecondary originUI-borderColor">
+	<div id="workspace-bar" class="originUI-bgColor originUI-borderColor">
 		<div id="schedule">
+			<select class="originUI-select originUI-bgColorSecondary" data-ng-model="ui.scheduleId" data-ng-options="schedule.id as schedule.start_date+' thru '+schedule.end_date for schedule in originAdSchedule|filter:{type:ui.auto}">
+			</select>
+			
+			<!--
+			
+			<select id="properties-template" class="originUI-select originUI-bgColorSecondary" data-ng-model="originAdProperties.template_id" data-ng-options="template.OriginTemplate.id as template.OriginTemplate.name for template in originAdTemplates|filter:{OriginTemplate.status:'1'}" data-ng-change="propertiesTemplate(originAdProperties.template_id)">
+				<option style="display:none" value="">Load Template</option>
+			</select>
+			
+			-->
 		</div>
+		
 		<div id="state">
 			<input-switch class="originUI-switchDual" name="stateSwitch" active="Initial" inactive="Triggered" data-ng-model="ui.stateSwitch" data-ng-change="uiState()" data-ng-checked="ui.stateSwitch === true"></input-switch>
 		</div>
@@ -56,8 +67,8 @@
 	</div>
 	<div id="adEdit-workspaceAvgrund">
 		<div id="{{avgrund.name}}" class="avgrund-popup originUI-bgColor originUI-shadow">
+			<form id="{{avgrund.name}}-form" class="avgrund-form" name="avgrundForm" novalidate>
 			<h3 class="originUI-tileHeader originUI-borderColor originUI-textColor">{{avgrund.header}}</h3>
-			<form id="{{avgrund.name}}-form" name="avgrundForm" novalidate>
 				<div class="avgrund-content" data-ng-if="avgrund.name === 'component'">
 					<?php echo $this->element('creator/componentModal');?>
 				</div>
@@ -89,34 +100,21 @@
 	<div modal="modalComponent" close="modalClose('modalComponent')" options="modalOption">
 		<form id="{{modal.id}}" class="originUI-bgColor {{modal.class}}" name="form" novalidate>
 			<h3 class="originUI-tileHeader originUI-borderColor originUI-textColor" back-img="{{modal.thumbnail}}">{{modal.title}}</h3>
-			<a href="javascript:void(0)" id="{{modal.id}}-remove" class="originUI-hover" data-ng-click="modalSubmit('{{modal.callback.remove}}')" data-ng-if="modal.remove">remove</a>
-			<div id="{{modal.id}}-content" class="originUI-modalContent">
-				<div data-ng-include src="modal.content"></div>
-			</div>
-			<div id="{{modal.id}}-config" data-ng-if="modal.config">
-				<ul class="originUI-list">
-					<li>
-						<label>X Position</label>
-						<input type="text" data-ng-model="editor.config.left" required config="left" input-text/>
-					</li>
-					<li>
-						<label>Y Position</label>
-						<input type="text" data-ng-model="editor.config.top" required config="top" input-text/>
-					</li>
-					<li>
-						<label>Width</label>
-						<input type="text" data-ng-model="editor.config.width" required config="width" input-text/>
-					</li>
-					<li>
-						<label>Height</label>
-						<input type="text" data-ng-model="editor.config.height" required config="height" input-text/>
-					</li>
-				</ul>
-			</div>
+			<?php echo $this->element('creator/componentModal');?>
 			<div class="originUI-tileFooter">
 				<button class="originUI-tileFooterLeft originUI-bgHover" data-ng-click="modalClose('{{modal.callback.close}}')">Cancel</button>
 				<button class="originUI-tileFooterRight originUI-bgHover" data-ng-click="modalSubmit('{{modal.callback.submit}}')" data-ng-disabled="form.$invalid">{{modal.submit}}</button>
 			</div>
+<!--
+			
+			<div class="originUI-tileFooter">
+				<button id="workspaceAvgrund-cancel" class="originUI-bgHover originUI-button originUI-bgColorSecondary" data-ng-click="avgrundCancel()">{{avgrund.ui.cancel}}</button>
+				<button id="workspaceAvgrund-submit" class="originUI-bgHover originUI-button originUI-bgColorSecondary" data-ng-click="avgrundSubmit(avgrund.name)" data-ng-disabled="avgrundForm.$invalid">{{avgrund.ui.submit}}</button>
+				<div class="clear"></div>
+			</div>
+			
+			
+-->
 		</form>
 	</div>
 </div>

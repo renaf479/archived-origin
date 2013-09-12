@@ -14,6 +14,11 @@ body {
 /* =======================================================================
 	Modal - Components
 ========================================================================== */
+#componentModal {
+	width: 600px;
+	height: 350px;
+}
+
 #componentModal-remove {
 	position: absolute;
 	top: 8px;
@@ -29,15 +34,30 @@ body {
 	opacity: 1;
 }
 
+#componentModal-editor {
+	width: 455px;
+}
+
 #componentModal-config {
-	border-top: 1px solid #444444;
-	margin: 0 15px;
+	width: 100px;
+	height: 225px;
+	margin: 0 0 0 15px;
 	padding: 10px 0;
 	font-size: 12px;
 }
 
+#componentModal-header {
+	text-align: center;
+	margin: 0;
+	font-size: 15px;
+}
+
 #componentModal-content {
 	margin: 15px 0;
+}
+
+#componentModal-config .originUI-list {
+	margin-top: 15px;
 }
 
 #componentModal-config .originUI-list,
@@ -47,13 +67,10 @@ body {
 }
 
 #componentModal-config .originUI-list > li {
-	display: inline-block;
-	width: 100px;
-	margin: 0 5px
 }
 
 #componentModal-config .originUI-field {
-	width: 60%;
+	width: 50px;
 	margin: 0 auto;
 }
 
@@ -278,6 +295,14 @@ body {
 	border-style: solid;
 }
 
+#schedule {
+	position: absolute;
+	left: 32px;
+	width: 100px;
+	top: 50%;
+	transform: translate(0, -50%);
+}
+
 #state {
 	width: 200px;
 	position: absolute;
@@ -383,9 +408,8 @@ body {
 ========================================================================== */
 #component {
 	width: 600px;
-	height: 200px;
-	margin: -200px 0 0 -300px;
-	opacity: 0;
+	height: 350px;
+	margin: -175px 0 0 -300px;
 }
 
 #embed {
@@ -404,6 +428,11 @@ body {
 	width: 500px;
 	height: 400px;
 	margin: -200px 0 0 -250px;
+}
+
+.avgrund-form {
+	height: 100%;
+	position: relative;
 }
 
 #embed .originUI-tileHeader {
@@ -432,7 +461,10 @@ body {
 
 #workspaceAvgrund-buttons {
 	width: 95%;
-	margin: 0 auto 15px;
+	position: absolute;
+	bottom: 15px;
+	left: 50%;
+	transform: translate(-50%,0);
 }
 
 #workspaceAvgrund-cancel {
@@ -465,83 +497,49 @@ body {
 	z-index: 1000;
 }
 
-/*
-
-.avgrund-contents {
-	position: relative;
-	padding: 20px;
-	max-width: 400px;
-	height: 100%;
-	margin: auto;
-}
-	.avgrund-active .avgrund-contents {
-		-webkit-filter: blur(2px);
-		   -moz-filter: blur(2px);
-		    -ms-filter: blur(2px);
-		     -o-filter: blur(2px);
-		        filter: blur(2px);
-	}
-	.no-blur.avgrund-active .avgrund-contents {
-		-webkit-filter: none;
-		   -moz-filter: none;
-		    -ms-filter: none;
-		     -o-filter: none;
-		        filter: none;
-	}
-*/
-
 .avgrund-popup {
 	position: absolute;
 	left: 50%;
 	top: 50%;
-/*
-	width: 340px;
-	height: 180px;
-	margin: -130px 0 0 -190px;
-*/
 	visibility: hidden;
 	opacity: 0;
 	z-index: 2;
-	/* padding: 20px; */
-
-/* 	border-radius: 3px; */
-
 	-webkit-transform: scale( 0.8 );
 	   -moz-transform: scale( 0.8 );
 	    -ms-transform: scale( 0.8 );
 	     -o-transform: scale( 0.8 );
 	        transform: scale( 0.8 );
 }
-	.avgrund-active .avgrund-popup-animate {
-		visibility: visible !important;
-		opacity: 1 !important;
 
-		-webkit-transform: scale( 1.1 ) !important;
-		   -moz-transform: scale( 1.1 ) !important;
-		    -ms-transform: scale( 1.1 ) !important;
-		     -o-transform: scale( 1.1 ) !important;
-		        transform: scale( 1.1 ) !important;
-	}
-	.avgrund-popup.stack {
-		-webkit-transform: scale( 1.5 );
-		   -moz-transform: scale( 1.5 );
-		    -ms-transform: scale( 1.5 );
-		     -o-transform: scale( 1.5 );
-		        transform: scale( 1.5 );
-	}
-	.avgrund-active .avgrund-popup.stack {
-		-webkit-transform: scale( 1.1 );
-		   -moz-transform: scale( 1.1 );
-		    -ms-transform: scale( 1.1 );
-		     -o-transform: scale( 1.1 );
-		        transform: scale( 1.1 );
-	}
+.avgrund-active .avgrund-popup-animate {
+	visibility: visible;
+	opacity: 1;
 
+	-webkit-transform: scale( 1.1 ) !important;
+	   -moz-transform: scale( 1.1 ) !important;
+	    -ms-transform: scale( 1.1 ) !important;
+	     -o-transform: scale( 1.1 ) !important;
+	        transform: scale( 1.1 ) !important;
+}
+
+.avgrund-popup.stack {
+	-webkit-transform: scale( 1.5 );
+	   -moz-transform: scale( 1.5 );
+	    -ms-transform: scale( 1.5 );
+	     -o-transform: scale( 1.5 );
+	        transform: scale( 1.5 );
+}
+
+.avgrund-active .avgrund-popup.stack {
+	-webkit-transform: scale( 1.1 );
+	   -moz-transform: scale( 1.1 );
+	    -ms-transform: scale( 1.1 );
+	     -o-transform: scale( 1.1 );
+	        transform: scale( 1.1 );
+}
 
 .avgrund-ready #adEdit-workspace,
-/* .avgrund-ready .avgrund-contents, */
-.avgrund-ready .avgrund-popup
-/* .avgrund-ready .avgrund-cover */ {
+.avgrund-ready .avgrund-popup {
 	-webkit-transform-origin: 50% 50%;
 	   -moz-transform-origin: 50% 50%;
 	    -ms-transform-origin: 50% 50%;
@@ -554,6 +552,7 @@ body {
 	     -o-transition: 0.3s all cubic-bezier(0.250, 0.460, 0.450, 0.940);
 	        transition: 0.3s all cubic-bezier(0.250, 0.460, 0.450, 0.940);
 }
+
 .avgrund-ready .avgrund-popup.no-transition {
 	-webkit-transition: none;
 	   -moz-transition: none;
