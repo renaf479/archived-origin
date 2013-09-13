@@ -39,23 +39,19 @@
 	</div>
 	<!-- Bar above workspace -->
 	<div id="workspace-bar" class="originUI-bgColor originUI-borderColor">
-		<div id="schedule">
-			<select class="originUI-select originUI-bgColorSecondary" data-ng-model="ui.scheduleId" data-ng-options="schedule.id as schedule.start_date+' thru '+schedule.end_date for schedule in originAdSchedule|filter:{type:ui.auto}">
+		<div id="schedule" class="inline">
+			<div id="schedule-add" class="originUI-iconHover inline" data-ng-click="avgrundOpen('schedule')"></div>
+			<select id="schedule-select" class="originUI-select originUI-bgColorSecondary inline" data-ng-model="ui.scheduleId" data-ng-options="schedule.id as schedule.start_date+' thru '+schedule.end_date for schedule in originAdSchedule|filter:{type:ui.auto}">
 			</select>
-			
-			<!--
-			
-			<select id="properties-template" class="originUI-select originUI-bgColorSecondary" data-ng-model="originAdProperties.template_id" data-ng-options="template.OriginTemplate.id as template.OriginTemplate.name for template in originAdTemplates|filter:{OriginTemplate.status:'1'}" data-ng-change="propertiesTemplate(originAdProperties.template_id)">
-				<option style="display:none" value="">Load Template</option>
-			</select>
-			
-			-->
 		</div>
-		
-		<div id="state">
-			<input-switch class="originUI-switchDual" name="stateSwitch" active="Initial" inactive="Triggered" data-ng-model="ui.stateSwitch" data-ng-change="uiState()" data-ng-checked="ui.stateSwitch === true"></input-switch>
+		<div id="auto" class="inline">
+			<button id="auto-auto" class="originUI-button originUI-bgHover originUI-bgColor originUI-sprite" data-ng-show="ui.auto === 'auto'" data-ng-click="uiAuto()">Auto</button>
+			<button id="auto-default" class="originUI-button originUI-bgHover originUI-bgColor originUI-sprite" data-ng-show="ui.auto === 'default'" data-ng-click="uiAuto()">Default</button>
 		</div>
-		<div id="platform">
+		<div id="state" class="inline">
+			<input-switch id="state-switch" class="originUI-switchDual" name="stateSwitch" active="Initial" inactive="Triggered" data-ng-model="ui.stateSwitch" data-ng-change="uiState()" data-ng-checked="ui.stateSwitch === true"></input-switch>
+		</div>
+		<div id="platform" class="inline">
 			<img class="platform-icon" data-ng-repeat="platform in ['Desktop', 'Tablet', 'Mobile']" data-ng-click="uiPlatform(platform)" data-ng-src="/img/{{platform}}-26x26.png" data-ng-class="{'inactive': !originAd.config[platform].Initial.width, 'active': ui.platform === platform}"/>
 		</div>
 	</div>
@@ -77,6 +73,9 @@
 				</div>
 				<div class="avgrund-content" data-ng-if="avgrund.name === 'properties'">
 					<?php echo $this->element('creator/properties');?>
+				</div>
+				<div class="angrund-content" data-ng-if="angrund.name === 'schedule'">
+					<?php echo $this->element('creator/schedule');?>
 				</div>
 				<div class="avgrund-content" data-ng-if="avgrund.name === 'scripts'">
 					<textarea data-ng-model="originAdScripts.content_css" data-ui-codemirror="{mode:'htmlmixed',lineWrapping:true,theme:'night'}" data-ui-refresh='avgrund.codeMirror'></textarea>

@@ -366,6 +366,10 @@ li {
 .originUI-iconHover {
 	opacity: .2;
 	cursor: pointer;
+	-webkit-transition: opacity .25s ease;
+	-moz-transition: opacity .25s ease;
+	-o-transition: opacity .25s ease;
+	transition: opacity .25s ease;
 }
 
 .originUI-iconHover:hover {
@@ -394,6 +398,15 @@ li {
 
 .originUI-shadow {
 	box-shadow: 0 0 4px 1px rgba(0, 0, 0, .5);
+}
+
+.originUI-sprite:before {
+	content: '';
+	position: absolute;
+	background-image: url(/img/sprite.png);
+	background-repeat: no-repeat;
+	width: 26px;
+	height: 26px;
 }
 
 .originUI-textColor {

@@ -102,22 +102,36 @@ body {
 	background-color: rgba(255, 255, 255, .1);
 }
 
-.panel-accordion .accordion-heading {
+.panel-accordion .accordion-heading,
+.panel-button {
+	position: relative;
+}
+
+.panel-accordion .accordion-heading:after,
+.panel-button:after {
+	content: '';
+	position: absolute;
+	background-image: url(/img/sprite.png);
 	background-repeat: no-repeat;
-	background-position: right 15px center;
-	background-size: 18px 18px;
+	/* background-position: right 15px center; */
+	/* background-size: 18px 18px; */
+	width: 26px;
+	height: 26px;
+	top: 50%;
+	right: 15px;
+	transform: translate(0, -50%);
 }
 
-#panel-assets .accordion-heading {
-	background-image: url(/img/assets-26x26.png);
+#panel-assets .accordion-heading:after {
+	background-position: 0 center;	
 }
 
-#panel-components .accordion-heading {
-	background-image: url(/img/component-add-26x26.png);
+#panel-components .accordion-heading:after {
+	background-position: -52px center;
 }
 
-#panel-layers .accordion-heading {
-	background-image: url(/img/layers-26x26.png);
+#panel-layers .accordion-heading:after {
+	background-position: -130px center;
 }
 
 .panel-accordion .originUI-list {
@@ -133,19 +147,16 @@ body {
 } 
 
 .panel-button {
-	background-repeat: no-repeat;
-	background-position: right 15px center;
 	border-bottom: 1px solid #303030;
 	text-indent: 10px;
 }
 
-#panel-properties {
-	background-image: url(/img/settings-18x18.png);
+#panel-properties:after {
+	background-position: -156px center;
 }
 
-#panel-scripts {
-	background-image: url(/img/scripts-26x26.png);
-	background-size: 18px 18px;
+#panel-scripts:after {
+	background-position: -234px center;
 }
 
 
@@ -162,7 +173,7 @@ body {
 }
 
 #titlebar-exit {
-	background: transparent url(/img/exit-26x26.png) no-repeat left center;
+	background: transparent url(/img/sprite.png) no-repeat -104px center;
 	margin: 0 5px;
 	width: 26px;
 	height: 100%;
@@ -295,16 +306,62 @@ body {
 	border-style: solid;
 }
 
+#workspace-bar > .inline {
+	height: 100%;
+}
+
 #schedule {
-	position: absolute;
-	left: 32px;
+	width: 150px;
+}
+
+#schedule-add {
+	background: transparent url(/img/sprite.png) no-repeat -26px center;
+	width: 26px;
+	height: inherit;
+	margin: 0 5px;
+	opacity: 1;
+}
+
+#schedule-select {
 	width: 100px;
+	height: 23px;
+	position: absolute;
 	top: 50%;
 	transform: translate(0, -50%);
 }
 
+#auto {
+	width: 100px;
+}
+
+#auto > .originUI-button {
+	padding: 0 5px;
+	border: 0 none;
+	height: 100%;
+	position: relative;
+	text-align: left;
+	text-indent: 32px;
+	font-size: 18px;
+	font-variant: small-caps;	
+}
+
+#auto > .originUI-button:before {
+	left: 5px;
+	top: 50%;
+	transform: translate(0, -50%);
+}
+
+#auto-auto:before {
+	background-position: -312px center;
+}
+
+#auto-default:before {
+	background-position: -338px center;
+}
+
 #state {
 	width: 200px;
+	height: 23px !important;
 	position: absolute;
 	left: 50%;
 	top: 50%;
@@ -313,6 +370,7 @@ body {
 
 #platform {
 	position: absolute;
+	height: 26px !important;
 	right: 15px;
 	top: 50%;
 	transform: translate(0, -50%);
@@ -320,7 +378,7 @@ body {
 
 .platform-icon {
 	cursor: pointer;
-	margin: 0 15px;
+	margin: 0 7px;
 	opacity: .1	
 }
 

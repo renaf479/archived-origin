@@ -26,22 +26,6 @@ var creatorEditController = function($scope, $rootScope, $filter, Rest, Notifica
 		return false;
 	}
 	
-	//Finds the proper schedule ID based on parameters
-	function _uiSchedule() {
-		angular.forEach($scope.originAdSchedule, function(value, key) {
-			//Condition for first run
-			if((!$scope.ui.scheduleId && !$scope.ui.schedule) 
-				&& ($scope.ui.auto === value.type && value.start_date === null)) {
-				
-				$scope.ui.scheduleId 	= value.id;
-				$scope.ui.schedule 		= key;
-			} else if($scope.ui.auto === value.type && $scope.ui.scheduleId === value.id) {
-				$scope.ui.scheduleId	= value.id;
-				$scope.ui.schedule		= key;
-			}
-		});
-	}	
-	
 	//Refreshes the assets library
 	function _updateAssets() {
 		Rest.get('library/'+$scope.originAd.id).then(function(response) {
@@ -58,11 +42,28 @@ var creatorEditController = function($scope, $rootScope, $filter, Rest, Notifica
 		});
 	}
 	
+		
+	//Finds the proper schedule ID based on parameters
+	function _updateSchedule() {
+		angular.forEach($scope.originAdSchedule, function(value, key) {
+			//Condition for first run
+			if((!$scope.ui.scheduleId && !$scope.ui.schedule) 
+				&& ($scope.ui.auto === value.type && value.start_date === null)) {
+				$scope.ui.scheduleId	= value.id;
+				$scope.ui.schedule		= key;
+			} else if($scope.ui.auto === value.type && $scope.ui.scheduleId === value.id) {
+				$scope.ui.scheduleId	= value.id;
+				$scope.ui.schedule		= key;
+			}
+		});
+		
+	}	
+	
 	//Refresh workspace data
 	function _updateWorkspace(data) {
 		$scope.originAd				= data.OriginAd;
 		$scope.originAdSchedule		= data.OriginAdSchedule;
-		_uiSchedule();
+		_updateSchedule();
 		_updateLayers();
 	}
 
@@ -205,28 +206,6 @@ var creatorEditController = function($scope, $rootScope, $filter, Rest, Notifica
 		
 		switch(type) {
 			case 'component':
-				/*
-				$rootScope.editor = model;
-				//Match model against list of components and override
-				var model = _findComponent(model);
-				$scope.modal = {
-					id:			'componentModal',
-					callback: {
-						close:	'modalComponent',
-						remove:	'component-remove',
-						submit:	'component-update'	
-					},
-					class:		'modal-'+model.alias,
-					config:		true,
-					content:	'/administrator/get/components/'+model.alias,
-					modal:		'modalComponent',
-					remove:		true,
-					submit:		'Update',
-					title:		model.name+' Editor',
-					thumbnail:	model.config.img_icon
-				};
-				
-				*/
 				$rootScope.editor = model;
 				//Match model against list of components and override
 				var model = _findComponent(model);
@@ -273,6 +252,16 @@ var creatorEditController = function($scope, $rootScope, $filter, Rest, Notifica
 					ui: {
 						cancel: 'Cancel',
 						submit: 'Save'
+					}
+				}
+				break;
+			case 'schedule':
+				$scope.avgrund = {
+					header: 'Schedule',
+					name:	'schedule',
+					ui: {
+						cancel: 'Cancel',
+						submit: 'Save'	
 					}
 				}
 				break;
@@ -349,14 +338,24 @@ var creatorEditController = function($scope, $rootScope, $filter, Rest, Notifica
 	/**
 	* UI methods
 	*/
-	$scope.$watchCollection('[ui.auto, ui.scheduleId]', function(newVal, oldVal) {
+	$scope.$watch('ui.scheduleId', function(newVal, oldVal) {
 		//if(!angular.equals(newVal, oldVal)) {
-			_uiSchedule();
+			_updateSchedule();
 		//}	
 	})
 	
 	$scope.uiAuto = function() {
-		
+		$scope.ui.scheduleId	= '';
+		$scope.ui.schedule		= '';
+		switch($scope.ui.auto) {
+			case 'auto':
+				$scope.ui.auto = 'default';
+				break;
+			case 'default':
+				$scope.ui.auto = 'auto';
+				break;
+		}
+		_updateSchedule();
 	}
 	
 	//Switches platform view
