@@ -37,7 +37,10 @@
 			<div id="panel-scripts" class="panel-button originUI-bgHover" data-ng-click="avgrundOpen('scripts')">Scripts</div>
 		</accordion>
 	</div>
-	<!-- Bar above workspace -->
+	<!-- Workspace -->
+	<div id="adEdit-workspace" class="originUI-bgColor originUI-bgTexture">
+	
+		<!-- Bar above workspace -->
 	<div id="workspace-bar" class="originUI-bgColor originUI-borderColor">
 		<div id="schedule" class="inline">
 			<div id="schedule-add" class="originUI-iconHover inline" data-ng-click="avgrundOpen('schedule')"></div>
@@ -55,8 +58,10 @@
 			<img class="platform-icon" data-ng-repeat="platform in ['Desktop', 'Tablet', 'Mobile']" data-ng-click="uiPlatform(platform)" data-ng-src="/img/{{platform}}-26x26.png" data-ng-class="{'inactive': !originAd.config[platform].Initial.width, 'active': ui.platform === platform}"/>
 		</div>
 	</div>
-	<!-- Workspace -->
-	<div id="adEdit-workspace" class="originUI-bgColor originUI-bgTexture">
+	
+	
+	
+	
 		<div id="workspace" workspace>
 			<workspace-content class="workspace-content originUI-bgHover" data-ng-repeat="content in originAdSchedule[ui.schedule]['OriginAd'+ui.platform+ui.state+'Content']" data-ng-model="content" data-ng-dblclick="$parent.avgrundOpen('component', ngModel)"></workspace-content>
 		</div>

@@ -400,13 +400,23 @@ li {
 	box-shadow: 0 0 4px 1px rgba(0, 0, 0, .5);
 }
 
-.originUI-sprite:before {
+.originUI-sprite {
+	z-index: 0;
+}
+
+.originUI-sprite:before,
+.originUI-spriteSmall:before {
 	content: '';
 	position: absolute;
 	background-image: url(/img/sprite.png);
 	background-repeat: no-repeat;
 	width: 26px;
 	height: 26px;
+	z-index: -1;
+}
+
+.originUI-spriteSmall:before {
+	background-image: url(/img/sprite-small.png);
 }
 
 .originUI-textColor {

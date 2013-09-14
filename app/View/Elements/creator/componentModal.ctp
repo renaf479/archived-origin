@@ -1,4 +1,4 @@
-	<a href="javascript:void(0)" id="componentModal-remove" class="originUI-hover" data-ng-click="modalSubmit('{{modal.callback.remove}}')" data-ng-if="modal.remove">remove</a>
+	<a href="javascript:void(0)" id="componentModal-remove" class="originUI-hover originUI-iconHover" data-ng-click="modalSubmit('{{modal.callback.remove}}')" data-ng-if="modal.remove">remove</a>
 	<div data-ng-include src="modal.content" id="componentModal-editor" class="inline"></div><!--
 	--><div id="componentModal-config" class="inline originUI-bgColorSecondary">
 		<h4 id="componentModal-header">Properties</h4>

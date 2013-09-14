@@ -23,15 +23,10 @@ body {
 	position: absolute;
 	top: 8px;
 	right: 10px;
-	background: transparent url(/img/delete-26x26.png) no-repeat 0 0;
+	background: transparent url(/img/sprite.png) no-repeat -208px center;
 	width: 26px;
 	height: 26px;
 	text-indent: -5000em;
-	opacity: .2;
-}
-
-#componentModal-remove:hover {
-	opacity: 1;
 }
 
 #componentModal-editor {
@@ -86,6 +81,7 @@ body {
 	border-width: 0 2px 0 0;
 	border-style: solid;
 	overflow: auto;
+	z-index: 0;
 }
 
 .panel-accordion .accordion-toggle,
@@ -107,30 +103,29 @@ body {
 	position: relative;
 }
 
-.panel-accordion .accordion-heading:after,
-.panel-button:after {
+.panel-accordion .accordion-heading:before,
+.panel-button:before {
 	content: '';
 	position: absolute;
 	background-image: url(/img/sprite.png);
 	background-repeat: no-repeat;
-	/* background-position: right 15px center; */
-	/* background-size: 18px 18px; */
 	width: 26px;
 	height: 26px;
 	top: 50%;
 	right: 15px;
 	transform: translate(0, -50%);
+	z-index: -1;
 }
 
-#panel-assets .accordion-heading:after {
+#panel-assets .accordion-heading:before {
 	background-position: 0 center;	
 }
 
-#panel-components .accordion-heading:after {
+#panel-components .accordion-heading:before {
 	background-position: -52px center;
 }
 
-#panel-layers .accordion-heading:after {
+#panel-layers .accordion-heading:before {
 	background-position: -130px center;
 }
 
@@ -151,11 +146,11 @@ body {
 	text-indent: 10px;
 }
 
-#panel-properties:after {
+#panel-properties:before {
 	background-position: -156px center;
 }
 
-#panel-scripts:after {
+#panel-scripts:before {
 	background-position: -234px center;
 }
 
@@ -193,7 +188,7 @@ body {
 #adEdit-workspace,
 #adEdit-workspaceAvgrund {
 	position: absolute;
-	top: 66px;
+	top: 33px;
 	left: 202px;
 	bottom: 27px;
 	right: 0;
@@ -299,11 +294,12 @@ body {
 #workspace-bar {
 	position: absolute;
 	height: 32px;
-	top: 33px;
-	left: 202px;
+	top: 0;
+	left: 0;
 	right: 0;
 	border-width: 0 0 1px 0;
 	border-style: solid;
+	z-index: 10000;
 }
 
 #workspace-bar > .inline {
