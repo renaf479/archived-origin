@@ -47,10 +47,11 @@ var creatorEditController = function($scope, $rootScope, $filter, Rest, Notifica
 	function _updateSchedule() {
 		angular.forEach($scope.originAdSchedule, function(value, key) {
 			//Condition for first run
-			if((!$scope.ui.scheduleId && !$scope.ui.schedule) 
-				&& ($scope.ui.auto === value.type && value.start_date === null)) {
+			//if((!$scope.ui.scheduleId && !$scope.ui.schedule) 
+			if($scope.ui.reset && ($scope.ui.auto === value.type && value.start_date === null)) {
 				$scope.ui.scheduleId	= value.id;
 				$scope.ui.schedule		= key;
+				$scope.ui.reset 		= false;
 			} else if($scope.ui.auto === value.type && $scope.ui.scheduleId === value.id) {
 				$scope.ui.scheduleId	= value.id;
 				$scope.ui.schedule		= key;
@@ -74,6 +75,7 @@ var creatorEditController = function($scope, $rootScope, $filter, Rest, Notifica
 		$scope.ui = {
 			auto:		'default',
 			platform:	'Desktop',
+			reset:		true,
 			schedule:	'',
 			scheduleId:	'',
 			state:		'Initial',
@@ -339,24 +341,15 @@ var creatorEditController = function($scope, $rootScope, $filter, Rest, Notifica
 	* UI methods
 	*/
 	$scope.$watch('ui.scheduleId', function(newVal, oldVal) {
-		//if(!angular.equals(newVal, oldVal)) {
+		if(newVal) {
 			_updateSchedule();
-		//}	
+		}
 	})
 	
-	$scope.uiAuto = function() {
-		$scope.ui.scheduleId	= '';
-		$scope.ui.schedule		= '';
-		switch($scope.ui.auto) {
-			case 'auto':
-				$scope.ui.auto = 'default';
-				break;
-			case 'default':
-				$scope.ui.auto = 'auto';
-				break;
-		}
+	$scope.$watch('ui.auto', function(newVal) {
+		$scope.ui.reset = true;
 		_updateSchedule();
-	}
+	})
 	
 	//Switches platform view
 	$scope.uiPlatform = function(model) {

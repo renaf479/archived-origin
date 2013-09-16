@@ -4,12 +4,12 @@
 		var components	= '<?php echo $components;?>';
 	</script>
 	<!-- Bar across top of page -->
-	<div id="title-bar" class="originUI-borderColor">
+	<div id="title-bar" class="originUI-borderColor originUI-noSelect">
 		<div id="titlebar-exit" class="originUI-hover originUI-iconHover inline" data-ng-click="creatorSaveExit()">exit</div>
 		<h1 id="titlebar-title" class="originUI-textColor inline">{{originAd.name}}</h1>
 	</div>
 	<!-- Left panel -->
-	<div id="panel" class="originUI-bgColor originUI-borderColor">
+	<div id="panel" class="originUI-bgColor originUI-borderColor originUI-noSelect">
 		<accordion id="">
 			<accordion-group id="panel-assets" heading="Assets" class="panel-accordion" data-ng-class="{true:'active', false:''}[isOpen]">
 				<ul class="originUI-list originUI-bgColorSecondary">
@@ -38,7 +38,7 @@
 		</accordion>
 	</div>
 	<!-- Workspace -->
-	<div id="adEdit-workspace" class="originUI-bgColor originUI-bgTexture">
+	<div id="adEdit-workspace" class="originUI-bgColor originUI-bgTexture originUI-noSelect">
 	
 		<!-- Bar above workspace -->
 		<div id="workspace-bar" class="originUI-bgColor originUI-borderColor">
@@ -48,11 +48,9 @@
 				</select>
 			</div>
 			<div id="auto" class="inline">
-				<input type="checkbox" data-ng-checked="ui.auto === 'auto'" data-ng-click="uiAuto()"/>
-<!--
-				<button id="auto-auto" class="originUI-button originUI-bgHover originUI-bgColor originUI-sprite" data-ng-show="ui.auto === 'auto'" data-ng-click="uiAuto()">Auto</button>
-				<button id="auto-default" class="originUI-button originUI-bgHover originUI-bgColor originUI-sprite" data-ng-show="ui.auto === 'default'" data-ng-click="uiAuto()">Default</button>
--->
+				<!-- <input type="checkbox" data-ng-checked="ui.auto === 'auto'" data-ng-click="uiAuto()"/> -->
+				<input-checkbox class="inline" name="autoInput" data-ng-model="ui.auto" data-ng-checked="ui.auto === 'auto'" data-ng-true-value='auto' data-ng-false-value='default'></input-checkbox>
+				<label class="inline originUI-hover" data-ng-class="{disabled: ui.auto === 'default'}">Auto State</label>
 			</div>
 			<div id="state" class="inline">
 				<input-switch id="state-switch" class="originUI-switchDual" name="stateSwitch" active="Initial" inactive="Triggered" data-ng-model="ui.stateSwitch" data-ng-change="uiState()" data-ng-checked="ui.stateSwitch === true"></input-switch>
@@ -61,12 +59,15 @@
 				<img class="platform-icon" data-ng-repeat="platform in ['Desktop', 'Tablet', 'Mobile']" data-ng-click="uiPlatform(platform)" data-ng-src="/img/{{platform}}-26x26.png" data-ng-class="{'inactive': !originAd.config[platform].Initial.width, 'active': ui.platform === platform}"/>
 			</div>
 		</div>
-	
-	
-	
-	
+		<!-- Workspace Actual -->
 		<div id="workspace" workspace>
 			<workspace-content class="workspace-content originUI-bgHover" data-ng-repeat="content in originAdSchedule[ui.schedule]['OriginAd'+ui.platform+ui.state+'Content']" data-ng-model="content" data-ng-dblclick="$parent.avgrundOpen('component', ngModel)"></workspace-content>
+		</div>
+		<!-- Bar below workspace -->
+		<div id="workspace-options" class="originUI-bgColorSecondary originUI-borderColor">
+			<a href="javascript:void(0)" id="workspaceOptions-publish" class="workspaceOptions-button originUI-borderColorSecondary originUI-bgHover inline" data-ng-click="avgrundOpen('embed')">Publish</a>
+			<a href="/demo/Origin/<?php echo $origin_ad_hash;?>" id="workspaceOptions-preview" class="workspaceOptions-button originUI-borderColorSecondary originUI-bgHover inline" target="_blank">Preview</a>
+			<a href="/administrator/demo/create/{{originAd.id}}" id="workspaceOptions-demo" class="workspaceOptions-button originUI-borderColorSecondary originUI-bgHover inline" target="_blank">Demo</a>
 		</div>
 	</div>
 	<div id="adEdit-workspaceAvgrund">
@@ -96,12 +97,7 @@
 			</form>
 		</div>
 	</div>
-	<!-- Bar below workspace -->
-	<div id="workspace-options" class="originUI-bgColorSecondary originUI-borderColor">
-		<a href="javascript:void(0)" id="workspaceOptions-publish" class="workspaceOptions-button originUI-borderColorSecondary originUI-bgHover inline" data-ng-click="avgrundOpen('embed')">Publish</a>
-		<a href="/demo/Origin/<?php echo $origin_ad_hash;?>" id="workspaceOptions-preview" class="workspaceOptions-button originUI-borderColorSecondary originUI-bgHover inline" target="_blank">Preview</a>
-		<a href="/administrator/demo/create/{{originAd.id}}" id="workspaceOptions-demo" class="workspaceOptions-button originUI-borderColorSecondary originUI-bgHover inline" target="_blank">Demo</a>
-	</div>
+	
 	
 	<!-- Modals -->
 	<div modal="modalComponent" close="modalClose('modalComponent')" options="modalOption">

@@ -149,6 +149,36 @@ angular.module('platformApp.directives', [])
 			}
 		}
 	})
+	.directive('inputCheckbox', function() {
+		var template = '<div class="originUI-checkbox">'+
+							'<input type="checkbox" id="{{name}}" name="{{name}}" class="originUI-checkboxInput" data-ng-change="ngChange" data-ng-checked="ngChecked" data-ng-class="ngClass" data-ng-disabled="ngDisabled" data-ng-model="ngModel" data-ng-true-value="{{ngTrueValue}}" data-ng-false-value="{{ngFalseValue}}"/>'+
+							'<label for="{{name}}" class="originUI-checkboxLabel"></label>'+
+						'</div>';
+		return {
+			replace: true,
+			restrict: 'E',
+			scope: {
+				name:		'@',
+				ngChange:	'=',
+				ngChecked:	'=',
+				ngClass:	'=',
+				ngDisabled:	'=',
+				ngModel:	'=',
+				ngTrueValue:'@',
+				ngFalseValue:'@'
+			},
+			template: template
+		}
+		/*
+		
+		<input type="checkbox" data-ng-checked="ui.auto === 'auto'" data-ng-click="uiAuto()"/>
+		
+						<div class="squaredThree">
+	<input type="checkbox" value="None" id="squaredThree" name="check" />
+	<label for="squaredThree"></label>
+</div>
+		*/
+	})
 	.directive('inputSwitch', function() {
 		var template = '<div>' + 
 							'<input type="checkbox" name="{{name}}" class="originUI-switchInput" data-ng-class="ngClass" id="{{name}}" data-ng-model="ngModel" data-ng-change="ngChange()" data-ng-checked="ngChecked" data-ng-disabled="ngDisabled"/>'+
@@ -170,15 +200,13 @@ angular.module('platformApp.directives', [])
 				name: 	'@',
 				active:	'@',
 				inactive:'@',
-				ngModel:'=',
 				ngChange:'&',
 				ngChecked:'=',
 				ngClass: '=',
-				ngDisabled:'='
+				ngDisabled:'=',
+				ngModel:'=',
 			},
-			template: template,
-			link: function(scope, element, attrs) {
-			}
+			template: template
 		}	
 	})
 	.directive('inputText', function() {

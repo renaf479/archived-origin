@@ -60,7 +60,7 @@ var originAdApp = angular.module('originAdApp', ['originAd.directives', 'originA
 								endDate		= endDate.setDate(endDate.getDate() + 1);
 							
 							if(currentDate >= startDate && currentDate <= endDate) {
-								$rootScope.originAd_content = $rootScope.origin_ad.OriginSchedule[i];
+								$rootScope.originAd_content = $rootScope.origin_ad.OriginAdSchedule[i];
 								date = true;
 							}
 						}

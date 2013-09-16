@@ -190,7 +190,7 @@ body {
 	position: absolute;
 	top: 33px;
 	left: 202px;
-	bottom: 27px;
+	bottom: 0;
 	right: 0;
 	overflow: auto;
 }
@@ -327,36 +327,17 @@ body {
 }
 
 #auto {
-	width: 100px;
+	width: 150px;
+	line-height: 35px;
+	font-variant: small-caps
 }
 
-#auto > .originUI-button {
-	padding: 0 5px;
-	border: 0 none;
-	height: 100%;
-	position: relative;
-	text-align: left;
-	text-indent: 32px;
-	font-size: 18px;
-	font-variant: small-caps;	
-}
-
-#auto > .originUI-button:before {
-	left: 5px;
-	top: 50%;
-	transform: translate(0, -50%);
-}
-
-#auto-auto:before {
-	background-position: -312px center;
-}
-
-#auto-default:before {
-	background-position: -338px center;
+#auto .originUI-checkbox {
+	margin-right: 5px;
 }
 
 #state {
-	width: 200px;
+	width: 150px;
 	height: 23px !important;
 	position: absolute;
 	left: 50%;
@@ -395,7 +376,7 @@ body {
 	position: absolute;
 	height: 26px;
 	bottom: 0;
-	left: 202px;
+	left: 0;
 	right: 0;
 	border-width: 1px 0 0 0;
 	border-style: solid;
@@ -497,14 +478,8 @@ body {
 	background-image: url(/img/scripts-26x26.png);
 }
 
-#component-form {
-}
-
-#embed-form {
-}
-
-#scripts-form {
-	height: 290px;
+#scripts .CodeMirror {
+	height: 300px;
 }
 
 .avgrund-content {
