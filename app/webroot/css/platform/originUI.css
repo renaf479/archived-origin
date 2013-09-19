@@ -116,6 +116,7 @@ li {
 
 .CodeMirror {
 	width: inherit;
+	height: inherit;
 }
 
 .modal {

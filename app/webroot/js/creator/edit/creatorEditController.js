@@ -68,9 +68,7 @@ var creatorEditController = function($scope, $rootScope, $filter, Rest, Notifica
 		_updateLayers();
 	}
 
-	/**
-	* Initialization
-	*/
+	//Initialization
 	$scope.init = function() {
 		$scope.ui = {
 			auto:		'default',
@@ -198,8 +196,9 @@ var creatorEditController = function($scope, $rootScope, $filter, Rest, Notifica
 	}
 	
 	/**
-	* Properties
+	* Avgrund Modal
 	*/
+	//Open
 	$scope.avgrundOpen = function(type, model) {
 		var selector;
 		$scope.originAdProperties 	= ''; 
@@ -346,6 +345,7 @@ var creatorEditController = function($scope, $rootScope, $filter, Rest, Notifica
 		}
 	})
 	
+	//Auto view
 	$scope.$watch('ui.auto', function(newVal) {
 		$scope.ui.reset = true;
 		_updateSchedule();
