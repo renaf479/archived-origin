@@ -362,4 +362,10 @@ var creatorEditController = function($scope, $rootScope, $filter, Rest, Notifica
 		$scope.ui.state	= ($scope.ui.stateSwitch)? 'Triggered': 'Initial';
 		_updateLayers();
 	}
+	
+	
+	$scope.testing = function(data) {
+		console.log(data);
+		return 'test';
+	}
 };
