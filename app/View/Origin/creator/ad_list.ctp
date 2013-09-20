@@ -59,7 +59,8 @@
 		</div>
 	</div>
 	<p class="originUI-filterEmpty" ng:hide="filteredAds.length || !ads.length">No results</p>
-	
+<?php
+/*	
 	<div modal="modalEmbed" close="adEmbedClose()" options="originModalOptions">
 		<form id="modal-embed" class="originUI-bgColorSecondary originUI-modal">
 			<h3 id="modalEmbed-header" class="originUI-tileHeader originUI-borderColor originUI-textColor">Ad Embed Code</h3>
@@ -73,6 +74,7 @@
 		</form>
 	</div>
 	
+
 	<div modal="modalDemo" close="adDemoClose()" options="originModalOptions">
 		<form id="modal-demo" class="originUI-bgColorSecondary originUI-modal">
 			<h3 id="modalDemo-header" class="originUI-tileHeader originUI-borderColor originUI-textColor">Ad Demo Pages</h3>
@@ -114,6 +116,8 @@
 		</form>
 	</div>
 </div>
+*/
+?>
 <?php
 	echo $this->Minify->script(array('creator/list/adListController', 'creator/list/adListDirectives', 'creator/list/adListServices'));
 	echo $this->Minify->css(array('platform/adList'));
