@@ -21,6 +21,8 @@ platformApp.factory('AdListServices', function($rootScope, Rest) {
 					} else {
 						ad.backgroundImage	= '/img/logo-small.png';
 					}
+					
+					$rootScope.originAd = response.OriginAd;
 				});
 			}
 		},

@@ -351,6 +351,18 @@ var creatorEditController = function($scope, $rootScope, $filter, Rest, Notifica
 		_updateSchedule();
 	})
 	
+	//Save and Exit
+	$scope.uiExit = function() {
+		var post = {};
+			post.data			= $scope.originAdSchedule;
+			post.originAd_id	= $scope.originAd.id;
+			post.route			= 'creatorWorkspaceUpdate';
+		
+		Rest.post(post).then(function() {
+			window.location = '/administrator/';
+		});
+	}
+	
 	//Switches platform view
 	$scope.uiPlatform = function(model) {
 		$scope.ui.platform = model;

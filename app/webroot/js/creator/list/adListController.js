@@ -1,15 +1,69 @@
-var adListController = function($scope, $rootScope, $filter, Notification, Rest, AdListServices, Modal) {
+var adListController = function($scope, $rootScope, $filter, $modal, Notification, Rest, AdListServices, Modal) {
 	$scope.expandShow 		= 'details';
 	$scope.editor 			= {};
 	$scope.editor.advance 	= false;
-
-
-	Rest.get('templates').then(function(response) {
-		$scope.templates = response;
-		Rest.get('ads').then(function(response) {
-			$scope.ads	= response.origin_ads;
-		});
-	});
+	
+	//Init
+	$scope.init = function() {
+		Rest.get('templates').then(function(response) {
+			$scope.templates = response;
+			Rest.get('ads').then(function(response) {
+				$scope.ads	= response.origin_ads;
+			});
+		});	
+	}
+	
+	/**
+	* Modal Methods
+	*/
+	
+	//Modal open
+	$scope.modal = function(type) {
+	
+		switch(type) {
+			case 'create':
+				$scope.modalScope = {
+					button: {
+						cancel: 'Cancel',
+						submit: 'Create'	
+					},
+					class:		(originAdmin)? 'modalCreateExpand':'modalCreate',
+					header: 	'Create New Ad',
+					id:			'properties',
+					template: 	'/administrator/get/element/creator/properties',
+					type:		'create'
+				}
+				break;
+			case 'embed':
+				$scope.modalScope = {
+					button: {
+						cancel: 'Close',
+						submit: 'Email'
+					},
+					class:		'',
+					header:		'Ad Embed Code',
+					template: 	'/administrator/get/element/creator/embed',
+					type:		'embed'
+				}
+				break;
+		}
+	
+		var options = {
+			templateUrl: 	'modal',
+			//template: 		'test,
+			controller:		'modalController',
+			resolve: {
+				modalScope: function() {
+					return $scope.modalScope;
+				}
+			},
+			windowClass:	$scope.modalScope.class,
+		};
+		var modalInstance = $modal.open(options);
+	}
+	
+	
+	
 	
 	/**
 	* Tile expansion
@@ -180,5 +234,36 @@ var adListController = function($scope, $rootScope, $filter, Notification, Rest,
 		Rest.post($scope.editor).then(function(response) {
 			window.location		= '/administrator/Origin/ad/edit/'+response;
 		});
+	}
+}
+
+
+
+var modalController = function($scope, $rootScope, $modalInstance, modalScope) {
+	$scope.modalScope = modalScope;
+	
+	//Modal close
+	$scope.cancel = function() {
+		switch(modalScope.type) {
+			case 'create':
+				delete $rootScope.originAdProperties;
+				break;
+		}
+		$modalInstance.dismiss('cancel');
+	}
+	
+	//Modal submit
+	$scope.submit = function() {
+		var post;
+		switch(modalScope.type) {
+			case 'create':
+				post		= $rootScope.originAdProperties;
+				post.route 	= 'creatorAdCreate';
+				
+				Rest.post(post).then(function(response) {
+					window.location = '/administrator/Origin/ad/edit/'+response;
+				});
+				break;
+		}
 	}
 }

@@ -86,7 +86,7 @@ Router::connect('/administrator/settings/users', array('plugin' => 'usermgmt', '
 //Router::connect('/administrator/users/status', array('controller' => 'origin', 'action' => 'dashboardUserStatus'));
 Router::connect('/administrator/Origin/Post', array('controller'=>'origin', 'action'=>'platformPost'));
 Router::connect('/administrator/Origin/upload', array('controller'=>'origin', 'action'=>'platformUpload'));
-Router::connect('/administrator/get/element/:element', array('controller'=>'origin', 'action'=>'platformLoadElement'));
+Router::connect('/administrator/get/element/:elementFolder/:element', array('controller'=>'origin', 'action'=>'platformLoadElement'));
 
 //JSON Feeds (Admin)
 Router::connect('/administrator/get/activity', array('controller'=>'origin', 'action'=>'jsonActivity'));

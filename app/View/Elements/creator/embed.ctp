@@ -62,7 +62,8 @@
 					mobile: false
 				};
 			
-				Rest.get('element/origin_embed').then(function(response) {
+				//Rest.get('element/origin_embed').then(function(response) {
+				Rest.element('creator', 'origin_embed').then(function(response) {
 					embed = response;
 					_refresh();
 				});

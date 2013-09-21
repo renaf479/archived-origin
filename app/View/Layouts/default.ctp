@@ -12,8 +12,11 @@ $userAdmin			= ($this->UserAuth->isAdmin())? 'originUI-superAdmin': '';
 		echo $this->Minify->css(array('plugins/normalize', 'plugins/bootstrap', 'plugins/codemirror', 'plugins/chardinjs', 'plugins/antiscroll', 'platform/originUI'));
 		echo $this->Minify->script(array('plugins/jquery', 'plugins/jquery.ui.widget', 'plugins/jquery.fileupload', 'plugins/chardinjs.min', 'plugins/jquery.mousewheel', 'plugins/nanoscroller', 'plugins/meny.min', 'plugins/angular/angularjs', 'plugins/angular/ui/ui-codemirror', /* 'plugins/angular/angular-ui', */ 'plugins/angular/angularui-bootstrap', 'platform/platformApp', 'platform/modalServices', 'platform/notificationServices', 'platform/restServices', 'controller', 'platform/platformDirectives', 'platform/filters'));
 	?>
+	<script type="text/javascript">
+		var originAdmin = Boolean(<?php echo $this->UserAuth->isAdmin();?>);
+	</script>
 </head>
-<body class="originUI-bgTexture <?php echo $userAdmin;?> <?php echo 'originClass-'.$this->params['action'];?>" ng:app="platformApp" ng:controller="originGeneral">
+<body class="originUI-bgTexture <?php echo $userAdmin;?> <?php echo 'originClass-'.$this->params['action'];?>" data-ng-app="platformApp" data-ng-controller="originGeneral">
 	<?php echo $this->element('platform/notification');?>
 	<?php echo $this->element('platform/bar');?>
 	<div id="container" class="wrapper">

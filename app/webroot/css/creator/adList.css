@@ -1,0 +1,438 @@
+/* =======================================================================
+	Override
+========================================================================== */
+
+
+/* =======================================================================
+	Header
+========================================================================== */
+#ad-list {
+	position: relative;
+}
+
+#ad-header {
+	margin: 15px 0;
+	height: 42px;
+	position: relative;
+}
+
+.originUI-header {
+	width: 300px;
+	line-height: 42px;	
+}
+
+#ad-create {
+	background-image: url(/img/creator-42x42.png);
+	background-repeat: no-repeat;
+	background-position: 10px center;
+	background-size: 26px 26px;
+	width: 250px;
+	height: 42px;
+	border-width: 0 2px 1px 0;
+	border-style: solid;
+	position: absolute;
+	right: 0;
+	top: 0;
+	font-size: 26px;
+	line-height: 42px;
+	text-indent: 50px;
+}
+
+
+/* =======================================================================
+	Ad Tiles
+========================================================================== */
+.ad-wrapper,
+.ad-tile {
+	width: 320px;
+	height: 115px;
+}
+
+.ad-wrapper {
+	margin: 0 20px 20px 0;
+}
+
+.ad-wrapper:nth-of-type(3n+3) {
+	margin-right: 0;
+}
+
+.ad-tile {
+	position: relative;
+	background-repeat: no-repeat;
+	background-size: 320px auto;
+	cursor: pointer;
+	border-width: 0 0 1px 2px;
+	border-style: solid;
+}
+
+.ad-tile:hover .adTile-id {
+	opacity: 1;
+}
+
+.adTile-id {
+	position: absolute;
+	top: 3px;
+	left: 5px;
+	opacity: .2;
+}
+
+.adTile-name {
+	position: absolute;
+	bottom: 0;
+	text-indent: 10px;
+	padding: 3px 0;
+	width: 100%;
+	left: 0;
+}
+
+.adTile-watermark {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	opacity: 0;
+	z-index: 0;
+	margin: -10px 0 0 -45px;
+}
+
+.adTile-meta {
+	display: none;
+}
+
+.adTile-create,
+.adTile-modify {
+	display: block;
+}
+
+.adTile-template {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	opacity: .2;
+	font-size: 10px;
+	width: 10px;
+	-webkit-transform:rotate(90deg);
+	-moz-transform:rotate(90deg);
+	-ms-transform:rotate(90deg);
+	-o-transform:rotate(90deg);
+	transform:rotate(90deg);
+}
+
+.adTile-showcase {
+	background: transparent url(/img/star-full-18x18.png) no-repeat 0 0;
+	width: 18px;
+	height: 18px;
+	position: absolute;
+	text-indent: -5000em;
+	right: 3px;
+	bottom: 3px;
+	opacity: .3;
+}
+
+/* =======================================================================
+	No-image Tile
+========================================================================== */
+
+.ad-tile.no-image .adTile-name {
+	width: 70%;
+	bottom: auto;
+	top: 50%;
+	left: 10px;
+	text-indent: 0;
+	margin-top: -22px;
+	font-size: 22px;
+	border-width: 0 0 1px 0;
+	border-style: solid;
+	padding: 0;
+}
+
+.ad-tile.no-image .adTile-watermark {
+	opacity: .05;
+}
+
+.ad-tile.no-image .adTile-meta {
+	display: block;
+	position: absolute;
+	top: 65px;
+	left: 10px;
+	opacity: .5;
+	font-size: 10px;
+}
+
+/* =======================================================================
+	Expand
+========================================================================== */
+.ad-wrapper.originUI-expand {
+	height: 445px;
+}
+
+.ad-wrapper.originUI-expand .ad-expand {
+	height: 285px;
+	width: 970px;
+	padding: 10px 15px;
+}
+
+.adExpand-name {
+	margin: 0;
+	font-size: 30px;
+	font-weight: normal;
+	line-height: 30px;
+	height: 30px;
+	margin-bottom: 30px;
+}
+
+body.originUI-superAdmin .adExpand-name {
+	text-indent: 36px;
+}
+
+.adExpand-showcase,
+.adExpand-remove {
+	position: absolute;
+	top: 10px;
+	width: 26px;
+	height: 26px;
+	text-indent: -5000em;
+	opacity: .3;
+}
+
+.adExpand-showcase:hover,
+.adExpand-remove:hover {
+	opacity: 1;
+}
+
+.adExpand-showcase {
+	background: transparent url(/img/star-empty-26x26.png) no-repeat center center;
+}
+
+.adExpand-showcase:hover {
+	background-image: url(/img/star-full-26x26.png);
+}
+
+.adExpand-showcase.showcase {
+	background-image: url(/img/star-full-26x26.png);
+}
+
+.adExpand-showcase.showcase:hover {
+	background-image: url(/img/star-empty-26x26.png);
+}
+
+
+.adExpand-remove {
+	background: transparent url(/img/delete-26x26.png) no-repeat center center;
+	right: 52px;
+}
+
+.adExpand-left,
+.adExpand-right {
+	height: 218px;
+}
+
+.adExpand-left {
+	width: 300px;
+	padding-right: 15px;
+	margin-right: 15px;
+	border-width: 0 1px 0 0;
+	border-style: solid;
+}
+
+/*
+.adExpand-center {
+	width: 200px;
+	height: 275px;
+	border-width: 0 1px;
+	border-style: solid;
+	padding: 0 15px;
+	margin: 0 15px;
+}
+*/
+
+.adExpand-right {
+	width: 635px;
+}
+
+/* =======================================================================
+	Expand - Links
+========================================================================== */
+.adExpand-button {
+	border-width: 0 0 1px 2px;
+	border-style: solid;
+	width: 100%;
+	height: 42px;
+	display: block;
+	margin: 0 0 15px 0;
+	position: relative;
+	
+	background-repeat: no-repeat;
+	background-position: right 10px center;
+	background-size: 18px 18px;
+	font-variant: small-caps;
+}
+
+.adExpand-button:hover {
+	background-color: rgba(255, 255, 255, .1);
+}
+
+.adExpand-creator {
+	background-image: url(/img/creator-42x42.png);
+}
+
+.adExpand-embed {
+	background-image: url(/img/embed-42x42.png);
+}
+
+.adExpand-demo {
+	background-image: url(/img/demo-42x42.png);
+}
+
+.adExpand-metrics {
+	background-image: url(/img/graph-42x42.png);
+}
+
+.adExpand-itemMeta {
+	position: absolute;
+	left: 10px;
+}
+
+.adExpand-itemTitle {
+	font-size: 20px;
+	line-height: 42px;
+}
+
+.adExpand-itemDescription {
+	opacity: .4;
+}
+
+/* =======================================================================
+	Expand - Image
+========================================================================== */
+.adExpand-right {
+	position: relative;
+}
+
+.adExpand-image {
+	max-height: 100%;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	-webkit-transform:translate(-50%, -50%);
+	-moz-transform:translate(-50%, -50%);
+	-ms-transform:translate(-50%, -50%);
+	-o-transform:translate(-50%, -50%);
+	transform:translate(-50%, -50%);
+}
+
+.adExpand-meta {
+	position: absolute;
+	font-size: 10px;
+	opacity: .5;
+	top: 45px;
+}
+
+/* =======================================================================
+	Modal - Embed/Demo
+========================================================================== */
+#modalEmbed-header {
+	background: transparent url(/img/embed-42x42.png) no-repeat 10px center/26px 26px;
+}
+
+#modal-embed .originUI-modalContent {
+	height: 320px;
+}
+
+
+#modalDemo-header {
+	background: transparent url(/img/demo-26x26.png) no-repeat 10px center;
+}
+
+#modal-demo .originUI-modalContent {
+	height: 220px;
+}
+
+.modalDemo-demo {
+	font-size: 14px;
+	height: 26px;
+	line-height: 26px;
+}
+
+.modalDemo-demoEdit,
+.modalDemo-demoRemove {
+	opacity: 0;
+	background-color: transparent;
+	background-repeat: no-repeat;
+	background-position: left center;
+	background-size: 18px 18px;
+	width: 18px;
+	height: 100%;
+	text-indent: -5000em;
+}
+
+.modalDemo-demoEdit {
+	background-image: url(/img/edit-26x26.png);
+}
+
+.modalDemo-demoLink {
+	width: 500px;
+	padding: 0 15px;
+}
+
+.modalDemo-demoRemove {
+	background-image: url(/img/delete-26x26.png);
+}
+
+.modalDemo-demo:hover .modalDemo-demoEdit,
+.modalDemo-demo:hover .modalDemo-demoRemove {
+	opacity: .1;
+}
+
+.modalDemo-demoEdit:hover,
+.modalDemo-demoRemove:hover {
+	opacity: 1 !important;
+}
+
+#modal-demo .originUI-filterEmpty {
+	font-size: 16px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-webkit-transform:translate(-50%, -50%);
+	-moz-transform:translate(-50%, -50%);
+	-ms-transform:translate(-50%, -50%);
+	-o-transform:translate(-50%, -50%);
+	transform:translate(-50%, -50%);
+}
+
+#modalDemo-demos {
+	margin: 15px 0;
+}
+
+.modalDemo-demo {
+	margin: 0;
+}
+
+.modalDemo-demo + .modalDemo-demo {
+	border-color: #303030;
+	border-width: 1px 0 0 0;
+	border-style: solid;
+}
+
+/* =======================================================================
+	Modal - Create
+========================================================================== */
+.modalCreateExpand {
+	width: 900px;
+	margin-left: -450px;
+}
+
+.modalCreate .originUI-tileHeader {
+	background: transparent url(/img/creator-42x42.png) no-repeat 10px center/18px 18px;
+	text-indent: 35px;
+}
+
+.modal .originUI-tileContent {
+	padding: 10px 15px;
+}
+
+/*
+#adCreate-modalHeader {
+	background: transparent url(/img/creator-42x42.png) no-repeat 10px center/26px 26px;
+}
+*/

@@ -1087,6 +1087,10 @@ body.originClass-edit #originBar-search {
 	border-right: 1px solid #303030;
 }
 
+#properties-right {
+	margin-left: 10px;
+}
+
 .properties-label {
 	width: 100px;
 	font-size: 14px;
@@ -1126,6 +1130,30 @@ body.originClass-edit #originBar-search {
 #properties-right .properties-input.originUI-select {
 	height: 20px;
 	width: 100px;
+}
+
+.platform-icon {
+	cursor: pointer;
+	margin: 0 7px;
+	opacity: .1	
+}
+
+.platform-icon.active,
+.platform-icon:hover {
+	opacity: 1;
+}
+
+.platform-icon.inactive {
+	pointer-events: none;
+	cursor: default;
+}
+
+#properties-right.propertiesExpand {
+	margin-left: 0;
+}
+
+#properties-summary {
+	width: 300px;	
 }
 
 /* =======================================================================
@@ -1366,11 +1394,26 @@ body.originUI-superAdmin #adCreate-modal {
 }
 
 .originUI-tileFooter {
+	padding: 10px 15px;
+}
+
+.originUI-tileCancel {
+	
+}
+
+.originUI-tileSubmit {
+	float: right;
+}
+
+/*
+.originUI-tileFooter {
 	border-top: 1px solid #444444;
 	height: 42px;
 	position: relative;
 }
+*/
 
+/*
 .originUI-tileFooterCenter,
 .originUI-tileFooterLeft,
 .originUI-tileFooterRight {
@@ -1417,4 +1460,5 @@ body.originUI-superAdmin #adCreate-modal {
 .originUI-tileFooterLeft {
 	border-right: 1px solid #444444;
 }
+*/
 

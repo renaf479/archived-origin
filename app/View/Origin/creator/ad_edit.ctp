@@ -5,7 +5,7 @@
 	</script>
 	<!-- Bar across top of page -->
 	<div id="title-bar" class="originUI-borderColor originUI-noSelect">
-		<div id="titlebar-exit" class="originUI-hover originUI-iconHover inline" data-ng-click="creatorSaveExit()">exit</div>
+		<div id="titlebar-exit" class="originUI-hover originUI-iconHover inline" data-ng-click="uiExit()">exit</div>
 		<h1 id="titlebar-title" class="originUI-textColor inline">{{originAd.name}}</h1>
 	</div>
 	<!-- Left panel -->

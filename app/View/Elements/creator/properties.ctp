@@ -7,13 +7,13 @@
 			</li>
 			<li>
 				<label class="properties-label inline">Status</label>
-				<input-switch class="properties-input inline originUI-switch" name="statusSwitch" active="Yes" inactive="No" data-ng-model="originAdProperties.status" data-ng-checked="originAdProperties.status === '1'"></input-switch>
+				<input-switch class="properties-input inline originUI-switch" name="statusSwitch" active="Active" inactive="Inactive" data-ng-model="originAdProperties.status" data-ng-checked="originAdProperties.status === '1'"></input-switch>
 			</li>
-			<li>
+			<li data-ng-if="originAdmin">
 				<label class="properties-label inline">Showcase</label>
 				<input-switch class="properties-input inline originUI-switch" name="showcaseSwitch" active="Yes" inactive="No" data-ng-model="originAdProperties.showcase" data-ng-checked="originAdProperties.showcase === '1'"></input-switch>
 			</li>
-			<li>
+			<li data-ng-if="originAdmin">
 				<label class="properties-label inline">Ad Type</label>
 				<select class="properties-input inline originUI-select originUI-bgColorSecondary" data-ng-model="originAdProperties.config.type" data-ng-change="templateSelect(originAdProperties.config.type)">
 					<option style="display:none" value="">Select Type</option>
@@ -24,7 +24,7 @@
 					<option value="interstitial">Interstitial</option>
 				</select>
 			</li>
-			<li>
+			<li data-ng-if="originAdmin">
 				<label class="properties-label inline">Placement</label>
 				<select class="properties-input inline originUI-select originUI-bgColorSecondary" data-ng-model="originAdProperties.config.placement">
 					<option style="display:none" value="">Select Placement</option>
@@ -37,17 +37,33 @@
 				<label class="properties-label inline">GA ID</label>
 				<input type="text" class="properties-input inline" data-ng-model="originAdProperties.content.ga_id" input-text/>
 			</li>
+			<!-- FIX THIS!!! -->
+			<li id="formCreate-hex">
+				<label class="inline adSettings-label">BG Color</label>
+				<div class="originUI-field inline">
+					<div class="originUI-fieldBracket"></div>
+					<input type="text" class="originUI-input originUI-bgColorSecondary" ng:model="originAdProperties.content.hex" maxlength="7" hex/>
+				</div>
+			</li>
 		</ul>
 	</div>
-	<div id="properties-right" class="inline">
+	<div id="properties-right" class="inline" data-ng-class="{'propertiesExpand': originAdmin}">
 		<div id="properties-platform">
-			<img class="platform-icon" data-ng-repeat="platform in fields.platforms" data-ng-click="propertiesPlatform(platform)" data-ng-src="/img/{{platform.name}}-26x26.png" data-ng-class="{'active': propertiesUI === platform.name}"/>
+			<div data-ng-if="originAdmin" class="inline">
+				<img class="platform-icon originUI-iconHover" data-ng-repeat="platform in fields.platforms" data-ng-click="propertiesPlatform(platform)" data-ng-src="/img/{{platform.name}}-26x26.png" data-ng-class="{'active': propertiesUI === platform.name}"/>
+			</div>
 			<select id="properties-template" class="originUI-select originUI-bgColorSecondary" data-ng-model="originAdProperties.template_id" data-ng-options="template.OriginTemplate.id as template.OriginTemplate.name for template in originAdTemplates|filter:{OriginTemplate.status:'1'}" data-ng-change="propertiesTemplate(originAdProperties.template_id)">
 				<option style="display:none" value="">Load Template</option>
 			</select>
 		</div>
+		<div id="properties-summary" data-ng-if="!originAdmin">
+			<img id="propertiesSummary-storyboard" data-ng-src="{{originAdProperties.summary.file_storyboard}}" data-ng-if="originAdProperties.summary.file_storyboard"/>
+			<div id="propertiesSummary-description">
+				{{originAdProperties.summary.description}}
+			</div>
+		</div>
 		<div class="properties-platform" data-ng-repeat="platform in fields.platforms" data-ng-show="propertiesUI === platform.name">
-			<div class="properties-dimensions inline">
+			<div class="properties-dimensions inline" data-ng-if="originAdmin">
 				<h4>Dimensions</h4>
 				<ul class="originUI-list">
 					<li class="originUI-listItem" data-ng-repeat="dimension in fields.dimensions">
@@ -56,7 +72,7 @@
 					</li>
 				</ul>
 			</div>
-			<div class="properties-animations inline">
+			<div class="properties-animations inline" data-ng-if="originAdmin">
 				<div data-ng-show="fields.animations.length">
 					<h4>Animations</h4>
 					<ul class="originUI-list">
@@ -87,6 +103,17 @@
 	var propertiesController = function($scope, $rootScope, Rest) {
 		var fields;
 		$scope.propertiesInit = function() {
+			//Check to see if we're creating a new entry
+			if(!$rootScope.originAdProperties) {
+				$rootScope.originAdProperties = {
+					content: {
+						ga_id: 	'UA-12310597-73',
+						hex:	'#000000'
+					},
+					status: '1',
+				}
+			}
+			
 			
 			//Load template listing
 			Rest.get('templates').then(function(response) {
@@ -230,7 +257,8 @@
 				if(value.OriginTemplate.id === model) {
 					//console.log(value);
 					//Load it into properties
-					$scope.originAdProperties.config = value.OriginTemplate.config;
+					$rootScope.originAdProperties.summary	= value.OriginTemplate.content;
+					$rootScope.originAdProperties.config 	= value.OriginTemplate.config;
 				}
 			});
 		}	
