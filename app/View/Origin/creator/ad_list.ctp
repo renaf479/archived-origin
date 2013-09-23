@@ -37,10 +37,10 @@
 					</a>
 					<a href="javascript:void(0)" class="adExpand-embed adExpand-button originUI-bgColor originUI-shadow originUI-borderColor originUI-tileHover originUI-hover" data-ng-click="modal('embed')">
 						<div class="adExpand-itemMeta">
-							<div class="adExpand-itemTitle">Publish Tool</div>
+							<div class="adExpand-itemTitle">Publish</div>
 						</div>		
 					</a>
-					<a href="javascript:void(0)" class="adExpand-demo adExpand-button originUI-bgColor originUI-shadow originUI-borderColor originUI-tileHover originUI-hover" data-ng-click="adDemoOpen(ad.OriginAd)">
+					<a href="javascript:void(0)" class="adExpand-demo adExpand-button originUI-bgColor originUI-shadow originUI-borderColor originUI-tileHover originUI-hover" data-ng-click="modal('demo')">
 						<div class="adExpand-itemMeta">
 							<div class="adExpand-itemTitle">Ad Demo Pages</div>
 						</div>		
@@ -61,7 +61,7 @@
 	
 	<!-- Modal -->
 	<script type="text/ng-template" id="modal">
-		<form id="" name="modalForm" class="originUI-bgColor originUI-shadow" novalidate>
+		<form id="adList-{{modalScope.id}}" name="modalForm" class="originUI-bgColor originUI-shadow" novalidate>
 			<h3 class="originUI-tileHeader originUI-borderColor originUI-textColor">{{modalScope.header}}</h3>
 			<div id="{{modalScope.id}}" class="originUI-tileContent" data-ng-class="{'modalExpand': originAdmin}" data-ng-include src="modalScope.template">
 			</div>
@@ -75,51 +75,6 @@
 	
 <?php
 /*	
-	
-	
-	<div id="adEdit-workspaceAvgrund">
-		<div id="{{avgrund.name}}" class="avgrund-popup originUI-bgColor originUI-shadow">
-			<form id="{{avgrund.name}}-form" class="avgrund-form" name="avgrundForm" novalidate>
-			<h3 class="originUI-tileHeader originUI-borderColor originUI-textColor">{{avgrund.header}}</h3>
-				<div class="avgrund-content" data-ng-if="avgrund.name === 'component'">
-					<?php echo $this->element('creator/componentModal');?>
-				</div>
-				<div class="avgrund-content" data-ng-if="avgrund.name === 'embed'">
-					<?php echo $this->element('creator/embed');?>
-				</div>
-				<div class="avgrund-content" data-ng-if="avgrund.name === 'properties'">
-					<?php echo $this->element('creator/properties');?>
-				</div>
-				<div class="angrund-content" data-ng-if="angrund.name === 'schedule'">
-					<?php echo $this->element('creator/schedule');?>
-				</div>
-				<div class="avgrund-content" data-ng-if="avgrund.name === 'scripts'">
-					<textarea data-ng-model="originAdScripts.content_css" data-ui-codemirror="{mode:'htmlmixed',lineWrappidata-ng-true,theme:'night'}" data-ui-refresh='avgrund.codeMirror'></textarea>
-				</div>
-				<div id="workspaceAvgrund-buttons">
-					<button id="workspaceAvgrund-cancel" class="originUI-bgHover originUI-button originUI-bgColorSecondary" data-ng-click="avgrundCancel()">{{avgrund.ui.cancel}}</button>
-					<button id="workspaceAvgrund-submit" class="originUI-bgHover originUI-button originUI-bgColorSecondary" data-ng-click="avgrundSubmit(avgrund.name)" data-ng-disabled="avgrundForm.$invalid">{{avgrund.ui.submit}}</button>
-					<div class="clear"></div>
-				</div>
-			</form>
-		</div>
-	</div>
-	
-	
-	<div modal="modalEmbed" close="adEmbedClose()" options="originModalOptions">
-		<form id="modal-embed" class="originUI-bgColorSecondary originUI-modal">
-			<h3 id="modalEmbed-header" class="originUI-tileHeader originUI-borderColor originUI-textColor">Ad Embed Code</h3>
-			<div class="originUI-modalContent">
-				<iframe data-ng-src="/administrator/Origin/ad/embed/{{adEmbedParams.id}}/{{adEmbedParams.type}}" frameborder="0" scrolling="no" width="100%" height="100%"></iframe>
-			</div>
-			<div class="originUI-tileFooter">
-				<div class="originUI-tileFooterLeft originUI-hover" data-ng-click="adEmbedClose()">Close</div>
-				<div class="originUI-tileFooterRight originUI-hover" data-ng-click="adEmbedEmail()">Email Code</div>
-			</div>
-		</form>
-	</div>
-	
-
 	<div modal="modalDemo" close="adDemoClose()" options="originModalOptions">
 		<form id="modal-demo" class="originUI-bgColorSecondary originUI-modal">
 			<h3 id="modalDemo-header" class="originUI-tileHeader originUI-borderColor originUI-textColor">Ad Demo Pages</h3>
@@ -143,24 +98,6 @@
 			</div>
 		</form>
 	</div>
-	
-
-	<div modal="modalCreate" close="adCreateClose()" options="originModalOptions">
-		<form id="modal-create" name="adCreateModal" class="originUI-bgColorSecondary originUI-modal" novalidate>
-			<input type="hidden" name="uploadDir" value="/assets/creator/tmp/"/>
-			<h3 id="adCreate-modalHeader" class="originUI-tileHeader originUI-borderColor originUI-textColor">Create Ad Unit</h3>
-			<div id="adCreate-modal" class="originUI-modalContent" data-ng-class="{'adList-moduleAdvance': editor.advance==true}">
-				<div class="originUI-modalLeft"><?php echo $this->element('form_setting', array('view'=>'left'));?></div>
-				<div class="originUI-modalRight"><?php echo $this->element('form_setting', array('view'=>'right'));?></div>
-				<div class="clear"></div>
-			</div>
-			<div class="originUI-tileFooter">
-				<div class="originUI-tileFooterLeft originUI-hover" data-ng-click="adCreateClose()">Close</div>
-				<button class="originUI-tileFooterRight originUI-hover" data-ng-click="adCreateSave()" ng-disabled="adCreateModal.$invalid">Create</button>
-			</div>
-		</form>
-	</div>
-</div>
 */
 ?>
 <?php

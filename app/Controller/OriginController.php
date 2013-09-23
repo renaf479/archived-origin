@@ -981,10 +981,17 @@ class OriginController extends AppController {
 		array_push($origin_demo, 
 			['OriginDemo'=>
 				[
+					'default'=>true,
 					'name'=>'Origin Demo Page (default)',
-					'alias'=>'Origin/'.PseudoCrypt::hash($originAd_id, 6)
+					'alias'=>'Origin/'.PseudoCrypt::hash($originAd_id, 6),
+					'config'=>'{"templateAlias":"origin"}'
 				]
 			]);
+			
+		foreach($origin_demo as $key=>$demo) {
+			$origin_demo[$key]['OriginDemo']['config']	= json_decode($demo['OriginDemo']['config']);
+		}
+		
 		$this->set('origin_demo', $origin_demo);
 	}
 	

@@ -42,7 +42,6 @@ var creatorEditController = function($scope, $rootScope, $filter, Rest, Notifica
 		});
 	}
 	
-		
 	//Finds the proper schedule ID based on parameters
 	function _updateSchedule() {
 		angular.forEach($scope.originAdSchedule, function(value, key) {
@@ -57,7 +56,6 @@ var creatorEditController = function($scope, $rootScope, $filter, Rest, Notifica
 				$scope.ui.schedule		= key;
 			}
 		});
-		
 	}	
 	
 	//Refresh workspace data

@@ -24,6 +24,15 @@
 		</div>
 	</div>
 	<style type="text/css">
+		.modal #embed {
+			height: 300px;	
+		}
+		
+		.modal #embed #embedWidget-codemirror {
+			width: 450px;
+			font-size: 12px;
+		}
+		
 		#embed-widget {
 			width: inherit;
 			height: inherit;
@@ -45,7 +54,7 @@
 		}
 	</style>
 	<script type="text/javascript">
-		var embedController = function($scope, $compile, $interpolate, Rest) {
+		var embedController = function($scope, $interpolate, Rest) {
 			var embed;
 			
 			function _refresh() {

@@ -34,6 +34,19 @@ var adListController = function($scope, $rootScope, $filter, $modal, Notificatio
 					type:		'create'
 				}
 				break;
+			case 'demo':
+				$scope.modalScope = {
+					button: {
+						cancel: 'Close',
+						submit: 'Create'
+					},
+					class: 		'modalDemo',
+					header: 	'Demo Pages',
+					id:			'demo',
+					template:	'/administrator/get/element/creator/demo',
+					type:		'demo'
+				}
+				break;
 			case 'embed':
 				$scope.modalScope = {
 					button: {
@@ -42,6 +55,7 @@ var adListController = function($scope, $rootScope, $filter, $modal, Notificatio
 					},
 					class:		'',
 					header:		'Ad Embed Code',
+					id:			'embed',
 					template: 	'/administrator/get/element/creator/embed',
 					type:		'embed'
 				}

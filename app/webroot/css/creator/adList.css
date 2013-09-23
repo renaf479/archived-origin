@@ -415,20 +415,58 @@ body.originUI-superAdmin .adExpand-name {
 }
 
 /* =======================================================================
-	Modal - Create
+	Modals
 ========================================================================== */
 .modalCreateExpand {
 	width: 900px;
 	margin-left: -450px;
 }
 
-.modalCreate .originUI-tileHeader {
-	background: transparent url(/img/creator-42x42.png) no-repeat 10px center/18px 18px;
+.modal .originUI-tileHeader {
+	background-repeat: no-repeat;
+	background-position: 10px center;
+	background-size: 18px 18px;
 	text-indent: 35px;
+}
+
+#adList-properties .originUI-tileHeader {
+	background-image: url(/img/creator-42x42.png);
+}
+
+#adList-embed .originUI-tileHeader {
 }
 
 .modal .originUI-tileContent {
 	padding: 10px 15px;
+}
+
+
+/* =======================================================================
+	Modal - Demo
+========================================================================== */
+.modalDemo {
+	width: 530px;
+	margin-left: -265px;
+}
+
+#demo-list {
+	width: 200px;
+}
+
+#demo-preview {
+	width: 300px;
+}
+
+#demoPreview-image {
+	margin: 0 0 10px 0;
+}
+
+.demoPreview-button {
+	width: 70px;
+}
+
+.demoPreview-button + .demoPreview-button {
+	margin-left: 12px;
 }
 
 /*
