@@ -37,13 +37,9 @@
 				<label class="properties-label inline">GA ID</label>
 				<input type="text" class="properties-input inline" data-ng-model="originAdProperties.content.ga_id" input-text/>
 			</li>
-			<!-- FIX THIS!!! -->
-			<li id="formCreate-hex">
-				<label class="inline adSettings-label">BG Color</label>
-				<div class="originUI-field inline">
-					<div class="originUI-fieldBracket"></div>
-					<input type="text" class="originUI-input originUI-bgColorSecondary" ng:model="originAdProperties.content.hex" maxlength="7" hex/>
-				</div>
+			<li>
+				<label class="properties-label inline">BG Color</label>
+				<input type="text" class="properties-input inline" data-ng-model="originAdProperties.content.hex" maxlength="7" input-text hex/>
 			</li>
 		</ul>
 	</div>
@@ -53,7 +49,7 @@
 				<img class="platform-icon originUI-iconHover" data-ng-repeat="platform in fields.platforms" data-ng-click="propertiesPlatform(platform)" data-ng-src="/img/{{platform.name}}-26x26.png" data-ng-class="{'active': propertiesUI === platform.name}"/>
 			</div>
 			<select id="properties-template" class="originUI-select originUI-bgColorSecondary" data-ng-model="originAdProperties.template_id" data-ng-options="template.OriginTemplate.id as template.OriginTemplate.name for template in originAdTemplates|filter:{OriginTemplate.status:'1'}" data-ng-change="propertiesTemplate(originAdProperties.template_id)">
-				<option style="display:none" value="">Load Template</option>
+				<option style="display:none" value="">Load Template Pre-set</option>
 			</select>
 		</div>
 		<div id="properties-summary" data-ng-if="!originAdmin">
@@ -193,9 +189,12 @@
 					}
 				}
 			}
+			$scope.fields 							= angular.copy(fields);
+			$rootScope.originAdProperties.config 	= angular.copy(editor.config);
 			
-			$scope.fields = angular.copy(fields);
 			$scope.propertiesPlatform({name: 'Desktop'});
+			
+			console.log($scope.originAdProperties.config);
 		}
 		
 		/**

@@ -72,7 +72,6 @@
 			</div>
 		</form>
 	</script>
-	
 <?php
 /*	
 	<div modal="modalDemo" close="adDemoClose()" options="originModalOptions">

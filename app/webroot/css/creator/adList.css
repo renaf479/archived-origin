@@ -24,7 +24,7 @@
 #ad-create {
 	background-image: url(/img/creator-42x42.png);
 	background-repeat: no-repeat;
-	background-position: 10px center;
+	background-position: right 10px center;
 	background-size: 26px 26px;
 	width: 250px;
 	height: 42px;
@@ -33,9 +33,9 @@
 	position: absolute;
 	right: 0;
 	top: 0;
-	font-size: 26px;
+	font-size: 20px;
 	line-height: 42px;
-	text-indent: 50px;
+	text-indent: 10px;
 }
 
 
