@@ -1,4 +1,11 @@
 <div data-ng-controller="demoController" data-ng-init="demoInit()">
+	<ul class="originUI-list">
+		<li data-ng-repeat="demo in demos">
+			{{demo.OriginDemo.name}} - {{demo.OriginDemo.modify_date|convertTimestamp}}
+		</li>
+	</ul>
+
+<?php /*
 	<div id="demo-list" class="originUI-bgColorSecondary inline">
 		<ul class="originUI-list">
 			<li class="" data-ng-repeat="demo in demos" data-ng-click="select(demo)">{{demo.OriginDemo.name}}</li>
@@ -20,6 +27,9 @@
 			</li>
 		</ul>
 -->
+
+*/
+?>
 	<p class="originUI-filterEmpty" data-ng-hide="demos.length">No demo pages</p>
 </div>
 <script type="text/javascript">

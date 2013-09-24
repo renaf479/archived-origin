@@ -988,8 +988,12 @@ class OriginController extends AppController {
 				]
 			]);
 			
-		foreach($origin_demo as $key=>$demo) {
-			$origin_demo[$key]['OriginDemo']['config']	= json_decode($demo['OriginDemo']['config']);
+		foreach($origin_demo as $key=>&$demo) {
+			//$origin_demo[$key]['OriginDemo']['create_date']	= date('n.j.y \a\t\ G:i T', strtotime($origin_demo[$key]['OriginDemo']['create_date']));
+			//$origin_demo[$key]['OriginDemo']['modify_date']	= date('n.j.y \a\t\ G:i T', strtotime($origin_demo[$key]['OriginDemo']['modify_date']));
+		
+		
+			$demo['OriginDemo']['config']	= json_decode($demo['OriginDemo']['config']);
 		}
 		
 		$this->set('origin_demo', $origin_demo);

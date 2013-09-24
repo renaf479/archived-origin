@@ -24,5 +24,9 @@ $userAdmin			= ($this->UserAuth->isAdmin())? 'originUI-superAdmin': '';
 		<?php echo $this->fetch('content'); ?>
 	</div>
 	<?php echo $this->element('platform/footer');?>
+<!--
+		<link href="/css/plugins/pace.css" type="text/css" rel="stylesheet">
+	<script src="/js/plugins/pace.js" type="text/javascript"></script>
+-->
 </body>
 </html>

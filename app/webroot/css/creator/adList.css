@@ -449,25 +449,7 @@ body.originUI-superAdmin .adExpand-name {
 	margin-left: -265px;
 }
 
-#demo-list {
-	width: 200px;
-}
 
-#demo-preview {
-	width: 300px;
-}
-
-#demoPreview-image {
-	margin: 0 0 10px 0;
-}
-
-.demoPreview-button {
-	width: 70px;
-}
-
-.demoPreview-button + .demoPreview-button {
-	margin-left: 12px;
-}
 
 /*
 #adCreate-modalHeader {
