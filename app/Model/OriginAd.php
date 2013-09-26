@@ -8,6 +8,7 @@ class OriginAd extends AppModel {
 	public $hasMany 	= array(
 		'OriginAdSchedule'=>array(
 			'className'=>'OriginAdSchedule',
+			'order'=>'OriginAdSchedule.start_date IS NULL DESC, OriginAdSchedule.start_date ASC',
 			'foreignKey'=>'origin_ad_id',
 			'dependent'=>true
 		)

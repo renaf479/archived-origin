@@ -751,7 +751,8 @@ height: 26px;
 	margin: 0 16px;
 }
 
-.originUI-listItem > a {
+.originUI-listItem > a,
+.originUI-listItemLink {
 	margin: 0 -24px;
 	padding: 0 24px;
 	height: 32px;
@@ -769,6 +770,7 @@ height: 26px;
 }
 
 .originUI-listItem > a:hover,
+.originUI-listItemLink:hover,
 .originUI-listHover:hover {
 	background-image: none;
 	background-color: rgba(51, 181, 229, .25);

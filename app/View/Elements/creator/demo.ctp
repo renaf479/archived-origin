@@ -1,39 +1,17 @@
 <div data-ng-controller="demoController" data-ng-init="demoInit()">
 	<ul class="originUI-list">
-		<li data-ng-repeat="demo in demos">
-			{{demo.OriginDemo.name}} - {{demo.OriginDemo.modify_date|convertTimestamp}}
+		<li class="originUI-listItem demo-listItem" data-ng-repeat="demo in demos">
+			<span class="demo-listItem originUI-listItemLink originUI-bgHover">
+				<a href="/administrator/demo/edit/{{preview.OriginDemo.alias}}" class="demo-edit" target="_blank" data-ng-if="demo.OriginDemo.modify_date">edit</a>
+				<a href="/demo/{{preview.OriginDemo.alias}}" class="demo-title" target="_blank">{{demo.OriginDemo.name}}</a>
+				<span class="demo-remove" data-ng-if="demo.OriginDemo.modify_date" data-ng-click="remove(demo.OriginDemo)">remove</span>
+				<timestamp class="demo-timestamp" date="{{demo.OriginDemo.modify_date}}" data-ng-if="demo.OriginDemo.modify_date"></timestamp>
+			</span>
 		</li>
 	</ul>
-
-<?php /*
-	<div id="demo-list" class="originUI-bgColorSecondary inline">
-		<ul class="originUI-list">
-			<li class="" data-ng-repeat="demo in demos" data-ng-click="select(demo)">{{demo.OriginDemo.name}}</li>
-		</ul>
-	</div><!--
-	--><div id="demo-preview" class="inline">
-		<img id="demoPreview-image" data-ng-src="/img/_sites/{{preview.OriginDemo.config.templateAlias}}/_preview.jpg"/>
-		<a href="/demo/{{preview.OriginDemo.alias}}" class="demoPreview-button originUI-button inline originUI-bgColorSecondary originUI-bgHover" target="_blank">View</a><!--
-		--><a href="/administrator/demo/edit/{{preview.OriginDemo.alias}}" class="demoPreview-button originUI-button inline originUI-bgColorSecondary originUI-bgHover" target="_blank" data-ng-if="!preview.OriginDemo.default">Edit</a><!--
-		--><a href="javascript:void(0)" class="demoPreview-button originUI-button inline originUI-bgColorSecondary originUI-bgHover" data-ng-if="originAdmin">Remove</a>
-	</div>
-		
-<!--
-		<ul id="modalDemo-demos" class="originUI-list">
-			<li class="modalDemo-demo originUI-hover originUI-listHover" data-ng-repeat="demo in demos">
-				<a href="/administrator/demo/edit/{{demo.OriginDemo.alias}}" class="inline originUI-hover modalDemo-demoEdit" target="_blank" data-ng-hide="demo.OriginDemo.name === 'Origin Demo Page (default)'">Edit</a>
-				<a href="/demo/{{demo.OriginDemo.alias}}" class="inline modalDemo-demoLink" target="_blank">{{demo.OriginDemo.name}}</a>
-				<a href="javascript:void(0)" class="inline originUI-hover modalDemo-demoRemove originUI-superAdmin" data-ng-click="adDemoRemove(demo)" data-ng-hide="demo.OriginDemo.name === 'Origin Demo Page (default)'">remove</a>
-			</li>
-		</ul>
--->
-
-*/
-?>
-	<p class="originUI-filterEmpty" data-ng-hide="demos.length">No demo pages</p>
 </div>
 <script type="text/javascript">
-	var demoController = function($scope, Rest) {
+	var demoController = function($scope, Rest, Notification) {
 		//Init
 		$scope.demoInit = function() {
 			//console.log($scope.originAd);
@@ -46,9 +24,22 @@
 			});
 		}
 		
-		
-		$scope.select = function(model) {
-			console.log(model);
+		//Remove demo site
+		$scope.remove = function(model) {
+			var ask = confirm('Do you want to remove this demo page?');
+			if(ask) {
+				var post = {
+					route:			'demoDelete',
+					id:				model.id,
+					origin_ad_id:	model.origin_ad_id
+				}
+				Rest.post(post).then(function(response) {
+					Notification.alert('Demo page removed');
+					$scope.demos = response;
+				});
+			} else {
+				return false;
+			}
 		}
 	}
 </script>

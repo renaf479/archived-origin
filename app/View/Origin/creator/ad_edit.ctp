@@ -45,7 +45,7 @@
 			<div id="schedule" class="inline">
 				<div id="schedule-add" class="originUI-iconHover inline" data-ng-click="avgrundOpen('schedule')"></div>
 				<!-- schedule.start_date+' thru '+schedule.end_date  -->
-				<select id="schedule-select" class="originUI-select originUI-bgColorSecondary inline" data-ng-model="ui.scheduleId" data-ng-options="schedule.id as testing|filter:testing for schedule in originAdSchedule|filter:{type:ui.auto}">
+				<select id="schedule-select" class="originUI-select originUI-bgColorSecondary inline" data-ng-model="ui.scheduleId" data-ng-options="schedule.id as schedule.start_date for schedule in originAdSchedule|filter:{type:ui.auto}">
 				</select>
 			</div>
 			<div id="auto" class="inline">

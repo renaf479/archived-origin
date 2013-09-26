@@ -219,4 +219,21 @@ angular.module('platformApp.directives', [])
 			}
 		}		
 	})
+	.directive('timestamp', function() {
+		var template	= '<span>{{formatedTimestamp|date:"MMM d, yyyy @h:mm:ssa"}}</span>';
+		return {
+			replace: true,
+			restrict: 'E',
+			scope: {
+				date: '@'
+			},
+			template: template,
+			link: function(scope, element, attrs) {
+				var timestamp = scope.date.split(/[- :]/),
+					date = new Date(timestamp[0], timestamp[1]-1, timestamp[2], timestamp[3], timestamp[4], timestamp[5]);
+					
+				scope.formatedTimestamp = date;
+			}
+		}
+	})
 	;

@@ -16,10 +16,8 @@ var adListController = function($scope, $rootScope, $filter, $modal, Notificatio
 	/**
 	* Modal Methods
 	*/
-	
 	//Modal open
 	$scope.modal = function(type) {
-	
 		switch(type) {
 			case 'create':
 				$scope.modalScope = {
@@ -75,6 +73,7 @@ var adListController = function($scope, $rootScope, $filter, $modal, Notificatio
 		};
 		var modalInstance = $modal.open(options);
 	}
+
 	
 	
 	
@@ -128,25 +127,6 @@ var adListController = function($scope, $rootScope, $filter, $modal, Notificatio
 			return false;
 		}
 	}
-		
-	//Removes a demo site
-	$scope.adDemoRemove = function(demo) {
-		$scope.post = {};
-		
-		var ask = confirm('Do you want to delete this demo page?');
-		if(ask){
-			$scope.post.route		= 'demoDelete';
-			$scope.post.id 			= demo.OriginDemo.id;
-			$scope.post.origin_ad_id= demo.OriginDemo.origin_ad_id
-			
-			Rest.post($scope.post).then(function(response) {
-				Notification.alert('Demo page removed');
-				$rootScope.demos 	= response;
-			});
-		} else {
-			return false;
-		}
-	}
 }
 
 var modalController = function($scope, $rootScope, $modalInstance, modalScope) {
@@ -173,6 +153,11 @@ var modalController = function($scope, $rootScope, $modalInstance, modalScope) {
 				Rest.post(post).then(function(response) {
 					window.location = '/administrator/Origin/ad/edit/'+response;
 				});
+				break;
+			case 'demo':
+				window.open('/administrator/demo/create/'+$rootScope.originAd.id);
+				break;
+			case 'embed':
 				break;
 		}
 	}

@@ -449,7 +449,39 @@ body.originUI-superAdmin .adExpand-name {
 	margin-left: -265px;
 }
 
+.demo-listItem {
+	clear: both;
+}
 
+.demo-edit,
+.demo-remove {
+	text-indent: -5000em;
+	width: 26px;
+	height: 100%;
+	display: block;
+	cursor: pointer;
+	
+	background-color: red;
+}
+
+.demo-edit {
+	margin-right: 10px;
+}
+
+.demo-remove {
+	margin-left: 10px;
+}
+
+.demo-edit,
+.demo-title {
+	float: left;
+}
+
+.demo-remove,
+.demo-timestamp {
+	font-size: 12px;
+	float: right;
+}
 
 /*
 #adCreate-modalHeader {
