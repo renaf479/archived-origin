@@ -299,7 +299,7 @@ body {
 	right: 0;
 	border-width: 0 0 1px 0;
 	border-style: solid;
-	z-index: 10000;
+	z-index: 1000;
 }
 
 #workspace-bar > .inline {

@@ -1,4 +1,4 @@
-var creatorEditController = function($scope, $rootScope, $filter, Rest, Notification) {
+var creatorEditController = function($scope, $rootScope, $filter, $modal, Rest, Notification) {
 	var editor = {
 			config: {},
 			content:{}
@@ -87,7 +87,76 @@ var creatorEditController = function($scope, $rootScope, $filter, Rest, Notifica
 	/**
 	* Modal methods
 	*/
-	//Close modal
+	
+		/**
+	* Modal Methods
+	*/
+	//Modal open
+	$scope.modalOpen = function(type, model) {
+		switch(type) {
+			case 'component':
+				$scope.modal = {
+					button: {
+						cancel: 'Cancel',
+						submit: 'Add'	
+					},
+					class: 		'component',
+					content: 	'/administrator/get/components/'+model.alias,
+					header:		'Add New Component',
+					id:			'component',
+					template: 	'/administrator/get/element/creator/componentModal',
+					type:		'component'
+				}
+				
+				$rootScope.editor 		= angular.copy(editor);
+				$rootScope.editor.type 	= model.alias;
+				$rootScope.editor.config = {
+					left:	'0px',
+					top:	'0px',
+					width:	'50px',
+					height:	'50px'
+				}
+/*
+				$scope.modal = {
+					id:			'componentModal',
+					callback: {
+						close:	'modalComponent',
+						submit:	'component-add'
+					},
+					class:		'modal-'+model.alias,
+					config:		true,
+					content:	'/administrator/get/components/'+model.alias,
+					modal:		'modalComponent',
+					remove:		false,
+					submit:		'Create',
+					title:		'Add New '+model.name,
+					thumbnail:	model.config.img_icon
+				};
+				
+*/
+				break;
+		}
+	
+		var options = {
+			templateUrl: 	'modal',
+			//template: 		'test,
+			controller:		'modalController',
+			resolve: {
+				modal: function() {
+					return $scope.modal;
+				}
+			},
+			windowClass:	$scope.modal.class,
+		};
+		var modalInstance = $modal.open(options);
+	}
+
+	
+	
+	
+	
+	
+/*
 	$scope.modalClose = function(modal) {
 		$scope[modal]	= false;
 		//Clear component's controller
@@ -124,29 +193,6 @@ var creatorEditController = function($scope, $rootScope, $filter, Rest, Notifica
 					thumbnail:	model.config.img_icon
 				};
 				break;
-/*
-			case 'component-load':
-				$rootScope.editor = model;
-				//Match model against list of components and override
-				var model = _findComponent(model);
-				$scope.modal = {
-					id:			'componentModal',
-					callback: {
-						close:	'modalComponent',
-						remove:	'component-remove',
-						submit:	'component-update'	
-					},
-					class:		'modal-'+model.alias,
-					config:		true,
-					content:	'/administrator/get/components/'+model.alias,
-					modal:		'modalComponent',
-					remove:		true,
-					submit:		'Update',
-					title:		model.name+' Editor',
-					thumbnail:	model.config.img_icon
-				};
-				break;
-*/
 		}
 		$scope[$scope.modal.modal] = true;
 	}
@@ -178,13 +224,6 @@ var creatorEditController = function($scope, $rootScope, $filter, Rest, Notifica
 					post.route	= 'creatorContentRemove';
 				}
 				break;
-/*
-			case 'component-update':
-				message 					= 'Content updated';
-				post.origin_ad_schedule_id 	= $scope.originAdSchedule[$scope.ui.schedule].id;
-				post.route					= 'creatorContentSave';
-				break;
-*/
 		}
 		Rest.post(post).then(function(response) {
 			Notification.alert(message);
@@ -193,6 +232,7 @@ var creatorEditController = function($scope, $rootScope, $filter, Rest, Notifica
 		});
 	}
 	
+*/
 	/**
 	* Avgrund Modal
 	*/
@@ -373,3 +413,22 @@ var creatorEditController = function($scope, $rootScope, $filter, Rest, Notifica
 		_updateLayers();
 	}
 };
+
+
+var modalController = function($scope, $rootScope, $modalInstance, modal) {
+	$scope.modal = modal;
+	
+	//Modal close
+	$scope.cancel = function() {
+		switch(modal.type) {
+			case 'component':
+				break;
+		}
+		$modalInstance.dismiss('cancel');
+	}
+	
+	//Modal submit
+	$scope.submit = function() {
+		var post;
+	}
+}

@@ -21,7 +21,7 @@
 			<accordion-group id="panel-components"  heading="Components" class="panel-accordion" data-ng-class="{true:'active', false:''}[isOpen]">
 				<ul class="originUI-list originUI-bgColorSecondary">
 					<li class="originUI-listItem" data-ng-repeat="component in components">
-						<a href="javascript:void(0)" class="originUI-bgHover originUI-listItemLink" data-ng-click="modalOpen('component-add', component)" back-img="{{component.config.img_icon}}">{{component.name}}</a>
+						<a href="javascript:void(0)" class="originUI-bgHover originUI-listItemLink" data-ng-click="modalOpen('component', component)" back-img="{{component.config.img_icon}}">{{component.name}}</a>
 					</li>
 				</ul>
 			</accordion-group>
@@ -101,6 +101,27 @@
 	
 	
 	<!-- Modals -->
+	<script type="text/ng-template" id="modal">
+		<form id="adList-{{modal.id}}" name="modalForm" class="originUI-bgColor originUI-shadow" novalidate>
+			<h3 class="originUI-tileHeader originUI-borderColor originUI-textColor">{{modal.header}}</h3>
+			<div id="{{modalScope.id}}" class="originUI-tileContent" data-ng-include src="modal.template">
+			</div>
+			<div class="originUI-tileFooter">
+				<button id="" class="originUI-tileCancel originUI-bgHover originUI-button originUI-bgColorSecondary" data-ng-click="cancel()">{{modal.button.cancel}}</button>
+				<button id="" class="originUI-tileSubmit originUI-bgHover originUI-button originUI-bgColorSecondary" data-ng-click="submit()" data-ng-disabled="modalForm.$invalid">{{modal.button.submit}}</button>
+				<div class="clear"></div>
+			</div>
+		</form>
+	</script>
+	
+	
+	
+	
+	
+	
+	
+	
+<?php /*
 	<div modal="modalComponent" close="modalClose('modalComponent')" options="modalOption">
 		<form id="{{modal.id}}" class="originUI-bgColor {{modal.class}}" name="form" novalidate>
 			<h3 class="originUI-tileHeader originUI-borderColor originUI-textColor" back-img="{{modal.thumbnail}}">{{modal.title}}</h3>
@@ -119,6 +140,7 @@
 			
 			
 -->
+*/?>
 		</form>
 	</div>
 </div>
