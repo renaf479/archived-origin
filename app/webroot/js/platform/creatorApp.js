@@ -15,6 +15,7 @@ var platformApp = angular.module('creatorApp',
 					'platformApp.filters'
 					])
 					.run(function($rootScope) {
+						$rootScope.originAdmin = originAdmin;
 						//Modal Operations
 						$rootScope.originModalOptions = {
 							backdropClick:	false,

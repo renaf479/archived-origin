@@ -33,7 +33,7 @@ var demoCreatorApp = angular.module('demoCreatorApp',
 							/**
 							* Load Origin embed code template
 							*/
-							Rest.get('element/origin_embed').then(function(response) {
+							Rest.element('creator', 'origin_embed').then(function(response) {
 								$rootScope.render	= $interpolate(response)($rootScope);
 							});
 							

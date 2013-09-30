@@ -1,4 +1,4 @@
-<div id="editor-dfp-link" data-ng-controller="componentCtrl">
+<div id="editor-dfp-link" data-ng-controller="componentCtrl" data-ng-init="init()">
 	<select id="" class="originUI-select originUI-bgColorSecondary" data-ng-model="editor.content.placeholder" data-ng-change="update()" required>
 		<option style="display:none" value="">Select DFP link placeholder</option>
 		<option value="dfp-1">DFP Placeholder 1</option>
@@ -8,6 +8,11 @@
 
 	<script type="text/javascript">
 		var componentCtrl = function($scope, $rootScope) {
+			$scope.init = function() {
+				$scope.editor.content.title = 'DoubleClick Link';
+				$scope.editor.content.type 	= $scope.editor.type = 'dfp-link';
+			}
+		
 			$scope.update = function() {
 				$rootScope.editor.render = '<a dfp="'+$scope.editor.content.placeholder+'" target="_blank" class="link">DFP Placeholder '+$scope.editor.content.placeholder+'</a>';
 			}

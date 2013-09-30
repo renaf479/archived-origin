@@ -16,12 +16,13 @@
 					<li class="originUI-listItem" data-asset="{{$index}}" data-ng-repeat="asset in assets" asset>
 						<a href="javascript:void(0);" class="originUI-bgHover originUI-listItemLink">{{asset.name}}</a>
 					</li>
+					<li data-ng-hide="assets.length">No assets</li>
 				</ul>
 			</accordion-group>
 			<accordion-group id="panel-components"  heading="Components" class="panel-accordion" data-ng-class="{true:'active', false:''}[isOpen]">
 				<ul class="originUI-list originUI-bgColorSecondary">
-					<li class="originUI-listItem" data-ng-repeat="component in components">
-						<a href="javascript:void(0)" class="originUI-bgHover originUI-listItemLink" data-ng-click="modalOpen('component', component)" back-img="{{component.config.img_icon}}">{{component.name}}</a>
+					<li class="originUI-listItem" data-ng-repeat="component in components|filter:{status:1}">
+						<a href="javascript:void(0)" class="originUI-bgHover originUI-listItemLink" data-ng-click="avgrundOpen('component-new', component)" back-img="{{component.config.img_icon}}">{{component.name}}</a>
 					</li>
 				</ul>
 			</accordion-group>
@@ -30,6 +31,7 @@
 					<li class="originUI-listItem" data-ng-repeat="layer in layers|orderBy:'-order'">
 						<a href="javascript:void(0)" class="originUI-bgHover originUI-listItemLink" data-ng-mouseover="workspaceFocus(layer.id)" data-ng-mouseleave="workspaceClear(layer.id)" data-ng-dblclick="avgrundOpen('component', layer)" back-img="{{layer.img_icon}}" layer>{{layer.type}}-{{layer.id}}</a>
 					</li>
+					<li data-ng-hide="layers.length">No layers</li>
 				</ul>
 				<!-- <ul id="panel-layers" class="originUI-list originUI-bgColor" data-ng-model="layers" layer-sortable></ul> -->
 			</accordion-group>
@@ -45,7 +47,7 @@
 			<div id="schedule" class="inline">
 				<div id="schedule-add" class="originUI-iconHover inline" data-ng-click="avgrundOpen('schedule')"></div>
 				<!-- schedule.start_date+' thru '+schedule.end_date  -->
-				<select id="schedule-select" class="originUI-select originUI-bgColorSecondary inline" data-ng-model="ui.scheduleId" data-ng-options="schedule.id as schedule.start_date for schedule in originAdSchedule|filter:{type:ui.auto}">
+				<select id="schedule-select" class="originUI-select originUI-bgColorSecondary inline" data-ng-model="ui.scheduleId" data-ng-options="schedule.id as schedule|filterSchedule for schedule in originAdSchedule|filter:{type:ui.auto}">
 				</select>
 			</div>
 			<div id="auto" class="inline">
@@ -72,10 +74,10 @@
 		</div>
 	</div>
 	<div id="adEdit-workspaceAvgrund">
-		<div id="{{avgrund.name}}" class="avgrund-popup originUI-bgColor originUI-shadow">
-			<form id="{{avgrund.name}}-form" class="avgrund-form" name="avgrundForm" novalidate>
+		<div id="{{avgrund.id}}" class="avgrund-popup originUI-bgColor originUI-shadow">
+			<form id="{{avgrund.id}}-form" class="avgrund-form" name="avgrundForm" novalidate>
 			<h3 class="originUI-tileHeader originUI-borderColor originUI-textColor">{{avgrund.header}}</h3>
-				<div class="avgrund-content" data-ng-if="avgrund.name === 'component'">
+				<div class="avgrund-content" data-ng-if="avgrund.name === 'component' || avgrund.name === 'component-new'">
 					<?php echo $this->element('creator/componentModal');?>
 				</div>
 				<div class="avgrund-content" data-ng-if="avgrund.name === 'embed'">
@@ -101,6 +103,8 @@
 	
 	
 	<!-- Modals -->
+	
+	<?php /*
 	<script type="text/ng-template" id="modal">
 		<form id="adList-{{modal.id}}" name="modalForm" class="originUI-bgColor originUI-shadow" novalidate>
 			<h3 class="originUI-tileHeader originUI-borderColor originUI-textColor">{{modal.header}}</h3>
@@ -113,7 +117,7 @@
 			</div>
 		</form>
 	</script>
-	
+	*/?>
 	
 	
 	

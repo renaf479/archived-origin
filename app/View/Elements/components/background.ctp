@@ -1,4 +1,4 @@
-	<div id="editor-background" name="editorBackground-form" data-ng-controller="componentCtrl">
+	<div id="editor-background" name="editorBackground-form" data-ng-controller="componentCtrl" data-ng-init="init()">
 		<input type="hidden" name="uploadDir" value="/assets/creator/{{workspace.ad.OriginAd.id}}/"/>
 		<div id="editorBackground-list" class="originUI-bgColorSecondary inline">
 			<ul class="originUI-list">
@@ -35,7 +35,8 @@
 		}
 	</style>
 	<script type="text/javascript">
-		var componentCtrl = function($scope) {
+		var componentCtrl = function($scope, Rest) {
+			
 			$scope.select = function(model) {
 				$scope.editor.content.image  = '/assets/creator/'+$scope.originAd.id+'/'+model.name;
 			}

@@ -56,6 +56,7 @@ var creatorEditController = function($scope, $rootScope, $filter, $modal, Rest, 
 				$scope.ui.schedule		= key;
 			}
 		});
+		_updateLayers();
 	}	
 	
 	//Refresh workspace data
@@ -92,6 +93,7 @@ var creatorEditController = function($scope, $rootScope, $filter, $modal, Rest, 
 	* Modal Methods
 	*/
 	//Modal open
+/*
 	$scope.modalOpen = function(type, model) {
 		switch(type) {
 			case 'component':
@@ -116,24 +118,6 @@ var creatorEditController = function($scope, $rootScope, $filter, $modal, Rest, 
 					width:	'50px',
 					height:	'50px'
 				}
-/*
-				$scope.modal = {
-					id:			'componentModal',
-					callback: {
-						close:	'modalComponent',
-						submit:	'component-add'
-					},
-					class:		'modal-'+model.alias,
-					config:		true,
-					content:	'/administrator/get/components/'+model.alias,
-					modal:		'modalComponent',
-					remove:		false,
-					submit:		'Create',
-					title:		'Add New '+model.name,
-					thumbnail:	model.config.img_icon
-				};
-				
-*/
 				break;
 		}
 	
@@ -150,6 +134,7 @@ var creatorEditController = function($scope, $rootScope, $filter, $modal, Rest, 
 		};
 		var modalInstance = $modal.open(options);
 	}
+*/
 
 	
 	
@@ -250,13 +235,16 @@ var creatorEditController = function($scope, $rootScope, $filter, $modal, Rest, 
 				var model = _findComponent(model);
 				$scope.avgrund = {
 					header: model.name+' Editor',
+					content:'/administrator/get/components/'+model.alias,
+					id:		'component',
 					name:	'component',
+					remove: true,
 					ui: {
 						cancel: 'Close',
 						submit: 'Update'
 					}
-				};
-				
+				}
+/*
 				$scope.modal = {
 					callback: {
 						close:	'modalComponent',
@@ -265,17 +253,40 @@ var creatorEditController = function($scope, $rootScope, $filter, $modal, Rest, 
 					},
 					class:		'modal-'+model.alias,
 					config:		true,
-					content:	'/administrator/get/components/'+model.alias,
+					
 					modal:		'modalComponent',
 					remove:		true,
 					submit:		'Update',
 					title:		model.name+' Editor',
 					thumbnail:	model.config.img_icon
 				}
+*/
+				break;
+			case 'component-new':
+				$rootScope.editor = angular.copy(editor);
+				$rootScope.editor.config = {
+					left:	'0px',
+					top:	'0px',
+					width:	'50px',
+					height:	'50px'
+				}
+				
+				$scope.avgrund = {
+					header: 	model.name+' Creator',
+					content: 	'/administrator/get/components/'+model.alias,
+					id:			'component',
+					name:		'component-new',
+					remove: 	false,
+					ui: {
+						cancel: 'Cancel',
+						submit: 'Create'
+					}
+				}
 				break;
 			case 'embed':
 				$scope.avgrund = {
 					header: 'Embed Code',
+					id:		'embed',
 					name:	'embed',
 					ui: {
 						cancel: 'Close',
@@ -287,6 +298,7 @@ var creatorEditController = function($scope, $rootScope, $filter, $modal, Rest, 
 				$scope.originAdProperties = angular.copy($scope.originAd);
 				$scope.avgrund = {
 					header: 'Properties',
+					id:		'properties',
 					name:	'properties',
 					ui: {
 						cancel: 'Cancel',
@@ -297,6 +309,7 @@ var creatorEditController = function($scope, $rootScope, $filter, $modal, Rest, 
 			case 'schedule':
 				$scope.avgrund = {
 					header: 'Schedule',
+					id:		'schedule',
 					name:	'schedule',
 					ui: {
 						cancel: 'Cancel',
@@ -308,6 +321,7 @@ var creatorEditController = function($scope, $rootScope, $filter, $modal, Rest, 
 				$scope.originAdScripts = angular.copy($scope.originAd);
 				$scope.avgrund = {
 					header:	'Scripts',
+					id:		'scripts',
 					name:	'scripts',
 					codeMirror:	true,
 					ui: {
@@ -329,18 +343,35 @@ var creatorEditController = function($scope, $rootScope, $filter, $modal, Rest, 
 		_avgrundClose('.avgrund-popup');
 	}
 	
+	//Remove component
+	$scope.avgrundRemove = function(type) {
+		console.log($scope.editor);	
+	}
+	
 	//Save data
 	$scope.avgrundSubmit = function(type) {
 		var post, message;
 		switch(type) {
 			case 'component':
+			case 'component-new':
+				message 			= (type === 'component')? 'Content updated': 'Content added';
 				post  				= angular.copy($scope.editor),
 				post.data 			= $scope.originAdSchedule;
 				post.model			= $scope.ui.platform + $scope.ui.state;
 				post.originAd_id	= $scope.originAd.id;
-				message 					= 'Content updated';
 				post.origin_ad_schedule_id 	= $scope.originAdSchedule[$scope.ui.schedule].id;
 				post.route					= 'creatorContentSave';
+				break;
+			case 'component-remove':
+				if(confirm('Do you want to remove this component')) {
+					post = {
+						id:		$scope.editor.id,
+						model:	$scope.ui.platform + $scope.ui.state,
+						originAd_id: $scope.originAd.id,
+						route:	'creatorContentRemove'	
+					}
+					message 	= 'Content removed';
+				}
 				break;
 			case 'properties':
 				post 		= angular.copy($scope.originAdProperties);
@@ -353,7 +384,6 @@ var creatorEditController = function($scope, $rootScope, $filter, $modal, Rest, 
 				message		= 'Scripts updated';
 				break;
 		}
-		
 		Rest.post(post).then(function(response) {
 			Notification.alert(message);
 			_avgrundClose('.avgrund-popup');
@@ -415,20 +445,20 @@ var creatorEditController = function($scope, $rootScope, $filter, $modal, Rest, 
 };
 
 
-var modalController = function($scope, $rootScope, $modalInstance, modal) {
-	$scope.modal = modal;
-	
-	//Modal close
-	$scope.cancel = function() {
-		switch(modal.type) {
-			case 'component':
-				break;
-		}
-		$modalInstance.dismiss('cancel');
-	}
-	
-	//Modal submit
-	$scope.submit = function() {
-		var post;
-	}
-}
+platformApp.filter('filterSchedule', function($filter) {
+  return function(date) {
+  	var display;
+  	if(!date.start_date && !date.end_date) {
+	  	display	= 'Default State';
+  	} else {
+  		var start 		= date.start_date.split(/[- :]/),
+  			end			= date.end_date.split(/[- :]/),
+  			dateStart	= new Date(start[0], start[1]-1, start[2], start[3], start[4], start[5]),
+  			dateEnd		= new Date(end[0], end[1]-1, end[2], end[3], end[4], end[5]);
+  			
+	 	display = 'Start: ' + $filter('date')(dateStart, 'EEE - M/d/yyyy') + ' || Stop: ' + $filter('date')(dateEnd, 'EEE - M/d/yyyy'); 	
+  	}
+  	
+  	return display;
+  }
+})

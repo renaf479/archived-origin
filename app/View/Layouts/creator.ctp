@@ -14,6 +14,9 @@ $userAdmin			= ($this->UserAuth->isAdmin())? 'originUI-superAdmin': '';
 	
 		
 	?>
+	<script type="text/javascript">
+		var originAdmin = Boolean(<?php echo $this->UserAuth->isAdmin();?>);
+	</script>
 </head>
 <body class="<?php echo $userAdmin;?> <?php echo 'originClass-'.$this->params['action'];?>" data-ng-app="creatorApp">
 	<?php echo $this->element('platform/notification');?>

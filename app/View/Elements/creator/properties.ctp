@@ -99,6 +99,7 @@
 	var propertiesController = function($scope, $rootScope, Rest) {
 		var fields;
 		$scope.propertiesInit = function() {
+			
 			//Check to see if we're creating a new entry
 			if(!$rootScope.originAdProperties) {
 				$rootScope.originAdProperties = {
