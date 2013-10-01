@@ -39,8 +39,10 @@ platformApp.directive('workspace', function($rootScope){
 				element.css({
 					'width':		config[scope.ui.platform][scope.ui.state].width+'px',
 					'height':		config[scope.ui.platform][scope.ui.state].height+'px',
-					'margin-top':	-(config[scope.ui.platform][scope.ui.state].height/2)+'px',
+					'margin-top':	-(config[scope.ui.platform][scope.ui.state].height/2)+'px'/*
+,
 					'margin-left':	-(config[scope.ui.platform][scope.ui.state].width/2)+'px'
+*/
 				});
 				
 			});

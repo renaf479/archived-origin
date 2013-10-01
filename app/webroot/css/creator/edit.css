@@ -195,14 +195,14 @@ body {
 	overflow: auto;
 }
 
-#workspace-area {
+#workspace-container {
 	position: absolute;
 	top: 33px;
 	left: 0;
 	right: 0;
 	bottom: 27px;
 	
-	overflow: scroll;
+	overflow: auto;
 }
 
 /*
@@ -226,8 +226,12 @@ body {
 	background-color: rgba(255, 255, 255, .2);
 	background-repeat: no-repeat;
 	background-position: center top;
+/*
 	top: 50%;
 	left: 50%;
+*/
+
+	top: 50%;
 	z-index: 0;
 }
 
