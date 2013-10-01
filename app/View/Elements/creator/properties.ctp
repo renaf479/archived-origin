@@ -195,7 +195,7 @@
 			
 			$scope.propertiesPlatform({name: 'Desktop'});
 			
-			console.log($scope.originAdProperties.config);
+			//console.log($scope.originAdProperties.config);
 		}
 		
 		/**

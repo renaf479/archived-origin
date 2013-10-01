@@ -63,8 +63,10 @@
 			</div>
 		</div>
 		<!-- Workspace Actual -->
-		<div id="workspace" workspace>
-			<workspace-content class="workspace-content originUI-bgHover" data-ng-repeat="content in originAdSchedule[ui.schedule]['OriginAd'+ui.platform+ui.state+'Content']" data-ng-model="content" data-ng-dblclick="$parent.avgrundOpen('component', ngModel)"></workspace-content>
+		<div id="workspace-area">
+			<div id="workspace" workspace>
+				<workspace-content class="workspace-content originUI-bgHover" data-ng-repeat="content in originAdSchedule[ui.schedule]['OriginAd'+ui.platform+ui.state+'Content']" data-ng-model="content" data-ng-dblclick="$parent.avgrundOpen('component', ngModel)"></workspace-content>
+			</div>
 		</div>
 		<!-- Bar below workspace -->
 		<div id="workspace-options" class="originUI-bgColorSecondary originUI-borderColor">

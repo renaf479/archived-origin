@@ -195,6 +195,30 @@ body {
 	overflow: auto;
 }
 
+#workspace-area {
+	position: absolute;
+	top: 33px;
+	left: 0;
+	right: 0;
+	bottom: 27px;
+	
+	overflow: scroll;
+}
+
+/*
+
+#workspace-options {
+	position: absolute;
+	height: 26px;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	border-width: 1px 0 0 0;
+	border-style: solid;
+}
+
+*/
+
 #workspace {
 	margin: 0 auto;
 	display: block;
@@ -307,7 +331,7 @@ body {
 }
 
 #schedule {
-	width: 150px;
+	width: 175px;
 }
 
 #schedule-add {
@@ -319,7 +343,7 @@ body {
 }
 
 #schedule-select {
-	width: 100px;
+	width: 130px;
 	height: 23px;
 	position: absolute;
 	top: 50%;
