@@ -9,7 +9,7 @@ platformApp.factory('AdListServices', function($rootScope, Rest) {
 			$rootScope.adShow	= ad.id;
 			
 			//Prevents repeated requests for data already in DOM
-			if(!ad.backgroundImage) {			
+			//if(!ad.backgroundImage) {			
 				Rest.get('adExpand/'+ad.id).then(function(response) {
 					//Run through Desktop/Mobile/Tablet to find first compatible image
 					if(response.Desktop.content) {
@@ -24,7 +24,7 @@ platformApp.factory('AdListServices', function($rootScope, Rest) {
 					
 					$rootScope.originAd = response.OriginAd;
 				});
-			}
+			//}
 		},
 		modalDemo: function(ad) {
 			Rest.get('demo/'+ad.id).then(function(response) {

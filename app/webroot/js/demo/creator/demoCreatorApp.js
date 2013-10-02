@@ -27,7 +27,7 @@ var demoCreatorApp = angular.module('demoCreatorApp',
 								tablet: false,
 								mobile: false,
 								id: 	$rootScope.origin_ad.OriginAd.id,
-								type:	$rootScope.origin_ad.OriginAd.config.template
+								placement:	$rootScope.origin_ad.OriginAd.config.placement
 							}
 							
 							/**

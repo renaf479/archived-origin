@@ -1,18 +1,38 @@
-var creatorEditController = function($scope, $rootScope, $filter, $modal, Rest, Notification) {
+var creatorEditController = function($scope, $rootScope, $filter, $timeout, $modal, Rest, Notification) {
 	var editor = {
 			config: {},
 			content:{}
 		};
+	//Auto save timer set for 3 minutes
+	var saveTimer	= 3 * 60 * 1000,
+		autoSaveTimer;
 		
 	/**
 	* Private Methods
 	*/
+	
+	//Auto save timer
+	var _autoSave = function(status) {
+		if(status === 'cancel') {
+			$timeout.cancel(autoSaveTimer);
+		} else {
+			_autoSave('cancel');//Reset timer
+			
+			autoSaveTimer = $timeout(function test(){
+				$scope.uiSave('auto');
+				autoSaveTimer = $timeout(_autoSave, saveTimer);
+			}, saveTimer);
+		}
+	}	
+	
 	//Avgrund methods
 	function _avgrundOpen(selector) {
+		_autoSave('cancel');
 		Avgrund.show(selector);
 	}
 	
 	function _avgrundClose(selector) {
+		_autoSave();
 		Avgrund.hide(selector);
 	}
 	
@@ -65,6 +85,7 @@ var creatorEditController = function($scope, $rootScope, $filter, $modal, Rest, 
 		$scope.originAdSchedule		= data.OriginAdSchedule;
 		_updateSchedule();
 		_updateLayers();
+		_autoSave(); //Begin auto-save timer
 	}
 
 	//Initialization
@@ -430,6 +451,22 @@ var creatorEditController = function($scope, $rootScope, $filter, $modal, Rest, 
 			window.location = '/administrator/';
 		});
 	}
+	
+	//Saves all changes (resizes, moving) done in workspace
+	$scope.uiSave = function(auto) {
+		var post = {
+			data:			$scope.originAdSchedule,
+			originAd_id:	$scope.originAd.id,
+			route:			'creatorWorkspaceUpdate'
+		}
+		
+		Rest.post(post).then(function(response) {
+			var message = (auto)? 'Progress auto saved': 'Workspace saved';
+			Notification.display(message);
+			_updateWorkspace(response);
+		});
+	}
+	
 	
 	//Switches platform view
 	$scope.uiPlatform = function(model) {

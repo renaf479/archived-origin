@@ -2,8 +2,8 @@
 	<ul class="originUI-list">
 		<li class="originUI-listItem demo-listItem" data-ng-repeat="demo in demos">
 			<span class="demo-listItem originUI-listItemLink originUI-bgHover">
-				<a href="/administrator/demo/edit/{{preview.OriginDemo.alias}}" class="demo-edit" target="_blank" data-ng-if="demo.OriginDemo.modify_date">edit</a>
-				<a href="/demo/{{preview.OriginDemo.alias}}" class="demo-title" target="_blank">{{demo.OriginDemo.name}}</a>
+				<a href="/administrator/demo/edit/{{demo.OriginDemo.alias}}" class="demo-edit" target="_blank" data-ng-if="demo.OriginDemo.modify_date">edit</a>
+				<a href="/demo/{{demo.OriginDemo.alias}}" class="demo-title" target="_blank">{{demo.OriginDemo.name}}</a>
 				<span class="demo-remove" data-ng-if="demo.OriginDemo.modify_date" data-ng-click="remove(demo.OriginDemo)">remove</span>
 				<timestamp class="demo-timestamp" date="{{demo.OriginDemo.modify_date}}" data-ng-if="demo.OriginDemo.modify_date"></timestamp>
 			</span>
@@ -17,8 +17,6 @@
 			//console.log($scope.originAd);
 			Rest.get('demo/'+$scope.originAd.id).then(function(response) {
 				$scope.demos 	= response;
-				$scope.preview 	= $scope.demos[0];
-				
 				//console.log($scope.preview.OriginDemo.config);
 				//console.log($scope.demos);
 			});

@@ -167,12 +167,16 @@ body {
 	background-color: #000;
 }
 
-#titlebar-exit {
-	background: transparent url(/img/sprite.png) no-repeat -104px center;
+#titlebar-exit,
+#titlebar-save {
 	margin: 0 5px;
 	width: 26px;
 	height: 100%;
-	text-indent: -500em;
+	text-indent: -5000em;
+}
+
+#titlebar-exit {
+	background: transparent url(/img/sprite.png) no-repeat -104px center;
 }
 
 #titlebar-title {
@@ -180,6 +184,13 @@ body {
 	padding: 0;
 	line-height: 32px;
 	font-size: 18px;
+}
+
+#titlebar-save {
+	position: absolute;
+	right: 5px;
+	top: 0;
+	background: transparent url(/img/save-26x26.png) no-repeat center center/18px 18px;
 }
 
 /* =======================================================================
@@ -201,7 +212,6 @@ body {
 	left: 0;
 	right: 0;
 	bottom: 27px;
-	
 	overflow: auto;
 }
 
@@ -230,8 +240,7 @@ body {
 	top: 50%;
 	left: 50%;
 */
-
-	top: 50%;
+	top: 10px;
 	z-index: 0;
 }
 

@@ -31,9 +31,7 @@ var demoPublicApp = angular.module('demoPublicApp',
 						Rest.element('creator', 'origin_embed').then(function(response) {
 							$rootScope.render	= $interpolate(response)($rootScope);
 							
-							/**
-							* Start guessing locations
-							*/
+							//Start guessing locations
 							var embed;
 							switch(placement) {
 								case 'top':

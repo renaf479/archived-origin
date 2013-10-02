@@ -15,7 +15,6 @@ var demoCreatorApp = angular.module('demoCreatorApp',
 							$rootScope.origin_ad	= angular.fromJson(origin_ad).OriginDemo;
 							$rootScope.render		= $rootScope.origin_ad.render;
 							
-							
 							$rootScope.demo = {
 								id:				$rootScope.origin_ad.id,
 								name:			$rootScope.origin_ad.name,
