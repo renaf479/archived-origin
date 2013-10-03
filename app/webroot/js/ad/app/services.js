@@ -82,6 +82,7 @@ angular.module('originAd.services', [])
 				if(this.check($rootScope.originAd_id, auto)) {
 				
 					//Flag to know if the unit has been auto-opened
+					//NEEDS TO BE UNIQUE!
 					window.originAuto	= true;
 					
 					switch($rootScope.xdDataToggle.callback) {

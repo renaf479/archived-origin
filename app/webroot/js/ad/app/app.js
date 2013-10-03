@@ -51,7 +51,8 @@ var originAdApp = angular.module('originAdApp', ['originAd.directives', 'originA
 						/**
 						* Loads the content based on the current date
 						*/
-						var currentDate	= new Date();
+						var currentDate		= new Date(),
+							currentState	= (serviceFrequency.check($rootScope.originAd_id, '1'))? 'auto': 'default';
 						
 						for(i in $rootScope.origin_ad.OriginAdSchedule) {
 							var startDate	= new Date($rootScope.origin_ad.OriginAdSchedule[i].start_date),
@@ -63,11 +64,13 @@ var originAdApp = angular.module('originAdApp', ['originAd.directives', 'originA
 								$rootScope.originAd_content = $rootScope.origin_ad.OriginAdSchedule[i];
 								date = true;
 							}
-						}
+						}						
 						
 						if(!date) {
 							$rootScope.originAd_content = $rootScope.origin_ad.OriginAdSchedule[0];
 						}
+						
+						console.log(currentState);
 												
 						/**
 						* XD listener for override methods from Origin Ad Iframe

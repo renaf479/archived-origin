@@ -10,7 +10,6 @@ var creatorEditController = function($scope, $rootScope, $filter, $timeout, $mod
 	/**
 	* Private Methods
 	*/
-	
 	//Auto save timer
 	var _autoSave = function(status) {
 		if(status === 'cancel') {
@@ -405,6 +404,7 @@ var creatorEditController = function($scope, $rootScope, $filter, $timeout, $mod
 				message		= 'Scripts updated';
 				break;
 		}
+		
 		Rest.post(post).then(function(response) {
 			Notification.alert(message);
 			_avgrundClose('.avgrund-popup');
