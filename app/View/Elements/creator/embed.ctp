@@ -64,7 +64,7 @@
 			$scope.embedInit = function() {
 				$scope.embedOptions = {
 					id: $scope.originAd.id,
-					placement: $scope.originAd.config.placement,
+					placement: angular.fromJson($scope.originAd.config).placement,
 					auto: false,
 					close: false,
 					tablet: false,

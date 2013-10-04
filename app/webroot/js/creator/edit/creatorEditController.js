@@ -80,6 +80,7 @@ var creatorEditController = function($scope, $rootScope, $filter, $timeout, $mod
 	
 	//Refresh workspace data
 	function _updateWorkspace(data) {
+		console.log(data);
 		$scope.originAd				= data.OriginAd;
 		$scope.originAdSchedule		= data.OriginAdSchedule;
 		_updateSchedule();

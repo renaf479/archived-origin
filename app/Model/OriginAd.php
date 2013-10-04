@@ -11,6 +11,12 @@ class OriginAd extends AppModel {
 			'order'=>'OriginAdSchedule.start_date IS NULL DESC, OriginAdSchedule.start_date ASC',
 			'foreignKey'=>'origin_ad_id',
 			'dependent'=>true
+		),
+		'OriginAdScheduleAuto'=>array(
+			'className'=>'OriginAdScheduleAuto',
+			'order'=>'OriginAdScheduleAuto.start_date IS NULL DESC, OriginAdScheduleAuto.start_date ASC',
+			'foreignKey'=>'origin_ad_id',
+			'dependent'=>true
 		)
 	);
 }

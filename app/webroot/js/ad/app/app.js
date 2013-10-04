@@ -45,7 +45,6 @@ var originAdApp = angular.module('originAdApp', ['originAd.directives', 'originA
 						
 						//CHANGE THIS TO BE SET BY ORIGIN SYSTEM
 						//$rootScope.timeout 	= ($rootSope.originParams.close === 'true')? '15': '0';
-						
 						//$rootScope.timeout	= ($rootScope.originParams.close > 0)? $rootScope.originParams.close: '15';
 						
 						/**
@@ -53,7 +52,7 @@ var originAdApp = angular.module('originAdApp', ['originAd.directives', 'originA
 						*/
 						var currentDate		= new Date(),
 							currentState	= (serviceFrequency.check($rootScope.originAd_id, '1'))? 'auto': 'default';
-						
+						console.log($rootScope.origin_ad.OriginAdSchedule);
 						for(i in $rootScope.origin_ad.OriginAdSchedule) {
 							var startDate	= new Date($rootScope.origin_ad.OriginAdSchedule[i].start_date),
 								endDate		= new Date($rootScope.origin_ad.OriginAdSchedule[i].end_date),
@@ -101,5 +100,5 @@ var originAdApp = angular.module('originAdApp', ['originAd.directives', 'originA
 									serviceToggle[$rootScope.xdDataToggle.callback]();
 									break;
 							}
-						}, 'http://'+$rootScope.originParams.originDomain);
+						}, 'http://'+document.location.hostname);
 					});

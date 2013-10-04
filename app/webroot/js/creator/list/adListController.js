@@ -129,7 +129,7 @@ var adListController = function($scope, $rootScope, $filter, $modal, Notificatio
 	}
 }
 
-var modalController = function($scope, $rootScope, $modalInstance, modalScope) {
+var modalController = function($scope, $rootScope, $modalInstance, modalScope, Rest) {
 	$scope.modalScope = modalScope;
 	
 	//Modal close

@@ -5,9 +5,8 @@
 			close: 	'{{embedOptions.close}}',
 			id:		'{{embedOptions.id}}',
 			platforms:{'desktop': true, 'tablet': {{embedOptions.tablet}}, 'mobile': {{embedOptions.mobile}}},
-			placement:'{{embedOptions.placement}}'
-			//adtype:	'{{embedOptions.adtype}}',
-			//domain:	'<?php echo $_SERVER['HTTP_HOST'];?>'
+			placement:'{{embedOptions.placement}}',
+			domain:	'<?php echo $_SERVER['HTTP_HOST'];?>'
 		};
 		if(window.origin) {
 			if(typeof origin == 'function') {

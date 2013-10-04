@@ -9,6 +9,7 @@ class OriginController extends AppController {
 								'OriginSite',
 								'OriginTemplate',
 								'OriginAdSchedule', 
+								'OriginAdScheduleAuto',
 								'OriginAdDesktopInitialContent', 
 								'OriginAdDesktopTriggeredContent',
 								'OriginAdTabetInitialContent', 
@@ -179,6 +180,7 @@ class OriginController extends AppController {
 		if($this->OriginAd->save($data)) {
 			$schedule['origin_ad_id']	= $this->OriginAd->id;
 			$this->OriginAdSchedule->save($schedule);
+			$this->OriginAdScheduleAuto->save($schedule);
 			$assets		= '../webroot/assets/creator/'.$this->OriginAd->id;
 			if(!is_dir($assets)) {
 				mkdir($assets, 0777, true);

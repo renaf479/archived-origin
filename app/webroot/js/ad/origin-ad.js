@@ -9,12 +9,13 @@ var anim=function(h){h=function(a,e,f,b){var g,d,c=[],j=function(a){if(a=c.shift
 var originAdOverlay, originScript, originParams, originXd;
 var _originAdPrefix	= 'originAd-';
 
+var originDomain;
+
 /**
 * Origin ad response handler
 */
 var originXd = (function() {
 	var originAd;
-
 	//Cross Domain listener for Origin ad unit
 	XD.receiveMessage(function(message) {
 		try {
@@ -24,7 +25,7 @@ var originXd = (function() {
 		}
 		message		= JSON.parse(message.data);
 		if(message.callback) response[message.callback](message);
-	}, 'http://'+document.location.hostname);
+	}, 'http://'+originDomain);
 	
 	var response = {
 		//Function to handle creation and management of overlay elements
@@ -130,84 +131,6 @@ var originXd = (function() {
 			}
 			
 		},
-/*
-		containerInit: function(data) {
-			originAd			= document.getElementById(data.id),
-			originAdParams		= JSON.parse(decodeURIComponent(originAd.name));
-			originAd.width		= data.width;
-			originAd.height		= data.height;
-			originAd.style.backgroundColor	= data.hex;
-			
-			//Add special dimensions for units
-			switch(data.placement) {
-				default:
-				case 'default':
-					break;
-				case 'top':
-					originAd.width 	= '100%';
-					break;
-				case 'bottom':
-					originAd.width 				= '100%';
-					originAd.style.bottom		= 0;
-					originAd.style.position		= 'fixed';
-					break;
-			}
-			
-			switch(data.type) {
-				default:
-				case 'default':
-					break;
-				case 'expand':
-					break;
-				case 'overlay':
-					if(document.getElementById('originAd-'+originAdParams.id+'-overlay') === null) this.overlayInit(originAdParams);
-					break;
-				case 'prestitial':
-					this._overlay(originAd, 'show');
-					break;
-				case 'interstitial':
-					document.body.addEventListener('click', function(event) {response.interstitial(event, data)}, false);
-					break;
-			}
-		},
-*/
-/*
-		interstitial: function(e, data) {
-			var target		= e.target? e.target: e.srcElement;						
-			
-			if(target) tag 	= target.tagName;
-			if(target && !/^(a)$/i.test(tag)) {
-				target = target.parentNode;
-				if(target) tag = target.tagName;
-			}
-			
-			if(target.tagName === 'A' && (/^(http:|https:|mailto:)/i.test(target.href) && (target.href.search('#')<=0)) && (/^(_self|_top)/i.test(target.target) || target.target === '')) {
-				if(e.preventDefault) {
-					e.preventDefault();
-				} else {
-					event.returnValue = false;
-				}
-				
-				
-				console.log('open interstitial');
-				var originAdOverlay			= document.getElementById(data.idTriggered);
-					originAdOverlay.width	= '100%';
-					originAdOverlay.height	= '100%';
-					originAdOverlay.src		= originAdOverlay.getAttribute('data-src');
-					originAdOverlay.setAttribute('data-continue', target.href);
-			}
-*/
-			/*
-	
-				} else {
-					//WHY IS THIS HERE TWICE?
-					if(e.preventDefault) {
-						e.preventDefault();
-					} else {
-						event.returnValue = false;
-					}
-				}
-			*/	
 		toggleexpand: function(data) {
 			var expand 	= document.getElementById(_originAdPrefix+data.id);
 			
@@ -223,22 +146,6 @@ var originXd = (function() {
 					anim(expand, {height:data.resizeHeight}, data.duration, 'ease-out');
 					break;
 			}
-			
-/*
-			var ad 			= document.getElementById(data.id);
-		
-			switch() {
-				case 'top':
-					if(document.getElementById('originCss')) { 
-						document.getElementById('originCss').parentNode.removeChild(document.getElementById('originCss'));
-					}
-					anim(document.getElementById(data.id), {height:data.resizeHeight}, data.duration, 'ease-out');
-					break;
-				default:
-					anim(document.getElementById(data.id), {height:data.resizeHeight,width:data.resizeWidth}, data.duration, 'ease-out');
-					break;
-			}
-*/
 		},
 		toggleoverlay: function(data) {
 			//Select the correct ad iframe
@@ -270,7 +177,7 @@ var originXd = (function() {
 			}
 		}
 	}
-})();
+});
 
 /**
 * Origin Ad initialization
@@ -335,13 +242,17 @@ var originXd = (function() {
 				'dcopt':	data.dcopt,
 				'dfp':		data.dfp,
 				'id':		data.id,
-				'src':		'http://'+document.location.hostname+'/ad/'+data.id+'/'+platform,
-				'originDomain':document.location.hostname,
+				'src':		'http://'+data.domain+'/ad/'+data.id+'/'+platform,
+				//'originDomain':document.location.hostname,
+				//'originDomain': data.domain,
 				'xdSource':	document.location.href
 			};
-			
 			originScript 	= document.getElementById('originEmbed-'+originParams.id);
 			//originXd		= (data.debug === 'true')? 'http://'+data.domain+'/js/ad/origin-xd.js':'http://'+data.domain+'/min-js?f=/js/ad/origin-xd.js';
+			
+			//TEST THIS!!
+			originDomain = data.domain;
+			originXd();
 			
 			if(top === self) {				
 				//xd();
