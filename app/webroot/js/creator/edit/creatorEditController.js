@@ -80,7 +80,6 @@ var creatorEditController = function($scope, $rootScope, $filter, $timeout, $mod
 	
 	//Refresh workspace data
 	function _updateWorkspace(data) {
-		console.log(data);
 		$scope.originAd				= data.OriginAd;
 		$scope.originAdSchedule		= data.OriginAdSchedule;
 		_updateSchedule();
@@ -245,7 +244,7 @@ var creatorEditController = function($scope, $rootScope, $filter, $timeout, $mod
 	//Open
 	$scope.avgrundOpen = function(type, model) {
 		var selector;
-		$scope.originAdProperties 	= ''; 
+		$rootScope.originAdProperties 	= ''; 
 		$scope.originAdScripts 		= '';
 		$scope.avgrund 				= '';
 		
@@ -316,7 +315,7 @@ var creatorEditController = function($scope, $rootScope, $filter, $timeout, $mod
 				}
 				break;
 			case 'properties':
-				$scope.originAdProperties = angular.copy($scope.originAd);
+				$rootScope.originAdProperties = angular.copy($scope.originAd);
 				$scope.avgrund = {
 					header: 'Properties',
 					id:		'properties',
@@ -395,7 +394,7 @@ var creatorEditController = function($scope, $rootScope, $filter, $timeout, $mod
 				}
 				break;
 			case 'properties':
-				post 		= angular.copy($scope.originAdProperties);
+				post 		= angular.copy($rootScope.originAdProperties);
 				post.route	= 'creatorSettingsUpdate';
 				message		= 'Properties updated';
 				break;

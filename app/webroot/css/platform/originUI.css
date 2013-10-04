@@ -1108,9 +1108,11 @@ body.originClass-edit #originBar-search {
 	width: 100%;
 }
 
+/*
 #properties-template {
 	width: 200px;
 }
+*/
 
 .properties-dimensions,
 .properties-animations {

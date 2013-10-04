@@ -13,6 +13,12 @@
 				<label class="properties-label inline">Showcase</label>
 				<input-switch class="properties-input inline originUI-switch" name="showcaseSwitch" active="Yes" inactive="No" data-ng-model="originAdProperties.showcase" data-ng-checked="originAdProperties.showcase === '1'"></input-switch>
 			</li>
+			<li>
+				<label class="properties-label inline">Load Pre-set</label>
+				<select id="properties-template" class="properties-input inline originUI-select originUI-bgColorSecondary" data-ng-model="originAdProperties.template_id" data-ng-options="template.OriginTemplate.id as template.OriginTemplate.name for template in originAdTemplates|filter:{OriginTemplate.status:'1'}" data-ng-change="propertiesTemplate(originAdProperties.template_id)">
+					<option style="display:none" value="">Load Template Pre-set</option>
+				</select>
+			</li>
 			<li data-ng-if="originAdmin">
 				<label class="properties-label inline">Ad Type</label>
 				<select class="properties-input inline originUI-select originUI-bgColorSecondary" data-ng-model="originAdProperties.config.type" data-ng-change="templateSelect(originAdProperties.config.type)">
@@ -44,13 +50,8 @@
 		</ul>
 	</div>
 	<div id="properties-right" class="inline" data-ng-class="{'propertiesExpand': originAdmin}">
-		<div id="properties-platform">
-			<div data-ng-if="originAdmin" class="inline">
-				<img class="platform-icon originUI-iconHover" data-ng-repeat="platform in fields.platforms" data-ng-click="propertiesPlatform(platform)" data-ng-src="/img/{{platform.name}}-26x26.png" data-ng-class="{'active': propertiesUI === platform.name}"/>
-			</div>
-			<select id="properties-template" class="originUI-select originUI-bgColorSecondary" data-ng-model="originAdProperties.template_id" data-ng-options="template.OriginTemplate.id as template.OriginTemplate.name for template in originAdTemplates|filter:{OriginTemplate.status:'1'}" data-ng-change="propertiesTemplate(originAdProperties.template_id)">
-				<option style="display:none" value="">Load Template Pre-set</option>
-			</select>
+		<div id="properties-platform" data-ng-if="originAdmin">
+			<img class="platform-icon originUI-iconHover" data-ng-repeat="platform in fields.platforms" data-ng-click="propertiesPlatform(platform)" data-ng-src="/img/{{platform.name}}-26x26.png" data-ng-class="{'active': propertiesUI === platform.name}"/>
 		</div>
 		<div id="properties-summary" data-ng-if="!originAdmin">
 			<img id="propertiesSummary-storyboard" data-ng-src="{{originAdProperties.summary.file_storyboard}}" data-ng-if="originAdProperties.summary.file_storyboard"/>
@@ -98,20 +99,7 @@
 <script type="text/javascript">
 	var propertiesController = function($scope, $rootScope, Rest) {
 		var fields;
-		$scope.propertiesInit = function() {
-			
-			//Check to see if we're creating a new entry
-			if(!$rootScope.originAdProperties) {
-				$rootScope.originAdProperties = {
-					content: {
-						ga_id: 	'UA-12310597-73',
-						hex:	'#000000'
-					},
-					status: '1',
-				}
-			}
-			
-			
+		$scope.propertiesInit = function() {		
 			//Load template listing
 			Rest.get('templates').then(function(response) {
 				$scope.originAdTemplates = response;
@@ -191,9 +179,23 @@
 				}
 			}
 			$scope.fields 							= angular.copy(fields);
-			$rootScope.originAdProperties.config 	= angular.copy(editor.config);
 			
 			$scope.propertiesPlatform({name: 'Desktop'});
+			
+			//Check to see if we're creating a new entry
+			if(!$rootScope.originAdProperties) {
+				$rootScope.originAdProperties 		 	= {};
+				$rootScope.originAdProperties.config 	= angular.copy(editor.config);
+				$rootScope.originAdProperties = {
+					content: {
+						ga_id: 	'UA-12310597-73',
+						hex:	'#000000'
+					},
+					status: '1',
+				}
+			} else {
+				//$rootScope.originAdProperties.config 	= angular.copy(editor.config);
+			}
 			
 			//console.log($scope.originAdProperties.config);
 		}
@@ -215,7 +217,7 @@
 						},
 						{
 						label:	'Unit Height (px)',
-						name:	'Height', 
+						name:	'Initial', 
 						inputs:	'height'
 						}
 					];
@@ -231,7 +233,7 @@
 						},
 						{
 						label:	'Unit Height (px)',
-						name:	'Height', 
+						name:	'Initial', 
 						inputs:	'height'
 						}
 					];
@@ -255,12 +257,12 @@
 			//Find associated key value pair
 			angular.forEach($scope.originAdTemplates, function(value, key) {
 				if(value.OriginTemplate.id === model) {
-					//console.log(value);
 					//Load it into properties
+					$scope.templateSelect(value.OriginTemplate.config.type);
 					$rootScope.originAdProperties.summary	= value.OriginTemplate.content;
 					$rootScope.originAdProperties.config 	= value.OriginTemplate.config;
 				}
 			});
-		}	
+		}
 	}
 </script>

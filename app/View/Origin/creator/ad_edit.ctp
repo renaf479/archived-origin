@@ -45,16 +45,18 @@
 	
 		<!-- Bar above workspace -->
 		<div id="workspace-bar" class="originUI-bgColor originUI-borderColor">
-			<div id="schedule" class="inline">
-				<div id="schedule-add" class="originUI-iconHover inline" data-ng-click="avgrundOpen('schedule')"></div>
-				<!-- schedule.start_date+' thru '+schedule.end_date  -->
-				<select id="schedule-select" class="originUI-select originUI-bgColorSecondary inline" data-ng-model="ui.scheduleId" data-ng-options="schedule.id as schedule|filterSchedule for schedule in originAdSchedule|filter:{type:ui.auto}">
-				</select>
-			</div>
-			<div id="auto" class="inline">
-				<!-- <input type="checkbox" data-ng-checked="ui.auto === 'auto'" data-ng-click="uiAuto()"/> -->
-				<input-checkbox class="inline" name="autoInput" data-ng-model="ui.auto" data-ng-checked="ui.auto === 'auto'" data-ng-true-value='auto' data-ng-false-value='default'></input-checkbox>
-				<label class="inline originUI-hover" data-ng-class="{disabled: ui.auto === 'default'}">Auto State</label>
+			<div data-ng-if="false">
+				<div id="schedule" class="inline">
+					<div id="schedule-add" class="originUI-iconHover inline" data-ng-click="avgrundOpen('schedule')"></div>
+					<!-- schedule.start_date+' thru '+schedule.end_date  -->
+					<select id="schedule-select" class="originUI-select originUI-bgColorSecondary inline" data-ng-model="ui.scheduleId" data-ng-options="schedule.id as schedule|filterSchedule for schedule in originAdSchedule|filter:{type:ui.auto}">
+					</select>
+				</div>
+				<div id="auto" class="inline">
+					<!-- <input type="checkbox" data-ng-checked="ui.auto === 'auto'" data-ng-click="uiAuto()"/> -->
+					<input-checkbox class="inline" name="autoInput" data-ng-model="ui.auto" data-ng-checked="ui.auto === 'auto'" data-ng-true-value='auto' data-ng-false-value='default'></input-checkbox>
+					<label class="inline originUI-hover" data-ng-class="{disabled: ui.auto === 'default'}">Auto State</label>
+				</div>
 			</div>
 			<div id="state" class="inline">
 				<input-switch id="state-switch" class="originUI-switchDual" name="stateSwitch" active="Initial" inactive="Triggered" data-ng-model="ui.stateSwitch" data-ng-change="uiState()" data-ng-checked="ui.stateSwitch === true"></input-switch>
