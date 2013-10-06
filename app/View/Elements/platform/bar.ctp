@@ -1,7 +1,8 @@
 <?php
 	$url		= $_SERVER['REQUEST_URI'];
 	$path		= parse_url($url);
-	$path		= explode('/', $path['path'])[1];
+	$path		= explode('/', $path['path']);
+	$path		= $path[1];
 	$linkLogo	= ($path === 'administrator')? '/administrator': '/';
 	
 	$userId		= $this->UserAuth->getUserId();

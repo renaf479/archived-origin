@@ -239,7 +239,7 @@ class OriginController extends AppController {
 		);
 		
 		//Transform data
-		$contentArray		= ['OriginAdDesktopInitialContent', 'OriginAdDesktopTriggeredContent', 'OriginAdMobileInitialContent', 'OriginAdMobileTriggeredContent', 'OriginAdTabletInitialContent', 'OriginAdTabletTriggeredContent'];
+		$contentArray		= array('OriginAdDesktopInitialContent', 'OriginAdDesktopTriggeredContent', 'OriginAdMobileInitialContent', 'OriginAdMobileTriggeredContent', 'OriginAdTabletInitialContent', 'OriginAdTabletTriggeredContent');
 
 		$origin_ad['OriginAd']['config'] 		= json_decode($origin_ad['OriginAd']['config']);
 		$origin_ad['OriginAd']['content'] 		= json_decode($origin_ad['OriginAd']['content']);
@@ -979,14 +979,14 @@ class OriginController extends AppController {
 		);
 		//Append default page
 		array_push($origin_demo, 
-			['OriginDemo'=>
-				[
+			array('OriginDemo'=>
+				array(
 					'default'=>true,
 					'name'=>'Origin Demo Page (default)',
 					'alias'=>'Origin/'.PseudoCrypt::hash($originAd_id, 6),
 					'config'=>'{"templateAlias":"origin"}'
-				]
-			]);
+				)
+			));
 			
 		foreach($origin_demo as $key=>&$demo) {
 			//$origin_demo[$key]['OriginDemo']['create_date']	= date('n.j.y \a\t\ G:i T', strtotime($origin_demo[$key]['OriginDemo']['create_date']));
