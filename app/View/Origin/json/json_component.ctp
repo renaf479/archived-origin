@@ -3,6 +3,14 @@
 		$origin_component['OriginComponent']['config']	= json_decode($origin_component['OriginComponent']['config']);
 		$origin_component['OriginComponent']['content']	= json_decode($origin_component['OriginComponent']['content']);
 	}
+	echo json_encode($origin_components);
+
+
+/*
+	foreach($origin_components as $key=>&$origin_component) {
+		$origin_component['OriginComponent']['config']	= json_decode($origin_component['OriginComponent']['config']);
+		$origin_component['OriginComponent']['content']	= json_decode($origin_component['OriginComponent']['content']);
+	}
 	
 
 	$groups = array();
@@ -31,3 +39,4 @@
 	echo json_encode($componentGroups);
 	//echo json_encode($origin_components);
 	//print_r($origin_components);
+*/

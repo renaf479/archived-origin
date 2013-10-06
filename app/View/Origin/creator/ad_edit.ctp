@@ -83,7 +83,7 @@
 			<form id="{{avgrund.id}}-form" class="avgrund-form" name="avgrundForm" novalidate>
 			<h3 class="originUI-tileHeader originUI-borderColor originUI-textColor">{{avgrund.header}}</h3>
 				<div class="avgrund-content" data-ng-if="avgrund.name === 'component' || avgrund.name === 'component-new'">
-					<?php echo $this->element('creator/componentModal');?>
+					<?php echo $this->element('creator/component');?>
 				</div>
 				<div class="avgrund-content" data-ng-if="avgrund.name === 'embed'">
 					<?php echo $this->element('creator/embed');?>

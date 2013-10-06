@@ -14,7 +14,7 @@
 				<input-switch class="properties-input inline originUI-switch" name="showcaseSwitch" active="Yes" inactive="No" data-ng-model="originAdProperties.showcase" data-ng-checked="originAdProperties.showcase === '1'"></input-switch>
 			</li>
 			<li>
-				<label class="properties-label inline">Load Pre-set</label>
+				<label class="properties-label inline">Load Preset</label>
 				<select id="properties-template" class="properties-input inline originUI-select originUI-bgColorSecondary" data-ng-model="originAdProperties.template_id" data-ng-options="template.OriginTemplate.id as template.OriginTemplate.name for template in originAdTemplates|filter:{OriginTemplate.status:'1'}" data-ng-change="propertiesTemplate(originAdProperties.template_id)">
 					<option style="display:none" value="">Load Template Pre-set</option>
 				</select>

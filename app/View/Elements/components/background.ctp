@@ -7,8 +7,7 @@
 				</li>
 			</ul>
 		</div><!--
-		--><div class="inline">
-			<div id="editorBackground-preview" back-img="{{editor.content.image}}"></div>
+		--><div id="editorBackground-preview" class="inline originUI-bgColorTertiary" back-img="{{editor.content.image}}">
 		</div>
 	</div>
 	<style type="text/css">
@@ -18,16 +17,30 @@
 		
 		#editorBackground-list {
 			width: 100px;
-			height: 100%;
-			overflow: hidden;
+			height: 250px;
+			overflow-y: auto;
+			font-size: 12px;
+		}
+		
+		#editorBackground-list .originUI-listItem {
+			margin: 0;
+			padding: 0;
+		}
+		
+		#editorBackground-list .originUI-listItem > a {
+			margin: 0;
+			padding: 0;
+			height: 26px;
+			line-height: 26px;
+			text-align: center;
 		}
 		
 		#editorBackground-preview {
 			background-repeat: no-repeat;
 			background-position: center center;
-			background-size: 400px auto;
-			width: 420px;
-			height: 200px;
+			background-size: 450px auto;
+			width: 470px;
+			height: 250px;
 		}
 		
 		#componentModal-config {

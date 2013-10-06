@@ -1066,6 +1066,7 @@ class OriginController extends AppController {
 	* JSON feed of all Origin ad components - Grouped by type
 	* Permissions: Logged in
 	*/
+/*
 	public function jsonComponent() {
 		$origin_components	= $this->OriginComponent->find('all',
 			array(
@@ -1074,12 +1075,13 @@ class OriginController extends AppController {
 		);
 		$this->set('origin_components', $origin_components);
 	}
+*/
 	
 	/**
 	* JSON feed of all Origin ad components - direct feed
 	* Permissions: Logged in
 	*/
-	public function jsonComponentRaw() {
+	public function jsonComponent() {
 		$origin_components	= $this->OriginComponent->find('all',
 			array(
 				'order'=>array('OriginComponent.name ASC')

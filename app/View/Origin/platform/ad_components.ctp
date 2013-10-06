@@ -1,4 +1,4 @@
-<div id="ad-component" data-ng-controller="platformController" data-ng-cloak data-ng-init="init('componentsraw')">
+<div id="ad-component" data-ng-controller="platformController" data-ng-cloak data-ng-init="init('components')">
 	<h2 class="originUI-header"><a href="/administrator/settings" class="originUI-back originUI-hover">Ad Components</a></h2>
 	<div id="platform-list" class="originUI-tileLeft originUI-bgColorSecondary originUI-shadow">
 		<div id="platformList-header" class="originUI-bgTexture originUI-borderColor originUI-hover" data-ng-click="add()">

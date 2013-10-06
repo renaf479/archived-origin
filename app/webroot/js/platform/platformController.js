@@ -11,7 +11,7 @@ var platformController = function($scope, $filter, Rest, Notification) {
 	$scope.init = function(model) {
 		//Setup presets
 		switch(model) {
-			case 'componentsraw':
+			case 'components':
 				$scope.model	= {name: 'OriginComponent'};
 				header 			= 'Add New Component';
 				notification	= {

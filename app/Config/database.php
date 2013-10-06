@@ -63,12 +63,25 @@ class DATABASE_CONFIG {
 		'datasource' => 'Database/Mysql',
 		'persistent' => false,
 		'host' => 'localhost',
+		'login' => 'williefu_origin',
+		'password' => 'williefuorigin',
+		'database' => 'williefu_origin',
+		'prefix' => '',
+		//'encoding' => 'utf8',
+	);
+	
+	/*
+		public $default = array(
+		'datasource' => 'Database/Mysql',
+		'persistent' => false,
+		'host' => 'localhost',
 		'login' => 'evolveorigin',
 		'password' => 'evolveorigin',
 		'database' => 'evolveorigin',
 		'prefix' => '',
 		//'encoding' => 'utf8',
 	);
+	*/
 
 	public $test = array(
 		'datasource' => 'Database/Mysql',
