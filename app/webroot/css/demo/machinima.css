@@ -1,0 +1,49 @@
+body {
+	margin: 0;
+}
+
+#demo-reskin {
+	background-color: #161616;
+	background-position: center 107px;
+	background-repeat: no-repeat;
+}
+
+#header {
+	background: transparent url(/img/_sites/machinima/header.jpg) no-repeat center top;
+	width: 100%;
+	height: 107px;
+	margin: 0 auto;
+}
+
+#wrapper {
+	width: 1120px;
+	display: block;
+	margin: 0 auto;
+}
+
+#content {
+	background: transparent url(/img/_sites/machinima/body.jpg) no-repeat center top;
+	width: 1120px;
+	height: 4534px;
+	margin: 0 auto;
+	position: relative;
+}
+
+.embedAd {
+	overflow: hidden;
+}
+
+.embedLeaderboard {
+	margin: 5px auto 0;
+	width: 970px;
+	min-height: 66px;
+	display: block;
+}
+
+.embedSidebar {
+	position: absolute;
+	right: 10px;
+	top: 453px;
+	width: 300px;
+	height: 250px;
+}

@@ -277,7 +277,7 @@ Cache::config('_cake_model_', array(
 	'duration' => $duration
 ));
 
-Configure::write('MinifyAsset', false);
+Configure::write('MinifyAsset', true);
 
 /**
  * Info used in Monitor

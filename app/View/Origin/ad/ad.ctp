@@ -1,5 +1,5 @@
 <?php
-	$contentArray		= ['OriginAd'.$originAd_platform.'InitialContent', 'OriginAd'.$originAd_platform.'TriggeredContent'];
+	$contentArray		= array('OriginAd'.$originAd_platform.'InitialContent', 'OriginAd'.$originAd_platform.'TriggeredContent');
 	$origin_ad['OriginAd']['config'] 		= json_decode($origin_ad['OriginAd']['config']);
 	$origin_ad['OriginAd']['content'] 		= json_decode($origin_ad['OriginAd']['content']);
 
@@ -51,7 +51,7 @@
 	?>
 		
 		<?php
-			echo $this->element('ad/'.$originAd_platform.'/'.$type, array('originAd_platform'=>$originAd_platform));
+			echo $this->element('ad/'.strtolower($originAd_platform).'/'.$type, array('originAd_platform'=>$originAd_platform));
 		
 		
 /*

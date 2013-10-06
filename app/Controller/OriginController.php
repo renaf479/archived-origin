@@ -682,7 +682,7 @@ class OriginController extends AppController {
 	public function platformLoadElement() {
         $this->autoRender 	= false;
         $this->layout	 	= 'ajax';
-        $this->render('/elements/'.$this->request->params['elementFolder'].'/'.$this->request->params['element']);
+        $this->render('/Elements/'.$this->request->params['elementFolder'].'/'.$this->request->params['element']);
     }
 
 	/**

@@ -1,5 +1,5 @@
 <?php
-	$contentArray		= ['OriginAdDesktopInitialContent', 'OriginAdDesktopTriggeredContent', 'OriginAdMobileInitialContent', 'OriginAdMobileTriggeredContent', 'OriginAdTabletInitialContent', 'OriginAdTabletTriggeredContent'];
+	$contentArray		= array('OriginAdDesktopInitialContent', 'OriginAdDesktopTriggeredContent', 'OriginAdMobileInitialContent', 'OriginAdMobileTriggeredContent', 'OriginAdTabletInitialContent', 'OriginAdTabletTriggeredContent');
 
 	$origin_ad['OriginAd']['config'] 		= json_decode($origin_ad['OriginAd']['config']);
 	$origin_ad['OriginAd']['content'] 		= json_decode($origin_ad['OriginAd']['content']);
