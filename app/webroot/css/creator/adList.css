@@ -1,10 +1,8 @@
 /* =======================================================================
-	Override
+Override
 ========================================================================== */
-
-
 /* =======================================================================
-	Header
+Header
 ========================================================================== */
 #ad-list {
 	position: relative;
@@ -18,13 +16,16 @@
 
 .originUI-header {
 	width: 300px;
-	line-height: 42px;	
+	line-height: 42px;
 }
 
 #ad-create {
 	background-image: url(/img/creator-42x42.png);
 	background-repeat: no-repeat;
 	background-position: right 10px center;
+
+	-webkit-background-size: 26px 26px;
+	-moz-background-size: 26px 26px;
 	background-size: 26px 26px;
 	width: 250px;
 	height: 42px;
@@ -38,12 +39,10 @@
 	text-indent: 10px;
 }
 
-
 /* =======================================================================
-	Ad Tiles
+Ad Tiles
 ========================================================================== */
-.ad-wrapper,
-.ad-tile {
+.ad-wrapper,.ad-tile {
 	width: 320px;
 	height: 115px;
 }
@@ -59,6 +58,9 @@
 .ad-tile {
 	position: relative;
 	background-repeat: no-repeat;
+
+	-webkit-background-size: 320px auto;
+	-moz-background-size: 320px auto;
 	background-size: 320px auto;
 	cursor: pointer;
 	border-width: 0 0 1px 2px;
@@ -66,6 +68,8 @@
 }
 
 .ad-tile:hover .adTile-id {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+	filter: alpha(opacity=100);
 	opacity: 1;
 }
 
@@ -73,6 +77,8 @@
 	position: absolute;
 	top: 3px;
 	left: 5px;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
+	filter: alpha(opacity=20);
 	opacity: .2;
 }
 
@@ -89,6 +95,8 @@
 	position: absolute;
 	top: 50%;
 	left: 50%;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	filter: alpha(opacity=0);
 	opacity: 0;
 	z-index: 0;
 	margin: -10px 0 0 -45px;
@@ -98,8 +106,7 @@
 	display: none;
 }
 
-.adTile-create,
-.adTile-modify {
+.adTile-create,.adTile-modify {
 	display: block;
 }
 
@@ -107,14 +114,17 @@
 	position: absolute;
 	top: 0px;
 	right: 0px;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
+	filter: alpha(opacity=20);
 	opacity: .2;
 	font-size: 10px;
 	width: 10px;
-	-webkit-transform:rotate(90deg);
-	-moz-transform:rotate(90deg);
-	-ms-transform:rotate(90deg);
-	-o-transform:rotate(90deg);
-	transform:rotate(90deg);
+
+	-webkit-transform: rotate(90deg);
+	-moz-transform: rotate(90deg);
+	-o-transform: rotate(90deg);
+	-ms-transform: rotate(90deg);
+	transform: rotate(90deg);
 }
 
 .adTile-showcase {
@@ -125,13 +135,14 @@
 	text-indent: -5000em;
 	right: 3px;
 	bottom: 3px;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
+	filter: alpha(opacity=30);
 	opacity: .3;
 }
 
 /* =======================================================================
-	No-image Tile
+No-image Tile
 ========================================================================== */
-
 .ad-tile.no-image .adTile-name {
 	width: 70%;
 	bottom: auto;
@@ -146,6 +157,8 @@
 }
 
 .ad-tile.no-image .adTile-watermark {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=5)";
+	filter: alpha(opacity=5);
 	opacity: .05;
 }
 
@@ -154,12 +167,14 @@
 	position: absolute;
 	top: 65px;
 	left: 10px;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+	filter: alpha(opacity=50);
 	opacity: .5;
 	font-size: 10px;
 }
 
 /* =======================================================================
-	Expand
+Expand
 ========================================================================== */
 .ad-wrapper.originUI-expand {
 	height: 445px;
@@ -184,18 +199,20 @@ body.originUI-superAdmin .adExpand-name {
 	text-indent: 36px;
 }
 
-.adExpand-showcase,
-.adExpand-remove {
+.adExpand-showcase,.adExpand-remove {
 	position: absolute;
 	top: 10px;
 	width: 26px;
 	height: 26px;
 	text-indent: -5000em;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
+	filter: alpha(opacity=30);
 	opacity: .3;
 }
 
-.adExpand-showcase:hover,
-.adExpand-remove:hover {
+.adExpand-showcase:hover,.adExpand-remove:hover {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+	filter: alpha(opacity=100);
 	opacity: 1;
 }
 
@@ -215,14 +232,12 @@ body.originUI-superAdmin .adExpand-name {
 	background-image: url(/img/star-empty-26x26.png);
 }
 
-
 .adExpand-remove {
 	background: transparent url(/img/delete-26x26.png) no-repeat center center;
 	right: 52px;
 }
 
-.adExpand-left,
-.adExpand-right {
+.adExpand-left,.adExpand-right {
 	height: 218px;
 }
 
@@ -235,22 +250,29 @@ body.originUI-superAdmin .adExpand-name {
 }
 
 /*
-.adExpand-center {
-	width: 200px;
-	height: 275px;
-	border-width: 0 1px;
-	border-style: solid;
-	padding: 0 15px;
-	margin: 0 15px;
+.adExpand-center  {
+	
+width:  200px;
+	
+height:  275px;
+	
+border-width:  0 1px;
+	
+border-style:  solid;
+	
+padding:  0 15px;
+	
+margin:  0 15px;
+	
 }
-*/
 
+ */
 .adExpand-right {
 	width: 635px;
 }
 
 /* =======================================================================
-	Expand - Links
+Expand -Links
 ========================================================================== */
 .adExpand-button {
 	border-width: 0 0 1px 2px;
@@ -260,9 +282,11 @@ body.originUI-superAdmin .adExpand-name {
 	display: block;
 	margin: 0 0 15px 0;
 	position: relative;
-	
 	background-repeat: no-repeat;
 	background-position: right 10px center;
+
+	-webkit-background-size: 18px 18px;
+	-moz-background-size: 18px 18px;
 	background-size: 18px 18px;
 	font-variant: small-caps;
 }
@@ -298,11 +322,13 @@ body.originUI-superAdmin .adExpand-name {
 }
 
 .adExpand-itemDescription {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
+	filter: alpha(opacity=40);
 	opacity: .4;
 }
 
 /* =======================================================================
-	Expand - Image
+Expand -Image
 ========================================================================== */
 .adExpand-right {
 	position: relative;
@@ -313,22 +339,25 @@ body.originUI-superAdmin .adExpand-name {
 	position: absolute;
 	left: 50%;
 	top: 50%;
-	-webkit-transform:translate(-50%, -50%);
-	-moz-transform:translate(-50%, -50%);
-	-ms-transform:translate(-50%, -50%);
-	-o-transform:translate(-50%, -50%);
-	transform:translate(-50%, -50%);
+
+	-webkit-transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+	-o-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
 }
 
 .adExpand-meta {
 	position: absolute;
 	font-size: 10px;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+	filter: alpha(opacity=50);
 	opacity: .5;
 	top: 45px;
 }
 
 /* =======================================================================
-	Modal - Embed/Demo
+Modal -Embed/Demo
 ========================================================================== */
 #modalEmbed-header {
 	background: transparent url(/img/embed-42x42.png) no-repeat 10px center/26px 26px;
@@ -337,7 +366,6 @@ body.originUI-superAdmin .adExpand-name {
 #modal-embed .originUI-modalContent {
 	height: 320px;
 }
-
 
 #modalDemo-header {
 	background: transparent url(/img/demo-26x26.png) no-repeat 10px center;
@@ -353,12 +381,16 @@ body.originUI-superAdmin .adExpand-name {
 	line-height: 26px;
 }
 
-.modalDemo-demoEdit,
-.modalDemo-demoRemove {
+.modalDemo-demoEdit,.modalDemo-demoRemove {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	filter: alpha(opacity=0);
 	opacity: 0;
 	background-color: transparent;
 	background-repeat: no-repeat;
 	background-position: left center;
+
+	-webkit-background-size: 18px 18px;
+	-moz-background-size: 18px 18px;
 	background-size: 18px 18px;
 	width: 18px;
 	height: 100%;
@@ -378,13 +410,15 @@ body.originUI-superAdmin .adExpand-name {
 	background-image: url(/img/delete-26x26.png);
 }
 
-.modalDemo-demo:hover .modalDemo-demoEdit,
-.modalDemo-demo:hover .modalDemo-demoRemove {
+.modalDemo-demo:hover .modalDemo-demoEdit,.modalDemo-demo:hover .modalDemo-demoRemove {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=10)";
+	filter: alpha(opacity=10);
 	opacity: .1;
 }
 
-.modalDemo-demoEdit:hover,
-.modalDemo-demoRemove:hover {
+.modalDemo-demoEdit:hover,.modalDemo-demoRemove:hover {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+	filter: alpha(opacity=100);
 	opacity: 1 !important;
 }
 
@@ -393,11 +427,12 @@ body.originUI-superAdmin .adExpand-name {
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	-webkit-transform:translate(-50%, -50%);
-	-moz-transform:translate(-50%, -50%);
-	-ms-transform:translate(-50%, -50%);
-	-o-transform:translate(-50%, -50%);
-	transform:translate(-50%, -50%);
+
+	-webkit-transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+	-o-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
 }
 
 #modalDemo-demos {
@@ -415,7 +450,7 @@ body.originUI-superAdmin .adExpand-name {
 }
 
 /* =======================================================================
-	Modals
+Modals
 ========================================================================== */
 .modalCreateExpand {
 	width: 900px;
@@ -425,6 +460,9 @@ body.originUI-superAdmin .adExpand-name {
 .modal .originUI-tileHeader {
 	background-repeat: no-repeat;
 	background-position: 10px center;
+
+	-webkit-background-size: 18px 18px;
+	-moz-background-size: 18px 18px;
 	background-size: 18px 18px;
 	text-indent: 35px;
 }
@@ -433,16 +471,12 @@ body.originUI-superAdmin .adExpand-name {
 	background-image: url(/img/creator-42x42.png);
 }
 
-#adList-embed .originUI-tileHeader {
-}
-
 .modal .originUI-tileContent {
 	padding: 10px 15px;
 }
 
-
 /* =======================================================================
-	Modal - Demo
+Modal -Demo
 ========================================================================== */
 .modalDemo {
 	width: 530px;
@@ -453,14 +487,12 @@ body.originUI-superAdmin .adExpand-name {
 	clear: both;
 }
 
-.demo-edit,
-.demo-remove {
+.demo-edit,.demo-remove {
 	text-indent: -5000em;
 	width: 26px;
 	height: 100%;
 	display: block;
 	cursor: pointer;
-	
 	background-color: red;
 }
 
@@ -472,19 +504,20 @@ body.originUI-superAdmin .adExpand-name {
 	margin-left: 10px;
 }
 
-.demo-edit,
-.demo-title {
+.demo-edit,.demo-title {
 	float: left;
 }
 
-.demo-remove,
-.demo-timestamp {
+.demo-remove,.demo-timestamp {
 	font-size: 12px;
 	float: right;
 }
 
 /*
-#adCreate-modalHeader {
-	background: transparent url(/img/creator-42x42.png) no-repeat 10px center/26px 26px;
+#adCreate-modalHeader  {
+	
+background:  transparent url(/img/creator-42x42.png) no-repeat 10px center/26px 26px;
+	
 }
-*/
+
+ */

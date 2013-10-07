@@ -12,7 +12,7 @@ angular.module('demoApp.services', [])
 				    contentsElement: document.querySelector(contentSelector),
 				    position: 'left',
 				    height: 200,
-				    width: 300,
+				    width: 200,
 				    mouse: true,
 				    touch: true
 				});

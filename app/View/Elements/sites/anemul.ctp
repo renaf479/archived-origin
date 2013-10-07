@@ -15,4 +15,4 @@
 	<adTag data-name="Out of Page" id="embedOutOfPage" ng:bind-html-unsafe="embedOutOfPage"></adTag>
 </div>
 <?
-	echo $this->Minify->css(array('demo/anemul'));
+	echo $this->Minify->css(array('sites/anemul'));

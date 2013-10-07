@@ -1,5 +1,5 @@
 <?
-	echo $this->Minify->css(array('demo/origin'));
+	echo $this->Minify->css(array('sites/origin'));
 ?>
 	<div id="bar" class="originAurora">
 		<div id="logo"></div>

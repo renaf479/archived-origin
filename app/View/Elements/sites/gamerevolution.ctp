@@ -15,4 +15,4 @@
 	</div>
 </div>
 <?
-	echo $this->Minify->css(array('demo/gamerevolution'));
+	echo $this->Minify->css(array('sites/gamerevolution'));

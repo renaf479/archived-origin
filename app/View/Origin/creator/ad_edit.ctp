@@ -30,7 +30,7 @@
 			<accordion-group id="panel-layers" heading="Layers" class="panel-accordion" data-ng-class="{true:'active', false:''}[isOpen]">
 				<ul class="originUI-list originUI-bgColorSecondary" layers>
 					<li class="originUI-listItem" data-ng-repeat="layer in layers|orderBy:'-order'">
-						<a href="javascript:void(0)" class="originUI-bgHover originUI-listItemLink" data-ng-mouseover="workspaceFocus(layer.id)" data-ng-mouseleave="workspaceClear(layer.id)" data-ng-dblclick="avgrundOpen('component', layer)" back-img="{{layer.img_icon}}" layer>{{layer.type}}-{{layer.id}}</a>
+						<a href="javascript:void(0)" class="originUI-bgHover originUI-listItemLink" data-ng-mouseover="workspaceFocus(layer.id)" data-ng-mouseleave="workspaceClear(layer.id)" data-ng-click="avgrundOpen('component', layer)" back-img="{{layer.img_icon}}" layer>{{layer.type}}-{{layer.id}}</a>
 					</li>
 					<li data-ng-hide="layers.length">No layers</li>
 				</ul>
@@ -66,11 +66,12 @@
 			</div>
 		</div>
 		<!-- Workspace Actual -->
-		<div id="workspace-container">
+		<form id="workspace-container">
+			<input type="hidden" name="uploadDir" value="/assets/creator/"/>
 			<div id="workspace" workspace>
 				<workspace-content class="workspace-content originUI-bgHover" data-ng-repeat="content in originAdSchedule[ui.schedule]['OriginAd'+ui.platform+ui.state+'Content']" data-ng-model="content" data-ng-dblclick="$parent.avgrundOpen('component', ngModel)"></workspace-content>
 			</div>
-		</div>
+		</form>
 		<!-- Bar below workspace -->
 		<div id="workspace-options" class="originUI-bgColorSecondary originUI-borderColor">
 			<a href="javascript:void(0)" id="workspaceOptions-publish" class="workspaceOptions-button originUI-borderColorSecondary originUI-bgHover inline" data-ng-click="avgrundOpen('embed')">Publish</a>

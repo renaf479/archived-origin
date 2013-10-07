@@ -116,7 +116,7 @@ platformApp.directive('workspaceContent', function() {
 			element.attr('id', 'content-'+scope.ngModel.id);
 			
 			//Compile config into inline styles
-			element.css(css).html(render).append('<span class="workspace-content-label">'+scope.ngModel.content.title+'</span>').addClass('content-'+scope.ngModel.content.type);
+			element.css(css).html(render).append('<span class="workspace-content-label">'+scope.ngModel.type+'</span>').addClass('content-'+scope.ngModel.content.type);
 			
 			//Draggable method
 			element.draggable({

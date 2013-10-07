@@ -1,9 +1,9 @@
 /* =======================================================================
-	Defaults
+Defaults
 ========================================================================== */
 @font-face {
-  font-family: 'Roboto';
-  src: url('/fonts/roboto/Roboto-Regular.ttf');
+	font-family: 'Roboto';
+	src: url('/fonts/roboto/Roboto-Regular.ttf');
 }
 
 html {
@@ -25,9 +25,6 @@ a {
 	outline: none !important;
 }
 
-a:hover {
-}
-
 .clear {
 	clear: both;
 }
@@ -37,8 +34,9 @@ a:hover {
 	vertical-align: top;
 }
 
-.inactive,
-.disabled {
+.inactive,.disabled {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=10)";
+	filter: alpha(opacity=10);
 	opacity: .1;
 }
 
@@ -65,7 +63,7 @@ textarea {
 }
 
 /* =======================================================================
-	Override
+Override
 ========================================================================== */
 body.originUI-superAdmin .originUI-superAdmin {
 	visibility: visible;
@@ -128,24 +126,25 @@ li {
 	background-color: #fff;
 }
 
-.modal-backdrop,
-.modal-backdrop.fade.in {
+.modal-backdrop,.modal-backdrop.fade.in {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+	filter: alpha(opacity=60);
 	opacity: .6;
 }
 
 .open > .dropdown-menu {
 	z-index: 1000010;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=95)";
+	filter: alpha(opacity=95);
 	opacity: .95;
 }
 
-.dropdown-menu>li,
-.originUIList-item {
+.dropdown-menu>li,.originUIList-item {
 	padding: 0 8px;
 	margin: 0 16px;
 }
 
-.dropdown-menu>li>a,
-.originUIList-item > a {
+.dropdown-menu>li>a,.originUIList-item > a {
 	margin: 0 -24px;
 	padding: 0 24px;
 	height: 32px;
@@ -158,21 +157,13 @@ li {
 	width: 100%;
 }
 
-.dropdown-menu>li+li,
-.originUIList-item + .originUIList-item {
+.dropdown-menu>li + li,.originUIList-item + .originUIList-item {
 	border-color: #303030;
 	border-width: 1px 0 0 0;
 	border-style: solid;
 }
 
-.dropdown-menu > li > a:hover,
-.dropdown-menu > li.active > a,
-.dropdown-menu > li.active > a:hover,
-.dropdown-menu > li.active > a:active,
-.originUIList-item > a:hover,
-.originUIList-item.active > a,
-.originUIList-item.active > a:hover,
-.originUIList-item.active > a:active {
+.dropdown-menu > li > a:hover,.dropdown-menu > li.active > a,.dropdown-menu > li.active > a:hover,.dropdown-menu > li.active > a:active,.originUIList-item > a:hover,.originUIList-item.active > a,.originUIList-item.active > a:hover,.originUIList-item.active > a:active {
 	background-image: none;
 	background-color: rgba(51, 181, 229, .25);
 }
@@ -187,44 +178,44 @@ li {
 }
 
 /* =======================================================================
-	Transitions
+Transitions
 ========================================================================== */
-.originUI-fade-hide,
-.originUI-fade-show,
-.originUI-fade-enter,
-.originUI-fade-leave,
-.originUI-fade-move {
+.originUI-fade-hide,.originUI-fade-show,.originUI-fade-enter,.originUI-fade-leave,.originUI-fade-move {
 	-webkit-transition: all .27s ease !important;
 	-moz-transition: all .27s ease !important;
 	-o-transition: all .27s ease !important;
+	-ms-transition: all .27s ease !important;
 	transition: all .27s ease !important;
 }
 
-
-.originUI-fade-hide,
-.originUI-fade-show.originUI-fade-show-active,
-.originUI-fade-leave,
-.originUI-fade-enter.originUI-fade-enter-active,
-.originUI-fade-move.originUI-fade-move-active  {
+.originUI-fade-hide,.originUI-fade-show.originUI-fade-show-active,.originUI-fade-leave,.originUI-fade-enter.originUI-fade-enter-active,.originUI-fade-move.originUI-fade-move-active {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+	filter: alpha(opacity=100);
 	opacity: 1;
 }
 
-.originUI-fade-show,
-.originUI-fade-enter {
+.originUI-fade-show,.originUI-fade-enter {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	filter: alpha(opacity=0);
 	opacity: 0;
 }
 
-.originUI-fade-hide.originUI-fade-hide-active,
-.originUI-fade-leave.originUI-fade-leave-active {
+.originUI-fade-hide.originUI-fade-hide-active,.originUI-fade-leave.originUI-fade-leave-active {
 	height: 0;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	filter: alpha(opacity=0);
 	opacity: 0;
 }
 
 .originUI-fade-move {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+	filter: alpha(opacity=50);
 	opacity: .5;
 }
 
 .originUI-fade-move.originUI-fade-move-active {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+	filter: alpha(opacity=100);
 	opacity: 1;
 }
 
@@ -232,76 +223,107 @@ li {
 	-webkit-transition: all .25s ease;
 	-moz-transition: all .25s ease;
 	-o-transition: all .25s ease;
+	-ms-transition: all .25s ease;
 	transition: all .25s ease;
 }
 
 .originUI-bgHover {
 	-webkit-transition: background-color .3s ease;
-    -moz-transition: background-color .3s ease;
-    -o-transition: background-color .3s ease;
-    -ms-transition: background-color .3s ease;
-    transition: background-color .3s ease;
+	-moz-transition: background-color .3s ease;
+	-o-transition: background-color .3s ease;
+	-ms-transition: background-color .3s ease;
+	transition: background-color .3s ease;
 }
 
 .originUI-tileHover:hover {
-	background-color: rgba(255, 255, 255, .1);	
+	background-color: rgba(255, 255, 255, .1);
 }
 
 /*
 .originUI-expandAnimate-hide,
-.originUI-expandAnimate-show {
-	-webkit-transition: all 1s ease;
-	-moz-transition: all 1s ease;
-	-o-transition: all 1s ease;
-	transition: all 1s ease;
+.originUI-expandAnimate-show  {
+	
+
+-webkit-transition:  all 1s ease;
+	
+-moz-transition:  all 1s ease;
+	
+-o-transition:  all 1s ease;
+	
+-ms-transition:  all 1s ease;
+	
+transition:  all 1s ease;
+	
+
+}
+
+.originUI-expandAnimate-hide  {
+	
+-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+	filter:  alpha(opacity=100);
+	opacity:  1;
+	
+
+height:  auto;
+	
 }
 
-.originUI-expandAnimate-hide {
-	opacity: 1;
-	height: auto;
+.originUI-expandAnimate-hide.originUI-expand-hide-active  {
+	
+-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	filter:  alpha(opacity=0);
+	opacity:  0;
+	
+
+height:  0;
+	
 }
 
-.originUI-expandAnimate-hide.originUI-expand-hide-active {
-	opacity: 0;
-	height: 0;
+.originUI-expandAnimate-show  {
+	
+-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	filter:  alpha(opacity=0);
+	opacity:  0;
+	
+
+height:  0;
+	
 }
 
-.originUI-expandAnimate-show {
-	opacity: 0;
-	height: 0;
+.originUI-expandAnimate-show.originUI-expandAnimate-show-active  {
+	
+-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+	filter:  alpha(opacity=100);
+	opacity:  1;
+	
+
+height:  auto;
+	
 }
 
-.originUI-expandAnimate-show.originUI-expandAnimate-show-active {
-	opacity: 1;
-	height: auto;
-}
-*/
-
+ */
 /* =======================================================================
-	Z-Index
+Z-Index
 ========================================================================== */
 .modal {
-	z-index: 200000;	
+	z-index: 200000;
 }
+
 .modal-backdrop {
 	z-index: 100000;
 }
 
 #origin-bar {
-	z-index: 900;	
+	z-index: 900;
 }
 
 /* =======================================================================
-	General
+General
 ========================================================================== */
-.originUI-arrow {
-	
-}
-
 .originUI-back {
 	display: block;
 	text-indent: 26px;
-	background: transparent url(/img/back-26x26.png) no-repeat left center;	
+	background: transparent url(/img/back-26x26.png) no-repeat left center;
 }
 
 .originUI-back:hover {
@@ -313,13 +335,15 @@ li {
 }
 
 .originUI-bgColor {
-	/* background-color: #212123; */
-	background-color: #272625;
+	/* background-color:  #212123;
+	 */
+background-color: #272625;
 }
 
 .originUI-bgColorSecondary {
-	/* background-color: #282828; */
-	background-color: #333333;
+	/* background-color:  #282828;
+	 */
+background-color: #333333;
 }
 
 .originUI-bgColorTertiary {
@@ -357,8 +381,8 @@ li {
 	top: 50%;
 	margin-top: -10px;
 	border-radius: 4px;
+
 	-webkit-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,.4);
-	-moz-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,.4);
 	box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,.4);
 
 	background: -webkit-linear-gradient(top, #222 0%, #45484d 100%);
@@ -366,7 +390,7 @@ li {
 	background: -o-linear-gradient(top, #222 0%, #45484d 100%);
 	background: -ms-linear-gradient(top, #222 0%, #45484d 100%);
 	background: linear-gradient(top, #222 0%, #45484d 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#222', endColorstr='#45484d',GradientType=0 );
+	-image filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#222', endColorstr='#45484d',GradientType=0 );
 }
 
 .originUI-checkboxLabel:after {
@@ -389,10 +413,11 @@ li {
 	-o-transform: rotate(-45deg);
 	-ms-transform: rotate(-45deg);
 	transform: rotate(-45deg);
-	
+
 	-webkit-transition: all .25s ease;
 	-moz-transition: all .25s ease;
 	-o-transition: all .25s ease;
+	-ms-transition: all .25s ease;
 	transition: all .25s ease;
 }
 
@@ -415,14 +440,14 @@ li {
 }
 
 .originUI-fixed {
-	position: fixed; 
+	position: fixed;
 	top: 0;
 }
 
 .originUI-header {
-	margin: 5px 0;
-	/* text-transform: uppercase; */
-	font-weight: normal;
+	margin: 5px 0; /* text-transform:  uppercase;
+	 */
+font-weight: normal;
 	line-height: normal;
 	font-variant: small-caps;
 	font-size: 28px;
@@ -433,32 +458,43 @@ li {
 }
 
 .originUI-iconHover {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
+	filter: alpha(opacity=20);
 	opacity: .2;
 	cursor: pointer;
+
 	-webkit-transition: opacity .25s ease;
 	-moz-transition: opacity .25s ease;
 	-o-transition: opacity .25s ease;
+	-ms-transition: opacity .25s ease;
 	transition: opacity .25s ease;
 }
 
 .originUI-iconHover:hover {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+	filter: alpha(opacity=100);
 	opacity: 1;
 }
 
 .originUI-noSelect {
 	-webkit-touch-callout: none;
+
 	-webkit-user-select: none;
-	-khtml-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
 }
 
 .originUI-placeholder {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+	filter: alpha(opacity=50);
 	opacity: .5;
 	background-image: url(/img/logo-small.png);
 	background-repeat: no-repeat;
 	background-position: center center;
+
+	-webkit-background-size: auto !important;
+	-moz-background-size: auto !important;
 	background-size: auto !important;
 	border-width: 2px;
 	border-style: dashed;
@@ -466,6 +502,7 @@ li {
 }
 
 .originUI-shadow {
+	-webkit-box-shadow: 0 0 4px 1px rgba(0, 0, 0, .5);
 	box-shadow: 0 0 4px 1px rgba(0, 0, 0, .5);
 }
 
@@ -473,8 +510,7 @@ li {
 	z-index: 0;
 }
 
-.originUI-sprite:before,
-.originUI-spriteSmall:before {
+.originUI-sprite:before,.originUI-spriteSmall:before {
 	content: '';
 	position: absolute;
 	background-image: url(/img/sprite.png);
@@ -492,11 +528,9 @@ li {
 	color: #0099cc;
 }
 
-
 /* =======================================================================
-	Google Images Style Expansion
+Google Images Style Expansion
 ========================================================================== */
-
 .originUI-expand .originUI-expandItem::before {
 	bottom: -21px;
 	left: 50%;
@@ -538,6 +572,8 @@ li {
 
 .originUI-expandClose {
 	background: transparent url(/img/close-26x26.png) no-repeat center center;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
+	filter: alpha(opacity=30);
 	opacity: .3;
 	position: absolute;
 	top: 10px;
@@ -548,11 +584,13 @@ li {
 }
 
 .originUI-expandClose:hover {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+	filter: alpha(opacity=100);
 	opacity: 1;
 }
 
 /* =======================================================================
-	Form Fields
+Form Fields
 ========================================================================== */
 .originUI-button {
 	border-width: 0 0 1px 2px;
@@ -569,6 +607,8 @@ li {
 }
 
 .originUI-button:disabled {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+	filter: alpha(opacity=50);
 	opacity: .5;
 }
 
@@ -585,18 +625,21 @@ li {
 	background-color: #bdbdbd;
 }
 
-.originUI-input,
-.originUI-textarea {
+.originUI-input,.originUI-textarea {
 	position: relative;
 	height: 100%;
 	width: 100%;
 	border-color: #bdbdbd;
 	border-style: solid;
 	border-width: 0 0 1px;
-	margin: 0 1px;
-	/* padding: 0 4px; */
-	color: inherit;
+	margin: 0 1px; /* padding:  0 4px;
+	 */
+color: inherit;
 	font-size: 14px;
+
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
 	box-sizing: border-box;
 }
 
@@ -614,26 +657,24 @@ li {
 }
 
 .originUI-select:focus {
-    outline: none;
+	outline: none;
 }
 
 .originUI-switch {
-	position: relative;
-	/* width: 100%; */
-	width: 100px;
-	-webkit-user-select:none; 
-	-moz-user-select:none; 
+	position: relative; /* width:  100%;
+	 */
+width: 100px;
+
+	-webkit-user-select: none;
+	-moz-user-select: none;
 	-ms-user-select: none;
-	/* font-size: 18px; */
-	font-size: 12px;
+	user-select: none; /* font-size:  18px;
+	 */
+font-size: 12px;
 }
 
 .originUI-switchInput {
 	display: none;
-}
-
-.originUI-switchInput:disabled {
-	
 }
 
 .originUI-switchInput:checked + .originUI-switchLabel .originUI-switchInner {
@@ -647,50 +688,56 @@ li {
 }
 
 .originUI-switchInner {
-	width: 200%; 
+	width: 200%;
 	margin-left: -100%;
+
+	-webkit-transition: margin 0.3s ease-in 0s;
+	-moz-transition: margin 0.3s ease-in 0s;
+	-o-transition: margin 0.3s ease-in 0s;
+	-ms-transition: margin 0.3s ease-in 0s;
 	transition: margin 0.3s ease-in 0s;
 }
 
-.originUI-switchInner > .originUI-switchActive,
-.originUI-switchInner > .originUI-switchInactive {
-	float: left; 
-	position: relative; 
-	width: 50%; 
-	height: 23px; 
-	line-height: 23px;
-	/*
-height: 26px; 
-	line-height: 26px;
-*/
-	/* text-transform: uppercase; */
-	font-variant: small-caps;
-	-moz-box-sizing: border-box; 
-	-webkit-box-sizing: border-box; 
+.originUI-switchInner > .originUI-switchActive,.originUI-switchInner > .originUI-switchInactive {
+	float: left;
+	position: relative;
+	width: 50%;
+	height: 23px;
+	line-height: 23px; /*
+	height:  26px;
+	
+	line-height:  26px;
+	
+	 */
+/* text-transform:  uppercase;
+	 */
+font-variant: small-caps;
+
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
 	box-sizing: border-box;
 }
 
-.originUI-switchInner .originUI-switchActive,
-.originUI-switchInner .originUI-switchInactive {
-    background-color: #333; 
+.originUI-switchInner .originUI-switchActive,.originUI-switchInner .originUI-switchInactive {
+	background-color: #333;
 	color: #FFFFFF;
 }
 
-.originUI-switchInner .originUI-switchInactive {	
+.originUI-switchInner .originUI-switchInactive {
 	text-align: right;
 }
 
 .originUI-switchText {
-	width: 50%; 
+	width: 50%;
 	text-align: center;
-	position: absolute; 
-	top: 0; 
+	position: absolute;
+	top: 0;
 	bottom: 0;
 }
 
-.originUI-switchActive .originUI-switchText,
-.originUI-switchDual .originUI-switchInactive .originUI-switchText {
-	background: #0099cc; 
+.originUI-switchActive .originUI-switchText,.originUI-switchDual .originUI-switchInactive .originUI-switchText {
+	background: #0099cc;
 }
 
 .originUI-switchInactive .originUI-switchText {
@@ -707,11 +754,11 @@ height: 26px;
 }
 
 .originUI-switchActive .originUI-switchText:before {
-    border-color: #0099cc transparent transparent #0099cc; 
+	border-color: #0099cc transparent transparent #0099cc;
 }
 
 .originUI-switchInactive .originUI-switchText:before {
-	border-color: transparent #0099CC #0099CC transparent; 
+	border-color: transparent #0099CC #0099CC transparent;
 }
 
 .originUI-upload {
@@ -732,14 +779,15 @@ height: 26px;
 	cursor: pointer;
 	font-size: 500px;
 	height: 100%;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
+	filter: alpha(opacity=30);
 	opacity: .3;
 	position: absolute;
 	right: 0;
-	opacity: 0;
 }
 
 /* =======================================================================
-	Lists
+Lists
 ========================================================================== */
 .originUI-list {
 	margin: 0;
@@ -751,8 +799,7 @@ height: 26px;
 	margin: 0 16px;
 }
 
-.originUI-listItem > a,
-.originUI-listItemLink {
+.originUI-listItem > a,.originUI-listItemLink {
 	margin: 0 -24px;
 	padding: 0 24px;
 	height: 32px;
@@ -769,15 +816,13 @@ height: 26px;
 	border-style: solid;
 }
 
-.originUI-listItem > a:hover,
-.originUI-listItemLink:hover,
-.originUI-listHover:hover {
+.originUI-listItem > a:hover,.originUI-listItemLink:hover,.originUI-listHover:hover {
 	background-image: none;
 	background-color: rgba(51, 181, 229, .25);
 }
 
 /* =======================================================================
-	Modals
+Modals
 ========================================================================== */
 .originUI-modal {
 	position: relative;
@@ -793,15 +838,11 @@ height: 26px;
 	text-indent: -5000em;
 }
 
-.originUI-modalRemove:hover {
-}
-
 .originUI-modalContent {
 	padding: 0 15px;
 }
 
-.originUI-modalLeft,
-.originUI-modalRight {
+.originUI-modalLeft,.originUI-modalRight {
 	width: 48%;
 	position: relative;
 }
@@ -815,7 +856,7 @@ height: 26px;
 }
 
 /* =======================================================================
-	Notification
+Notification
 ========================================================================== */
 #origin-notification {
 	z-index: 1000020;
@@ -854,10 +895,14 @@ height: 26px;
 	text-indent: -5000em;
 	width: 14px;
 	height: 14px;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
+	filter: alpha(opacity=30);
 	opacity: .3;
 }
 
 #originNotification-close:hover {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+	filter: alpha(opacity=100);
 	opacity: 1;
 }
 
@@ -868,17 +913,19 @@ height: 26px;
 }
 
 /* =======================================================================
-	Origin Bar
+Origin Bar
 ========================================================================== */
 #origin-bar {
 	width: 100%;
 	height: 37px;
 	border-width: 0 0 1px;
 	border-style: solid;
-	background-color: #000;	
+	background-color: #000;
 }
 
 #origin-bar.originUI-fixed {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=85)";
+	filter: alpha(opacity=85);
 	opacity: .85;
 }
 
@@ -897,8 +944,7 @@ height: 26px;
 	display: block;
 }
 
-#originBar-logoIcon:hover,
-#originBar-logo.open #originBar-logoIcon {
+#originBar-logoIcon:hover,#originBar-logo.open #originBar-logoIcon {
 	height: 32px;
 	background-position: center 9px;
 	border-width: 0 0 5px;
@@ -911,9 +957,7 @@ height: 26px;
 	margin: 0;
 }
 
-#originBar-login,
-#originBar-settings,
-#originBar-help {
+#originBar-login,#originBar-settings,#originBar-help {
 	height: inherit;
 	position: absolute;
 	right: 30px;
@@ -928,9 +972,7 @@ height: 26px;
 	position: absolute;
 }
 
-body.originClass-guidelines #originBar-search,
-body.originClass-login #originBar-search,
-body.originClass-edit #originBar-search {
+body.originClass-guidelines #originBar-search,body.originClass-login #originBar-search,body.originClass-edit #originBar-search {
 	display: none;
 }
 
@@ -951,8 +993,7 @@ body.originClass-edit #originBar-search {
 	display: block;
 }
 
-#originBar-settingsIcon:hover,
-#originBar-settings.open #originBar-settingsIcon {
+#originBar-settingsIcon:hover,#originBar-settings.open #originBar-settingsIcon {
 	background-position: center 10px;
 	border-width: 0 0 5px;
 	border-style: solid;
@@ -966,8 +1007,7 @@ body.originClass-edit #originBar-search {
 	border-style: solid;
 }
 
-#originBar-settings a.originBar-settings,
-#originBar-logoMenu a.originBar-settings {
+#originBar-settings a.originBar-settings,#originBar-logoMenu a.originBar-settings {
 	background-repeat: no-repeat;
 	background-position: 10px center;
 	text-indent: 10px;
@@ -1022,8 +1062,7 @@ body.originClass-edit #originBar-search {
 	margin-top: 15px;
 }
 
-#origin-bar.originBar-guest #login-email,
-#origin-bar.originBar-guest #login-password {
+#origin-bar.originBar-guest #login-email,#origin-bar.originBar-guest #login-password {
 	margin: 0 5px;
 	width: 145px;
 }
@@ -1059,25 +1098,16 @@ body.originClass-edit #originBar-search {
 	margin: 0 0 0 5px;
 }
 
-.login-remember-input>input,
-.login-remember-input>label {
+.login-remember-input>input,.login-remember-input>label {
 	display: inline-block;
 	vertical-align: top;
 }
 
 /* =======================================================================
-	Properties
+Properties
 ========================================================================== */
-#properties {
-	
-}
-
 #properties .originUI-tileHeader {
 	background-image: url(/img/settings-26x26.png);
-}
-
-#properties-form {
-	
 }
 
 #properties .originUI-list > li {
@@ -1109,13 +1139,14 @@ body.originClass-edit #originBar-search {
 }
 
 /*
-#properties-template {
-	width: 200px;
+#properties-template  {
+	
+width:  200px;
+	
 }
-*/
 
-.properties-dimensions,
-.properties-animations {
+ */
+.properties-dimensions,.properties-animations {
 	width: 275px;
 	margin: 0 15px;
 }
@@ -1140,11 +1171,14 @@ body.originClass-edit #originBar-search {
 .platform-icon {
 	cursor: pointer;
 	margin: 0 7px;
-	opacity: .1	
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=10)";
+	filter: alpha(opacity=10);
+	opacity: .1;
 }
 
-.platform-icon.active,
-.platform-icon:hover {
+.platform-icon.active,.platform-icon:hover {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+	filter: alpha(opacity=100);
 	opacity: 1;
 }
 
@@ -1158,11 +1192,11 @@ body.originClass-edit #originBar-search {
 }
 
 #properties-summary {
-	width: 300px;	
+	width: 300px;
 }
 
 /* =======================================================================
-	Tables
+Tables
 ========================================================================== */
 .originUI-table {
 	margin: 5px 0 0;
@@ -1178,6 +1212,8 @@ body.originClass-edit #originBar-search {
 }
 
 .originUI-tableRow.inactive {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=10)";
+	filter: alpha(opacity=10);
 	opacity: .1;
 }
 
@@ -1206,7 +1242,7 @@ body.originClass-edit #originBar-search {
 }
 
 .originUI-tableGroup {
-	padding: 0 10px;	
+	padding: 0 10px;
 }
 
 .originUI-tableHeadName {
@@ -1214,9 +1250,8 @@ body.originClass-edit #originBar-search {
 }
 
 /* =======================================================================
-	Template Config
+Template Config
 ========================================================================== */
-
 .adTemplate-config {
 	margin: 4px 3px;
 	width: 20%;
@@ -1234,12 +1269,8 @@ body.originClass-edit #originBar-search {
 	height: 18px;
 }
 
-#adTemplate-listHeader,
-#adTemplate-editHeader {
+#adTemplate-listHeader,#adTemplate-editHeader {
 	background-image: url(/img/ad-template-26x26.png);
-}
-
-#adTemplate-templateConfig .accordion-inner {
 }
 
 #adTemplate-templateConfig .originUI-input {
@@ -1276,11 +1307,13 @@ body.originClass-edit #originBar-search {
 }
 
 /*
-body.originUI-superAdmin #adCreate-modal {
-	height: 215px;
+body.originUI-superAdmin #adCreate-modal  {
+	
+height:  215px;
+	
 }
-*/
 
+ */
 .adSettings-label {
 	width: 135px;
 }
@@ -1312,39 +1345,52 @@ body.originUI-superAdmin #adCreate-modal {
 	position: absolute;
 	top: -35px;
 	right: 10px;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
+	filter: alpha(opacity=30);
 	opacity: .3;
 }
 
 #formCreate-toggle:hover {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+	filter: alpha(opacity=70);
 	opacity: .7;
 }
 
 /*
-#formCreate-template {
-	margin: 5px 0 11px 0;
+#formCreate-template  {
+	
+margin:  5px 0 11px 0;
+	
 }
-*/
 
-
+ */
 /* =======================================================================
-	Tiles - AUDIT THIS
+Tiles -AUDIT THIS
 ========================================================================== */
-
 .originUI-tiles {
 	display: inline-block;
 	vertical-align: top;
 	margin: 10px;
-	box-shadow: 0 0 4px 1px rgba(0, 0, 0, .5);
-	/* box-shadow: 0 0 3px 2px rgba(33, 33, 35, 1); */
-	cursor: pointer;
+
+	-webkit-box-shadow: 0 0 4px 1px rgba(0, 0, 0, .5);
+	box-shadow: 0 0 4px 1px rgba(0, 0, 0, .5); /*  */
+cursor: pointer;
 	position: relative;
 }
 
 .originUI-tiles:hover {
+	-webkit-transform: scale(1.01, 1.01);
+	-moz-transform: scale(1.01, 1.01);
+	-o-transform: scale(1.01, 1.01);
+	-ms-transform: scale(1.01, 1.01);
 	transform: scale(1.01, 1.01);
 }
 
 .originUI-tiles:active {
+	-webkit-transform: scale(1, 1);
+	-moz-transform: scale(1, 1);
+	-o-transform: scale(1, 1);
+	-ms-transform: scale(1, 1);
 	transform: scale(1, 1);
 }
 
@@ -1362,8 +1408,7 @@ body.originUI-superAdmin #adCreate-modal {
 	border-color: #ffffff;
 }
 
-.originUI-tileLeft,
-.originUI-tileRight {
+.originUI-tileLeft,.originUI-tileRight {
 	display: inline-block;
 	vertical-align: top;
 	position: relative;
@@ -1402,68 +1447,94 @@ body.originUI-superAdmin #adCreate-modal {
 	padding: 10px 15px;
 }
 
-.originUI-tileCancel {
-	
-}
-
 .originUI-tileSubmit {
 	float: right;
 }
 
 /*
-.originUI-tileFooter {
-	border-top: 1px solid #444444;
-	height: 42px;
-	position: relative;
+.originUI-tileFooter  {
+	
+border-top:  1px solid #444444;
+	
+height:  42px;
+	
+position:  relative;
+	
 }
-*/
 
+ */
 /*
 .originUI-tileFooterCenter,
 .originUI-tileFooterLeft,
-.originUI-tileFooterRight {
-	border: 0 none;
-	background-color: transparent;
-	color: inherit;
-	position: absolute;
-	width: 50%;
-	height: 100%;
-	overflow: hidden;
-	text-transform: uppercase;
-	text-align: center;
-	font-size: 14px;
-	line-height: 42px;
-	cursor: pointer;
+.originUI-tileFooterRight  {
+	
+border:  0 none;
+	
+background-color:  transparent;
+	
+color:  inherit;
+	
+position:  absolute;
+	
+width:  50%;
+	
+height:  100%;
+	
+overflow:  hidden;
+	
+text-transform:  uppercase;
+	
+text-align:  center;
+	
+font-size:  14px;
+	
+line-height:  42px;
+	
+cursor:  pointer;
+	
 }
 
-.originUI-tileFooterCenter:hover:not(:disabled),
-.originUI-tileFooterLeft:hover:not(:disabled),
-.originUI-tileFooterRight:hover:not(:disabled) {
-	background-color: rgba(255, 255, 255, .1);
+.originUI-tileFooterCenter: hover: not(: disabled),
+.originUI-tileFooterLeft: hover: not(: disabled),
+.originUI-tileFooterRight:hover:not(:disabled)  {
+	
+background-color:  rgba(255, 255, 255, .1);
+	
 }
 
-.originUI-tileFooterCenter:disabled,
-.originUI-tileFooterLeft:disabled,
-.originUI-tileFooterRight:disabled {
-	opacity: .5;	
+.originUI-tileFooterCenter: disabled,
+.originUI-tileFooterLeft: disabled,
+.originUI-tileFooterRight:disabled  {
+	
+-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+	filter:  alpha(opacity=50);
+	opacity:  .5;
+	}
+
+.originUI-tileFooterCenter: active,
+.originUI-tileFooterLeft: active,
+.originUI-tileFooterRight:active  {
+	
+padding:  0;
+	
 }
 
-.originUI-tileFooterCenter:active,
-.originUI-tileFooterLeft:active,
-.originUI-tileFooterRight:active {
-	padding: 0;
+.originUI-tileFooterCenter  {
+	
+width:  100%;
+	
 }
 
-.originUI-tileFooterCenter {
-	width: 100%;
+.originUI-tileFooterRight  {
+	
+right:  0;
+	
 }
 
-.originUI-tileFooterRight {
-	right: 0;
+.originUI-tileFooterLeft  {
+	
+border-right:  1px solid #444444;
+	
 }
 
-.originUI-tileFooterLeft {
-	border-right: 1px solid #444444;
-}
-*/
-
+ */

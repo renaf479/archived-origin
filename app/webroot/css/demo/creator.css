@@ -1,0 +1,43 @@
+/* =======================================================================
+Demo Manager
+========================================================================== */
+#demo-panel {
+	display: none;
+	border-width: 0 1px 0 0;
+	border-style: solid;
+	z-index: 10000;
+}
+
+#demoPanel-header {
+	background: transparent url(/img/demo-26x26.png) no-repeat 10px center;
+	border: 0 none;
+}
+
+#demoPanel-content .originUI-modalLeft {
+	width: 160px;
+}
+
+#demoPanel-content .originUI-modalRight {
+	width: 100px;
+}
+
+#demoPanel-status label.inline {
+	line-height: 23px;
+}
+
+#demoPanel-status .originUI-switch {
+	margin: 0 0 0 10px;
+	width: 110px;
+	font-size: 11px;
+}
+
+#demoPanel-form .originUI-upload {
+	width: 100%;
+	font-size: 16px;
+}
+
+#demo-panel .originUI-tileFooter {
+	border-width: 1px 0;
+	border-color: #444444;
+	border-style: solid;
+}

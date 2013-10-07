@@ -1,19 +1,21 @@
 /* =======================================================================
-	General
+General
 ========================================================================== */
 #container {
 	display: table;
-    table-layout: fixed;
+	table-layout: fixed;
 }
 
-#platform-list,
-#platform-form {
+#platform-list,#platform-form {
 	display: table-cell;
 }
 
 #platform-list .originUI-listItemLink {
 	background-repeat: no-repeat;
 	background-position: 15px center;
+
+	-webkit-background-size: 18px 18px;
+	-moz-background-size: 18px 18px;
 	background-size: 18px 18px;
 	text-indent: 20px;
 }
@@ -42,9 +44,17 @@
 	height: 50px;
 	background-repeat: no-repeat;
 	background-position: center center;
+
+	-webkit-background-size: 50px 50px;
+	-moz-background-size: 50px 50px;
 	background-size: 50px 50px;
 	left: 50%;
 	top: 10px;
+
+	-webkit-transform: translate(-50%, 0);
+	-moz-transform: translate(-50%, 0);
+	-o-transform: translate(-50%, 0);
+	-ms-transform: translate(-50%, 0);
 	transform: translate(-50%, 0);
 }
 
@@ -61,6 +71,8 @@
 }
 
 #platform-list .originUI-listItem.inactive {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
+	filter: alpha(opacity=20);
 	opacity: .2;
 }
 
@@ -87,7 +99,6 @@
 #platformForm-content .originUI-listItem {
 	padding: 10px 15px;
 	margin: 0;
-	
 }
 
 #platformForm-content .platformForm-label {
@@ -113,9 +124,8 @@
 }
 
 /* =======================================================================
-	Settings
+Settings
 ========================================================================== */
-
 #settings .settings-item {
 	position: relative;
 	margin: 0 0 15px 15px;
@@ -124,6 +134,9 @@
 	border-width: 0 0 1px 2px;
 	border-style: solid;
 	background-position: 10px center;
+
+	-webkit-background-size: 90px 90px;
+	-moz-background-size: 90px 90px;
 	background-size: 90px 90px;
 	background-repeat: no-repeat;
 }
@@ -144,6 +157,8 @@
 
 #settings .settings-itemDescription {
 	font-size: 13px;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
+	filter: alpha(opacity=40);
 	opacity: .4;
 }
 
@@ -168,7 +183,7 @@
 }
 
 /* =======================================================================
-	Ad Templates
+Ad Templates
 ========================================================================== */
 #ad-template #platformList-headerImage {
 	background-image: url(/img/ad-template-150x150.png);
@@ -197,7 +212,6 @@
 	right: 0;
 }
 
-
 #ad-template .platformForm-templateDimensions .platformForm-label {
 	line-height: 20px;
 	font-size: 14px;
@@ -218,153 +232,136 @@
 	padding: 5px 15px;
 }
 
-
 /*
-#adTemplate-create {
-	min-height: 469px;
+#adTemplate-create  {
+	
+min-height:  469px;
+	
 }
 
-#adTemplate-list {
-	min-height: 734px;
+#adTemplate-list  {
+	
+min-height:  734px;
+	
 }
 
-#adTemplate-createHeader {
-	background-image: url(/img/ad-template-add-26x26.png);
+#adTemplate-createHeader  {
+	
+background-image:  url(/img/ad-template-add-26x26.png);
+	
 }
-*/
 
-
+ */
 /* =======================================================================
-	Ad Components
+Ad Components
 ========================================================================== */
-
 #ad-component #platformList-headerImage {
 	background-image: url(/img/settings-components.png);
 }
 
-
 /*
-#adComponent-createHeader {
-	background-image: url(/img/ad-component-add-26x26.png);
+#adComponent-createHeader  {
+	
+background-image:  url(/img/ad-component-add-26x26.png);
+	
 }
-
 
 #adComponent-listHeader,
-#adComponent-editHeader {
-	background-image: url(/img/ad-component-26x26.png);
+#adComponent-editHeader  {
+	
+background-image:  url(/img/ad-component-26x26.png);
+	
 }
 
-#adComponent-iconUpload {
-	width: 100%;
+#adComponent-iconUpload  {
+	
+width:  100%;
+	
 }
 
-#adComponent-list {
-	min-height: 402px;
+#adComponent-list  {
+	
+min-height:  402px;
+	
 }
 
-#adComponent-table .originUI-tableHeadName {
-	width: auto;
+#adComponent-table .originUI-tableHeadName  {
+	
+width:  auto;
+	
 }
 
-#adComponent-table .originUI-tableHeadDescription {
-	width: 250px;
+#adComponent-table .originUI-tableHeadDescription  {
+	
+width:  250px;
+	
 }
 
-#adComponent-table .originUI-tableName {
-	background-position: left center;
-	background-size: 18px 18px;
-	background-repeat: no-repeat;
-	text-indent: 25px;
-	white-space: nowrap;
-}
-*/
+#adComponent-table .originUI-tableName  {
+	
+background-position:  left center;
+	
 
+-webkit-background-size:  18px 18px;
+	
+-moz-background-size:  18px 18px;
+	
+background-size:  18px 18px;
+	
+
+background-repeat:  no-repeat;
+	
+text-indent:  25px;
+	
+white-space:  nowrap;
+	
+}
+
+ */
 /* =======================================================================
-	Ad Demo Sites
+Ad Demo Sites
 ========================================================================== */
 #ad-sites #platformList-headerImage {
 	background-image: url(/img/settings-demo.png);
 }
 
 /*
-#siteManager-create {
-	min-height: 270px;
-}
-
-#siteManager-list {
-	min-height: 288px;
-}
-
-#siteManager-createHeader {
-	background-image: url(/img/demo-26x26.png);
-}
-
-
-#siteManager-listHeader,
-#siteManager-editHeader {
-	background-image: url(/img/demo-26x26.png);
-}
-*/
-
-/* =======================================================================
-	Demo Manager
-========================================================================== */
-
-#demo-panel {
-	display: none;
-	border-width: 0 1px 0 0;
-	border-style: solid;
-	z-index: 10000;
-}
-
-#demoPanel-header {
-	background: transparent url(/img/demo-26x26.png) no-repeat 10px center;
-	border: 0 none;
-}
-
-#demoPanelContent-auto {
+#siteManager-create  {
+	
+min-height:  270px;
 	
 }
 
-#demoPanel-content .originUI-modalLeft {
-	width: 160px;
+#siteManager-list  {
+	
+min-height:  288px;
+	
 }
 
-#demoPanel-content .originUI-modalRight {
-	width: 100px;	
+#siteManager-createHeader  {
+	
+background-image:  url(/img/demo-26x26.png);
+	
 }
 
-#demoPanel-status label.inline {
-	line-height: 23px;
+#siteManager-listHeader,
+#siteManager-editHeader  {
+	
+background-image:  url(/img/demo-26x26.png);
+	
 }
 
-#demoPanel-status .originUI-switch {
-	margin: 0 0 0 10px;
-	width: 110px;
-	font-size: 11px;
-}
+ */
 
-#demoPanel-form .originUI-upload {
-	width: 100%;
-	font-size: 16px;
-}
-
-#demo-panel .originUI-tileFooter {
-	border-width: 1px 0;
-	border-color: #444444;
-	border-style: solid;
-}
 
 /* =======================================================================
-	User Manager
+User Manager
 ========================================================================== */
-
 #user-createHeader {
 	background-image: url(/img/user-add-26x26.png);
 }
 
-#user-listHeader,
-#user-editHeader {
+#user-listHeader,#user-editHeader {
 	background-image: url(/img/user-26x26.png);
 }
 
@@ -387,13 +384,11 @@
 	background: transparent url(/img/header-login.png) no-repeat 15px center;
 }
 
-#UserLoginForm,
-#UserForgotPasswordForm {
+#UserLoginForm,#UserForgotPasswordForm {
 	margin: 15px auto;
 }
 
-#userList-add,
-#userList-listing {
+#userList-add,#userList-listing {
 	margin: 10px;
 	float: left;
 }
@@ -415,9 +410,7 @@
 	min-height: 500px;
 }
 
-#userAccount-header,
-#userListEdit-header,
-#userList-header {
+#userAccount-header,#userListEdit-header,#userList-header {
 	background: transparent url(/img/icon-user-small.png) no-repeat 10px center;
 }
 
@@ -425,13 +418,12 @@
 	margin: 0 15px 0 0;
 }
 
-#systemConfig-header,
-#userAccountPassword-header {
-	background: transparent url(/img/icon-key-small.png) no-repeat 10px center;	
+#systemConfig-header,#userAccountPassword-header {
+	background: transparent url(/img/icon-key-small.png) no-repeat 10px center;
 }
 
 /* =======================================================================
-	Permissions
+Permissions
 ========================================================================== */
 #systemConfig-select {
 	width: 200px;
@@ -449,7 +441,7 @@
 }
 
 .systemConfig-tableController {
-	padding: 0 15px;	
+	padding: 0 15px;
 }
 
 #groupAdd-header {

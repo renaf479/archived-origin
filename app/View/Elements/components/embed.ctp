@@ -1,4 +1,4 @@
-	<div id="editor-embed" ng:controller="componentCtrl">
+	<div id="editor-embed" data-ng-controller="componentCtrl" data-ng-init="init()">
 		<textarea data-ng-model="editor.content.embed" ui-codemirror="{mode:'htmlmixed',lineNumbers:true,lineWrapping:true,theme:'night'}"></textarea>
 	</div>
 	<div id="editorEmbed-options">
@@ -26,7 +26,11 @@
 		}
 	</style>
 	<script type="text/javascript">
-		var componentCtrl = function($scope) {			
+		var componentCtrl = function($scope) {
+			$scope.init = function() {
+				$scope.editor.type = 'embed';	
+			}
+			
 			$scope.$watchCollection('[editor.content.embed, editor.content.iframe]', function(newVal) {
 				if(newVal[0]) {
 					$scope.editor.render	= ($scope.editor.content.iframe)? '<iframe class="embed" src="http://'+location.hostname+'/adIframe/%model%/%id%" frameborder="0" scrolling="no" collapse="iframe"></iframe>': '<div class="embed" collapse="content">'+$scope.editor.content.embed+'</div>';
