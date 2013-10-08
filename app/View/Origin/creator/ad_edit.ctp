@@ -42,7 +42,6 @@
 	</div>
 	<!-- Workspace -->
 	<div id="adEdit-workspace" class="originUI-bgColor originUI-bgTexture originUI-noSelect">
-	
 		<!-- Bar above workspace -->
 		<div id="workspace-bar" class="originUI-bgColor originUI-borderColor">
 			<div data-ng-if="false">
