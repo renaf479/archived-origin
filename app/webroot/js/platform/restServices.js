@@ -28,6 +28,12 @@ angular.module('restServices', [])
 					return response.data;
 				});
 				return promise;
+			},
+			upload: function(data) {
+				var promise = $http.post('/administrator/Origin/upload', data).then(function(response) {
+					return response.data;
+				});
+				return promise;
 			}
 		};
 		return Rest;

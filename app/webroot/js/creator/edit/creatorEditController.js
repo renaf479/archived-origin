@@ -46,7 +46,7 @@ var creatorEditController = function($scope, $rootScope, $filter, $timeout, $mod
 	}
 	
 	//Refreshes the assets library
-	function _updateAssets() {
+	$scope._updateAssets = function() {
 		Rest.get('library/'+$scope.originAd.id).then(function(response) {
 			$scope.assets	= response.files;
 		});
@@ -91,6 +91,7 @@ var creatorEditController = function($scope, $rootScope, $filter, $timeout, $mod
 	$scope.init = function() {
 		$scope.ui = {
 			auto:		'default',
+			panel:		false,
 			platform:	'Desktop',
 			reset:		true,
 			schedule:	'',
@@ -102,13 +103,9 @@ var creatorEditController = function($scope, $rootScope, $filter, $timeout, $mod
 		$scope.components		= angular.fromJson(components);
 		
 		_updateWorkspace(angular.fromJson(origin_ad));
-		_updateAssets();	
+		$scope._updateAssets();	
 	}
-	
-	/**
-	* Modal methods
-	*/
-	
+
 		/**
 	* Modal Methods
 	*/
@@ -250,7 +247,8 @@ var creatorEditController = function($scope, $rootScope, $filter, $timeout, $mod
 		
 		switch(type) {
 			case 'component':
-				$rootScope.editor = model;
+				$scope.ui.panel 	= 'layers';
+				$rootScope.editor 	= model;
 				//Match model against list of components and override
 				var model = _findComponent(model);
 				$scope.avgrund = {
@@ -264,23 +262,6 @@ var creatorEditController = function($scope, $rootScope, $filter, $timeout, $mod
 						submit: 'Update'
 					}
 				}
-/*
-				$scope.modal = {
-					callback: {
-						close:	'modalComponent',
-						remove:	'component-remove',
-						submit:	'component-update'	
-					},
-					class:		'modal-'+model.alias,
-					config:		true,
-					
-					modal:		'modalComponent',
-					remove:		true,
-					submit:		'Update',
-					title:		model.name+' Editor',
-					thumbnail:	model.config.img_icon
-				}
-*/
 				break;
 			case 'component-new':
 				$rootScope.editor = angular.copy(editor);

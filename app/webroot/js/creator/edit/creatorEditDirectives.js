@@ -251,3 +251,49 @@ platformApp.directive('workspaceContent', function() {
 		}
 	}
 });
+
+//Permits drag-and-drop file uploading on workspace
+platformApp.directive('workspaceUpload', function($document, Rest) {
+	return {
+		restrict: 'A',
+		link: function(scope, element, attrs) {
+			$document.bind('drop dragover', function(e) {
+				e.preventDefault();
+			})
+			
+			element.fileupload({
+				dataType:	'json',
+				dropZone:	element,
+				formData: {
+					uploadDir: attrs.workspaceUpload+'/'+scope.originAd.id+'/'
+				},
+				url:		'/administrator/Origin/upload',
+				add: function(e, data) {
+					data.submit();
+				},
+				stop: function(e, data) {
+					scope._updateAssets();
+					scope.ui.panel = 'assets';
+					scope.$apply();
+				}
+			});
+		
+/*
+			element.fileupload({
+				dataType: 	'json',
+				dropZone: 	$j('#creator-panel-left'),
+				url: 		'/administrator/Origin/upload',
+				add: function(e, data) {
+					data.submit();
+					//console.log(data);	
+				},
+				stop: function(e, data) {
+					scope.updateLibrary();
+					scope.creatorToggle('library');
+					scope.$apply();
+				}
+			});
+*/
+		}
+	}
+});

@@ -8,9 +8,11 @@ class UploadHandler
     const uploadPath	= '/app/webroot';
     
     function __construct($options=null) {
+    	$uploadDir	= $_REQUEST['uploadDir'];
+    
         $this->options = array(
-            'upload_dir' => $_SERVER["DOCUMENT_ROOT"].self::uploadPath.$_POST['uploadDir'],
-            'upload_url' => $_POST['uploadDir'],
+            'upload_dir' => $_SERVER["DOCUMENT_ROOT"].self::uploadPath.$uploadDir,
+            'upload_url' => $uploadDir,
             'param_name' => 'files',
         );
 	}

@@ -718,9 +718,10 @@ class OriginController extends AppController {
 	* Permissions: Logged in
 	*/
 	public function platformUpload() {
-		App::import('Vendor', 'UploadHandler', array('file'=>'UploadHandler/uploadHandler.class.php'));
 		
+		App::import('Vendor', 'UploadHandler', array('file'=>'UploadHandler/uploadHandler.class.php'));
 		$upload_handler = new UploadHandler();
+
 		header('Pragma: no-cache');
 		header('Cache-Control: private, no-cache');
 		header('Content-Disposition: inline; filename="files.json"');

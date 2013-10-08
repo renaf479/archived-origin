@@ -41,6 +41,7 @@ Modal -Components
 }
 
 #componentModal-header {
+	font-variant: small-caps;
 	text-align: center;
 	margin: 0;
 	font-size: 15px;
@@ -324,10 +325,11 @@ transition:  all .15s ease-out;
 	margin-top: -15px !important;
 	font-weight: bold;
 	font-size: 20px;
+	font-variant: small-caps;
 	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
 	filter: alpha(opacity=70);
 	opacity: .7;
-	text-transform: uppercase;
+	text-transform: capitalize;
 	position: absolute;
 }
 
@@ -494,7 +496,8 @@ top:  50%;
 -ms-transform:  translate(0, -50%);
 	
 transform:  translate(0, -50%);
-	}
+	
+}
 
 #titlebar-options .originUI-button  {
 	

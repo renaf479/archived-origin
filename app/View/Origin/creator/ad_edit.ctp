@@ -12,7 +12,7 @@
 	<!-- Left panel -->
 	<div id="panel" class="originUI-bgColor originUI-borderColor originUI-noSelect">
 		<accordion id="">
-			<accordion-group id="panel-assets" heading="Assets" class="panel-accordion" data-ng-class="{true:'active', false:''}[isOpen]">
+			<accordion-group id="panel-assets" heading="Assets" class="panel-accordion" data-ng-class="{true:'active', false:''}[isOpen]" data-is-open="ui.panel === 'assets'">
 				<ul class="originUI-list originUI-bgColorSecondary">
 					<li class="originUI-listItem" data-asset="{{$index}}" data-ng-repeat="asset in assets" asset>
 						<a href="javascript:void(0);" class="originUI-bgHover originUI-listItemLink">{{asset.name}}</a>
@@ -20,14 +20,14 @@
 					<li data-ng-hide="assets.length">No assets</li>
 				</ul>
 			</accordion-group>
-			<accordion-group id="panel-components"  heading="Components" class="panel-accordion" data-ng-class="{true:'active', false:''}[isOpen]">
+			<accordion-group id="panel-components"  heading="Components" class="panel-accordion" data-ng-class="{true:'active', false:''}[isOpen]"  data-is-open="ui.panel === 'components'">
 				<ul class="originUI-list originUI-bgColorSecondary">
 					<li class="originUI-listItem" data-ng-repeat="component in components|filter:{status:1}">
 						<a href="javascript:void(0)" class="originUI-bgHover originUI-listItemLink" data-ng-click="avgrundOpen('component-new', component)" back-img="{{component.config.img_icon}}">{{component.name}}</a>
 					</li>
 				</ul>
 			</accordion-group>
-			<accordion-group id="panel-layers" heading="Layers" class="panel-accordion" data-ng-class="{true:'active', false:''}[isOpen]">
+			<accordion-group id="panel-layers" heading="Layers" class="panel-accordion" data-ng-class="{true:'active', false:''}[isOpen]"  data-is-open="ui.panel === 'layers'">
 				<ul class="originUI-list originUI-bgColorSecondary" layers>
 					<li class="originUI-listItem" data-ng-repeat="layer in layers|orderBy:'-order'">
 						<a href="javascript:void(0)" class="originUI-bgHover originUI-listItemLink" data-ng-mouseover="workspaceFocus(layer.id)" data-ng-mouseleave="workspaceClear(layer.id)" data-ng-click="avgrundOpen('component', layer)" back-img="{{layer.img_icon}}" layer>{{layer.type}}-{{layer.id}}</a>
@@ -66,8 +66,7 @@
 			</div>
 		</div>
 		<!-- Workspace Actual -->
-		<form id="workspace-container">
-			<input type="hidden" name="uploadDir" value="/assets/creator/"/>
+		<form id="workspace-container" workspace-upload="/assets/creator">
 			<div id="workspace" workspace>
 				<workspace-content class="workspace-content originUI-bgHover" data-ng-repeat="content in originAdSchedule[ui.schedule]['OriginAd'+ui.platform+ui.state+'Content']" data-ng-model="content" data-ng-dblclick="$parent.avgrundOpen('component', ngModel)"></workspace-content>
 			</div>

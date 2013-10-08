@@ -255,7 +255,8 @@ Transitions
 transition:  all 1s ease;
 	
 
-}
+
+}
 
 .originUI-expandAnimate-hide  {
 	
@@ -1425,7 +1426,7 @@ cursor: pointer;
 .originUI-tileHeader {
 	border-style: solid;
 	border-width: 0 0 1px;
-	text-indent: 45px;
+	text-indent: 32px;
 	height: 32px;
 	font-size: 18px;
 	line-height: 32px;
@@ -1509,7 +1510,8 @@ background-color:  rgba(255, 255, 255, .1);
 -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
 	filter:  alpha(opacity=50);
 	opacity:  .5;
-	}
+	
+}
 
 .originUI-tileFooterCenter: active,
 .originUI-tileFooterLeft: active,
