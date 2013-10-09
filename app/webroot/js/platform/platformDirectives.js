@@ -73,10 +73,99 @@ angular.module('platformApp.directives', [])
 			}
 		}
 	})
-	.directive('fileupload', function() {
-		/**
-		* AJAX uploader
+	.directive('fileUpload', function() {
+		var template = '<div class="originUI-upload">'+
+							'<span class="">{{label}}</span>'+
+							'<input type="file" name="files[]" id="" class="" data-ng-model="ngModel"/>'+
+						'</div>';
+		return {
+			replace: true,
+			restrict: 'E',
+			scope: {
+				label:		'@',
+				upload:		'@',
+				ngModel:	'='
+			},
+			template: template, 
+			link: function(scope, element, attr) {
+				console.log(scope.upload);
+				
+				element.fileupload({
+					dataType:	'json',
+					dropZone:	null,
+					fromData: {
+						uploadDir: scope.upload
+					},
+					url: 	'/administrator/Origin/upload',
+					add: function(e, data) {
+						console.log(data);
+					},
+					stop: function(e, data) {
+						
+					}
+				});
+/*
+				element.fileupload({
+				dataType:	'json',
+				dropZone:	element,
+				formData: {
+					uploadDir: attrs.workspaceUpload+'/'+scope.originAd.id+'/'
+				},
+				url:		'/administrator/Origin/upload',
+				add: function(e, data) {
+					data.submit();
+				},
+				stop: function(e, data) {
+					scope._updateAssets();
+					scope.ui.panel = 'assets';
+					scope.$apply();
+				}
+			});
+*/
+			}
+			
+		}
+		/*
+		
+		
+				<div id="adComponent-iconUpload" class="originUI-upload originUI-icon originUiIcon-upload">
+			<span class="originUI-uploadLabel">Component Icon</span>
+			<input type="file" name="files[]" id="componentAdd-upload-icon" class="originUI-uploadInput" ng:model="<?php echo $editor;?>.config.img_icon" fileupload>
+		</div>
+		
+		
+		
+			.directive('inputCheckbox', function() {
+		var template = '<div class="originUI-checkbox">'+
+							'<input type="checkbox" id="{{name}}" name="{{name}}" class="originUI-checkboxInput" data-ng-change="ngChange" data-ng-checked="ngChecked" data-ng-class="ngClass" data-ng-disabled="ngDisabled" data-ng-model="ngModel" data-ng-true-value="{{ngTrueValue}}" data-ng-false-value="{{ngFalseValue}}"/>'+
+							'<label for="{{name}}" class="originUI-checkboxLabel"></label>'+
+						'</div>';
+		return {
+			replace: true,
+			restrict: 'E',
+			scope: {
+				name:		'@',
+				ngChange:	'=',
+				ngChecked:	'=',
+				ngClass:	'=',
+				ngDisabled:	'=',
+				ngModel:	'=',
+				ngTrueValue:'@',
+				ngFalseValue:'@'
+			},
+			template: template
+		}
+	})
+		
+		
+		
+		
+		
+
 		*/
+	})
+/*
+	.directive('fileupload', function() {
 		return {
 			restrict: 'A',
 			scope: {
@@ -98,6 +187,7 @@ angular.module('platformApp.directives', [])
 			}
 		}
 	})
+*/
 	.directive('flashMessage', function(Notification) {
 		/**
 		* AngularJS wrapper for CakePHP's Session message
@@ -169,15 +259,6 @@ angular.module('platformApp.directives', [])
 			},
 			template: template
 		}
-		/*
-		
-		<input type="checkbox" data-ng-checked="ui.auto === 'auto'" data-ng-click="uiAuto()"/>
-		
-						<div class="squaredThree">
-	<input type="checkbox" value="None" id="squaredThree" name="check" />
-	<label for="squaredThree"></label>
-</div>
-		*/
 	})
 	.directive('inputSwitch', function() {
 		var template = '<div>' + 

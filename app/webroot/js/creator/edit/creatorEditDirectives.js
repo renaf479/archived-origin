@@ -277,23 +277,6 @@ platformApp.directive('workspaceUpload', function($document, Rest) {
 					scope.$apply();
 				}
 			});
-		
-/*
-			element.fileupload({
-				dataType: 	'json',
-				dropZone: 	$j('#creator-panel-left'),
-				url: 		'/administrator/Origin/upload',
-				add: function(e, data) {
-					data.submit();
-					//console.log(data);	
-				},
-				stop: function(e, data) {
-					scope.updateLibrary();
-					scope.creatorToggle('library');
-					scope.$apply();
-				}
-			});
-*/
 		}
 	}
 });

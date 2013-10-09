@@ -7,9 +7,7 @@
 				</li>
 			</ul>
 		</div><!--
-		--><div class="inline">
-			<div id="editorImage-preview" back-img="{{editor.content.image}}"></div>
-		</div>
+		--><div id="editorImage-preview" class="inline" back-img="{{editor.content.image}}"></div>
 		
 		
 <!--
@@ -35,21 +33,18 @@
 	
 	
 	<style type="text/css">
-		#editor-image {
-			height: 200px;
-		}
-		
 		#editorImage-list {
-			width: 150px;
-			height: 100%;
+			width: 100px;
+			height: 200px;
+			padding: 10px 0;
 			overflow: hidden;
 		}
 		
 		#editorImage-preview {
 			background-repeat: no-repeat;
 			background-position: center center;
-			background-size: 400px auto;
-			width: 420px;
+			background-size: 100% auto;
+			width: 350px;
 			height: 200px;
 		}
 	</style>

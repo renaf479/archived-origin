@@ -30,13 +30,14 @@ Modal -Components
 }
 
 #componentModal-editor {
-	width: 455px;
+	width: 460px;
+	height: 220px;
+	margin-right: 10px;
 }
 
 #componentModal-config {
 	width: 100px;
-	height: 205px;
-	margin: 0 0 0 15px;
+	height: 200px;
 	padding: 10px 0;
 }
 
@@ -529,7 +530,7 @@ Avgrund Modal
 ========================================================================== */
 #component {
 	width: 600px;
-	height: 350px;
+	height: 325px;
 	margin: -175px 0 0 -300px;
 }
 
