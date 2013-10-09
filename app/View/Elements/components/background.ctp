@@ -2,6 +2,9 @@
 		<input type="hidden" name="uploadDir" value="/assets/creator/{{workspace.ad.OriginAd.id}}/"/>
 		<div id="editorBackground-list" class="originUI-bgColorSecondary inline">
 			<ul class="originUI-list">
+				<li>
+					<file-upload class="test" data-label="Upload" data-ng-model="editor.content.upload" data-upload="/assets/creator/{{originAd.id}}/">Upload</file-upload>
+				</li>
 				<li class="originUI-listItem" data-ng-repeat="asset in assets" data-ng-click="select(asset)">
 					<a href="javascript:void(0)" class="originUI-hover">{{asset.name}}</a>
 				</li>
@@ -15,10 +18,15 @@
 			width: 100%;	
 		}
 		
+		#editor-background {
+			height: inherit;
+		}
+		
 		#editorBackground-list {
 			width: 100px;
-			height: 250px;
+			height: inherit;
 			overflow-y: auto;
+			overflow-x: hidden;
 			font-size: 12px;
 		}
 		
@@ -40,7 +48,7 @@
 			background-position: center center;
 			background-size: 450px auto;
 			width: 470px;
-			height: 250px;
+			height: inherit;
 		}
 		
 		#componentModal-config {
@@ -49,6 +57,7 @@
 	</style>
 	<script type="text/javascript">
 		var componentCtrl = function($scope, Rest) {
+			console.log($scope.originAd.id);
 			
 			$scope.select = function(model) {
 				$scope.editor.content.image  = '/assets/creator/'+$scope.originAd.id+'/'+model.name;
