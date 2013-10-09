@@ -1,8 +1,7 @@
 	<div id="editor-background" name="editorBackground-form" data-ng-controller="componentCtrl" data-ng-init="init()">
-		<input type="hidden" name="uploadDir" value="/assets/creator/{{workspace.ad.OriginAd.id}}/"/>
 		<div id="editorBackground-list" class="originUI-bgColorSecondary inline">
 			<ul class="originUI-list">
-				<li>
+				<li id="editorBackground-upload">
 					<file-upload class="test" data-label="Upload" data-ng-model="editor.content.upload" data-upload="/assets/creator/{{originAd.id}}/">Upload</file-upload>
 				</li>
 				<li class="originUI-listItem" data-ng-repeat="asset in assets" data-ng-click="select(asset)">
@@ -16,6 +15,10 @@
 	<style type="text/css">
 		#componentModal-editor {
 			width: 100%;	
+		}
+		
+		#editorBackground-upload {
+			margin: 0;
 		}
 		
 		#editor-background {
@@ -68,6 +71,12 @@
 					$scope.editor.config.height	= $scope.editor.config.width = '100%';
 					$scope.editor.render		= '<img src="'+$scope.editor.content.image+'" class="background"/>';
 					$scope.editor.order 		= '-1';
+				}
+			});
+			
+			$scope.$watch('editor.content.upload', function(newVal) {
+				if(newVal) {
+					console.log(newVal);
 				}
 			});
 		

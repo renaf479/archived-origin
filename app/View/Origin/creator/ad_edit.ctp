@@ -79,7 +79,7 @@
 	</div>
 	<div id="adEdit-workspaceAvgrund">
 		<div id="{{avgrund.id}}" class="avgrund-popup originUI-bgColor originUI-shadow">
-			<form id="{{avgrund.id}}-form" class="avgrund-form" name="avgrundForm" novalidate>
+			<form id="{{avgrund.id}}-form" class="avgrund-form" name="avgrundForm" novalidate >
 			<h3 class="originUI-tileHeader originUI-borderColor originUI-textColor">{{avgrund.header}}</h3>
 				<div class="avgrund-content" data-ng-if="avgrund.name === 'component' || avgrund.name === 'component-new'">
 					<?php echo $this->element('creator/component');?>

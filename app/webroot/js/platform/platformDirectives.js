@@ -75,8 +75,8 @@ angular.module('platformApp.directives', [])
 	})
 	.directive('fileUpload', function() {
 		var template = '<div class="originUI-upload">'+
-							'<span class="">{{label}}</span>'+
-							'<input type="file" name="files[]" id="" class="" data-ng-model="ngModel"/>'+
+							'<span class="originUI-uploadLabel">{{label}}</span>'+
+							'<input type="file" name="files[]" id="" class="originUI-uploadInput" data-ng-model="ngModel"/>'+
 						'</div>';
 		return {
 			replace: true,
@@ -88,17 +88,16 @@ angular.module('platformApp.directives', [])
 			},
 			template: template, 
 			link: function(scope, element, attr) {
-				console.log(scope.upload);
 				
 				element.fileupload({
 					dataType:	'json',
 					dropZone:	null,
-					fromData: {
+					formData: {
 						uploadDir: scope.upload
 					},
 					url: 	'/administrator/Origin/upload',
 					add: function(e, data) {
-						console.log(data);
+						data.submit();
 					},
 					stop: function(e, data) {
 						
