@@ -19,7 +19,7 @@ angular.module('platformApp.directives', [])
 						modelCtrl.$render();
 					}         
 					
-					return transformedInput;         
+					return transformedInput;
 				});
 			}
 		}
@@ -76,7 +76,7 @@ angular.module('platformApp.directives', [])
 	.directive('fileUpload', function() {
 		var template = '<div class="originUI-upload">'+
 							'<span class="originUI-uploadLabel">{{label}}</span>'+
-							'<input type="file" name="files[]" id="" class="originUI-uploadInput" data-ng-model="ngModel"/>'+
+							'<input type="file" name="files[]" id="" class="originUI-uploadInput"/>'+
 						'</div>';
 		return {
 			replace: true,
@@ -84,7 +84,7 @@ angular.module('platformApp.directives', [])
 			scope: {
 				label:		'@',
 				upload:		'@',
-				ngModel:	'='
+				callback:	'&'
 			},
 			template: template, 
 			link: function(scope, element, attr) {
@@ -100,27 +100,15 @@ angular.module('platformApp.directives', [])
 						data.submit();
 					},
 					stop: function(e, data) {
-						
-					}
-				});
-/*
-				element.fileupload({
-				dataType:	'json',
-				dropZone:	element,
-				formData: {
-					uploadDir: attrs.workspaceUpload+'/'+scope.originAd.id+'/'
-				},
-				url:		'/administrator/Origin/upload',
-				add: function(e, data) {
-					data.submit();
-				},
-				stop: function(e, data) {
-					scope._updateAssets();
+						scope.callback();
+						scope.$apply();
+						/*
+							scope._updateAssets();
 					scope.ui.panel = 'assets';
 					scope.$apply();
-				}
-			});
-*/
+						*/
+					}
+				});
 			}
 			
 		}

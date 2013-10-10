@@ -35,6 +35,10 @@ Modal -Components
 	margin-right: 10px;
 }
 
+.editor-content {
+	height: inherit;
+}
+
 #componentModal-config {
 	width: 100px;
 	height: 200px;
@@ -53,7 +57,7 @@ Modal -Components
 }
 
 #componentModal-config .originUI-list {
-	margin-top: 15px;
+	margin-top: 10px;
 }
 
 #componentModal-config .originUI-list,#componentModal-config .originUI-input {
@@ -572,7 +576,7 @@ Avgrund Modal
 .avgrund-content {
 	padding: 10px 15px;
 	width: inherit;
-	height: inherit;
+	/* height: inherit; */
 }
 
 #workspaceAvgrund-buttons {

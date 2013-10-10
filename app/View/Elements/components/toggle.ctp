@@ -1,4 +1,4 @@
-<div id="editor-toggle" data-ng-controller="componentCtrl">
+<div id="editor-toggle" data-ng-controller="componentCtrl" data-ng-init="init()">
 	<ul class="originUI-list">
 		<li>
 			<label class="editor-label inline">Toggle on</label>
@@ -20,6 +20,10 @@
 	</style>
 	<script type="text/javascript">
 		var componentCtrl = function($scope, $rootScope) {
+		
+			$scope.init = function() {
+				if(typeof $rootScope.editor.content.event === 'undefined') $rootScope.editor.content.event = true;
+			}
 			
 			$scope.$watchCollection('[editor.content.event, editor.content.hoverIntent]', function(newVal, oldVal) {
 				toggleEvent 				= ($scope.editor.content.event)? 'click': 'hover';

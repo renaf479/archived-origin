@@ -1,38 +1,49 @@
-	<form id="editor-image" name="editorImage-form" class="" data-ng-controller="componentCtrl">
+	<div id="editor-image" class="editor-content" data-ng-controller="componentCtrl">
 		<input type="hidden" name="uploadDir" value="/assets/creator/{{workspace.ad.OriginAd.id}}/"/>
 		<div id="editorImage-list" class="originUI-bgColorSecondary inline">
 			<ul class="originUI-list">
+				<li id="editorImage-upload">
+					<file-upload class="test" data-label="Upload" data-upload="/assets/creator/{{originAd.id}}/" data-callback="update()">Upload</file-upload>
+				</li>
 				<li class="originUI-listItem" data-ng-repeat="asset in assets" data-ng-click="select(asset)">
 					<a href="javascript:void(0)" class="originUI-hover">{{asset.name}}</a>
 				</li>
 			</ul>
 		</div><!--
-		--><div id="editorImage-preview" class="inline" back-img="{{editor.content.image}}"></div>
-		
-		
-<!--
-		
-		<div class="originUI-modalLeft">
-			<strong>Select Image</strong>
-			<ul id="editorBackground-list" class="originUI-bgColor originUI-borderColor">
-				<li class="originUIList-item" data-asset="{{$index}}" ng:repeat="asset in library" ng:click="imageSelect(asset)">
-					<a href="javascript:void(0);" class="originUI-hover">{{asset.name}}</a>
-				</li>
-			</ul>
-		</div>
-		<div class="originUI-modalRight">
-			<div id="background-upload" class="originUI-upload">
-				<span class="originUI-uploadLabel">Upload Image</span>
-				<input type="file" name="files[]" id="editorImage-upload" class="originUI-uploadInput" ng:model="editor.content.imgUpload" fileupload>
-			</div>
-			<div id="editorImage-preview" class="originUI-borderColorSecondary originUI-bgColor" ng:class="{'originUI-placeholder': editor.content.image == undefined}" back-img='{{editor.content.image}}'></div>
-		</div>
-		<div class="clear"></div>
--->
-	</form>
-	
-	
+		--><div id="editorImage-preview" class="inline originUI-bgColorTertiary" back-img="{{editor.content.image}}"></div>
+	</div>
 	<style type="text/css">
+		#editorImage-list {
+			width: 100px;
+			height: inherit;
+			overflow-y: auto;
+			overflow-x: hidden;
+			font-size: 12px;
+		}
+		
+		#editorImage-list .originUI-listItem,
+		#editorImage-upload {
+			margin: 0;
+			padding: 0;
+		}
+		
+		#editorImage-list .originUI-listItem > a {
+			margin: 0;
+			padding: 0;
+			height: 26px;
+			line-height: 26px;
+			text-align: center;
+		}
+		
+		#editorImage-preview {
+			background-repeat: no-repeat;
+			background-position: center center;
+			background-size: auto auto;
+			width: 360px;
+			height: inherit;
+		}	
+	
+/*
 		#editorImage-list {
 			width: 100px;
 			height: 200px;
@@ -47,6 +58,7 @@
 			width: 350px;
 			height: 200px;
 		}
+*/
 	</style>
 	
 	

@@ -2,12 +2,12 @@
 		<textarea data-ng-model="editor.content.embed" ui-codemirror="{mode:'htmlmixed',lineNumbers:true,lineWrapping:true,theme:'night'}"></textarea>
 	</div>
 	<div id="editorEmbed-options">
-		<label class="inline">Iframe embed </label>
+		<label class="inline">Iframe content: </label>
 		<input-switch class="originUI-switch inline" name="editorEmbedSwitch" active="Yes" inactive="No" data-ng-model="editor.content.iframe" data-ng-checked="editor.content.iframe === true"></input-switch>
 	</div>
 	<style type="text/css">
 		#editor-embed {
-			height: 200px;
+			height: 190px;
 		}
 		
 		.CodeMirror {

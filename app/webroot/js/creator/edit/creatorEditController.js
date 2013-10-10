@@ -48,7 +48,7 @@ var creatorEditController = function($scope, $rootScope, $filter, $timeout, $mod
 	//Refreshes the assets library
 	$scope._updateAssets = function() {
 		Rest.get('library/'+$scope.originAd.id).then(function(response) {
-			$scope.assets	= response.files;
+			$rootScope.assets	= response.files;
 		});
 	}
 	
@@ -248,7 +248,7 @@ var creatorEditController = function($scope, $rootScope, $filter, $timeout, $mod
 		switch(type) {
 			case 'component':
 				$scope.ui.panel 	= 'layers';
-				$rootScope.editor 	= model;
+				$rootScope.editor 	= angular.copy(model);
 				//Match model against list of components and override
 				var model = _findComponent(model);
 				$scope.avgrund = {
