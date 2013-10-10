@@ -43,7 +43,7 @@
 	<!-- Workspace -->
 	<div id="adEdit-workspace" class="originUI-bgColor originUI-bgTexture originUI-noSelect">
 		<!-- Bar above workspace -->
-		<div id="workspace-bar" class="originUI-bgColor originUI-borderColor">
+		<div id="workspace-bar" class="originUI-bgColor originUI-borderColorSecondary">
 			<div data-ng-if="false">
 				<div id="schedule" class="inline">
 					<div id="schedule-add" class="originUI-iconHover inline" data-ng-click="avgrundOpen('schedule')"></div>
@@ -71,7 +71,7 @@
 			</div>
 		</form>
 		<!-- Bar below workspace -->
-		<div id="workspace-options" class="originUI-bgColorSecondary originUI-borderColor">
+		<div id="workspace-options" class="originUI-bgColorSecondary originUI-borderColorSecondary">
 			<a href="javascript:void(0)" id="workspaceOptions-publish" class="workspaceOptions-button originUI-borderColorSecondary originUI-bgHover inline" data-ng-click="avgrundOpen('embed')">Publish</a>
 			<a href="/demo/Origin/<?php echo $origin_ad_hash;?>" id="workspaceOptions-preview" class="workspaceOptions-button originUI-borderColorSecondary originUI-bgHover inline" target="_blank">Preview</a>
 			<a href="/administrator/demo/create/{{originAd.id}}" id="workspaceOptions-demo" class="workspaceOptions-button originUI-borderColorSecondary originUI-bgHover inline" target="_blank">Demo</a>

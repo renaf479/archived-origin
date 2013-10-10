@@ -21,15 +21,12 @@
 			font-size: 12px;
 		}
 		
-		#editorImage-list .originUI-listItem,
 		#editorImage-upload {
 			margin: 0;
 			padding: 0;
 		}
 		
 		#editorImage-list .originUI-listItem > a {
-			margin: 0;
-			padding: 0;
 			height: 26px;
 			line-height: 26px;
 			text-align: center;

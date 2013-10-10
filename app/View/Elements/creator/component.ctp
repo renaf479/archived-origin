@@ -1,6 +1,6 @@
 	<a href="javascript:void(0)" id="componentModal-remove" class="originUI-hover originUI-iconHover" data-ng-click="avgrundSubmit('component-remove')" data-ng-if="avgrund.remove">remove</a>
 	<div data-ng-include src="avgrund.content" id="componentModal-editor" class="inline" data-ng-if="avgrund"></div><!--
-	--><div id="componentModal-config" class="inline originUI-bgColorSecondary">
+	--><div id="componentModal-config" class="inline originUI-bgColorSecondary originUI-borderColor">
 		<h4 id="componentModal-header">Properties</h4>
 		<ul class="originUI-list">
 			<li>

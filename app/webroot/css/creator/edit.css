@@ -40,9 +40,11 @@ Modal -Components
 }
 
 #componentModal-config {
-	width: 100px;
+	width: 99px;
 	height: 200px;
 	padding: 10px 0;
+	border-width: 0 0 0 1px;
+	border-style: solid;
 }
 
 #componentModal-header {
