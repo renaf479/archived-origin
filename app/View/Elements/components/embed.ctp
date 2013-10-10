@@ -27,9 +27,11 @@
 	</style>
 	<script type="text/javascript">
 		var componentCtrl = function($scope) {
-			$scope.init = function() {
+			/*
+$scope.init = function() {
 				$scope.editor.type = 'embed';	
 			}
+*/
 			
 			$scope.$watchCollection('[editor.content.embed, editor.content.iframe]', function(newVal) {
 				if(newVal[0]) {

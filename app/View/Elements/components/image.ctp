@@ -38,7 +38,6 @@
 		#editorImage-preview {
 			background-repeat: no-repeat;
 			background-position: center center;
-			background-size: auto auto;
 			width: 360px;
 			height: inherit;
 		}	
@@ -63,14 +62,49 @@
 	
 	
 	<script type="text/javascript">
-		var componentCtrl = function($scope, $rootScope) {
+		var componentCtrl = function($scope, $rootScope, Rest) {
+		
+			var preview = {
+					height:	angular.element('#editorImage-preview').height(),
+					width: 	angular.element('#editorImage-preview').width()
+				},
+				backgroundSize;
+		
 			$scope.select = function(model) {
 				$scope.editor.config.height = model.height+'px';
 				$scope.editor.config.width	= model.width+'px';
 				
 				$scope.editor.content.image = '/assets/creator/'+$scope.originAd.id+'/'+model.name;
 				$scope.editor.render		= '<img src="'+$scope.editor.content.image+'" class="image"/>';
+				
+				
+				if(model.height >= model.width) {
+					//Portait
+					backgroundSize = {
+						x: 'auto',
+						y: (model.height >= preview.height)? '100%': 'auto'
+					}
+					
+				} else {
+					//Landscape
+					backgroundSize = {
+						x:	(model.width >= preview.width)? '100%': 'auto',
+						y: 	'auto'
+					}
+				}
+				
+				angular.element('#editorImage-preview').css({
+					'background-size':	backgroundSize.x+' '+backgroundSize.y
+				});
 			}
+			
+			$scope.update = function() {
+				Rest.get('library/'+$scope.originAd.id).then(function(response) {
+					$rootScope.assets	= response.files;
+				});
+			}
+			
+			
 /*
 			var _scope 	= $scope.$parent;
 			

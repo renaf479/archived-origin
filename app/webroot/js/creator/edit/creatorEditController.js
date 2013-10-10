@@ -247,8 +247,10 @@ var creatorEditController = function($scope, $rootScope, $filter, $timeout, $mod
 		
 		switch(type) {
 			case 'component':
-				$scope.ui.panel 	= 'layers';
-				$rootScope.editor 	= angular.copy(model);
+				$scope.ui.panel 		= 'layers';
+				$rootScope.editor 		= angular.copy(model);
+				$rootScope.editor.type	= model.alias;
+				
 				//Match model against list of components and override
 				var model = _findComponent(model);
 				$scope.avgrund = {
@@ -264,7 +266,8 @@ var creatorEditController = function($scope, $rootScope, $filter, $timeout, $mod
 				}
 				break;
 			case 'component-new':
-				$rootScope.editor = angular.copy(editor);
+				$rootScope.editor 		= angular.copy(editor);
+				$rootScope.editor.type	= model.alias;
 				$rootScope.editor.config = {
 					left:	'0px',
 					top:	'0px',
