@@ -17,7 +17,7 @@
 					<li class="originUI-listItem" data-asset="{{$index}}" data-ng-repeat="asset in assets" asset>
 						<a href="javascript:void(0);" class="originUI-bgHover originUI-listItemLink">{{asset.name}}</a>
 					</li>
-					<li data-ng-hide="assets.length">No assets</li>
+					<li class="originUI-listItem" data-ng-hide="assets.length">No assets</li>
 				</ul>
 			</accordion-group>
 			<accordion-group id="panel-components"  heading="Components" class="panel-accordion" data-ng-class="{true:'active', false:''}[isOpen]"  data-is-open="ui.panel === 'components'">
@@ -32,7 +32,7 @@
 					<li class="originUI-listItem" data-ng-repeat="layer in layers|orderBy:'-order'">
 						<a href="javascript:void(0)" class="originUI-bgHover originUI-listItemLink" data-ng-mouseover="workspaceFocus(layer.id)" data-ng-mouseleave="workspaceClear(layer.id)" data-ng-click="avgrundOpen('component', layer)" back-img="{{layer.img_icon}}" layer>{{layer.type}}-{{layer.id}}</a>
 					</li>
-					<li data-ng-hide="layers.length">No layers</li>
+					<li class="originUI-listItem" data-ng-hide="layers.length">No layers</li>
 				</ul>
 				<!-- <ul id="panel-layers" class="originUI-list originUI-bgColor" data-ng-model="layers" layer-sortable></ul> -->
 			</accordion-group>
@@ -72,9 +72,9 @@
 		</form>
 		<!-- Bar below workspace -->
 		<div id="workspace-options" class="originUI-bgColorSecondary originUI-borderColorSecondary">
-			<a href="javascript:void(0)" id="workspaceOptions-publish" class="workspaceOptions-button originUI-borderColorSecondary originUI-bgHover inline" data-ng-click="avgrundOpen('embed')">Publish</a>
-			<a href="/demo/Origin/<?php echo $origin_ad_hash;?>" id="workspaceOptions-preview" class="workspaceOptions-button originUI-borderColorSecondary originUI-bgHover inline" target="_blank">Preview</a>
-			<a href="/administrator/demo/create/{{originAd.id}}" id="workspaceOptions-demo" class="workspaceOptions-button originUI-borderColorSecondary originUI-bgHover inline" target="_blank">Demo</a>
+			<a href="javascript:void(0)" id="workspaceOptions-publish" class="workspaceOptions-button originUI-borderColorSecondary originUI-bgHover inline" data-ng-click="avgrundOpen('embed')">Publish</a><!--
+			--><a href="/demo/Origin/<?php echo $origin_ad_hash;?>" id="workspaceOptions-preview" class="workspaceOptions-button originUI-borderColorSecondary originUI-bgHover inline" target="_blank">Preview</a><!--
+			--><a href="/administrator/demo/create/{{originAd.id}}" id="workspaceOptions-demo" class="workspaceOptions-button originUI-borderColorSecondary originUI-bgHover inline" target="_blank">Demo</a>
 		</div>
 	</div>
 	<div id="adEdit-workspaceAvgrund">

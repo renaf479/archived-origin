@@ -21,7 +21,8 @@
 			font-size: 12px;
 		}
 		
-		#editorImage-upload {
+		#editorImage-upload,
+		#editorImage-list .originUI-listItem {
 			margin: 0;
 			padding: 0;
 		}
@@ -30,6 +31,8 @@
 			height: 26px;
 			line-height: 26px;
 			text-align: center;
+			margin: 0;
+			padding: 0;
 		}
 		
 		#editorImage-preview {
@@ -79,13 +82,13 @@
 					//Portait
 					backgroundSize = {
 						x: 'auto',
-						y: (model.height >= preview.height)? '100%': 'auto'
+						y: (model.height >= preview.height)? '97%': 'auto'
 					}
 					
 				} else {
 					//Landscape
 					backgroundSize = {
-						x:	(model.width >= preview.width)? '100%': 'auto',
+						x:	(model.width >= preview.width)? '97%': 'auto',
 						y: 	'auto'
 					}
 				}

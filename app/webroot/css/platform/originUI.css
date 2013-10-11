@@ -765,11 +765,11 @@ font-variant: small-caps;
 .originUI-upload {
 	position: relative;
 	overflow: hidden;
-	text-indent: 20px !important;
+	text-indent: 17px !important;
 	width: 100%;
 	height: 26px;
 	cursor: pointer;
-	background: transparent url(/img/icon-upload-small.png) no-repeat 15px center;
+	background: transparent url(/img/icon-upload-small.png) no-repeat 10px center;
 }
 
 .originUI-uploadLabel {
@@ -1150,13 +1150,14 @@ width:  200px;
 }
 
  */
-.properties-dimensions,.properties-animations {
+.properties-dimensions,
+.properties-animations {
 	width: 275px;
 	margin: 0 15px;
 }
 
 #properties-right .properties-label {
-	width: 160px;
+	width: 205px;
 }
 
 #properties-right .properties-input {
@@ -1170,6 +1171,10 @@ width:  200px;
 #properties-right .properties-input.originUI-select {
 	height: 20px;
 	width: 100px;
+}
+
+#properties-right .properties-animations .originUI-listItem:first-child .properties-label {
+	width: 168px;
 }
 
 .platform-icon {
