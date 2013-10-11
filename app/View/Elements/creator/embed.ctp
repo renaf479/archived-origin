@@ -17,6 +17,10 @@
 					<label class="">Mobile Unit</label>
 					<input-switch class="originUI-switch" name="toggleMobileSwitch" active="Yes" inactive="No" data-ng-model="embedOptions.mobile" data-ng-checked="embedOptions.mobile === true"></input-switch>
 				</li>
+				<li>
+					<label class="">Minified</label>
+					<input-switch class="originUI-switch" name="toggleMinifySwitch" active="Yes" inactive="No" data-ng-model="minify" data-ng-checked="minify === true"></input-switch>
+				</li>
 			</ul>
 		</div>
 		<div id="embedWidget-codemirror" class="inline">
@@ -55,13 +59,24 @@
 	</style>
 	<script type="text/javascript">
 		var embedController = function($scope, $interpolate, Rest) {
-			var embed;
+			var embed, embedUrl;
 			
 			function _refresh() {
 				$scope.embed = $interpolate(embed)($scope);
 			}
 			
+			function _loadEmbed() {
+				embedUrl = ($scope.minify)? 'origin_embed_min': 'origin_embed';
+				
+				Rest.element('creator', embedUrl).then(function(response) {
+					embed = response;
+					_refresh();
+				});
+			}
+			
 			$scope.embedInit = function() {
+				$scope.minify = true;
+				
 				$scope.embedOptions = {
 					id: $scope.originAd.id,
 					placement: angular.fromJson($scope.originAd.config).placement,
@@ -70,12 +85,7 @@
 					tablet: false,
 					mobile: false
 				};
-			
-				//Rest.get('element/origin_embed').then(function(response) {
-				Rest.element('creator', 'origin_embed').then(function(response) {
-					embed = response;
-					_refresh();
-				});
+				//_loadEmbed();
 			}
 			
 			$scope.$watchCollection('[embedOptions.auto, embedOptions.close, embedOptions.tablet, embedOptions.mobile]', function(newVal) {
@@ -86,6 +96,10 @@
 					}
 					_refresh();
 				}
+			});
+			
+			$scope.$watch('minify', function(newVal) {
+				_loadEmbed();
 			});
 			
 		}

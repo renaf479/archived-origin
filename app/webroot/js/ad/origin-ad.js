@@ -234,28 +234,27 @@ var originXd = (function() {
 				}
 			}
 			
+			//TEST THIS!!
+			//originDomain = data.domain;
+			originDomain 		= document.createElement('a');
+			originDomain.href	= document.getElementById('origin-ad').src;
+			originDomain		= originDomain.hostname;
+			
 			originParams = {
 				'auto':		data.auto,
 				'close':	data.close,
 				'placement':data.placement,
-				//'adtype':	data.adtype,
 				'dcopt':	data.dcopt,
 				'dfp':		data.dfp,
 				'id':		data.id,
-				'src':		'http://'+data.domain+'/ad/'+data.id+'/'+platform,
-				//'originDomain':document.location.hostname,
-				//'originDomain': data.domain,
+				'src':		'http://'+originDomain+'/ad/'+data.id+'/'+platform,
 				'xdSource':	document.location.href
 			};
-			originScript 	= document.getElementById('originEmbed-'+originParams.id);
-			//originXd		= (data.debug === 'true')? 'http://'+data.domain+'/js/ad/origin-xd.js':'http://'+data.domain+'/min-js?f=/js/ad/origin-xd.js';
 			
-			//TEST THIS!!
-			originDomain = data.domain;
+			originScript 	= document.getElementById('originEmbed-'+originParams.id);
 			originXd();
 			
-			if(top === self) {				
-				//xd();
+			if(top === self) {
 				template();
 			} else {
 				//Is iframe in same domain?
@@ -268,14 +267,13 @@ var originXd = (function() {
 				
 				if(sameOrigin) {
 					//Friendly iframe method
-					originDOM					= window.parent.document;
-					originScript 				= frameElement;
+					originDOM		= window.parent.document;
+					originScript 	= frameElement;
 					
 					if(originParams.dcopt !== 'true') {
 						frameElement.style.display 	= 'none';
 					}
 					
-					//xd();
 					template();
 				} else {
 					//Iframe buster method

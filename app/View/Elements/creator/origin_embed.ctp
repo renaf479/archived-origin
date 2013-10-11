@@ -5,8 +5,7 @@
 			close: 	'{{embedOptions.close}}',
 			id:		'{{embedOptions.id}}',
 			platforms:{'desktop': true, 'tablet': {{embedOptions.tablet}}, 'mobile': {{embedOptions.mobile}}},
-			placement:'{{embedOptions.placement}}',
-			domain:	'<?php echo $_SERVER['HTTP_HOST'];?>'
+			placement:'{{embedOptions.placement}}'
 		};
 		if(window.origin) {
 			if(typeof origin == 'function') {
@@ -19,15 +18,50 @@
 			s = document.createElement('script');
 			s.type='text/javascript';
 			s.async=true;
+			s.id='origin-ad';
 			s.src='http://<?php echo $_SERVER['HTTP_HOST'];?>/js/ad/origin-ad.js';
-			//s.src='http://<?php echo $_SERVER['HTTP_HOST'];?>/min-js?f=/js/ad/origin-ad.js';
-			s1 = document.getElementsByTagName('script')[0];
-			s1.parentNode.insertBefore(s, s1);
+			document.head.appendChild(s);
 		}
 	})();
 </script>
 <?php 
 /*
+10.14.13
+<script type="text/javascript" id="originEmbed-{{embedOptions.id}}">		
+	(function() {
+		var originOptions = {
+			auto: 	'{{embedOptions.auto}}',
+			close: 	'{{embedOptions.close}}',
+			id:		'{{embedOptions.id}}',
+			platforms:{'desktop': true, 'tablet': {{embedOptions.tablet}}, 'mobile': {{embedOptions.mobile}}},
+			placement:'{{embedOptions.placement}}'
+			//domain:	'<?php echo $_SERVER['HTTP_HOST'];?>'
+		};
+		if(window.origin) {
+			if(typeof origin == 'function') {
+				new origin(originOptions);
+			} else {
+				origin.push(originOptions);
+			}
+		} else {
+			origin = [originOptions];
+			s = document.createElement('script');
+			s.type='text/javascript';
+			s.async=true;
+			s.id='origin-ad';
+			s.src='http://<?php echo $_SERVER['HTTP_HOST'];?>/js/ad/origin-ad.js';
+			document.head.appendChild(s);
+			//s.src='http://<?php echo $_SERVER['HTTP_HOST'];?>/min-js?f=/js/ad/origin-ad.js';
+			//s1 = document.getElementsByTagName('script')[0];
+			//s1.parentNode.insertBefore(s, s1);
+		}
+	})();
+</script>
+
+
+
+
+
 6.23.13
 <script type="text/javascript" id="originEmbed-{{embedOptions.id}}">		
 	(function() {
