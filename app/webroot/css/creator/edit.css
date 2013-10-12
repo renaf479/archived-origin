@@ -53,6 +53,7 @@ Modal -Components
 	padding: 10px 0;
 	border-width: 0 0 0 1px;
 	border-style: solid;
+	font-variant: small-caps;
 }
 
 #componentModal-header {

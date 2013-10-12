@@ -484,4 +484,4 @@ platformApp.filter('filterSchedule', function($filter) {
   	
   	return display;
   }
-})
+});

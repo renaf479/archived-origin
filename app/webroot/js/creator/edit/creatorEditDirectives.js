@@ -1,5 +1,47 @@
 'use strict';
 
+/*
+platformApp.directive('config', function() {
+	return {
+		restrict: 'A',
+		link: function(scope, element, attrs) {			
+			element.keypress(function(event) {
+				if(event.keyCode === 38 || event.keyCode === 40) {
+					switch(event.keyCode) {
+						case 38:
+							var value 	= element.val().split('px')[0],
+                    			value 	= Number(value) + 1;
+                    			element.val(value+'px');
+							break;
+						case 40:
+							var value 	= element.val().split('px')[0],
+                    			value 	= Number(value) - 1;
+                    			element.val(value+'px');
+							break;
+					}
+					scope.$apply(function() {
+                    	scope.editor.config[attrs.config] 	= element.val();
+                    	//Update workspace - SHOULD THIS UPDATE WORKSPACE???
+                    	//console.log(scope.originEditor.content_config[attrs.config]);
+                    	//$j('#workspace #content-'+scope.originEditor.id).css(attrs.config, element.val());
+                    });
+				}
+			});
+			element.blur(function(event) {
+				var value 	= element.val(),
+                    value 	= value.match(/[0-9]+/g);
+                element.val(value[0]+'px');
+                
+                scope.$apply(function() {
+                    scope.editor.config[attrs.config] 		= element.val();
+                    //$j('#workspace #content-'+scope.originEditor.id).css(attrs.config, element.val());
+                });              
+			});
+		}
+	}
+});
+*/
+
 //Layers
 platformApp.directive('layers', function() {
 	return {
