@@ -255,10 +255,11 @@ var creatorEditController = function($scope, $rootScope, $filter, $timeout, $mod
 				var model = _findComponent(model);
 				$scope.avgrund = {
 					header: model.name+' Editor',
-					content:'/administrator/get/components/'+model.alias,
-					id:		'component',
-					name:	'component',
-					remove: true,
+					content:	'/administrator/get/components/'+model.alias,
+					id:			'component',
+					name:		'component',
+					remove: 	true,
+					thumbnail: 	model.config.img_icon,
 					ui: {
 						cancel: 'Close',
 						submit: 'Update'
@@ -281,6 +282,7 @@ var creatorEditController = function($scope, $rootScope, $filter, $timeout, $mod
 					id:			'component',
 					name:		'component-new',
 					remove: 	false,
+					thumbnail: 	model.config.img_icon,
 					ui: {
 						cancel: 'Cancel',
 						submit: 'Create'

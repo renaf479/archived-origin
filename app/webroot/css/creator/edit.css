@@ -19,14 +19,22 @@ Modal -Components
 	height: 350px;
 }
 
+#componentModal-icon,
 #componentModal-remove {
 	position: absolute;
-	top: 8px;
+	top: 6px;
+	width: 18px;
+	height: 18px;
+	text-indent: -5000em;
+}
+
+#componentModal-icon {
+	left: 7px;
+}
+
+#componentModal-remove {
 	right: 10px;
 	background: transparent url(/img/sprite.png) no-repeat -208px center;
-	width: 26px;
-	height: 26px;
-	text-indent: -5000em;
 }
 
 #componentModal-editor {
